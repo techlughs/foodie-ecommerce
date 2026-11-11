@@ -1,0 +1,14 @@
+# Java build output
+backend-java/target/
+backend-java/.classpath
+backend-java/.project
+backend-java/.settings/
+
+# Python virtual environment & cache
+ml-microservice/venv/
+ml-microservice/__pycache__/
+*.pyc
+
+#IDE files
+.vscode/
+.DS_Store
