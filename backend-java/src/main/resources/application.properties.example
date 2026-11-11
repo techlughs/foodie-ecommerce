@@ -1,0 +1,16 @@
+# Server Port
+server.port=8080
+
+# MySQL Transactional Database Config
+spring.datasource.url=jdbc:mysql://localhost:3306/foodecommerce_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=YOUR_MYSQL_USERNAME
+spring.datasource.password=YOUR_MYSQL_PASSWORD
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+# MongoDB Catalog Database Config
+spring.data.mongodb.uri=mongodb+srv://YOUR_MONGO_USER:YOUR_MONGO_PASSWORD@YOUR_CLUSTER.mongodb.net/foodecommerce_catalog?retryWrites=true&w=majority
+
+# Python AI/ML Microservice REST Endpoint
+ml.service.url=http://localhost:8000
