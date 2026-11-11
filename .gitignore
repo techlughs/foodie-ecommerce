@@ -12,3 +12,5 @@ ml-microservice/__pycache__/
 #IDE files
 .vscode/
 .DS_Store
+
+backend-java/src/main/resources/application.properties
