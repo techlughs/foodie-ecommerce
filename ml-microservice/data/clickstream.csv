@@ -1,0 +1,1478 @@
+user_id,product_name,category,tags,price_kes,event_type,weight,timestamp
+1,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-05T09:47:00
+1,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-02T12:05:00
+1,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-14T19:28:00
+1,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-07T10:27:00
+1,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-11T15:05:00
+1,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-09T13:46:00
+1,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-13T14:35:00
+1,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-03T13:42:00
+1,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-08T15:24:00
+1,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T18:42:00
+1,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-07T05:46:00
+1,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-09T09:20:00
+1,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-02T22:25:00
+1,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-11T18:41:00
+1,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-05T19:47:00
+1,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-15T06:25:00
+1,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-03T13:55:00
+1,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-15T07:04:00
+1,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-02T09:46:00
+1,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-11T15:18:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-07T04:58:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-18T07:12:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T12:38:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-12T21:15:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T14:48:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T05:10:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-08T10:19:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T02:07:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T06:14:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T22:04:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-08T05:08:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T03:51:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T23:27:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-04T13:25:00
+2,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-08T05:28:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T14:28:00
+2,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-01T14:59:00
+2,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-17T03:13:00
+2,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-02T00:16:00
+2,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-16T16:12:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T11:20:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T17:03:00
+2,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-04T07:04:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T06:38:00
+2,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T22:59:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-13T16:42:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T12:29:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T04:16:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-08T23:18:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-17T12:42:00
+3,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-04T16:16:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-05T20:18:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T04:31:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T20:02:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-09T17:47:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-04T14:56:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-13T06:35:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T13:57:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-13T05:56:00
+3,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-08T17:51:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-12T01:51:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T00:55:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-15T23:19:00
+3,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-08T00:21:00
+3,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-09T23:41:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-04T20:11:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T23:46:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-17T15:24:00
+3,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T12:33:00
+3,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-07T23:27:00
+3,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-05T11:57:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-11T05:08:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-07T07:36:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T01:50:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T09:13:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-11T04:42:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-09T09:19:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-02T19:30:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T10:44:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-01T15:49:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-18T02:03:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-16T09:33:00
+4,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T07:52:00
+4,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-15T17:47:00
+4,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-09T08:17:00
+4,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-08T20:28:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-11T22:57:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T10:09:00
+4,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-12T05:29:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-14T06:44:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-12T21:48:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-09T03:14:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-12T09:43:00
+4,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-06T07:34:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-01T14:41:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T00:20:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-13T20:48:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-04T03:01:00
+4,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-12T19:41:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-08T18:53:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-17T09:07:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T23:10:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-06T21:06:00
+4,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T00:45:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T09:38:00
+4,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-13T05:27:00
+4,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T12:54:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-16T10:09:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-17T02:27:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T14:17:00
+5,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-13T22:01:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T23:51:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-10T05:00:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T03:35:00
+5,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-17T02:50:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T21:42:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T01:47:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-09T21:16:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T18:13:00
+5,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-18T07:18:00
+5,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T17:19:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T05:18:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-16T15:55:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T22:11:00
+5,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-16T15:52:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T16:09:00
+5,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-08T15:35:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T04:24:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T21:36:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-08T08:13:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T05:04:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T21:02:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-15T14:43:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-08T01:07:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-05T14:03:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T02:07:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-10T04:34:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T11:20:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T09:52:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T03:33:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T08:52:00
+5,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T22:20:00
+6,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-14T05:02:00
+6,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-05T00:55:00
+6,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-16T01:03:00
+6,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-17T08:28:00
+6,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-05T21:28:00
+6,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-09T10:10:00
+6,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-03T19:53:00
+6,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-06T03:59:00
+6,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-15T03:30:00
+6,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-18T11:56:00
+6,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-14T22:59:00
+6,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-11T11:19:00
+6,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-16T16:28:00
+6,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T02:59:00
+6,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-09T06:24:00
+6,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-17T10:58:00
+6,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-06T03:02:00
+6,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-15T15:33:00
+6,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-15T08:09:00
+6,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T08:05:00
+6,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-12T08:45:00
+6,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-03T07:04:00
+6,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-04T01:06:00
+6,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-10T12:02:00
+6,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-13T01:09:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-06T17:05:00
+7,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-09T03:58:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-10T02:16:00
+7,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-06T14:28:00
+7,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T10:16:00
+7,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-14T03:06:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-11T10:18:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-02T06:55:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-16T21:49:00
+7,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-09T08:12:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-06T08:06:00
+7,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-15T13:37:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-10T22:47:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-13T04:32:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-16T21:47:00
+7,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-03T16:48:00
+7,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-12T14:50:00
+7,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-15T23:43:00
+7,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T15:43:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-12T07:14:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-11T08:26:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-11T03:07:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-15T23:42:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T01:41:00
+7,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-09T13:44:00
+7,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-08T23:06:00
+7,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T13:25:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-15T14:42:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-01T13:50:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-07T14:53:00
+7,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-08T22:49:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-05T16:34:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-01T16:00:00
+7,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-01T17:16:00
+7,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-05T11:04:00
+7,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-05T02:32:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-16T08:01:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-15T09:06:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-03T22:38:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-12T00:38:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-14T15:50:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-08T01:28:00
+8,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T00:26:00
+8,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T23:09:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-03T14:27:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T05:03:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-05T01:22:00
+8,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-02T21:38:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-07T16:42:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-12T15:48:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-02T07:59:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T20:44:00
+8,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-06T16:36:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-01T14:47:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-11T17:23:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-03T13:09:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-03T20:28:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-14T20:13:00
+8,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-04T21:43:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-10T13:14:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-07T21:13:00
+8,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-04T12:31:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-09T04:35:00
+8,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T01:01:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-15T06:25:00
+8,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-13T12:20:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-12T14:27:00
+8,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T04:05:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-08T22:49:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-18T04:12:00
+8,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T19:06:00
+8,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-06T08:04:00
+8,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-16T09:59:00
+8,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T16:28:00
+8,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-10T06:03:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-02T23:53:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-18T00:29:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-07T22:38:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-15T15:51:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-04T04:41:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-16T04:33:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-11T00:26:00
+9,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T14:21:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T22:05:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-11T08:44:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T21:35:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-17T14:41:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T17:13:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T16:04:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-17T13:42:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T17:11:00
+9,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T11:28:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-09T02:39:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T21:51:00
+9,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-16T02:49:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T17:52:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-03T08:30:00
+9,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-17T15:18:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-17T16:53:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-12T12:26:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T23:14:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-11T16:08:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-06T10:30:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-01T20:13:00
+9,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-18T01:07:00
+9,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-02T19:26:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-17T07:34:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-11T01:00:00
+9,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-07T09:42:00
+9,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-18T05:32:00
+9,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-14T03:02:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T23:15:00
+10,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-11T16:02:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T09:29:00
+10,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-05T14:45:00
+10,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-07T13:50:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T04:25:00
+10,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-03T08:12:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-11T20:07:00
+10,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-16T00:21:00
+10,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-13T04:17:00
+10,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T05:18:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-10T21:28:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T23:28:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-14T20:40:00
+10,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-13T23:32:00
+10,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-06T07:43:00
+10,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-09T08:23:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-15T23:23:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T23:25:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T12:47:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-04T20:49:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T10:58:00
+10,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-04T02:11:00
+10,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-12T09:22:00
+10,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-10T17:45:00
+10,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-17T19:07:00
+10,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-16T12:23:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T07:56:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T04:26:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-12T08:04:00
+10,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T16:27:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T10:14:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-09T18:40:00
+11,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-11T07:34:00
+11,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-05T17:42:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-02T12:05:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-15T07:40:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-11T03:15:00
+11,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-04T10:03:00
+11,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-07T22:38:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-13T00:08:00
+11,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-11T19:29:00
+11,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-04T13:18:00
+11,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T22:59:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-07T03:32:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-04T00:32:00
+11,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-12T13:03:00
+11,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-01T15:27:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-13T23:02:00
+11,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-10T14:24:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-04T16:06:00
+11,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T16:12:00
+11,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-02T13:08:00
+11,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-06T07:57:00
+12,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T06:21:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-11T03:52:00
+12,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-15T06:19:00
+12,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-10T08:50:00
+12,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T06:30:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-13T16:52:00
+12,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-04T18:01:00
+12,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-08T01:32:00
+12,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-03T10:08:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-17T04:24:00
+12,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-12T05:22:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-10T07:30:00
+12,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-10T19:19:00
+12,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-16T22:30:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-05T06:43:00
+12,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-05T21:02:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-16T08:16:00
+12,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-10T05:44:00
+12,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-08T19:03:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-08T13:06:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-05T12:35:00
+12,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T03:41:00
+12,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-02T14:41:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-02T17:26:00
+12,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-03T00:50:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-10T13:00:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-11T21:29:00
+12,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T04:29:00
+12,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-16T08:16:00
+12,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-11T06:43:00
+13,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-15T04:20:00
+13,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T03:20:00
+13,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-09T02:48:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-01T20:41:00
+13,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-05T02:19:00
+13,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-11T10:07:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-08T19:08:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-13T01:44:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-07T19:43:00
+13,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-18T10:23:00
+13,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-17T18:36:00
+13,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-18T02:07:00
+13,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-04T04:28:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-15T02:36:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-11T11:01:00
+13,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-03T13:27:00
+13,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-02T14:59:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-06T08:46:00
+13,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-14T02:55:00
+13,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-06T08:55:00
+13,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-14T04:08:00
+13,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-01T21:29:00
+13,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-13T19:15:00
+13,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-04T13:51:00
+13,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-01T19:13:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-02T19:47:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-07T13:08:00
+14,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T06:38:00
+14,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-06T09:33:00
+14,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-07T08:43:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-13T08:42:00
+14,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-14T16:19:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-08T21:54:00
+14,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-15T01:35:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-07T22:41:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-04T05:46:00
+14,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-02T14:12:00
+14,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-08T03:13:00
+14,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-01T18:59:00
+14,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-16T19:44:00
+14,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-09T05:20:00
+14,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-12T21:16:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-16T22:58:00
+14,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-09T11:09:00
+14,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-07T22:14:00
+14,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-11T20:48:00
+14,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-12T17:08:00
+14,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-03T04:02:00
+15,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T14:45:00
+15,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-12T13:39:00
+15,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-01T12:34:00
+15,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-10T05:18:00
+15,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-06T15:58:00
+15,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-17T20:52:00
+15,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-14T02:36:00
+15,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-04T08:54:00
+15,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-14T00:35:00
+15,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-04T03:54:00
+15,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-05T04:58:00
+15,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-16T20:02:00
+15,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-02T17:59:00
+15,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-06T10:52:00
+15,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-09T06:53:00
+15,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T10:46:00
+15,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T19:53:00
+15,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-11T12:40:00
+15,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-13T05:24:00
+15,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-10T19:45:00
+15,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-06T11:24:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-15T23:48:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T02:35:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T23:35:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-01T21:26:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-09T06:33:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-09T21:17:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T01:19:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T11:40:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T21:00:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-13T22:28:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T03:20:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-11T11:44:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T00:23:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-07T09:49:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-08T02:51:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-15T09:31:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-06T10:27:00
+16,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-17T06:25:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-13T10:57:00
+16,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-03T15:49:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T06:41:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-12T01:06:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-18T05:37:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T02:49:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-02T03:06:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T23:19:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-13T03:06:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T13:51:00
+16,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-05T09:51:00
+16,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-06T22:35:00
+16,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T08:11:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-08T02:37:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-07T20:48:00
+17,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-06T23:20:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T04:40:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-04T23:22:00
+17,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T07:37:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-08T21:07:00
+17,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-14T01:38:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-17T08:34:00
+17,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-07T05:10:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-16T07:03:00
+17,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-08T00:35:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-17T01:45:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-01T19:18:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-07T02:36:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-05T06:07:00
+17,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-13T05:52:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-14T15:47:00
+17,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-03T02:16:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-04T19:13:00
+17,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-14T17:39:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-03T06:22:00
+17,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-12T10:18:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-18T09:52:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-10T08:08:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-11T19:48:00
+17,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T08:26:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-04T00:32:00
+17,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-16T22:37:00
+17,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-16T08:42:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-13T18:27:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-10T22:35:00
+17,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-12T09:48:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-15T12:07:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-02T01:12:00
+17,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-10T17:55:00
+17,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T20:05:00
+17,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-14T08:19:00
+17,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-04T10:06:00
+17,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-09T04:43:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-15T10:08:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T15:20:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T08:43:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T02:22:00
+18,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-15T18:05:00
+18,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-13T23:27:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T19:35:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-02T09:56:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-11T08:03:00
+18,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-04T19:31:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-01T23:59:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-14T23:34:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-03T12:37:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T00:32:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T14:40:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-10T14:32:00
+18,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-14T06:40:00
+18,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-15T11:54:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T15:29:00
+18,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T15:00:00
+19,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-09T17:23:00
+19,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-04T12:21:00
+19,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-10T10:36:00
+19,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-12T13:31:00
+19,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-09T15:57:00
+19,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-17T12:02:00
+19,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-16T23:24:00
+19,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-03T05:51:00
+19,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-09T01:58:00
+19,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-12T15:32:00
+19,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T13:25:00
+19,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-10T22:05:00
+19,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-11T06:50:00
+19,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-13T06:31:00
+19,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-08T16:00:00
+19,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-13T08:53:00
+19,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-02T09:24:00
+19,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-17T19:26:00
+19,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-06T10:17:00
+19,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-18T01:44:00
+20,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-17T16:40:00
+20,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-03T01:42:00
+20,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T00:44:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T19:04:00
+20,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-04T16:06:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T05:22:00
+20,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-15T20:54:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-11T10:44:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-11T16:05:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T09:19:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T02:35:00
+20,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-04T16:07:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-13T23:43:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T14:01:00
+20,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-15T16:05:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T13:10:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-14T03:01:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T17:17:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T08:18:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T00:08:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-02T00:50:00
+20,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-16T23:58:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-06T12:20:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-09T13:51:00
+20,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-08T17:06:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-02T19:36:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-06T17:15:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-02T10:44:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T03:34:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-02T19:38:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T16:21:00
+20,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-06T06:45:00
+20,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-12T14:23:00
+20,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-11T21:20:00
+21,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-17T08:20:00
+21,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-12T19:42:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-10T16:11:00
+21,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T17:38:00
+21,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-05T03:09:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-11T17:40:00
+21,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-12T02:00:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-12T20:50:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-16T11:26:00
+21,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-13T23:34:00
+21,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-08T17:28:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-11T20:06:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-07T11:04:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T10:01:00
+21,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-14T17:03:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-15T10:35:00
+21,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-10T21:15:00
+21,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-16T16:03:00
+21,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-16T18:06:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-04T03:54:00
+21,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-09T14:41:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-13T23:11:00
+21,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-09T19:53:00
+21,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-04T14:42:00
+21,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-09T05:03:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T03:19:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T06:43:00
+22,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-15T17:10:00
+22,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T14:43:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-09T22:58:00
+22,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-14T05:20:00
+22,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-02T10:39:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T16:36:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-04T21:55:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-10T00:41:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-10T00:09:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-12T10:15:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-12T12:21:00
+22,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-17T10:43:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T22:17:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-08T02:13:00
+22,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-17T23:52:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T00:08:00
+22,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-01T17:12:00
+22,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-08T13:29:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-09T23:52:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-05T09:01:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T03:37:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-10T11:53:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T17:54:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-09T09:13:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T03:58:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-01T19:16:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-10T01:57:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T02:19:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T04:42:00
+22,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T21:43:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-10T08:20:00
+22,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-10T18:09:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-14T09:20:00
+22,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-10T20:58:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T22:46:00
+23,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-17T09:22:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-06T21:06:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T09:57:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T11:55:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T02:54:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-04T03:56:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-14T04:19:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T22:26:00
+23,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-06T14:31:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T12:28:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T03:50:00
+23,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-15T08:27:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T05:12:00
+23,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-17T18:01:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-12T21:08:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T21:18:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T22:57:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T12:14:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T06:32:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-03T00:56:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T09:06:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T01:28:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T18:44:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T09:33:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T04:46:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T03:12:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T23:45:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T18:44:00
+23,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-02T09:05:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-05T14:49:00
+23,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-09T02:18:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-10T23:51:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-04T13:00:00
+24,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-16T07:17:00
+24,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-11T17:07:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T10:54:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-06T15:08:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-06T15:26:00
+24,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-15T17:39:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-06T03:58:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T20:41:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-12T04:33:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T03:22:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-02T12:41:00
+24,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-16T17:04:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T13:32:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T14:29:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-17T02:20:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-01T15:25:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-11T04:35:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-12T13:52:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-17T10:42:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T12:21:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-13T10:06:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T15:16:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-13T18:29:00
+24,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-05T01:02:00
+24,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T02:42:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-02T04:47:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-17T04:49:00
+24,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-07T11:52:00
+24,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-12T04:56:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T21:28:00
+24,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T21:53:00
+24,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-07T18:13:00
+25,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-07T04:34:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-13T05:30:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-11T01:51:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T13:42:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-06T21:43:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-10T18:48:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-05T07:55:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-13T19:32:00
+25,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-03T00:24:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-02T12:47:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-13T06:34:00
+25,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-07T21:28:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-07T11:32:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T16:10:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T10:59:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-03T08:39:00
+25,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T14:50:00
+25,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-07T04:04:00
+25,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-13T14:22:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-11T23:18:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-01T15:42:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-08T13:43:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-05T00:16:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-17T23:32:00
+25,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-11T08:12:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-07T05:34:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T09:27:00
+25,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-15T08:52:00
+25,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-11T13:05:00
+25,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-04T06:52:00
+25,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T08:25:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T11:37:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T15:18:00
+26,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-11T02:24:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T16:47:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-05T21:43:00
+26,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-02T05:55:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T05:35:00
+26,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T18:26:00
+26,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T19:39:00
+26,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-03T05:29:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T20:06:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-12T16:42:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T18:20:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-11T10:37:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-14T17:00:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-14T20:53:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-16T02:22:00
+26,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-07T08:38:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-06T05:12:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-02T04:40:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T13:35:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-05T23:25:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T04:05:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T04:08:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T11:46:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T19:04:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T04:58:00
+26,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-15T13:02:00
+26,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-18T08:53:00
+26,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T00:41:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T19:33:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T07:00:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T14:32:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T23:38:00
+27,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-14T22:46:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T08:53:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T16:40:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T17:33:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-02T11:46:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-08T02:38:00
+27,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-15T07:09:00
+27,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-17T20:10:00
+27,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-03T19:24:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T04:43:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-07T03:57:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-17T15:05:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-02T09:41:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T10:33:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-13T23:37:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T20:30:00
+27,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-14T20:12:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T04:00:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-12T01:23:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-09T20:54:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-13T18:26:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T20:19:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-05T11:14:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T00:50:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-01T14:52:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T19:23:00
+27,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-14T07:41:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-15T12:12:00
+28,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-03T07:32:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-02T23:15:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T00:22:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-17T12:47:00
+28,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-12T23:52:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T06:00:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-04T04:18:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-10T05:52:00
+28,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-14T06:30:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-16T09:29:00
+28,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-09T14:24:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-08T22:26:00
+28,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-09T19:18:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T03:20:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T03:47:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-07T19:12:00
+28,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T15:58:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-03T03:23:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-10T03:11:00
+28,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-09T06:08:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T04:22:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T10:33:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T00:37:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-09T17:35:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-11T23:11:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T23:54:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-06T06:43:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-09T05:27:00
+28,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-06T03:51:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-18T05:46:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T00:06:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T03:53:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-09T23:23:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T15:22:00
+28,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T21:22:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-15T14:24:00
+28,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-05T17:40:00
+28,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-13T14:05:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-10T07:41:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-13T11:37:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-06T12:08:00
+29,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-03T18:10:00
+29,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T05:03:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-03T15:16:00
+29,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-13T21:14:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-05T16:33:00
+29,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-12T22:55:00
+29,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-15T16:44:00
+29,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-15T04:40:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-17T05:14:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-14T20:09:00
+29,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-05T23:18:00
+29,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-17T03:19:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-08T12:35:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-15T00:15:00
+29,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-13T19:16:00
+29,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-09T21:41:00
+29,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-03T17:08:00
+29,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-15T20:44:00
+29,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-05T13:34:00
+29,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-06T10:28:00
+29,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-02T03:13:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-16T23:29:00
+29,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-05T13:17:00
+29,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-06T18:57:00
+29,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-05T10:15:00
+29,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-02T18:29:00
+29,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-08T03:24:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-17T15:16:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T09:13:00
+30,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-11T12:10:00
+30,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T12:02:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-05T23:49:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T08:03:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-04T16:31:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-16T11:12:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T20:57:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T18:36:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-15T20:55:00
+30,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-17T16:28:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-15T12:49:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-02T07:54:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-04T09:34:00
+30,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-17T05:09:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-11T15:06:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T17:55:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-04T13:36:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-18T07:44:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T12:59:00
+30,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-04T02:51:00
+30,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T23:50:00
+30,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T11:04:00
+30,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-17T15:06:00
+30,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-08T04:42:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T11:06:00
+30,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T10:42:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-07T05:25:00
+30,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T23:57:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-15T08:27:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-08T00:49:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T02:25:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-02T04:08:00
+31,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-08T18:54:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-18T05:36:00
+31,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-15T23:09:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-08T19:16:00
+31,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-08T11:04:00
+31,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-05T07:41:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-02T22:22:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-04T19:47:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-13T13:19:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T22:32:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T02:48:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T00:09:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T05:25:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T16:30:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T05:39:00
+31,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-03T20:49:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T01:23:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-01T21:10:00
+31,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-16T07:09:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T16:48:00
+31,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-02T19:39:00
+31,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-04T21:28:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T18:34:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-06T10:44:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-17T13:16:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-09T13:29:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T09:54:00
+31,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-01T21:55:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T04:45:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T17:12:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-01T13:15:00
+31,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-14T11:10:00
+31,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T19:32:00
+32,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-02T05:17:00
+32,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-05T14:46:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-06T01:19:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T18:41:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-11T10:45:00
+32,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-06T08:59:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-04T17:20:00
+32,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-12T01:26:00
+32,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T15:08:00
+32,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-09T07:14:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-16T16:32:00
+32,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-12T17:54:00
+32,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T19:02:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-14T19:47:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-03T17:59:00
+32,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-17T10:20:00
+32,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-03T07:47:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-18T08:56:00
+32,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-16T02:52:00
+32,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T11:02:00
+32,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-16T00:56:00
+33,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T10:33:00
+33,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-15T14:46:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-06T00:26:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T02:05:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-04T14:07:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T11:50:00
+33,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-14T05:24:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-05T17:55:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T11:49:00
+33,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-04T16:12:00
+33,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-17T03:34:00
+33,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-08T18:37:00
+33,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-04T07:38:00
+33,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-07T13:11:00
+33,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T09:36:00
+33,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-03T13:06:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T07:42:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-12T13:05:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-13T14:48:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T15:44:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-17T18:44:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-17T14:30:00
+33,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-11T01:38:00
+33,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T16:39:00
+33,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T07:14:00
+33,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-02T02:40:00
+33,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-15T01:02:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T10:18:00
+33,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-18T05:20:00
+34,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-01T17:12:00
+34,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-17T03:51:00
+34,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-16T05:57:00
+34,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-03T04:19:00
+34,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-01T18:36:00
+34,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-05T20:53:00
+34,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-07T06:38:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-11T10:54:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-04T03:56:00
+34,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-10T18:33:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-02T18:58:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-17T16:12:00
+34,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-17T21:49:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-18T09:08:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-17T15:00:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-03T22:29:00
+34,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-10T12:36:00
+34,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-07T21:17:00
+34,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-09T16:10:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-17T15:13:00
+34,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-11T06:15:00
+34,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-12T05:28:00
+34,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-02T15:24:00
+35,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-16T07:22:00
+35,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-04T02:36:00
+35,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-11T09:41:00
+35,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-08T16:55:00
+35,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-13T17:44:00
+35,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-12T02:31:00
+35,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-17T02:54:00
+35,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-06T04:06:00
+35,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-03T21:34:00
+35,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-09T05:10:00
+35,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T10:37:00
+35,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T05:44:00
+35,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-16T15:37:00
+35,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-15T17:19:00
+35,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-13T22:31:00
+35,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-06T06:57:00
+35,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-06T02:34:00
+35,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-11T21:36:00
+35,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-15T10:58:00
+35,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-18T00:54:00
+35,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-02T12:45:00
+35,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-10T12:15:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-14T00:27:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T05:24:00
+36,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-05T21:55:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-01T16:46:00
+36,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-05T14:08:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-15T07:11:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T00:22:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-17T11:15:00
+36,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T13:02:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T10:05:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T04:56:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T09:40:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-12T05:49:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T06:46:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-10T21:10:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-09T13:40:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T11:39:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T14:54:00
+36,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-09T20:54:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-06T09:28:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T03:11:00
+36,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-03T16:38:00
+36,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-15T00:15:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-12T13:41:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T00:30:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T03:16:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T00:43:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T01:39:00
+36,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-09T15:16:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T11:43:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T22:35:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-02T01:06:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-10T20:12:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T07:40:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T00:42:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-06T15:44:00
+36,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T08:29:00
+36,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-11T20:10:00
+37,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-02T20:52:00
+37,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-08T07:25:00
+37,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-14T18:39:00
+37,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-04T13:04:00
+37,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-02T03:09:00
+37,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-13T20:09:00
+37,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-18T10:49:00
+37,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-04T05:14:00
+37,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-12T22:43:00
+37,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-03T23:34:00
+37,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T21:41:00
+37,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-07T21:44:00
+37,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-13T03:05:00
+37,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-05T13:12:00
+37,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-04T05:41:00
+37,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-01T13:21:00
+37,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-08T08:42:00
+37,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-08T14:02:00
+37,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-17T07:02:00
+37,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-02T21:52:00
+37,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-03T15:07:00
+37,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-08T01:21:00
+37,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T22:53:00
+37,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-06T22:04:00
+37,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-07T10:23:00
+37,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-02T16:06:00
+37,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T12:56:00
+37,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-04T10:41:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-07T16:40:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T07:44:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-04T08:52:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T18:07:00
+38,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-17T19:29:00
+38,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-07T15:50:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T09:59:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T20:21:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T05:11:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-04T14:57:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-12T01:12:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-04T22:14:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-13T19:04:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T16:13:00
+38,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-12T16:29:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-07T22:08:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-05T02:29:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-11T07:10:00
+38,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-08T14:26:00
+38,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-08T06:30:00
+38,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-15T11:55:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-09T06:09:00
+38,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-02T13:30:00
+38,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-18T00:30:00
+38,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-08T14:35:00
+38,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-05T23:18:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T17:45:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-15T16:55:00
+38,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-13T08:29:00
+38,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-04T00:57:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-10T10:39:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-04T07:56:00
+38,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T13:07:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T08:35:00
+39,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-07T16:21:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-08T11:48:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-18T09:27:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T03:32:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T02:39:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T14:05:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T15:10:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T04:40:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-06T03:22:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T12:55:00
+39,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-15T06:21:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T05:28:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-10T17:50:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-10T13:09:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-07T10:34:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-05T17:15:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T20:23:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-12T16:23:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T12:25:00
+39,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-11T16:00:00
+39,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-12T08:45:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-06T06:46:00
+39,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-05T11:30:00
+39,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-04T21:01:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T22:03:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T20:12:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-04T04:25:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-17T13:58:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T23:24:00
+39,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T02:55:00
+40,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-15T02:18:00
+40,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-14T16:53:00
+40,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-11T03:55:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-13T14:00:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-16T10:36:00
+40,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-13T21:35:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-11T03:35:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-01T16:16:00
+40,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-11T01:11:00
+40,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-10T03:04:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T20:40:00
+40,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-01T20:10:00
+40,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-05T23:10:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T13:18:00
+40,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-06T15:38:00
+40,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-12T09:51:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-12T16:00:00
+40,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-17T01:21:00
+40,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-06T04:14:00
+40,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-18T05:45:00
+40,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-03T15:52:00
+40,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-11T10:23:00
+40,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-17T22:11:00
+40,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-04T19:08:00
+40,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-10T16:13:00
+40,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-04T14:01:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T06:03:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T09:00:00
+41,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-08T06:57:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T11:17:00
+41,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-18T11:39:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T04:13:00
+41,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-02T11:06:00
+41,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,ORDER,5,2026-11-16T23:44:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-04T17:53:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T19:26:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T04:08:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-02T14:20:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T09:53:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T18:54:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-12T17:00:00
+41,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-14T02:33:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T00:44:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-06T14:23:00
+41,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-13T15:14:00
+41,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-10T08:25:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-17T20:09:00
+41,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-17T03:14:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T14:31:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T16:19:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-18T03:50:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-17T04:16:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-03T01:56:00
+41,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T02:29:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T10:10:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T03:48:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-17T03:35:00
+41,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-10T03:37:00
+41,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-10T22:03:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-02T08:21:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-13T01:22:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-11T06:05:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-04T22:10:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-15T06:32:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-17T06:01:00
+42,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-12T06:06:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-07T22:31:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-10T23:27:00
+42,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-07T21:16:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-04T10:54:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-18T03:27:00
+42,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-11T04:51:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-13T20:39:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,ORDER,5,2026-11-17T17:36:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-15T06:46:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-05T19:09:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-14T22:55:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-14T20:52:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-09T00:15:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-11T02:31:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-02T18:10:00
+42,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-10T09:35:00
+42,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-16T12:03:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-10T14:57:00
+42,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-04T00:53:00
+42,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T15:33:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-03T19:38:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-14T11:47:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-04T17:13:00
+42,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-03T03:34:00
+42,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-15T03:43:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-05T23:30:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-03T11:42:00
+42,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,CART,3,2026-11-08T20:35:00
+42,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-05T05:55:00
+42,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-13T20:19:00
+42,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-07T02:40:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-04T03:30:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-04T17:44:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T02:44:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-07T08:28:00
+43,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-08T08:19:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T04:45:00
+43,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-14T22:28:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T21:12:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T06:14:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-08T14:29:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T07:16:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-04T12:45:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-16T15:14:00
+43,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,ORDER,5,2026-11-09T21:47:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-08T07:13:00
+43,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-08T01:11:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T19:39:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T14:00:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-14T09:13:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-09T14:06:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-09T03:58:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-18T07:24:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-06T05:02:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T22:56:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-18T01:09:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-06T03:55:00
+43,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-14T21:57:00
+43,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-10T04:20:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-16T16:35:00
+43,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-05T13:14:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T01:07:00
+43,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-13T10:35:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T15:22:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T11:32:00
+43,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-08T06:00:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T19:49:00
+43,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-01T21:43:00
+43,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-04T22:09:00
+43,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-17T02:40:00
+43,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-11T13:41:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T08:18:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-13T14:25:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-13T14:01:00
+44,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-13T21:41:00
+44,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-17T01:47:00
+44,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-05T23:42:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-17T02:56:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T14:48:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-15T08:27:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-09T08:43:00
+44,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-17T14:18:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-16T21:09:00
+44,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-18T01:18:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-17T15:32:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T23:16:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T17:50:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T10:19:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-16T07:51:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T11:38:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-01T12:25:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-16T10:25:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-11T07:52:00
+44,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-13T21:05:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-02T10:12:00
+44,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-06T08:15:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T16:30:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T11:44:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T06:15:00
+44,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-01T15:40:00
+44,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-17T11:37:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-16T19:45:00
+45,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-12T05:04:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-05T03:39:00
+45,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T12:10:00
+45,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-15T19:32:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-15T16:56:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-13T03:51:00
+45,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-11T10:47:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-07T17:38:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-16T21:15:00
+45,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-12T20:22:00
+45,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-17T13:51:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T15:35:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-12T13:49:00
+45,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,ORDER,5,2026-11-18T07:42:00
+45,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-16T02:53:00
+45,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-05T05:02:00
+45,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-07T23:10:00
+45,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-17T11:55:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T15:54:00
+45,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-01T19:53:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T10:48:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T01:50:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T02:54:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-15T16:49:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-12T00:49:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T09:59:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-17T21:26:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-11T23:00:00
+46,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-06T10:25:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-16T10:22:00
+46,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-10T14:02:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-06T04:34:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-11T04:21:00
+46,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-09T19:53:00
+46,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,ORDER,5,2026-11-05T11:03:00
+46,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,CART,3,2026-11-12T15:03:00
+46,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-02T02:21:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T23:19:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-18T11:15:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-13T02:06:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-03T14:03:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T14:23:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T00:55:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-16T10:59:00
+46,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-06T04:08:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-18T04:07:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-07T05:23:00
+46,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,CART,3,2026-11-14T15:07:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-05T15:23:00
+46,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T12:50:00
+47,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-10T21:13:00
+47,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-05T05:22:00
+47,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-11T06:28:00
+47,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T16:32:00
+47,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-06T11:20:00
+47,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-15T00:14:00
+47,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-16T11:17:00
+47,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-11T05:41:00
+47,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-03T06:33:00
+47,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-01T15:42:00
+47,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-09T18:15:00
+47,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-12T00:37:00
+47,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-07T01:01:00
+47,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T15:06:00
+47,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-09T14:09:00
+47,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-03T07:20:00
+47,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-13T15:20:00
+47,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-04T13:12:00
+47,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-17T04:48:00
+47,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-12T02:35:00
+47,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-08T12:17:00
+47,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-09T05:41:00
+47,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-15T14:54:00
+47,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-05T23:34:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-15T13:00:00
+48,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T12:03:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-10T09:24:00
+48,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-17T21:02:00
+48,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-10T14:25:00
+48,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-10T01:13:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-12T08:16:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-11T22:13:00
+48,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T08:59:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-02T09:11:00
+48,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-14T05:05:00
+48,Grilled Tilapia & Ugali,Main Course,fish grilled tilapia ugali healthy main,600.0,VIEW,1,2026-11-16T09:07:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-13T00:11:00
+48,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,VIEW,1,2026-11-12T18:28:00
+48,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-10T09:58:00
+48,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-11T10:14:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,ORDER,5,2026-11-02T20:31:00
+48,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T08:25:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,VIEW,1,2026-11-16T17:35:00
+48,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-06T14:37:00
+48,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,VIEW,1,2026-11-09T04:46:00
+48,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-02T10:43:00
+48,Tamarind Juice (Ukwaju),Beverages,tamarind tangy cold refreshing drink,150.0,CART,3,2026-11-15T12:27:00
+48,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-12T01:54:00
+48,Chicken Biryani,Main Course,chicken rice spiced aromatic main,500.0,VIEW,1,2026-11-18T02:31:00
+48,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,ORDER,5,2026-11-08T13:17:00
+48,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-02T00:12:00
+49,Swahili Beef Pilau,Main Course,beef rice spiced savory main,400.0,ORDER,5,2026-11-09T10:27:00
+49,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,VIEW,1,2026-11-11T21:04:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-14T12:37:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-08T15:30:00
+49,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,CART,3,2026-11-12T04:50:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-15T15:40:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-02T13:24:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,CART,3,2026-11-03T02:03:00
+49,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-03T05:03:00
+49,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-14T19:55:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-16T01:56:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-02T02:33:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-02T07:45:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,ORDER,5,2026-11-06T08:32:00
+49,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-15T17:15:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-11T06:27:00
+49,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-05T16:30:00
+49,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-02T04:37:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-18T05:54:00
+49,Beef Samosa Trio,Sides,beef pastry crispy snack side,180.0,VIEW,1,2026-11-08T08:58:00
+49,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-17T10:44:00
+49,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-12T07:19:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-03T03:14:00
+50,Nyama Choma Platter,Main Course,roasted beef grilled savory main,850.0,CART,3,2026-11-16T07:13:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-13T18:25:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T23:01:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T08:37:00
+50,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-01T18:12:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-06T22:54:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-06T20:58:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-04T22:59:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T09:10:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-03T15:09:00
+50,Fresh Mango Passion Smoothie,Beverages,mango passion fruit cold sweet drink,250.0,CART,3,2026-11-08T05:24:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T13:48:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-10T16:20:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-18T06:56:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-03T17:32:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-15T17:20:00
+50,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,CART,3,2026-11-17T03:17:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-08T02:55:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-14T06:10:00
+50,Masala Chips,Sides,potatoes spicy fries snack side,220.0,VIEW,1,2026-11-03T16:48:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T06:02:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-16T01:26:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-13T12:11:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-12T14:18:00
+50,Kenyan Masala Chai,Beverages,tea spiced hot milk drink,120.0,VIEW,1,2026-11-03T20:59:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-03T05:12:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,VIEW,1,2026-11-09T18:45:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,ORDER,5,2026-11-09T12:49:00
+50,Coconut Mahamri & Dip,Desserts,coconut sweet pastry dessert,200.0,CART,3,2026-11-14T00:52:00
