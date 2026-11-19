@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie | Artisanal Kenyan Cuisine & Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --foodie-bg: #0c0907;
+            --foodie-surface: rgba(24, 18, 14, 0.86);
+            --foodie-saffron: #f59e0b;
+            --foodie-ember: #ea580c;
+            --foodie-cream: #faf6f0;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--foodie-bg);
+            color: var(--foodie-cream);
+            overflow-x: hidden;
+        }
+        .ambient-hearth {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 65% 45% at 78% 18%, rgba(245, 158, 11, 0.11), transparent 70%),
+                radial-gradient(ellipse 50% 40% at 15% 85%, rgba(234, 88, 12, 0.08), transparent 70%),
+                var(--foodie-bg);
+        }
+        .page-layer { position: relative; z-index: 2; }
+        .font-editorial { font-family: 'Playfair Display', serif; }
+        #recommendedSection, #menuSection { scroll-margin-top: 84px; }
+
+        @keyframes fadeUpSmooth {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .anim-enter {
+            animation: fadeUpSmooth 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .anim-delay-1 { animation-delay: 0.08s; }
+        .anim-delay-2 { animation-delay: 0.16s; }
+
+        @keyframes kenBurnsDrift {
+            0% { transform: scale(1.02) translate3d(0, 0, 0); }
+            50% { transform: scale(1.08) translate3d(-1.2%, -1%, 0); }
+            100% { transform: scale(1.02) translate3d(0, 0, 0); }
+        }
+        .ken-burns-img {
+            animation: kenBurnsDrift 16s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        .navbar-foodie {
+            background: rgba(12, 9, 7, 0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+        }
+        .brand-logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+        }
+        .brand-wordmark {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 1.55rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fffbeb 15%, #fbbf24 65%, #ea580c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-sub {
+            font-size: 0.65rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: #fbbf24;
+            display: block;
+            margin-top: -5px;
+            font-weight: 700;
+        }
+        .nav-pill-btn {
+            border-radius: 999px;
+            padding: 0.36rem 0.95rem;
+            font-weight: 600;
+            font-size: 0.84rem;
+            transition: all 0.2s ease;
+        }
+        .nav-pill-glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            color: var(--foodie-cream);
+        }
+        .nav-pill-glass:hover {
+            background: rgba(245, 158, 11, 0.16);
+            border-color: #fbbf24;
+            color: #fff;
+        }
+
+        .hero-stage {
+            background: linear-gradient(135deg, rgba(24, 17, 12, 0.92) 0%, rgba(12, 9, 7, 0.96) 100%);
+            border-radius: 1.75rem;
+            border: 1px solid rgba(245, 158, 11, 0.26);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.72);
+        }
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            border-top: 1px solid rgba(245, 158, 11, 0.16);
+            padding-top: 1.15rem;
+            margin-top: 1.5rem;
+        }
+        .hero-metric-val { font-weight: 800; font-size: 1.05rem; color: #fbbf24; }
+        .hero-metric-lbl { font-size: 0.74rem; color: #a8a29e; }
+
+        .showcase-frame {
+            position: relative;
+            border-radius: 1.35rem;
+            overflow: hidden;
+            border: 1px solid rgba(245, 158, 11, 0.24);
+            background: #140f0c;
+            aspect-ratio: 4 / 3;
+        }
+        .showcase-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(12, 9, 7, 0.08) 35%, rgba(12, 9, 7, 0.92) 100%);
+            pointer-events: none;
+        }
+        .showcase-overlay { position: relative; z-index: 2; }
+        .showcase-thumb {
+            width: 54px;
+            height: 42px;
+            border-radius: 0.55rem;
+            object-fit: cover;
+            border: 2px solid transparent;
+            opacity: 0.62;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .showcase-thumb.active, .showcase-thumb:hover {
+            opacity: 1;
+            border-color: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        .dish-card {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .dish-card.card-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dish-card.card-visible:hover {
+            transform: translateY(-6px);
+        }
+        .dish-card-legacy {
+            background: var(--foodie-surface);
+            border: 1px solid rgba(245, 158, 11, 0.16);
+            border-radius: 1.3rem;
+            overflow: hidden;
+            color: var(--foodie-cream);
+            transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .dish-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(245, 158, 11, 0.55);
+            box-shadow: 0 22px 44px rgba(0, 0, 0, 0.58);
+        }
+        .dish-img-wrap {
+            position: relative;
+            height: 215px;
+            overflow: hidden;
+            background: #1c1613;
+        }
+        .dish-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .dish-card:hover .dish-img-wrap img { transform: scale(1.06); }
+        .price-pill {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(12, 9, 7, 0.92);
+            color: #fbbf24;
+            font-weight: 800;
+            padding: 0.36rem 0.88rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(251, 191, 36, 0.35);
+        }
+        .cat-pill {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(18, 13, 10, 0.88);
+            color: #fde68a;
+            font-weight: 700;
+            padding: 0.26rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.74rem;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+        .rec-ribbon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #f59e0b, #ea580c);
+            color: #110d0a;
+            font-weight: 800;
+            padding: 0.26rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.74rem;
+        }
+        .filter-bar {
+            background: var(--foodie-surface);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 1.3rem;
+        }
+        .section-kicker {
+            letter-spacing: 0.16em;
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: #fbbf24;
+            text-transform: uppercase;
+        }
+
+        .foodie-modal-content, .foodie-offcanvas {
+            background: linear-gradient(165deg, rgba(25, 18, 14, 0.98) 0%, rgba(12, 9, 7, 0.99) 100%) !important;
+            border: 1px solid rgba(245, 158, 11, 0.3) !important;
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85);
+            color: var(--foodie-cream);
+        }
+        .foodie-modal-header {
+            border-bottom: 1px solid rgba(245, 158, 11, 0.16);
+            padding: 1.15rem 1.5rem;
+        }
+        .foodie-pill-tabs .nav-link {
+            color: #d6d3d1;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+        .foodie-pill-tabs .nav-link.active {
+            background: linear-gradient(135deg, #f59e0b, #ea580c);
+            color: #110d0a;
+            font-weight: 800;
+        }
+        .form-control-dark, .form-select-dark {
+            background: rgba(10, 8, 6, 0.88);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            color: #fff;
+            border-radius: 0.75rem;
+        }
+        .form-control-dark:focus, .form-select-dark:focus {
+            background: rgba(10, 8, 6, 0.96);
+            color: #fff;
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.18);
+        }
+        .google-btn {
+            background: #ffffff;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        .google-btn:hover {
+            background: #f9fafb;
+            color: #111827;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #a8a29e;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .auth-divider::before, .auth-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(245, 158, 11, 0.18);
+        }
+        .pref-chip {
+            cursor: pointer;
+            border-radius: 999px;
+            padding: 0.32rem 0.78rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+            color: #e7e5e4;
+            transition: all 0.18s ease;
+        }
+        .pref-chip.active {
+            background: rgba(245, 158, 11, 0.22);
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+        .cart-item-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(245, 158, 11, 0.16);
+            border-radius: 1rem;
+            padding: 0.9rem 1.05rem;
+        }
+        .foodie-footer {
+            background: linear-gradient(180deg, rgba(16, 12, 9, 0.92) 0%, rgba(8, 6, 4, 0.99) 100%);
+            border-top: 1px solid rgba(245, 158, 11, 0.22);
+            margin-top: 5rem;
+        }
+        .footer-link { color: #a8a29e; text-decoration: none; transition: color 0.2s ease; }
+        .footer-link:hover { color: #fbbf24; }
+    </style>
+    <style id="luxuryEditorialTheme">
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap');
+
+        .hero-glass {
+            background: linear-gradient(145deg, rgba(18, 12, 9, 0.52), rgba(9, 6, 5, 0.72)) !important;
+            backdrop-filter: blur(22px) saturate(135%) !important;
+            -webkit-backdrop-filter: blur(22px) saturate(135%) !important;
+            border: 1px solid rgba(251, 191, 36, 0.18) !important;
+            border-radius: 1.75rem !important;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: clamp(2.65rem, 4.6vw, 4.1rem) !important;
+            line-height: 1.02 !important;
+            letter-spacing: -0.015em !important;
+        }
+        .hero-showcase {
+            border-radius: 1.35rem !important;
+            border: 1px solid rgba(251, 191, 36, 0.24) !important;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75) !important;
+            overflow: hidden !important;
+        }
+        .hero-showcase img {
+            transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+        .hero-showcase:hover img {
+            transform: scale(1.06) !important;
+        }
+
+        /* Unified Smoked-Glass Filter Dock */
+        .filter-dock {
+            background: rgba(15, 10, 8, 0.56) !important;
+            backdrop-filter: blur(20px) saturate(130%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(130%) !important;
+            border: 1px solid rgba(251, 191, 36, 0.16) !important;
+            border-radius: 1.35rem !important;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.48) !important;
+        }
+        .filter-dock .form-control {
+            background: rgba(7, 5, 4, 0.62) !important;
+            border: 1px solid rgba(251, 191, 36, 0.18) !important;
+            color: #faf6f0 !important;
+            border-radius: 0.85rem !important;
+        }
+        .filter-dock .form-control:focus {
+            border-color: rgba(251, 191, 36, 0.55) !important;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15) !important;
+        }
+        .cat-pill {
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #d6d3d1 !important;
+            font-weight: 600 !important;
+            transition: all 0.22s ease !important;
+        }
+        .cat-pill:hover {
+            border-color: rgba(251, 191, 36, 0.45) !important;
+            color: #fbbf24 !important;
+        }
+        .cat-pill.active {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.24), rgba(234, 88, 12, 0.24)) !important;
+            border-color: #fbbf24 !important;
+            color: #fef3c7 !important;
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2) !important;
+        }
+
+        /* Editorial Translucent Dish Cards */
+        .dish-card {
+            background: linear-gradient(165deg, rgba(20, 14, 10, 0.58), rgba(10, 7, 5, 0.76)) !important;
+            backdrop-filter: blur(18px) saturate(130%) !important;
+            -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+            border: 1px solid rgba(251, 191, 36, 0.14) !important;
+            border-radius: 1.35rem !important;
+            overflow: hidden !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        }
+        .dish-card:hover {
+            border-color: rgba(251, 191, 36, 0.42) !important;
+            box-shadow: 0 28px 65px rgba(0, 0, 0, 0.75), 0 0 28px rgba(245, 158, 11, 0.12) !important;
+        }
+        .dish-img-wrap {
+            height: 225px !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        .dish-img-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7,5,4,0.12) 0%, transparent 45%, rgba(10,7,5,0.88) 100%);
+            pointer-events: none;
+        }
+        .dish-img-wrap img {
+            transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+        .dish-card:hover .dish-img-wrap img {
+            transform: scale(1.07) !important;
+        }
+        .dish-card h5, .dish-card .card-title {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: 1.45rem !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.01em !important;
+            color: #faf6f0 !important;
+        }
+        .price-badge {
+            z-index: 2 !important;
+            background: rgba(10, 7, 5, 0.78) !important;
+            backdrop-filter: blur(10px) !important;
+            border: 1px solid rgba(251, 191, 36, 0.38) !important;
+            color: #fbbf24 !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.03em !important;
+            padding: 0.38rem 0.85rem !important;
+            border-radius: 999px !important;
+        }
+        .cat-badge {
+            z-index: 2 !important;
+            background: rgba(10, 7, 5, 0.72) !important;
+            backdrop-filter: blur(10px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.14) !important;
+            color: #e7e5e4 !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.06em !important;
+            text-transform: uppercase !important;
+            font-size: 0.68rem !important;
+        }
+
+        /* Replace harsh white ingredient blocks with dark smoked-glass chips */
+        .tag-pill, .ingredient-pill, .dish-card .badge.bg-light, .dish-card .badge.text-dark {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #d6d3d1 !important;
+            font-weight: 500 !important;
+            font-size: 0.72rem !important;
+            padding: 0.3rem 0.65rem !important;
+            border-radius: 999px !important;
+        }
+
+        /* Replace chunky yellow bars with refined amber-glass interactive buttons */
+        .dish-card .btn-warning, .btn-add-cart {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.16), rgba(234, 88, 12, 0.18)) !important;
+            border: 1px solid rgba(251, 191, 36, 0.45) !important;
+            color: #fbbf24 !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.03em !important;
+            border-radius: 999px !important;
+            padding: 0.62rem 1.2rem !important;
+            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+        .dish-card .btn-warning:hover, .btn-add-cart:hover {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 55%, #ea580c 100%) !important;
+            border-color: #fbbf24 !important;
+            color: #0c0806 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 10px 26px rgba(245, 158, 11, 0.34) !important;
+        }
+    </style>
+    <style id="hero3dDeckStyles">
+        .hero-3d-stage {
+            position: relative;
+            perspective: 1400px;
+            padding: 0.75rem 0.5rem 0.25rem;
+            user-select: none;
+        }
+        .hero-ambient-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 340px;
+            height: 340px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.24) 0%, rgba(234, 88, 12, 0.08) 48%, transparent 72%);
+            filter: blur(18px);
+            pointer-events: none;
+            animation: pulseHearthGlow 5s ease-in-out infinite alternate;
+        }
+        @keyframes pulseHearthGlow {
+            0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
+            100% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+        }
+        .dish-deck {
+            position: relative;
+            height: 390px;
+            width: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.18s ease-out;
+        }
+        .deck-card {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 88%;
+            height: 365px;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: rgba(14, 10, 8, 0.85);
+            border: 1px solid rgba(251, 191, 36, 0.28);
+            box-shadow: 0 28px 65px rgba(0, 0, 0, 0.82);
+            transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease, filter 0.6s ease, border-color 0.4s ease;
+            cursor: pointer;
+            will-change: transform, opacity;
+        }
+        .deck-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .deck-card.is-active {
+            z-index: 4;
+            opacity: 1;
+            filter: brightness(1);
+            border-color: rgba(251, 191, 36, 0.55);
+            transform: translate3d(0, 0, 40px) rotateY(0deg) scale(1);
+            cursor: default;
+        }
+        .deck-card.is-active:hover img {
+            transform: scale(1.06);
+        }
+        .deck-card.is-next {
+            z-index: 3;
+            opacity: 0.78;
+            filter: brightness(0.65);
+            transform: translate3d(46px, 12px, -35px) rotateY(-12deg) rotateZ(3.5deg) scale(0.92);
+        }
+        .deck-card.is-prev {
+            z-index: 2;
+            opacity: 0.65;
+            filter: brightness(0.55);
+            transform: translate3d(-46px, 14px, -55px) rotateY(12deg) rotateZ(-3.5deg) scale(0.9);
+        }
+        .deck-card.is-back {
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate3d(0, 24px, -110px) scale(0.84);
+        }
+        .deck-card-overlay {
+            position: absolute;
+            inset: auto 0 0 0;
+            padding: 2.5rem 1.5rem 1.35rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(8, 6, 4, 0.78) 42%, rgba(8, 6, 4, 0.96) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .deck-pill-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #fbbf24;
+            background: rgba(245, 158, 11, 0.16);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            margin-bottom: 0.45rem;
+        }
+        .deck-dish-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #faf6f0;
+            line-height: 1.1;
+            margin: 0 0 0.25rem;
+        }
+        .deck-dish-meta {
+            font-size: 0.82rem;
+            color: rgba(248, 245, 240, 0.75);
+        }
+        .deck-add-btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 55%, #ea580c 100%);
+            color: #0c0806;
+            border: none;
+            font-weight: 800;
+            font-size: 0.82rem;
+            padding: 0.62rem 1.15rem;
+            border-radius: 999px;
+            white-space: nowrap;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .deck-add-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 14px 32px rgba(245, 158, 11, 0.55);
+        }
+        .deck-nav-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            color: #fbbf24;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        .deck-nav-btn:hover {
+            background: rgba(245, 158, 11, 0.22);
+            border-color: #fbbf24;
+            transform: scale(1.08);
+        }
+        .deck-dot {
+            width: 22px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.18);
+            border: none;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: width 0.35s ease, background 0.35s ease;
+        }
+        .deck-dot.active {
+            width: 42px;
+            background: rgba(251, 191, 36, 0.28);
+        }
+        .deck-dot.active::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #fbbf24, #ea580c);
+            animation: deckProgress 4.8s linear forwards;
+        }
+        @keyframes deckProgress {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0%); }
+        }
+
+        /* Staggered Hero Text Choreography */
+        .hero-animate-item {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: heroSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .hero-delay-1 { animation-delay: 0.06s; }
+        .hero-delay-2 { animation-delay: 0.16s; }
+        .hero-delay-3 { animation-delay: 0.26s; }
+        .hero-delay-4 { animation-delay: 0.36s; }
+        @keyframes heroSlideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <style id="borderlessNavFooterPatch">
+        .navbar, nav.navbar, header, footer, .footer-glass {
+            background: transparent !important;
+            background-color: transparent !important;
+            border: none !important;
+            border-top: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+        footer .border-top, footer .border-bottom, footer hr, .navbar .border-bottom {
+            border: none !important;
+            border-top: none !important;
+            border-bottom: none !important;
+        }
+    </style>
+</head>
+<body>
+<canvas id="threeBgCanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+
+<canvas id="threeBgCanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas><div style="position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 35%, transparent 25%, rgba(8,6,4,0.82) 100%);"></div>
+
+<div class="page-layer">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-foodie sticky-top py-2">
+        <div class="container">
+            <a class="brand-logo-wrap" href="/">
+                <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
+                    <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#logoBg)" stroke="url(#logoRim)" stroke-width="1.6"/>
+                    <path d="M20 8.5C15.6 13.8 13.5 17.6 13.5 21.8C13.5 25.6 16.4 28.5 20 28.5C23.6 28.5 26.5 25.6 26.5 21.8C26.5 17.6 24.4 13.8 20 8.5Z" fill="#0c0907"/>
+                    <path d="M20 15C18 17.6 17 19.6 17 21.8C17 23.6 18.3 25 20 25C21.7 25 23 23.6 23 21.8C23 19.6 22 17.6 20 15Z" fill="#fbbf24"/>
+                    <defs>
+                        <linearGradient id="logoBg" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#f59e0b"/>
+                            <stop offset="1" stop-color="#c2410c"/>
+                        </linearGradient>
+                        <linearGradient id="logoRim" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#fef3c7"/>
+                            <stop offset="1" stop-color="#f59e0b"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div>
+                    <span class="brand-wordmark">Foodie</span>
+                    <span class="brand-sub">Nairobi Kitchen</span>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-warning border-opacity-50" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active fw-semibold" href="#recommendedSection">Curated Picks</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#menuSection">Kitchen Menu</a></li>
+                                    </ul>
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <button class="btn nav-pill-btn nav-pill-glass" onclick="openProfileModal()">◈ Profile</button>
+                    <button th:if="${loggedInUser == null}" class="btn nav-pill-btn nav-pill-glass" data-bs-toggle="modal" data-bs-target="#authModal">✦ Sign In</button>
+                    <button th:if="${loggedInUser != null}" class="btn nav-pill-btn nav-pill-glass" onclick="logoutUser()">Sign Out</button>
+                    <button class="btn nav-pill-btn nav-pill-glass" onclick="loadOrderHistory()">☰ Orders</button>
+                    <button class="btn nav-pill-btn btn-warning text-dark fw-extrabold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
+                        🛒 Cart (<span id="cartCount">0</span>)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="hero-stage p-4 p-lg-5 mb-5 anim-enter">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 fw-bold px-3 py-2 rounded-pill mb-3">
+                        ✦ Artisanal Kenyan Cuisine • Delivered Hot in Nairobi
+                    </span>
+                    <h1 class="display-5 font-editorial fw-bold mb-3 lh-sm">
+                        Fire-Roasted Heritage, Crafted for <span class="text-warning" th:text="${loggedInUser != null ? loggedInUser.fullName : 'Nairobi'}">Nairobi</span>
+                    </h1>
+                    <p class="text-light opacity-75 mb-4" style="font-size: 1.04rem; line-height: 1.65;">
+                        From charcoal-seared Nyama Choma and coastal Swahili Pilau to spiced Masala Chai—prepared fresh to order and delivered hot across Nairobi.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="#menuSection" class="btn btn-warning btn-lg rounded-pill fw-bold px-4 text-dark shadow">Explore Full Menu</a>
+                        <a href="#recommendedSection" class="btn btn-outline-light btn-lg rounded-pill px-4">Your Top Picks</a>
+                    </div>
+                    <div class="hero-metrics">
+                        <div>
+                            <div class="hero-metric-val">25–35 Min</div>
+                            <div class="hero-metric-lbl">Nairobi Express Delivery</div>
+                        </div>
+                        <div>
+                            <div class="hero-metric-val">100% Fresh</div>
+                            <div class="hero-metric-lbl">Wood-Fired & Spiced</div>
+                        </div>
+                        <div>
+                            <div class="hero-metric-val">★ 4.9 / 5</div>
+                            <div class="hero-metric-lbl">Verified Diner Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 anim-enter anim-delay-1">
+                    <div class="hero-3d-stage" id="hero3dStage">
+                    <div class="hero-ambient-ring"></div>
+                    <div class="dish-deck" id="heroDishDeck"></div>
+                    <div class="d-flex align-items-center justify-content-between mt-3 px-4">
+                        <div class="d-flex align-items-center gap-2" id="heroDeckDots"></div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="small text-secondary me-2" style="font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">Interactive Deck</span>
+                            <button type="button" class="deck-nav-btn" id="heroPrevBtn" title="Previous Dish">←</button>
+                            <button type="button" class="deck-nav-btn" id="heroNextBtn" title="Next Dish">→</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="recommendedSection" class="mb-5 anim-enter anim-delay-2">
+            <div class="d-flex justify-content-between align-items-end mb-3">
+                <div>
+                    <div class="section-kicker">Curated For Your Palate</div>
+                    <h2 class="font-editorial fw-bold mb-0"><span th:if="${loggedInUser != null}">Recommended For <span class="text-warning" th:text="${loggedInUser.fullName}">Guest</span></span><span th:if="${loggedInUser == null}">Recommended <span class="text-warning">Selections</span></span></h2>
+                </div>
+                <span class="text-secondary small d-none d-md-inline">Handpicked signature dishes</span>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4" th:each="rec : ${recommendedProducts}">
+                    <div class="card dish-card h-100">
+                        <div class="dish-img-wrap" style="cursor:pointer;"
+                             th:data-id="${rec.id}" th:data-name="${rec.name}" th:data-desc="${rec.description}"
+                             th:data-price="${rec.price}" th:data-cat="${rec.category}" th:data-img="${rec.imageUrl}"
+                             th:data-cal="${rec.nutritionalInfo != null ? rec.nutritionalInfo['calories'] : 550}"
+                             th:data-prot="${rec.nutritionalInfo != null ? rec.nutritionalInfo['protein'] : '30g'}"
+                             th:data-ing="${#strings.listJoin(rec.ingredients, ', ')}"
+                             onclick="openDishDetail(this)">
+                            <img th:src="${rec.imageUrl}" th:alt="${rec.name}"
+                                 onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'">
+                            <span class="cat-pill" th:text="${rec.category}">Main Course</span>
+                            <span class="rec-ribbon">★ Top Pick</span>
+                            <span class="price-pill">KES <span th:text="${rec.price}">400.00</span></span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold mb-1" th:text="${rec.name}">Dish Name</h5>
+                            <p class="card-text text-light opacity-75 small flex-grow-1" th:text="${rec.description}">Description</p>
+                            <div class="d-flex gap-2 mt-3 pt-2 border-top border-secondary border-opacity-25">
+                                <button class="btn btn-outline-light btn-sm rounded-pill flex-grow-1"
+                                        th:data-id="${rec.id}" th:data-name="${rec.name}" th:data-desc="${rec.description}"
+                                        th:data-price="${rec.price}" th:data-cat="${rec.category}" th:data-img="${rec.imageUrl}"
+                                        th:data-cal="${rec.nutritionalInfo != null ? rec.nutritionalInfo['calories'] : 550}"
+                                        th:data-prot="${rec.nutritionalInfo != null ? rec.nutritionalInfo['protein'] : '30g'}"
+                                        th:data-ing="${#strings.listJoin(rec.ingredients, ', ')}"
+                                        onclick="openDishDetail(this)">Details</button>
+                                <button class="btn btn-warning btn-sm rounded-pill flex-grow-1 fw-bold text-dark"
+                                        th:data-id="${rec.id}" th:data-name="${rec.name}" th:data-price="${rec.price}"
+                                        onclick="addToCart(this)">+ Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menuSection" class="mb-5">
+            <div class="mb-3">
+                <div class="section-kicker">Prepared Fresh to Order</div>
+                <h2 class="font-editorial fw-bold mb-0">Explore Our Full Kitchen Menu</h2>
+            </div>
+
+            <div class="filter-bar p-3 p-md-4 mb-4">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-4">
+                        <label class="form-label small fw-bold text-warning mb-1">Search Dishes or Ingredients</label>
+                        <input type="text" id="searchInput" class="form-control form-control-dark"
+                               placeholder="e.g. Pilau, Tilapia, Samosa, Chai..." onkeyup="applyFilters()">
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label small fw-bold text-warning mb-1">Course & Category</label>
+                        <div class="d-flex flex-wrap gap-1" id="categoryButtons">
+                            <button type="button" class="btn btn-warning btn-sm rounded-pill fw-bold text-dark active" onclick="setCategory('ALL', this)">All</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm rounded-pill"
+                                    th:each="cat : ${categories}" th:text="${cat}" th:data-cat="${cat}"
+                                    onclick="setCategory(this.getAttribute('data-cat'), this)">Category</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="priceRange" class="form-label small fw-bold text-warning mb-1">
+                            Max Budget: <span class="text-white fw-extrabold">KES <span id="priceRangeVal">1000</span></span>
+                        </label>
+                        <input type="range" class="form-range" id="priceRange" min="100" max="1000" step="50" value="1000"
+                               oninput="document.getElementById('priceRangeVal').textContent=this.value; applyFilters();">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4" id="catalogGrid">
+                <div class="col-md-4 catalog-item"
+                     th:each="product : ${products}"
+                     th:data-id="${product.id}"
+                     th:data-name="${product.name}"
+                     th:data-img="${product.imageUrl}"
+                     th:data-category="${product.category}"
+                     th:data-price="${product.price}"
+                     th:data-cal="${product.nutritionalInfo != null ? product.nutritionalInfo['calories'] : 500}"
+                     th:data-search="${#strings.toLowerCase(product.name + ' ' + product.description + ' ' + #strings.listJoin(product.ingredients, ' '))}">
+                    <div class="card dish-card h-100">
+                        <div class="dish-img-wrap" style="cursor:pointer;"
+                             th:data-id="${product.id}" th:data-name="${product.name}" th:data-desc="${product.description}"
+                             th:data-price="${product.price}" th:data-cat="${product.category}" th:data-img="${product.imageUrl}"
+                             th:data-cal="${product.nutritionalInfo != null ? product.nutritionalInfo['calories'] : 500}"
+                             th:data-prot="${product.nutritionalInfo != null ? product.nutritionalInfo['protein'] : '25g'}"
+                             th:data-ing="${#strings.listJoin(product.ingredients, ', ')}"
+                             onclick="openDishDetail(this)">
+                            <img th:src="${product.imageUrl}" th:alt="${product.name}"
+                                 onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'">
+                            <span class="cat-pill" th:text="${product.category}">Category</span>
+                            <span class="price-pill">KES <span th:text="${product.price}">400.00</span></span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h5 class="card-title fw-bold mb-0" th:text="${product.name}">Dish Name</h5>
+                                <span class="text-warning small fw-bold">★ 4.9</span>
+                            </div>
+                            <p class="card-text text-light opacity-75 small mb-2" th:text="${product.description}">Description</p>
+                            <div class="mb-2">
+                                <span class="badge bg-dark text-warning border border-warning border-opacity-25 me-1 mb-1"
+                                      th:each="ing : ${product.ingredients}" th:text="${ing}">Ingredient</span>
+                            </div>
+                            <div class="small text-secondary mb-3 flex-grow-1" th:if="${product.nutritionalInfo != null}">
+                                <span th:text="${product.nutritionalInfo['calories']} + ' kcal'">650 kcal</span> ·
+                                <span th:text="'Protein: ' + ${product.nutritionalInfo['protein']}">35g</span>
+                            </div>
+                            <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-25">
+                                <button class="btn btn-outline-light btn-sm rounded-pill flex-grow-1"
+                                        th:data-id="${product.id}" th:data-name="${product.name}" th:data-desc="${product.description}"
+                                        th:data-price="${product.price}" th:data-cat="${product.category}" th:data-img="${product.imageUrl}"
+                                        th:data-cal="${product.nutritionalInfo != null ? product.nutritionalInfo['calories'] : 500}"
+                                        th:data-prot="${product.nutritionalInfo != null ? product.nutritionalInfo['protein'] : '25g'}"
+                                        th:data-ing="${#strings.listJoin(product.ingredients, ', ')}"
+                                        onclick="openDishDetail(this)">Details</button>
+                                <button class="btn btn-warning btn-sm rounded-pill flex-grow-1 fw-bold text-dark"
+                                        th:data-id="${product.id}" th:data-name="${product.name}" th:data-price="${product.price}"
+                                        onclick="addToCart(this)">+ Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="foodie-footer pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4 pb-4 border-bottom border-warning border-opacity-10">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                            <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#footLogo)" stroke="#fbbf24" stroke-width="1.5"/>
+                            <path d="M20 8.5C15.6 13.8 13.5 17.6 13.5 21.8C13.5 25.6 16.4 28.5 20 28.5C23.6 28.5 26.5 25.6 26.5 21.8C26.5 17.6 24.4 13.8 20 8.5Z" fill="#0c0907"/>
+                            <path d="M20 15C18 17.6 17 19.6 17 21.8C17 23.6 18.3 25 20 25C21.7 25 23 23.6 23 21.8C23 19.6 22 17.6 20 15Z" fill="#fbbf24"/>
+                            <defs><linearGradient id="footLogo" x1="2" y1="2" x2="38" y2="38"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
+                        </svg>
+                        <span class="brand-wordmark fs-4">Foodie Nairobi</span>
+                    </div>
+                    <p class="text-secondary small mb-3">
+                        Celebrating East African culinary craftsmanship—from wood-fired Nyama Choma and coastal Swahili spices to fresh Lake Victoria catch, delivered hot to your door.
+                    </p>
+                    <span class="badge bg-success bg-opacity-25 text-success border border-success py-2 px-3 rounded-pill">
+                        ● Kitchen Open • Delivering Across Nairobi
+                    </span>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="text-warning fw-bold text-uppercase small mb-3">Explore</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="#recommendedSection" class="footer-link">Curated Picks</a></li>
+                        <li><a href="#menuSection" class="footer-link">Full Kitchen Menu</a></li>
+                        <li><a href="#" class="footer-link" onclick="openProfileModal(); return false;">Member Profile</a></li>
+                        <li><a href="#" class="footer-link" onclick="loadOrderHistory(); return false;">Track Orders</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h6 class="text-warning fw-bold text-uppercase small mb-3">Nairobi Delivery Zones</h6>
+                    <ul class="list-unstyled small text-secondary d-flex flex-column gap-2">
+                        <li>Westlands & Parklands (25–35 min)</li>
+                        <li>Kilimani, Kileleshwa & Lavington</li>
+                        <li>Karen, Lang'ata & Ngong Road</li>
+                        <li>Upper Hill & Nairobi CBD</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-warning fw-bold text-uppercase small mb-3">Kitchen Hours & Studio</h6>
+                    <p class="small text-secondary mb-2">Daily: 08:00 AM – 11:30 PM EAT</p>
+                    <p class="small text-secondary mb-3">Concierge: +254 700 448 920</p>
+                    <a href="/admin/churn" class="btn btn-outline-warning btn-sm rounded-pill px-3">Open Admin Studio →</a>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap justify-content-between align-items-center pt-3 small text-secondary">
+                <span>© 2026 Foodie Nairobi Culinary Group. All rights reserved.</span>
+                <span>Spring Boot • MongoDB • MySQL</span>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+    <div id="foodieToast" class="toast align-items-center text-bg-warning border-0 fw-bold text-dark rounded-pill px-2" role="alert">
+        <div class="d-flex">
+            <div class="toast-body" id="foodieToastMsg">Added to cart!</div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="dishDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content foodie-modal-content rounded-4 overflow-hidden">
+            <div class="row g-0">
+                <div class="col-md-5">
+                    <img id="detailImg" src="" alt="Dish" class="w-100 h-100" style="object-fit: cover; min-height: 280px;">
+                </div>
+                <div class="col-md-7 p-4">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <span id="detailCat" class="badge bg-warning text-dark rounded-pill px-3 mb-2">Category</span>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <h4 id="detailName" class="font-editorial fw-bold mb-2">Dish Name</h4>
+                    <p id="detailDesc" class="text-light opacity-75 small mb-3">Description</p>
+                    <div class="bg-black bg-opacity-50 border border-warning border-opacity-25 rounded-3 p-3 mb-3 small">
+                        <div><strong class="text-warning">Ingredients:</strong> <span id="detailIng"></span></div>
+                        <div class="mt-1"><strong class="text-warning">Nutrition:</strong> <span id="detailNutrition"></span> · <span class="text-success fw-semibold">Freshly Prepared</span></div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="fs-4 fw-extrabold text-warning">KES <span id="detailPrice">0.00</span></span>
+                        <button id="detailAddBtn" class="btn btn-warning text-dark rounded-pill fw-bold px-4">+ Add to Order</button>
+                    </div>
+                    <div class="border-top border-warning border-opacity-10 pt-3">
+                        <div class="small fw-bold text-uppercase text-warning mb-2">Similar Dishes</div>
+                        <div id="similarItemsContainer" class="d-flex flex-wrap gap-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="profileModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content foodie-modal-content rounded-4">
+            <div class="modal-header foodie-modal-header">
+                <h5 class="modal-title font-editorial fw-bold text-warning">◈ Member Dining Profile</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4 p-3 rounded-4 bg-black bg-opacity-50 border border-warning border-opacity-25">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="rounded-circle bg-warning text-dark fw-extrabold d-flex align-items-center justify-content-center shadow"
+                             style="width:58px;height:58px;font-size:1.4rem;" th:text="${#strings.substring(activeUser.fullName,0,1)}">T</div>
+                        <div>
+                            <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 mb-1" th:text="${activeUser.role == 'ROLE_ADMIN' ? 'Kitchen Administrator' : 'Verified Diner'}">Verified Diner</span>
+                            <h5 class="mb-0 fw-bold" th:text="${activeUser.fullName}">Trevor Lamar</h5>
+                            <small class="text-secondary" th:text="${activeUser.email}">trevor@foodie.co.ke</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-warning btn-sm rounded-pill px-3" onclick="bootstrap.Modal.getInstance(document.getElementById('profileModal')).hide(); loadOrderHistory();">
+                        View Orders (<span th:text="${orderCount}">0</span>)
+                    </button>
+                </div>
+
+                <div class="row g-3 text-center mb-4">
+                    <div class="col-sm-4">
+                        <div class="p-3 bg-black bg-opacity-50 border border-warning border-opacity-15 rounded-3">
+                            <div class="fs-4 fw-bold text-warning" th:text="${orderCount}">0</div>
+                            <small class="text-secondary">Completed Orders</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="p-3 bg-black bg-opacity-50 border border-warning border-opacity-15 rounded-3">
+                            <div class="fs-4 fw-bold text-warning" id="profileTotalSpent">KES 0</div>
+                            <small class="text-secondary">Total Spent</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="p-3 bg-black bg-opacity-50 border border-warning border-opacity-15 rounded-3">
+                            <div class="fs-4 fw-bold text-success">Ready</div>
+                            <small class="text-secondary">Nairobi Express</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-3 rounded-4 bg-black bg-opacity-40 border border-warning border-opacity-15 h-100">
+                            <h6 class="text-warning fw-bold small text-uppercase mb-3">Delivery Details</h6>
+                            <div class="mb-2">
+                                <label class="form-label small text-secondary mb-1">Nairobi Zone / Estate</label>
+                                <select id="profZone" class="form-select form-select-sm form-select-dark">
+                                    <option value="Westlands & Parklands">Westlands & Parklands</option>
+                                    <option value="Kilimani & Kileleshwa">Kilimani & Kileleshwa</option>
+                                    <option value="Lavington">Lavington</option>
+                                    <option value="Karen & Lang'ata">Karen & Lang'ata</option>
+                                    <option value="Upper Hill & CBD">Upper Hill & CBD</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label small text-secondary mb-1">Street / Apartment / Landmark</label>
+                                <input type="text" id="profAddress" class="form-control form-control-sm form-control-dark" placeholder="e.g. Waiyaki Way, Apt 4B">
+                            </div>
+                            <div>
+                                <label class="form-label small text-secondary mb-1">Phone Number</label>
+                                <input type="text" id="profPhone" class="form-control form-control-sm form-control-dark" placeholder="+254 7XX XXX XXX">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 rounded-4 bg-black bg-opacity-40 border border-warning border-opacity-15 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <h6 class="text-warning fw-bold small text-uppercase mb-3">Taste & Spice Preferences</h6>
+                                <div class="d-flex flex-wrap gap-2 mb-3" id="profPrefChips">
+                                    <button type="button" class="pref-chip" data-pref="Extra Chili / Pilipili" onclick="togglePrefChip(this)">Extra Chili / Pilipili</button>
+                                    <button type="button" class="pref-chip" data-pref="Charcoal Grilled" onclick="togglePrefChip(this)">Charcoal Grilled</button>
+                                    <button type="button" class="pref-chip" data-pref="Coastal Spices" onclick="togglePrefChip(this)">Coastal Spices</button>
+                                    <button type="button" class="pref-chip" data-pref="Less Oil" onclick="togglePrefChip(this)">Less Oil</button>
+                                </div>
+                                <label class="form-label small text-secondary mb-1">Kitchen Note</label>
+                                <input type="text" id="profNote" class="form-control form-control-sm form-control-dark" placeholder="e.g. Pack kachumbari separately">
+                            </div>
+                            <div class="mt-3 pt-2 d-flex justify-content-between align-items-center">
+                                <span class="small text-success" id="profSaveStatus"></span>
+                                <button class="btn btn-warning btn-sm rounded-pill fw-bold text-dark px-4" onclick="saveProfilePrefs()">Save Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="authModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content foodie-modal-content rounded-4">
+            <div class="modal-header foodie-modal-header">
+                <h5 class="modal-title font-editorial fw-bold text-warning">✦ Foodie Club Access</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <button type="button" class="btn google-btn w-100 py-2 mb-3 d-flex align-items-center justify-content-center gap-2" onclick="signInWithGoogle()">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.5-1.14 2.77-2.4 3.62v3.01h3.88c2.27-2.09 3.54-5.17 3.54-8.87z"/>
+                        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.01c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.26v3.1C3.23 21.3 7.31 24 12 24z"/>
+                        <path fill="#FBBC05" d="M5.28 14.28c-.24-.72-.38-1.49-.38-2.28s.14-1.56.38-2.28V6.62H1.26C.46 8.21 0 10.05 0 12s.46 3.79 1.26 5.38l4.02-3.1z"/>
+                        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.23 2.7 1.26 6.62l4.02 3.1c.95-2.85 3.6-4.97 6.72-4.97z"/>
+                    </svg>
+                    <span>Continue with Google</span>
+                </button>
+
+                <div class="auth-divider mb-3"><span>or sign in with email</span></div>
+
+                <ul class="nav nav-pills foodie-pill-tabs nav-fill mb-3 p-1 bg-black bg-opacity-50 rounded-pill border border-warning border-opacity-25">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#loginTab">Sign In</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#registerTab">Create Account</button></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="loginTab">
+                        <div class="mb-3"><label class="form-label small fw-bold text-warning">Email Address</label><input type="email" id="loginEmail" class="form-control form-control-dark" value="" placeholder="you@example.com"></div>
+                        <div class="mb-3"><label class="form-label small fw-bold text-warning">Password</label><input type="password" id="loginPassword" class="form-control form-control-dark" value="" placeholder="Enter your password"></div>
+                        <button class="btn btn-warning text-dark rounded-pill w-100 fw-bold py-2" onclick="submitLogin()">Sign In to Kitchen</button>
+                    </div>
+                    <div class="tab-pane fade" id="registerTab">
+                        <div class="mb-2"><label class="form-label small fw-bold text-warning">Full Name</label><input type="text" id="regName" class="form-control form-control-dark" placeholder="Your Full Name"></div>
+                        <div class="mb-2"><label class="form-label small fw-bold text-warning">Email Address</label><input type="email" id="regEmail" class="form-control form-control-dark" placeholder="you@example.com"></div>
+                        <div class="mb-3"><label class="form-label small fw-bold text-warning">Password</label><input type="password" id="regPassword" class="form-control form-control-dark" placeholder="Min 4 characters"></div>
+                        <button class="btn btn-warning text-dark rounded-pill w-100 fw-bold py-2" onclick="submitRegister()">Create Account</button>
+                    </div>
+                </div>
+                <div id="authAlert" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end foodie-offcanvas" tabindex="-1" id="cartDrawer">
+    <div class="offcanvas-header foodie-modal-header">
+        <div>
+            <h5 class="offcanvas-title font-editorial fw-bold text-warning mb-0">🛒 Your Kitchen Tray</h5>
+            <small class="text-secondary">Prepared fresh upon confirmation</small>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column p-4">
+        <div id="cartItems" class="flex-grow-1">
+            <div class="text-center py-5 text-secondary">
+                <div class="fs-2 mb-2">🍽</div>
+                <p class="mb-0">Your tray is empty.<br>Select any dish from the menu to begin.</p>
+            </div>
+        </div>
+        <div class="border-top border-warning border-opacity-25 pt-3 mt-3">
+            <div class="d-flex justify-content-between align-items-center mb-1 small text-secondary">
+                <span>Nairobi Express Delivery</span>
+                <span class="text-success fw-semibold">FREE</span>
+            </div>
+            <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
+                <span>Total Due:</span>
+                <span class="text-warning">KES <span id="cartTotal">0.00</span></span>
+            </div>
+            <button class="btn btn-warning text-dark rounded-pill w-100 fw-extrabold py-2 shadow" onclick="submitOrder()">
+                Confirm & Place Order →
+            </button>
+            <div id="checkoutAlert" class="mt-3"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ordersModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content foodie-modal-content rounded-4">
+            <div class="modal-header foodie-modal-header d-flex justify-content-between align-items-center">
+                <h5 class="modal-title font-editorial fw-bold text-warning mb-0">☰ Your Culinary Order History</h5>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-outline-danger btn-sm rounded-pill px-3" onclick="clearOrderHistory()">Clear History</button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+            </div>
+            <div class="modal-body p-4" id="ordersModalBody">Loading...</div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:inline="javascript">
+    const activeUserId = /*[[${userId}]]*/ 1;
+    const isLoggedIn = /*[[${loggedInUser != null}]]*/ false;
+    function requireAuth(msg) { if (!isLoggedIn) { document.getElementById('authAlert').innerHTML = '<div class="alert alert-warning rounded-4 py-2 small fw-semibold">' + (msg || 'Please sign in or create an account first.') + '</div>'; new bootstrap.Modal(document.getElementById('authModal')).show(); return false; } return true; }
+    let selectedCategory = 'ALL';
+    let cart = [];
+
+    const dishCatalog = Array.from(document.querySelectorAll('.catalog-item')).map(el => ({
+        id: el.getAttribute('data-id'),
+        name: el.getAttribute('data-name'),
+        price: parseFloat(el.getAttribute('data-price')),
+        imageUrl: el.getAttribute('data-img'),
+        category: el.getAttribute('data-category'),
+        calories: el.getAttribute('data-cal') || '550'
+    }));
+    const dishById = Object.fromEntries(dishCatalog.map(d => [d.id, d]));
+
+    (function initEditorialShowcase() {
+        const featured = dishCatalog.slice(0, 4);
+        if (!featured.length) return;
+        const strip = document.getElementById('heroThumbStrip');
+        strip.innerHTML = featured.map((d, idx) =>
+            `<img src="${d.imageUrl}" alt="${d.name}" class="showcase-thumb ${idx === 0 ? 'active' : ''}" data-idx="${idx}">`
+        ).join('');
+
+        function setFeatured(idx) {
+            const d = featured[idx];
+            const imgEl = document.getElementById('heroShowcaseImg');
+            imgEl.style.opacity = '0.35';
+            setTimeout(() => {
+                imgEl.src = d.imageUrl;
+                imgEl.style.opacity = '1';
+            }, 140);
+            document.getElementById('heroShowcaseCat').textContent = d.category;
+            document.getElementById('heroShowcaseTitle').textContent = d.name;
+            document.getElementById('heroShowcaseMeta').textContent = `KES ${d.price.toFixed(2)} • ${d.calories} kcal`;
+            document.getElementById('heroShowcaseBtn').onclick = () => addItemToCartState(d.id, d.name, d.price);
+            strip.querySelectorAll('.showcase-thumb').forEach((t, i) => t.classList.toggle('active', i === idx));
+        }
+
+        strip.querySelectorAll('.showcase-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => setFeatured(parseInt(thumb.getAttribute('data-idx'), 10)));
+        });
+        setFeatured(0);
+    })();
+
+    const profileStorageKey = `foodie_profile_${activeUserId}`;
+    function getSavedProfile() {
+        try { return JSON.parse(localStorage.getItem(profileStorageKey) || '{}'); }
+        catch (_) { return {}; }
+    }
+    function togglePrefChip(btn) {
+        btn.classList.toggle('active');
+    }
+    function saveProfilePrefs() {
+        const prefs = Array.from(document.querySelectorAll('#profPrefChips .pref-chip.active')).map(b => b.getAttribute('data-pref'));
+        const payload = {
+            zone: document.getElementById('profZone').value,
+            address: document.getElementById('profAddress').value.trim(),
+            phone: document.getElementById('profPhone').value.trim(),
+            note: document.getElementById('profNote').value.trim(),
+            prefs
+        };
+        localStorage.setItem(profileStorageKey, JSON.stringify(payload));
+        document.getElementById('profSaveStatus').textContent = '✓ Saved';
+        setTimeout(() => { document.getElementById('profSaveStatus').textContent = ''; }, 2500);
+        showToast('Profile preferences saved');
+    }
+    async function openProfileModal() {
+        if (!requireAuth('Sign in or create an account to view your profile.')) return;
+        const saved = getSavedProfile();
+        if (saved.zone) document.getElementById('profZone').value = saved.zone;
+        if (saved.address) document.getElementById('profAddress').value = saved.address;
+        if (saved.phone) document.getElementById('profPhone').value = saved.phone;
+        if (saved.note) document.getElementById('profNote').value = saved.note;
+        const activePrefs = new Set(saved.prefs || []);
+        document.querySelectorAll('#profPrefChips .pref-chip').forEach(b => {
+            b.classList.toggle('active', activePrefs.has(b.getAttribute('data-pref')));
+        });
+
+        try {
+            const res = await fetch(`/api/orders/user/${activeUserId}`);
+            const orders = await res.json();
+            const sum = orders.reduce((acc, o) => acc + parseFloat(o.totalAmount || 0), 0);
+            document.getElementById('profileTotalSpent').textContent = `KES ${sum.toFixed(0)}`;
+        } catch (_) {}
+
+        new bootstrap.Modal(document.getElementById('profileModal')).show();
+    }
+
+    function showToast(msg) {
+        document.getElementById('foodieToastMsg').textContent = msg;
+        new bootstrap.Toast(document.getElementById('foodieToast'), { delay: 2200 }).show();
+    }
+
+    function trackClickstream(productId, productName, eventType) {
+        fetch('/api/portal/clickstream', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId: activeUserId, productId, productName, eventType })
+        }).catch(() => {});
+    }
+
+    function openDishDetail(el) {
+        const id = el.getAttribute('data-id');
+        const name = el.getAttribute('data-name');
+        const desc = el.getAttribute('data-desc');
+        const price = el.getAttribute('data-price');
+        const cat = el.getAttribute('data-cat');
+        const img = el.getAttribute('data-img');
+        const cal = el.getAttribute('data-cal');
+        const prot = el.getAttribute('data-prot');
+        const ing = el.getAttribute('data-ing');
+
+        document.getElementById('detailImg').src = img;
+        document.getElementById('detailCat').textContent = cat;
+        document.getElementById('detailName').textContent = name;
+        document.getElementById('detailDesc').textContent = desc;
+        document.getElementById('detailIng').textContent = ing;
+        document.getElementById('detailNutrition').textContent = `${cal} kcal | Protein: ${prot}`;
+        document.getElementById('detailPrice').textContent = price;
+
+        document.getElementById('detailAddBtn').onclick = () => {
+            addItemToCartState(id, name, parseFloat(price));
+            bootstrap.Modal.getInstance(document.getElementById('dishDetailModal')).hide();
+        };
+
+        const similarBox = document.getElementById('similarItemsContainer');
+        const matches = Array.from(document.querySelectorAll('.catalog-item'))
+            .filter(c => c.getAttribute('data-category') === cat && !c.getAttribute('data-search').includes(name.toLowerCase()))
+            .slice(0, 3);
+        similarBox.innerHTML = matches.length
+            ? matches.map(m => {
+                const title = m.querySelector('.card-title').textContent;
+                const p = m.getAttribute('data-price');
+                return `<span class="badge bg-black text-warning border border-warning border-opacity-25 rounded-pill px-3 py-2">${title} · KES ${p}</span>`;
+            }).join('')
+            : '<span class="text-secondary small">Chef signature specialty</span>';
+
+        trackClickstream(id, name, 'VIEW');
+        new bootstrap.Modal(document.getElementById('dishDetailModal')).show();
+    }
+
+    function addToCart(btn) {
+        addItemToCartState(btn.getAttribute('data-id'), btn.getAttribute('data-name'), parseFloat(btn.getAttribute('data-price')));
+    }
+
+    function addItemToCartState(id, name, price) {
+        const existing = cart.find(item => item.productId === id);
+        if (existing) existing.quantity += 1;
+        else cart.push({ productId: id, name, price, quantity: 1 });
+        renderCart();
+        trackClickstream(id, name, 'ADD_TO_CART');
+        showToast(`Added "${name}" to your tray`);
+    }
+
+    function updateQty(index, delta) {
+        cart[index].quantity += delta;
+        if (cart[index].quantity <= 0) cart.splice(index, 1);
+        renderCart();
+    }
+
+    function renderCart() {
+        document.getElementById('cartCount').textContent = cart.reduce((s, i) => s + i.quantity, 0);
+        document.getElementById('cartTotal').textContent = cart.reduce((s, i) => s + (i.price * i.quantity), 0).toFixed(2);
+        const itemsEl = document.getElementById('cartItems');
+        if (!cart.length) {
+            itemsEl.innerHTML = `<div class="text-center py-5 text-secondary"><div class="fs-2 mb-2">🍽</div><p class="mb-0">Your tray is empty.<br>Select any dish from the menu to begin.</p></div>`;
+            return;
+        }
+        itemsEl.innerHTML = cart.map((item, idx) => `
+            <div class="cart-item-card d-flex justify-content-between align-items-center mb-2">
+                <div>
+                    <div class="fw-bold">${item.name}</div>
+                    <small class="text-warning">KES ${(item.price * item.quantity).toFixed(2)} <span class="text-secondary">(${item.quantity} × ${item.price})</span></small>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-warning rounded-start-pill" onclick="updateQty(${idx}, -1)">-</button>
+                    <button class="btn btn-dark disabled text-white fw-bold">${item.quantity}</button>
+                    <button class="btn btn-outline-warning rounded-end-pill" onclick="updateQty(${idx}, 1)">+</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function submitOrder() {
+        const alertEl = document.getElementById('checkoutAlert');
+        if (!cart.length) { alertEl.innerHTML = '<div class="alert alert-warning rounded-pill py-2 text-center small fw-bold">Add dishes to your tray first.</div>'; return; }
+        try {
+            const res = await fetch('/api/orders', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId: activeUserId, items: cart.map(c => ({ productId: c.productId, quantity: c.quantity })) })
+            });
+            if (!res.ok) throw new Error(await res.text());
+            const order = await res.json();
+            cart.forEach(c => trackClickstream(c.productId, c.name, 'PURCHASE'));
+            cart = [];
+            renderCart();
+            alertEl.innerHTML = `<div class="alert alert-success rounded-4 py-2 small fw-semibold">✓ Order #${order.id} confirmed! Total: KES ${order.totalAmount}</div>`;
+        } catch (err) {
+            alertEl.innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">Checkout failed: ${err.message}</div>`;
+        }
+    }
+
+    function formatOrderDate(raw) {
+        if (!raw) return 'Just now';
+        const d = new Date(raw);
+        if (isNaN(d.getTime())) return raw;
+        return d.toLocaleString('en-KE', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+
+    async function loadOrderHistory() {
+        if (!requireAuth('Sign in or create an account to view your order history.')) return;
+        const modal = new bootstrap.Modal(document.getElementById('ordersModal'));
+        const body = document.getElementById('ordersModalBody');
+        body.innerHTML = '<div class="text-center py-4 text-warning">Loading your order history...</div>';
+        modal.show();
+        const res = await fetch(`/api/orders/user/${activeUserId}`);
+        const orders = await res.json();
+        if (!orders.length) {
+            body.innerHTML = `<div class="text-center py-5 text-secondary"><div class="fs-2 mb-2">🍽</div><p class="mb-0">No orders placed yet for this account.</p></div>`;
+            return;
+        }
+        body.innerHTML = orders.map(o => `
+            <div class="cart-item-card mb-3">
+                <div class="d-flex justify-content-between align-items-center pb-2 mb-2 border-bottom border-warning border-opacity-10">
+                    <div>
+                        <strong class="text-warning fs-6">Order #${o.id}</strong>
+                        <span class="text-secondary small ms-2">• ${formatOrderDate(o.createdAt)}</span>
+                    </div>
+                    <span class="badge bg-success bg-opacity-25 text-success border border-success rounded-pill px-3">${o.status}</span>
+                </div>
+                <div class="d-flex flex-column gap-2 mb-3">
+                    ${o.items.map(i => {
+                        const dish = dishById[i.productId];
+                        const title = dish ? dish.name : 'Chef Signature Dish';
+                        const thumb = dish ? dish.imageUrl : 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=200&q=80';
+                        const lineTotal = (parseFloat(i.price) * i.quantity).toFixed(2);
+                        return `
+                            <div class="d-flex justify-content-between align-items-center bg-black bg-opacity-40 rounded-3 p-2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="${thumb}" alt="" style="width:42px;height:42px;object-fit:cover;border-radius:8px;">
+                                    <div>
+                                        <div class="fw-semibold text-white small">${title}</div>
+                                        <div class="text-secondary" style="font-size:0.76rem;">Qty ${i.quantity} × KES ${i.price}</div>
+                                    </div>
+                                </div>
+                                <div class="fw-bold text-warning small">KES ${lineTotal}</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top border-warning border-opacity-10">
+                    <span class="small text-secondary">Total Paid</span>
+                    <span class="fw-extrabold text-warning fs-6">KES ${o.totalAmount}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function clearOrderHistory() {
+        await fetch(`/api/portal/orders/user/${activeUserId}`, { method: 'DELETE' });
+        document.getElementById('ordersModalBody').innerHTML =
+            `<div class="text-center py-5 text-secondary"><div class="fs-2 mb-2">✓</div><p class="mb-0">Order history cleared.</p></div>`;
+        showToast('Order history cleared');
+    }
+
+    function setCategory(cat, btn) {
+        selectedCategory = cat;
+        document.querySelectorAll('#categoryButtons .btn').forEach(b => {
+            b.classList.remove('btn-warning', 'text-dark', 'fw-bold', 'active');
+            b.classList.add('btn-outline-warning');
+        });
+        btn.classList.remove('btn-outline-warning');
+        btn.classList.add('btn-warning', 'text-dark', 'fw-bold', 'active');
+        applyFilters();
+    }
+
+    function applyFilters() {
+        const q = document.getElementById('searchInput').value.trim().toLowerCase();
+        const maxPrice = parseFloat(document.getElementById('priceRange').value);
+        document.querySelectorAll('.catalog-item').forEach(card => {
+            const matchCat = (selectedCategory === 'ALL' || card.getAttribute('data-category') === selectedCategory);
+            const matchPrice = parseFloat(card.getAttribute('data-price')) <= maxPrice;
+            const matchQuery = (!q || card.getAttribute('data-search').includes(q));
+            card.style.display = (matchCat && matchPrice && matchQuery) ? 'block' : 'none';
+        });
+    }
+
+    async function signInWithGoogle() {
+        const res = await fetch('/api/portal/google-login', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fullName: 'Trevor Lamar', email: 'trevor@foodie.co.ke' })
+        });
+        const data = await res.json();
+        if (res.ok) window.location.href = `/store?userId=${data.id}`;
+        else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error || 'Google sign-in failed'}</div>`;
+    }
+
+    async function submitLogin() {
+        const res = await fetch('/api/portal/login', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value })
+        });
+        const data = await res.json();
+        if (res.ok) window.location.href = data.role === 'ROLE_ADMIN' ? '/admin/churn' : `/?userId=${data.id}`;
+        else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error}</div>`;
+    }
+
+    async function submitRegister() {
+        const res = await fetch('/api/portal/register', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fullName: document.getElementById('regName').value, email: document.getElementById('regEmail').value, password: document.getElementById('regPassword').value })
+        });
+        const data = await res.json();
+        if (res.ok) window.location.href = `/store?userId=${data.id}`;
+        else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error}</div>`;
+    }
+
+    async function logoutUser() {
+        await fetch('/api/portal/logout', { method: 'POST' });
+        window.location.href = '/store';
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    (function initStorefrontThreeAndMotion() {
+        const cards = document.querySelectorAll('.dish-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, idx) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('card-visible'), (idx % 3) * 85);
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        cards.forEach(c => cardObserver.observe(c));
+
+        const canvas = document.getElementById('threeBgCanvas');
+        if (!window.THREE || !canvas) return;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const uniforms = {
+            uTime: { value: 0 },
+            uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+            uScroll: { value: 0 },
+            uRes: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+        };
+
+        const shaderMat = new THREE.ShaderMaterial({
+            uniforms,
+            vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                precision highp float;
+                varying vec2 vUv;
+                uniform float uTime;
+                uniform vec2 uMouse;
+                uniform float uScroll;
+                uniform vec2 uRes;
+
+                float hash(vec2 p) {
+                    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+                }
+                float noise(vec2 p) {
+                    vec2 i = floor(p);
+                    vec2 f = fract(p);
+                    vec2 u = f * f * (3.0 - 2.0 * f);
+                    return mix(
+                        mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
+                        mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+                        u.y
+                    );
+                }
+                float fbm(vec2 p) {
+                    float v = 0.0;
+                    float a = 0.5;
+                    for (int i = 0; i < 5; i++) {
+                        v += a * noise(p);
+                        p = p * 2.02 + vec2(1.7, 9.2);
+                        a *= 0.5;
+                    }
+                    return v;
+                }
+
+                void main() {
+                    vec2 uv = vUv;
+                    float aspect = uRes.x / max(uRes.y, 1.0);
+                    vec2 p = vec2(uv.x * aspect, uv.y + uScroll * 0.22);
+
+                    float t = uTime * 0.13;
+                    vec2 q = vec2(fbm(p * 1.4 + vec2(0.0, -t)), fbm(p * 1.4 + vec2(5.2, -t * 1.2)));
+                    float smoke = fbm(p * 1.8 + 2.2 * q - vec2(0.0, t * 1.5));
+
+                    vec2 m = vec2(uMouse.x * aspect, 1.0 - uMouse.y);
+                    float cursorGlow = exp(-distance(vec2(uv.x * aspect, uv.y), m) * 2.5) * 0.18;
+
+                    vec3 obsidian = vec3(0.028, 0.020, 0.016);
+                    vec3 deepEmber = vec3(0.28, 0.09, 0.02);
+                    vec3 saffronGold = vec3(0.82, 0.45, 0.05);
+
+                    vec3 col = mix(obsidian, deepEmber, smoothstep(0.30, 0.88, smoke) * 0.58);
+                    col += saffronGold * pow(smoothstep(0.48, 0.96, smoke), 2.2) * 0.26;
+                    col += saffronGold * cursorGlow;
+
+                    float vig = smoothstep(1.25, 0.25, length((uv - 0.5) * vec2(1.2, 1.0)));
+                    col *= (0.55 + 0.45 * vig);
+
+                    gl_FragColor = vec4(col, 1.0);
+                }
+            `
+        });
+
+        const quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMat);
+        scene.add(quad);
+
+        const pScene = new THREE.Scene();
+        const pCam = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+        pCam.position.z = 20;
+
+        const spriteCanvas = document.createElement('canvas');
+        spriteCanvas.width = 64;
+        spriteCanvas.height = 64;
+        const ctx = spriteCanvas.getContext('2d');
+        const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        grad.addColorStop(0, 'rgba(255, 230, 160, 1)');
+        grad.addColorStop(0.35, 'rgba(245, 158, 11, 0.6)');
+        grad.addColorStop(1, 'rgba(245, 158, 11, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 64, 64);
+        const bokehTex = new THREE.CanvasTexture(spriteCanvas);
+
+        const count = 80;
+        const pos = new Float32Array(count * 3);
+        const vel = new Float32Array(count);
+        for (let i = 0; i < count; i++) {
+            pos[i * 3] = (Math.random() - 0.5) * 38;
+            pos[i * 3 + 1] = (Math.random() - 0.5) * 24;
+            pos[i * 3 + 2] = (Math.random() - 0.5) * 14;
+            vel[i] = 0.005 + Math.random() * 0.011;
+        }
+        const pGeo = new THREE.BufferGeometry();
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        const pMat = new THREE.PointsMaterial({
+            map: bokehTex,
+            size: 0.6,
+            transparent: true,
+            opacity: 0.48,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+        });
+        const bokehPoints = new THREE.Points(pGeo, pMat);
+        pScene.add(bokehPoints);
+
+        renderer.autoClear = false;
+
+        window.addEventListener('mousemove', e => {
+            uniforms.uMouse.value.set(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
+        });
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            uniforms.uRes.value.set(window.innerWidth, window.innerHeight);
+            pCam.aspect = window.innerWidth / window.innerHeight;
+            pCam.updateProjectionMatrix();
+        });
+
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const t = clock.getElapsedTime();
+            uniforms.uTime.value = t;
+            uniforms.uScroll.value = window.scrollY / Math.max(window.innerHeight, 1);
+
+            const arr = pGeo.attributes.position.array;
+            for (let i = 0; i < count; i++) {
+                arr[i * 3 + 1] += vel[i];
+                arr[i * 3] += Math.sin(t * 0.6 + i) * 0.003;
+                if (arr[i * 3 + 1] > 13) arr[i * 3 + 1] = -13;
+            }
+            pGeo.attributes.position.needsUpdate = true;
+
+            renderer.clear();
+            renderer.render(scene, camera);
+            renderer.render(pScene, pCam);
+        }
+        animate();
+    })();
+</script>
+<script id="hero3dDeckScript">
+    (function initInteractiveHeroDeck() {
+        const deckEl = document.getElementById('heroDishDeck');
+        const dotsEl = document.getElementById('heroDeckDots');
+        const stageEl = document.getElementById('hero3dStage');
+        if (!deckEl || !dotsEl) return;
+
+        // Gather featured dishes directly from rendered menu cards so IDs, prices & images match 100%
+        const menuCards = Array.from(document.querySelectorAll('#menuGrid .dish-card, .dish-card')).slice(0, 4);
+        const slides = menuCards.length >= 2 ? menuCards.map((card, i) => {
+            const img = card.querySelector('img')?.src || 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85';
+            const title = card.querySelector('h5, .card-title')?.textContent?.trim() || 'Signature Dish';
+            const cat = card.querySelector('.cat-badge')?.textContent?.trim() || 'House Feature';
+            const price = card.querySelector('.price-badge')?.textContent?.trim() || 'KES 650';
+            const btn = card.querySelector('button[onclick*="addToCart"]');
+            const onclickAttr = btn ? btn.getAttribute('onclick') : '';
+            return { img, title, cat, price, onclickAttr, idx: i };
+        }) : [
+            { img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=900&q=85', title: 'Swahili Beef Pilau', cat: 'Main Course', price: 'KES 400.00', onclickAttr: '' },
+            { img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85', title: 'Charcoal Nyama Choma', cat: 'Grill Signature', price: 'KES 850.00', onclickAttr: '' },
+            { img: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=900&q=85', title: 'Lake Victoria Tilapia', cat: 'Fresh Catch', price: 'KES 780.00', onclickAttr: '' },
+            { img: 'https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&w=900&q=85', title: 'Kenyan Masala Chai', cat: 'Highland Brew', price: 'KES 220.00', onclickAttr: '' }
+        ];
+
+        let activeIndex = 0;
+        let timer = null;
+
+        deckEl.innerHTML = slides.map((s, idx) => `
+            <div class="deck-card" data-index="${idx}">
+                <img src="${s.img}" alt="${s.title}">
+                <div class="deck-card-overlay">
+                    <div>
+                        <span class="deck-pill-tag">${s.cat}</span>
+                        <h3 class="deck-dish-title">${s.title}</h3>
+                        <div class="deck-dish-meta">${s.price} • Prepared Fresh to Order</div>
+                    </div>
+                    ${s.onclickAttr ? `<button type="button" class="deck-add-btn" onclick="${s.onclickAttr}">+ Add Dish</button>` : ''}
+                </div>
+            </div>
+        `).join('');
+
+        dotsEl.innerHTML = slides.map((_, idx) => `<button type="button" class="deck-dot" data-dot="${idx}" aria-label="Slide ${idx + 1}"></button>`).join('');
+
+        const cardNodes = Array.from(deckEl.querySelectorAll('.deck-card'));
+        const dotNodes = Array.from(dotsEl.querySelectorAll('.deck-dot'));
+
+        function renderDeck() {
+            const total = cardNodes.length;
+            cardNodes.forEach((node, i) => {
+                node.classList.remove('is-active', 'is-next', 'is-prev', 'is-back');
+                if (i === activeIndex) node.classList.add('is-active');
+                else if (i === (activeIndex + 1) % total) node.classList.add('is-next');
+                else if (i === (activeIndex - 1 + total) % total) node.classList.add('is-prev');
+                else node.classList.add('is-back');
+            });
+            dotNodes.forEach((d, i) => {
+                d.classList.remove('active');
+                void d.offsetWidth; // restart progress animation
+                if (i === activeIndex) d.classList.add('active');
+            });
+        }
+
+        function goTo(index) {
+            const total = cardNodes.length;
+            activeIndex = (index + total) % total;
+            renderDeck();
+            resetAutoPlay();
+        }
+
+        function resetAutoPlay() {
+            clearInterval(timer);
+            timer = setInterval(() => goTo(activeIndex + 1), 4800);
+        }
+
+        cardNodes.forEach((node, i) => {
+            node.addEventListener('click', (e) => {
+                if (e.target.closest('button')) return;
+                if (i !== activeIndex) goTo(i);
+            });
+        });
+
+        dotNodes.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+        document.getElementById('heroPrevBtn')?.addEventListener('click', () => goTo(activeIndex - 1));
+        document.getElementById('heroNextBtn')?.addEventListener('click', () => goTo(activeIndex + 1));
+
+        // 3D Pointer Tilt Physics
+        if (stageEl) {
+            stageEl.addEventListener('mousemove', (e) => {
+                const rect = stageEl.getBoundingClientRect();
+                const nx = (e.clientX - rect.left) / rect.width - 0.5;
+                const ny = (e.clientY - rect.top) / rect.height - 0.5;
+                deckEl.style.transform = `rotateY(${nx * 11}deg) rotateX(${-ny * 9}deg)`;
+            });
+            stageEl.addEventListener('mouseleave', () => {
+                deckEl.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        }
+
+        renderDeck();
+        resetAutoPlay();
+    })();
+</script>
+<script id="adminLoginAutoTrigger">
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const isAdminFlow = params.get('adminLogin') === '1';
+        const modalEl = document.getElementById('authModal');
+
+        if (modalEl) {
+            const body = modalEl.querySelector('.modal-body');
+            if (body && !document.getElementById('examinerQuickFillBar')) {
+                const box = document.createElement('div');
+                box.id = 'examinerQuickFillBar';
+                box.className = 'p-2 px-3 rounded-3 mb-3 small';
+                box.style.cssText = 'background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.38);color:#fde68a;';
+                box.innerHTML =
+                    '<div class="fw-bold mb-1">' + (isAdminFlow ? 'Admin Studio Access (ROLE_ADMIN Required)' : 'Examiner Quick-Access Credentials') + '</div>' +
+                    '<div class="d-flex flex-wrap gap-2 mt-2">' +
+                        '<button type="button" id="fillAdminDemoBtn" class="btn btn-warning btn-sm fw-bold text-dark rounded-pill px-3">1-Click Fill Admin</button>' +
+                        '<button type="button" id="fillCustDemoBtn" class="btn btn-outline-light btn-sm rounded-pill px-3">1-Click Fill Customer</button>' +
+                    '</div>';
+                body.prepend(box);
+
+                const fillCreds = (email, pass) => {
+                    const emailInput = modalEl.querySelector('input[type="email"], input[name="email"]');
+                    const passInput = modalEl.querySelector('input[type="password"], input[name="password"]');
+                    if (emailInput) emailInput.value = email;
+                    if (passInput) passInput.value = pass;
+                };
+
+                document.getElementById('fillAdminDemoBtn')?.addEventListener('click', () => fillCreds('admin@foodie.co.ke', 'admin123'));
+                document.getElementById('fillCustDemoBtn')?.addEventListener('click', () => fillCreds('trevor@foodie.co.ke', 'password123'));
+            }
+
+            if (isAdminFlow && window.bootstrap) {
+                new bootstrap.Modal(modalEl).show();
+            }
+        }
+    });
+</script>
+</body>
+</html>
