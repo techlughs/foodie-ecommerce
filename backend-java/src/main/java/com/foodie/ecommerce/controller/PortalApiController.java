@@ -10,6 +10,8 @@ import com.foodie.ecommerce.repository.ClickstreamRepository;
 import com.foodie.ecommerce.repository.OrderRepository;
 import com.foodie.ecommerce.repository.ProductRepository;
 import com.foodie.ecommerce.repository.UserRepository;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,14 +46,23 @@ public class PortalApiController {
         this.orderRepository = orderRepository;
     }
 
+        private void attachAuthCookie(HttpServletResponse response, Long userId) {
+        Cookie cookie = new Cookie("FOODIE_UID", userId != null ? String.valueOf(userId) : "");
+        cookie.setPath("/");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(userId != null ? 7 * 24 * 60 * 60 : 0);
+        response.addCookie(cookie);
+    }
+
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> body, HttpSession session) {
+    public ResponseEntity<?> login(@RequestBody Map<String, String> body, HttpSession session, HttpServletResponse response) {
         String email = body.getOrDefault("email", "").trim().toLowerCase();
         String password = body.getOrDefault("password", "");
         return userRepository.findByEmail(email)
                 .filter(u -> u.getPasswordHash() != null && u.getPasswordHash().equals(DataSeeder.hashPassword(password)))
                 .<ResponseEntity<?>>map(user -> {
                     session.setAttribute("loggedInUser", user);
+                    attachAuthCookie(response, user.getId());
                     return ResponseEntity.ok(Map.of(
                             "id", user.getId(),
                             "fullName", user.getFullName(),
@@ -63,7 +74,7 @@ public class PortalApiController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Map<String, String> body, HttpSession session) {
+    public ResponseEntity<?> register(@RequestBody Map<String, String> body, HttpSession session, HttpServletResponse response) {
         String fullName = body.getOrDefault("fullName", "").trim();
         String email = body.getOrDefault("email", "").trim().toLowerCase();
         String password = body.getOrDefault("password", "");
@@ -79,22 +90,24 @@ public class PortalApiController {
                 null, fullName, email, DataSeeder.hashPassword(password), "ROLE_CUSTOMER", null
         ));
         session.setAttribute("loggedInUser", created);
+        attachAuthCookie(response, created.getId());
         return ResponseEntity.ok(Map.of("id", created.getId(), "fullName", created.getFullName(), "role", created.getRole()));
     }
 
     @PostMapping("/google-login")
-    public ResponseEntity<?> googleLogin(@RequestBody Map<String, String> payload, HttpSession session) {
-        String email = payload.getOrDefault("email", "trevor@foodie.co.ke").trim().toLowerCase();
-        String fullName = payload.getOrDefault("fullName", "Trevor Lamar").trim();
-        if (fullName.isEmpty()) {
-            fullName = "Trevor Lamar";
+    public ResponseEntity<?> googleLogin(@RequestBody Map<String, String> payload, HttpSession session, HttpServletResponse response) {
+        String email = payload.getOrDefault("email", "").trim().toLowerCase();
+        String fullName = payload.getOrDefault("fullName", "").trim();
+        if (email.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("error", "Valid Google account email is required."));
         }
-        final String resolvedName = fullName;
+        final String resolvedName = fullName.isEmpty() ? email.split("@")[0] : fullName;
         User user = userRepository.findByEmail(email).orElseGet(() -> {
             User created = new User(null, resolvedName, email, "GOOGLE_OAUTH_USER", "ROLE_CUSTOMER", null);
             return userRepository.save(created);
         });
-        session.setAttribute("LOGGED_IN_USER_ID", user.getId());
+        session.setAttribute("loggedInUser", user);
+        attachAuthCookie(response, user.getId());
         return ResponseEntity.ok(Map.of(
                 "id", user.getId(),
                 "fullName", user.getFullName(),
@@ -104,8 +117,9 @@ public class PortalApiController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<?> logout(HttpSession session) {
+    public ResponseEntity<?> logout(HttpSession session, HttpServletResponse response) {
         session.invalidate();
+        attachAuthCookie(response, null);
         return ResponseEntity.ok(Map.of("status", "logged_out"));
     }
 
@@ -201,6 +215,47 @@ public class PortalApiController {
     public ResponseEntity<?> deleteProduct(@PathVariable String id) {
         productRepository.deleteById(id);
         return ResponseEntity.ok(Map.of("deleted", id));
+    }
+
+    @DeleteMapping("/admin/orders/{orderId}")
+    public ResponseEntity<?> deleteCompletedOrder(@PathVariable Long orderId) {
+        if (!orderRepository.existsById(orderId)) {
+            return ResponseEntity.notFound().build();
+        }
+        orderRepository.deleteById(orderId);
+        return ResponseEntity.ok(Map.of("deleted", true, "orderId", orderId));
+    }
+
+    @DeleteMapping("/admin/orders/completed")
+    public ResponseEntity<?> clearCompletedOrders() {
+        var completed = orderRepository.findAll().stream()
+                .filter(o -> "TABLE_SERVED".equalsIgnoreCase(o.getStatus()))
+                .toList();
+        orderRepository.deleteAll(completed);
+        return ResponseEntity.ok(Map.of("deletedCount", completed.size()));
+    }
+
+    @PostMapping("/admin/orders/{orderId}/status")
+    public ResponseEntity<?> updateOrderLifecycle(@PathVariable Long orderId, @RequestBody Map<String, String> body) {
+        String nextStatus = body.getOrDefault("status", "ACCEPTED_BY_CHEF").trim().toUpperCase();
+        return orderRepository.findById(orderId).map(order -> {
+            if ("AT_YOUR_DOORSTEP".equals(nextStatus) || "ARRIVED".equals(nextStatus)) {
+                order.setAdminArrivedConfirmed(true);
+                if (Boolean.TRUE.equals(order.getCustomerReceivedConfirmed())) {
+                    order.setStatus("TABLE_SERVED");
+                } else {
+                    order.setStatus("AT_YOUR_DOORSTEP");
+                }
+            } else {
+                order.setStatus(nextStatus);
+            }
+            Order saved = orderRepository.save(order);
+            return ResponseEntity.ok(Map.of(
+                    "id", saved.getId(),
+                    "status", saved.getStatus(),
+                    "bothConfirmed", "TABLE_SERVED".equalsIgnoreCase(saved.getStatus())
+            ));
+        }).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/admin/retention/{userId}")

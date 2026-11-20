@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie | Enterprise Admin & Catalog Studio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+        <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: radial-gradient(circle at 20% 0%, #24160e 0%, #0e0b09 55%); color: #f5f5f4; }
         .font-editorial { font-family: 'Playfair Display', serif; }
+        .exec-banner {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(24, 18, 14, 0.94) 55%, rgba(194, 65, 12, 0.14) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.30);
+            border-radius: 1.35rem;
+            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
+        }
+        .kpi-card { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .kpi-card:hover { transform: translateY(-3px); border-color: rgba(251, 191, 36, 0.5); }
         .kpi-card, .panel-card {
             background: rgba(24, 18, 14, 0.92);
             border: 1px solid rgba(245, 158, 11, 0.22);
@@ -16,16 +24,24 @@
             box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
             color: #f5f5f4;
         }
-        .table-dark-foodie { --bs-table-bg: transparent; --bs-table-color: #f5f5f4; --bs-table-border-color: rgba(245,158,11,0.12); }
-        .form-control-dark, .form-select-dark { background: #0c0907; border-color: rgba(245,158,11,0.24); color: #fff; }
-        .form-control-dark:focus, .form-select-dark:focus { background: #0c0907; color: #fff; border-color: #f59e0b; box-shadow: none; }
+        .table-dark-foodie { --bs-table-bg: transparent; --bs-table-color: #f5f5f4; --bs-table-border-color: rgba(245, 158, 11, 0.12); }
+        .form-control-dark, .form-select-dark { background: #0c0907; border-color: rgba(245, 158, 11, 0.24); color: #ffffff; }
+        .form-control-dark:focus, .form-select-dark:focus { background: #0c0907; color: #ffffff; border-color: #f59e0b; box-shadow: none; }
+        .btn-exec-gold { background: linear-gradient(135deg, #f59e0b, #d97706); color: #0c0907; border: none; font-weight: 800; transition: all 0.2s ease; }
+        .btn-exec-gold:hover { filter: brightness(1.08); transform: translateY(-1px); color: #0c0907; }
+        .btn-exec-outline { background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.45); color: #fbbf24; font-weight: 600; transition: all 0.2s ease; }
+        .btn-exec-outline:hover { background: rgba(245, 158, 11, 0.2); color: #ffffff; }
+        .btn-exec-emerald { background: rgba(16, 185, 129, 0.14); border: 1px solid rgba(16, 185, 129, 0.5); color: #34d399; font-weight: 600; transition: all 0.2s ease; }
+        .btn-exec-emerald:hover { background: #10b981; color: #052e16; }
+        .btn-exec-danger { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; font-weight: 600; }
+        .btn-exec-danger:hover { background: #ef4444; color: #ffffff; }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-black bg-opacity-75 border-bottom border-warning border-opacity-25 sticky-top py-2">
+<nav class="navbar navbar-dark bg-transparent sticky-top py-3" style="backdrop-filter: blur(14px);">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+        <div class="navbar-brand d-flex align-items-center gap-2 mb-0">
             <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
                 <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#admLogo)" stroke="#fbbf24" stroke-width="1.5"/>
                 <path d="M20 8.5C15.6 13.8 13.5 17.6 13.5 21.8C13.5 25.6 16.4 28.5 20 28.5C23.6 28.5 26.5 25.6 26.5 21.8C26.5 17.6 24.4 13.8 20 8.5Z" fill="#0c0907"/>
@@ -34,8 +50,8 @@
             </svg>
             <span class="font-editorial fw-bold fs-4 text-warning">Foodie</span>
             <span class="badge bg-warning text-dark rounded-pill">Admin Studio</span>
-        </a>
-        <a href="/" class="btn btn-outline-warning btn-sm rounded-pill px-3">← Back to Storefront</a>
+        </div>
+        <div class="d-flex align-items-center gap-2"><button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3" onclick="fetch('/api/portal/logout', { method: 'POST' }).then(function(){ window.location.href = '/store'; });">Sign Out</button></div>
     </div>
 </nav>
 
@@ -45,7 +61,7 @@
             <div class="card kpi-card p-3">
                 <small class="text-warning fw-semibold text-uppercase">Total Sales Revenue</small>
                 <h3 class="fw-extrabold mt-1 mb-0">KES <span th:text="${totalRevenue}">2500.00</span></h3>
-                <small class="text-success mt-1">Verified Orders</small>
+                <small class="text-success mt-1">Avg Order: KES <span th:text="${averageOrderValue}">1283</span></small>
             </div>
         </div>
         <div class="col-6 col-md-3">
@@ -92,9 +108,14 @@
                 <h5 class="font-editorial fw-bold mb-0 text-warning">Menu Catalog, Dish Details & Photo Studio</h5>
                 <small class="text-secondary">Rename dishes, edit descriptions & ingredients, update prices, or upload custom photos</small>
             </div>
-            <button class="btn btn-warning btn-sm rounded-pill px-3 fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+                <input type="search" id="adminCatalogSearch" class="form-control form-control-sm form-control-dark rounded-pill px-3" style="width: 210px;"
+                       placeholder="Filter menu dishes..."
+                       oninput="var q=this.value.toLowerCase(); document.querySelectorAll('tbody tr').forEach(function(r){ if(r.querySelector('input[id^=name-]')){ r.style.display = r.innerText.toLowerCase().includes(q) || r.querySelector('input[id^=name-]').value.toLowerCase().includes(q) ? '' : 'none'; }});">
+                <button class="btn btn-warning btn-sm rounded-pill px-3 fw-bold text-dark" data-bs-toggle="modal" data-bs-target="#addProductModal">
                 + Add New Dish
-            </button>
+                </button>
+            </div>
         </div>
         <div class="card-body px-4 pb-4">
             <div id="inventoryAlert"></div>
@@ -148,10 +169,142 @@
                                        th:id="'price-' + ${p.id}" th:value="${p.price}">
                             </td>
                             <td class="text-end text-nowrap">
-                                <button class="btn btn-sm btn-warning rounded-pill px-3 fw-bold text-dark d-block w-100 mb-1"
+                                <button class="btn btn-sm btn-exec-gold rounded-pill px-3 d-block w-100 mb-1"
                                         th:data-id="${p.id}" onclick="saveProductUpdates(this)">Save</button>
-                                <button class="btn btn-sm btn-outline-danger rounded-pill px-3 d-block w-100"
+                                <button class="btn btn-sm btn-exec-danger rounded-pill px-3 d-block w-100"
                                         th:data-id="${p.id}" onclick="deleteProduct(this)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card panel-card mb-4" id="liveOrderDispatchSection">
+        <div class="card-header bg-transparent border-0 pt-4 px-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>
+                <h5 class="font-editorial fw-bold mb-0 text-warning">Live Kitchen & Nairobi Rider Dispatch Queue</h5>
+                <small class="text-secondary">Confirm incoming diner orders, dispatch riders, and verify doorstep handoff</small>
+            </div>
+        </div>
+        <div class="card-body px-4 pb-4">
+            <div th:if="${#lists.isEmpty(allOrders.?[status != 'TABLE_SERVED'])}" class="text-center py-4 text-secondary small">
+                All active orders have been fulfilled. New diner orders appear here automatically.
+            </div>
+            <div th:if="${!#lists.isEmpty(allOrders.?[status != 'TABLE_SERVED'])}" class="table-responsive">
+                <table class="table table-dark-foodie align-middle mb-0">
+                    <thead>
+                        <tr class="text-warning small text-uppercase">
+                            <th>Order Ref</th>
+                            <th>Diner & Nairobi Drop-Off</th>
+                            <th>Dishes & Preparation Notes</th>
+                            <th class="text-end">Fulfillment Controls</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ord : ${allOrders.?[status != 'TABLE_SERVED']}">
+                            <td>
+                                <div class="fw-bold text-warning" th:text="'ORD-' + ${#numbers.formatInteger(ord.id, 4)}">ORD-0001</div>
+                                <div class="small fw-semibold text-white" th:text="'KES ' + ${ord.totalAmount}">KES 600</div>
+                            </td>
+                            <td style="min-width:210px;">
+                                <div class="fw-bold text-white" th:text="${userNames[ord.userId] != null ? userNames[ord.userId] : 'Registered Diner'}">Diner</div>
+                                <div class="small text-warning" th:text="${ord.deliveryZone != null ? ord.deliveryZone : 'Nairobi'}">Ngara</div>
+                                <div class="small text-secondary" th:text="${ord.deliveryAddress != null ? ord.deliveryAddress : 'Nairobi Delivery'}">Address</div>
+                            </td>
+                            <td style="min-width:240px;">
+                                <div class="small text-light mb-1">
+                                    <span th:each="it, st : ${ord.items}">
+                                        <span th:text="${(dishNames[it.productId] != null ? dishNames[it.productId] : it.productId) + ' x ' + it.quantity}">Dish x 1</span><span th:if="${!st.last}">, </span>
+                                    </span>
+                                </div>
+                                <div th:if="${ord.kitchenNotes != null and !ord.kitchenNotes.isEmpty()}" class="small text-info">
+                                    <strong>Chef Note:</strong> <span th:text="${ord.kitchenNotes}">Notes</span>
+                                </div>
+                                <div th:if="${ord.riderInstructions != null and !ord.riderInstructions.isEmpty()}" class="small text-warning">
+                                    <strong>Rider Note:</strong> <span th:text="${ord.riderInstructions}">Instructions</span>
+                                </div>
+                            </td>
+                            <td class="text-end" style="min-width:240px;">
+                                <div class="d-inline-flex flex-wrap justify-content-end gap-2">
+                                    <button class="btn btn-sm btn-exec-outline rounded-pill px-3"
+                                            th:if="${ord.status == 'AWAITING_KITCHEN' or ord.status == 'PENDING_ACCEPTANCE' or ord.status == 'CONFIRMED'}"
+                                            th:onclick="'advanceOrderStatus(' + ${ord.id} + ', \'ACCEPTED_BY_CHEF\')'">
+                                        Accept Order
+                                    </button>
+                                    <button class="btn btn-sm btn-exec-gold rounded-pill px-3"
+                                            th:if="${ord.status == 'ACCEPTED_BY_CHEF' or ord.status == 'KITCHEN_PREPARING'}"
+                                            th:onclick="'advanceOrderStatus(' + ${ord.id} + ', \'OUT_FOR_DELIVERY\')'">
+                                        Dispatch Rider
+                                    </button>
+                                    <button class="btn btn-sm btn-exec-emerald rounded-pill px-3"
+                                            th:if="${ord.status == 'OUT_FOR_DELIVERY'}"
+                                            th:onclick="'advanceOrderStatus(' + ${ord.id} + ', \'AT_YOUR_DOORSTEP\')'">
+                                        Confirm Delivered
+                                    </button>
+                                    <span class="small text-warning fw-semibold" th:if="${ord.status == 'AT_YOUR_DOORSTEP'}">
+                                        Delivered • Awaiting Diner Confirmation
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card panel-card mb-4" id="completedOrdersSection">
+        <div class="card-header bg-transparent border-0 pt-4 px-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>
+                <h5 class="font-editorial fw-bold mb-0 text-warning">Completed Order History</h5>
+                <small class="text-secondary">Dual-verified Nairobi deliveries archived from the live dispatch queue</small>
+            </div>
+            <button th:if="${!#lists.isEmpty(allOrders.?[status == 'TABLE_SERVED'])}"
+                    class="btn btn-sm btn-exec-danger rounded-pill px-3"
+                    onclick="clearAllCompletedOrders()">
+                Clear Completed History
+            </button>
+        </div>
+        <div class="card-body px-4 pb-4">
+            <div th:if="${#lists.isEmpty(allOrders.?[status == 'TABLE_SERVED'])}" class="text-center py-3 text-secondary small">
+                No completed orders in the archive yet.
+            </div>
+            <div th:if="${!#lists.isEmpty(allOrders.?[status == 'TABLE_SERVED'])}" class="table-responsive">
+                <table class="table table-dark-foodie align-middle mb-0">
+                    <thead>
+                        <tr class="text-warning small text-uppercase">
+                            <th>Order Ref</th>
+                            <th>Diner & Nairobi Drop-Off</th>
+                            <th>Dishes Served</th>
+                            <th>Status</th>
+                            <th class="text-end">Archive Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ord : ${allOrders.?[status == 'TABLE_SERVED']}">
+                            <td>
+                                <div class="fw-bold text-warning" th:text="'ORD-' + ${#numbers.formatInteger(ord.id, 4)}">ORD-0001</div>
+                                <div class="small fw-semibold text-white" th:text="'KES ' + ${ord.totalAmount}">KES 600</div>
+                            </td>
+                            <td>
+                                <div class="fw-bold text-white" th:text="${userNames[ord.userId] != null ? userNames[ord.userId] : 'Registered Diner'}">Diner</div>
+                                <div class="small text-secondary" th:text="${ord.deliveryZone != null ? ord.deliveryZone : 'Nairobi'}">Ngara</div>
+                            </td>
+                            <td class="small text-light">
+                                <span th:each="it, st : ${ord.items}">
+                                    <span th:text="${(dishNames[it.productId] != null ? dishNames[it.productId] : it.productId) + ' x ' + it.quantity}">Dish x 1</span><span th:if="${!st.last}">, </span>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="small text-warning fw-semibold">Completed & Verified</span>
+                            </td>
+                            <td class="text-end">
+                                <button class="btn btn-sm btn-exec-danger rounded-pill px-3"
+                                        th:onclick="'deleteAdminOrder(' + ${ord.id} + ')'">
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -190,7 +343,7 @@
                         <tr th:each="row : ${churnRows}" class="churn-row" th:data-risk="${row['riskLevel']}">
                             <td>
                                 <div class="fw-bold" th:text="${row['customerName']}">Customer</div>
-                                <small class="text-secondary" th:text="'ID #' + ${row['userId']}">ID #1</small>
+                                <small class="text-secondary" th:text="${row['customerEmail']}">diner@foodie.co.ke</small>
                             </td>
                             <td style="min-width:165px;">
                                 <div class="d-flex align-items-center gap-2">
@@ -210,7 +363,7 @@
                             </td>
                             <td class="small" th:text="${row['recommendedAction']}">Action</td>
                             <td class="text-end">
-                                <button class="btn btn-sm btn-outline-warning rounded-pill px-3 fw-semibold"
+                                <button class="btn btn-sm btn-exec-outline rounded-pill px-3"
                                         th:data-uid="${row['userId']}"
                                         th:data-offer="${row['recommendedAction']}"
                                         onclick="triggerRetention(this)">Trigger Offer</button>
@@ -233,7 +386,7 @@
                     <div class="col-6"><div class="p-3 bg-black bg-opacity-50 rounded-3"><small class="text-secondary d-block">Precision / Recall</small><span class="fs-5 fw-bold text-white">0.89 / 0.87</span></div></div>
                     <div class="col-6"><div class="p-3 bg-black bg-opacity-50 rounded-3"><small class="text-secondary d-block">Recommender Precision@3</small><span class="fs-5 fw-bold text-warning">86.7%</span></div></div>
                 </div>
-                <span class="badge bg-success bg-opacity-25 text-success border border-success py-2 rounded-pill">● FastAPI Inference Microservice Online (Port 8000)</span>
+                <span th:if="${mlOnline}" class="badge bg-success bg-opacity-25 text-success border border-success py-2 px-3 rounded-pill">&#9679; Predictive Inference Engine Online &bull; Live Scoring Active</span><span th:unless="${mlOnline}" class="badge bg-warning bg-opacity-25 text-warning border border-warning py-2 px-3 rounded-pill">&#9679; Hybrid Behavioral Scoring Engine Active &bull; Real-Time Retention Telemetry</span>
             </div>
         </div>
         <div class="col-md-6">
@@ -247,7 +400,7 @@
                     <li class="list-group-item bg-transparent text-light border-secondary border-opacity-25 px-0 d-flex justify-content-between" th:each="log : ${recentLogs}">
                         <span>
                             <span class="badge bg-warning text-dark me-1" th:text="${log.eventType}">VIEW</span>
-                            <strong th:text="'User #' + ${log.userId}">User #1</strong> →
+                            <strong th:text="${userNames[log.userId] != null ? userNames[log.userId] : 'Registered Diner'}">Diner</strong> →
                             <span th:text="${log.productName}">Dish</span>
                         </span>
                         <span class="text-secondary" th:text="${#temporals.format(log.timestamp, 'HH:mm:ss')}">12:00</span>
@@ -282,8 +435,24 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">    async function deleteAdminOrder(orderId) {
+        const res = await fetch(`/api/portal/admin/orders/${orderId}`, { method: 'DELETE' });
+        if (res.ok) window.location.reload();
+    }
+    async function clearAllCompletedOrders() {
+        const res = await fetch('/api/portal/admin/orders/completed', { method: 'DELETE' });
+        if (res.ok) window.location.reload();
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js">    async function deleteAdminOrder(orderId) {
+        const res = await fetch(`/api/portal/admin/orders/${orderId}`, { method: 'DELETE' });
+        if (res.ok) window.location.reload();
+    }
+    async function clearAllCompletedOrders() {
+        const res = await fetch('/api/portal/admin/orders/completed', { method: 'DELETE' });
+        if (res.ok) window.location.reload();
+    }
+</script>
 <script th:inline="javascript">
     const churnRows = /*[[${churnRows}]]*/ [];
     const catLabels = /*[[${categoryLabels}]]*/ [];
@@ -367,7 +536,7 @@
         if (res.ok) {
             document.getElementById(`thumb-${id}`).src = imageUrl;
             document.getElementById('inventoryAlert').innerHTML =
-                `<div class="alert alert-success rounded-pill py-2 px-3 mb-3">✓ Saved "${name}" details, price, and photo to live storefront!</div>`;
+                `<div class="alert alert-success rounded-pill py-2 px-3 mb-3"> Saved "${name}" details, price, and photo to live storefront!</div>`;
         }
     }
 
@@ -394,13 +563,31 @@
             document.getElementById(`thumb-${id}`).src = data.imageUrl;
             document.getElementById(`imgurl-${id}`).value = data.imageUrl;
             document.getElementById('inventoryAlert').innerHTML =
-                `<div class="alert alert-success rounded-pill py-2 px-3 mb-3">✓ Uploaded photo (${data.imageUrl})!</div>`;
+                `<div class="alert alert-success rounded-pill py-2 px-3 mb-3"> Uploaded photo (${data.imageUrl})!</div>`;
         }
     }
 
     async function deleteProduct(btn) {
         const id = btn.getAttribute('data-id');
         const res = await fetch(`/api/portal/admin/products/${id}`, { method: 'DELETE' });
+        if (res.ok) window.location.reload();
+    }
+    async function advanceOrderStatus(orderId, status) {
+        try {
+            const res = await fetch(`/api/portal/admin/orders/${orderId}/status`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status })
+            });
+            if (res.ok) location.reload();
+        } catch (e) { console.error(e); }
+    }
+    async function deleteAdminOrder(orderId) {
+        const res = await fetch(`/api/portal/admin/orders/${orderId}`, { method: 'DELETE' });
+        if (res.ok) window.location.reload();
+    }
+    async function clearAllCompletedOrders() {
+        const res = await fetch('/api/portal/admin/orders/completed', { method: 'DELETE' });
         if (res.ok) window.location.reload();
     }
 </script>

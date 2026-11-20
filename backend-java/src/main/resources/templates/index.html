@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie | Artisanal Kenyan Cuisine & Delivery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,0,1,700&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --foodie-bg: #0c0907;
+            --foodie-bg: #0c0
             --foodie-surface: rgba(24, 18, 14, 0.86);
             --foodie-saffron: #f59e0b;
             --foodie-ember: #ea580c;
@@ -68,8 +68,7 @@
         }
         .brand-wordmark {
             font-family: 'Playfair Display', serif;
-            font-weight: 800;
-            font-size: 1.55rem;
+            font-weight: 800; font-size: 1.55rem;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, #fffbeb 15%, #fbbf24 65%, #ea580c 100%);
             -webkit-background-clip: text;
@@ -196,8 +195,7 @@
             right: 12px;
             background: rgba(12, 9, 7, 0.92);
             color: #fbbf24;
-            font-weight: 800;
-            padding: 0.36rem 0.88rem;
+            font-weight: 800; padding: 0.36rem 0.88rem;
             border-radius: 2rem;
             font-size: 0.9rem;
             border: 1px solid rgba(251, 191, 36, 0.35);
@@ -208,8 +206,7 @@
             left: 12px;
             background: rgba(18, 13, 10, 0.88);
             color: #fde68a;
-            font-weight: 700;
-            padding: 0.26rem 0.75rem;
+            font-weight: 700; padding: 0.26rem 0.75rem;
             border-radius: 2rem;
             font-size: 0.74rem;
             border: 1px solid rgba(251, 191, 36, 0.25);
@@ -233,8 +230,7 @@
         .section-kicker {
             letter-spacing: 0.16em;
             font-size: 0.74rem;
-            font-weight: 800;
-            color: #fbbf24;
+            font-weight: 700; color: #fbbf24;
             text-transform: uppercase;
         }
 
@@ -256,7 +252,7 @@
         .foodie-pill-tabs .nav-link.active {
             background: linear-gradient(135deg, #f59e0b, #ea580c);
             color: #110d0a;
-            font-weight: 800;
+            font-weight: 700;
         }
         .form-control-dark, .form-select-dark {
             background: rgba(10, 8, 6, 0.88);
@@ -275,8 +271,7 @@
             color: #1f2937;
             border: 1px solid #e5e7eb;
             border-radius: 999px;
-            font-weight: 700;
-            transition: transform 0.15s ease, box-shadow 0.2s ease;
+            font-weight: 700; transition: transform 0.15s ease, box-shadow 0.2s ease;
         }
         .google-btn:hover {
             background: #f9fafb;
@@ -328,9 +323,52 @@
         }
         .footer-link { color: #a8a29e; text-decoration: none; transition: color 0.2s ease; }
         .footer-link:hover { color: #fbbf24; }
+        @keyframes trackerSlideDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes beaconPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.65); transform: scale(1); }
+            50% { box-shadow: 0 0 0 9px rgba(251, 191, 36, 0); transform: scale(1.15); }
+        }
+        @keyframes progressShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .live-tracker-banner {
+            background: linear-gradient(135deg, rgba(30, 22, 15, 0.97), rgba(14, 11, 9, 0.99));
+            border: 1px solid rgba(251, 191, 36, 0.38);
+            border-radius: 1.15rem;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+            animation: trackerSlideDown 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .status-beacon {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #fbbf24; display: inline-block; flex-shrink: 0;
+            animation: beaconPulse 1.6s infinite;
+        }
+        .status-beacon.transit { background: #38bdf8; }
+        .status-beacon.arrived { background: #34d399; }
+        .editorial-progress-track {
+            height: 5px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            overflow: hidden; position: relative;
+        }
+        .editorial-progress-fill {
+            height: 100%; border-radius: 999px;
+            background: linear-gradient(90deg, #b45309, #fbbf24, #fef08a, #f59e0b);
+            background-size: 200% 100%;
+            animation: progressShimmer 2s linear infinite;
+            transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .editorial-progress-fill.is-complete {
+            animation: none !important;
+            transition: none !important;
+            width: 100% !important;
+        }
     </style>
     <style id="luxuryEditorialTheme">
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,1,600&display=swap');
 
         .hero-glass {
             background: linear-gradient(145deg, rgba(18, 12, 9, 0.52), rgba(9, 6, 5, 0.72)) !important;
@@ -483,6 +521,49 @@
             transform: translateY(-1px) !important;
             box-shadow: 0 10px 26px rgba(245, 158, 11, 0.34) !important;
         }
+        @keyframes trackerSlideDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes beaconPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.65); transform: scale(1); }
+            50% { box-shadow: 0 0 0 9px rgba(251, 191, 36, 0); transform: scale(1.15); }
+        }
+        @keyframes progressShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .live-tracker-banner {
+            background: linear-gradient(135deg, rgba(30, 22, 15, 0.97), rgba(14, 11, 9, 0.99));
+            border: 1px solid rgba(251, 191, 36, 0.38);
+            border-radius: 1.15rem;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+            animation: trackerSlideDown 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .status-beacon {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #fbbf24; display: inline-block; flex-shrink: 0;
+            animation: beaconPulse 1.6s infinite;
+        }
+        .status-beacon.transit { background: #38bdf8; }
+        .status-beacon.arrived { background: #34d399; }
+        .editorial-progress-track {
+            height: 5px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            overflow: hidden; position: relative;
+        }
+        .editorial-progress-fill {
+            height: 100%; border-radius: 999px;
+            background: linear-gradient(90deg, #b45309, #fbbf24, #fef08a, #f59e0b);
+            background-size: 200% 100%;
+            animation: progressShimmer 2s linear infinite;
+            transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .editorial-progress-fill.is-complete {
+            animation: none !important;
+            transition: none !important;
+            width: 100% !important;
+        }
     </style>
     <style id="hero3dDeckStyles">
         .hero-3d-stage {
@@ -578,8 +659,7 @@
         .deck-pill-tag {
             display: inline-block;
             font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
+            font-weight: 700; letter-spacing: 0.14em;
             text-transform: uppercase;
             color: #fbbf24;
             background: rgba(245, 158, 11, 0.16);
@@ -591,8 +671,7 @@
         .deck-dish-title {
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.65rem;
-            font-weight: 700;
-            color: #faf6f0;
+            font-weight: 700; color: #faf6f0;
             line-height: 1.1;
             margin: 0 0 0.25rem;
         }
@@ -602,10 +681,9 @@
         }
         .deck-add-btn {
             background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 55%, #ea580c 100%);
-            color: #0c0806;
+            color: #0c0907;
             border: none;
-            font-weight: 800;
-            font-size: 0.82rem;
+            font-weight: 800; font-size: 0.82rem;
             padding: 0.62rem 1.15rem;
             border-radius: 999px;
             white-space: nowrap;
@@ -674,6 +752,49 @@
         @keyframes heroSlideUp {
             to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes trackerSlideDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes beaconPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.65); transform: scale(1); }
+            50% { box-shadow: 0 0 0 9px rgba(251, 191, 36, 0); transform: scale(1.15); }
+        }
+        @keyframes progressShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .live-tracker-banner {
+            background: linear-gradient(135deg, rgba(30, 22, 15, 0.97), rgba(14, 11, 9, 0.99));
+            border: 1px solid rgba(251, 191, 36, 0.38);
+            border-radius: 1.15rem;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+            animation: trackerSlideDown 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .status-beacon {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #fbbf24; display: inline-block; flex-shrink: 0;
+            animation: beaconPulse 1.6s infinite;
+        }
+        .status-beacon.transit { background: #38bdf8; }
+        .status-beacon.arrived { background: #34d399; }
+        .editorial-progress-track {
+            height: 5px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            overflow: hidden; position: relative;
+        }
+        .editorial-progress-fill {
+            height: 100%; border-radius: 999px;
+            background: linear-gradient(90deg, #b45309, #fbbf24, #fef08a, #f59e0b);
+            background-size: 200% 100%;
+            animation: progressShimmer 2s linear infinite;
+            transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .editorial-progress-fill.is-complete {
+            animation: none !important;
+            transition: none !important;
+            width: 100% !important;
+        }
     </style>
     <style id="borderlessNavFooterPatch">
         .navbar, nav.navbar, header, footer, .footer-glass {
@@ -688,6 +809,49 @@
             border: none !important;
             border-top: none !important;
             border-bottom: none !important;
+        }
+        @keyframes trackerSlideDown {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes beaconPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.65); transform: scale(1); }
+            50% { box-shadow: 0 0 0 9px rgba(251, 191, 36, 0); transform: scale(1.15); }
+        }
+        @keyframes progressShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .live-tracker-banner {
+            background: linear-gradient(135deg, rgba(30, 22, 15, 0.97), rgba(14, 11, 9, 0.99));
+            border: 1px solid rgba(251, 191, 36, 0.38);
+            border-radius: 1.15rem;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+            animation: trackerSlideDown 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .status-beacon {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #fbbf24; display: inline-block; flex-shrink: 0;
+            animation: beaconPulse 1.6s infinite;
+        }
+        .status-beacon.transit { background: #38bdf8; }
+        .status-beacon.arrived { background: #34d399; }
+        .editorial-progress-track {
+            height: 5px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            overflow: hidden; position: relative;
+        }
+        .editorial-progress-fill {
+            height: 100%; border-radius: 999px;
+            background: linear-gradient(90deg, #b45309, #fbbf24, #fef08a, #f59e0b);
+            background-size: 200% 100%;
+            animation: progressShimmer 2s linear infinite;
+            transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .editorial-progress-fill.is-complete {
+            animation: none !important;
+            transition: none !important;
+            width: 100% !important;
         }
     </style>
 </head>
@@ -732,23 +896,24 @@
                                     </ul>
                 <div class="d-flex flex-wrap align-items-center gap-2">
                     <button class="btn nav-pill-btn nav-pill-glass" onclick="openProfileModal()">◈ Profile</button>
-                    <button th:if="${loggedInUser == null}" class="btn nav-pill-btn nav-pill-glass" data-bs-toggle="modal" data-bs-target="#authModal">✦ Sign In</button>
+                    <button th:if="${loggedInUser == null}" class="btn nav-pill-btn nav-pill-glass" data-bs-toggle="modal" data-bs-target="#authModal"> Sign In</button>
                     <button th:if="${loggedInUser != null}" class="btn nav-pill-btn nav-pill-glass" onclick="logoutUser()">Sign Out</button>
-                    <button class="btn nav-pill-btn nav-pill-glass" onclick="loadOrderHistory()">☰ Orders</button>
-                    <button class="btn nav-pill-btn btn-warning text-dark fw-extrabold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
-                        🛒 Cart (<span id="cartCount">0</span>)
-                    </button>
+                    <button class="btn nav-pill-btn nav-pill-glass" onclick="loadOrderHistory()"> Orders</button>
+                    <button class="btn nav-pill-btn btn-warning text-dark fw-extrabold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px;"><path d="M2 18h20"/><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 7v3"/><circle cx="12" cy="5.5" r="1.5"/></svg> Tasting Tray (<span id="cartCount">0</span>)</button>
                 </div>
             </div>
         </div>
     </nav>
+<div class="container mt-3" id="liveOrderTrackerContainer" style="display:none;">
+    <div id="liveOrderTrackerBanner" class="live-tracker-banner p-3 px-4 d-flex flex-wrap justify-content-between align-items-center gap-3"></div>
+</div>
 
     <div class="container my-4">
         <div class="hero-stage p-4 p-lg-5 mb-5 anim-enter">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
                     <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 fw-bold px-3 py-2 rounded-pill mb-3">
-                        ✦ Artisanal Kenyan Cuisine • Delivered Hot in Nairobi
+                         Artisanal Kenyan Cuisine • Delivered Hot in Nairobi
                     </span>
                     <h1 class="display-5 font-editorial fw-bold mb-3 lh-sm">
                         Fire-Roasted Heritage, Crafted for <span class="text-warning" th:text="${loggedInUser != null ? loggedInUser.fullName : 'Nairobi'}">Nairobi</span>
@@ -770,7 +935,7 @@
                             <div class="hero-metric-lbl">Wood-Fired & Spiced</div>
                         </div>
                         <div>
-                            <div class="hero-metric-val">★ 4.9 / 5</div>
+                            <div class="hero-metric-val"> 4.9 / 5</div>
                             <div class="hero-metric-lbl">Verified Diner Rating</div>
                         </div>
                     </div>
@@ -815,7 +980,7 @@
                             <img th:src="${rec.imageUrl}" th:alt="${rec.name}"
                                  onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'">
                             <span class="cat-pill" th:text="${rec.category}">Main Course</span>
-                            <span class="rec-ribbon">★ Top Pick</span>
+                            <span class="rec-ribbon"> Top Pick</span>
                             <span class="price-pill">KES <span th:text="${rec.price}">400.00</span></span>
                         </div>
                         <div class="card-body d-flex flex-column">
@@ -897,7 +1062,7 @@
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <h5 class="card-title fw-bold mb-0" th:text="${product.name}">Dish Name</h5>
-                                <span class="text-warning small fw-bold">★ 4.9</span>
+                                <span class="text-warning small fw-bold"> 4.9</span>
                             </div>
                             <p class="card-text text-light opacity-75 small mb-2" th:text="${product.description}">Description</p>
                             <div class="mb-2">
@@ -957,18 +1122,17 @@
                     </ul>
                 </div>
                 <div class="col-6 col-lg-3">
-                    <h6 class="text-warning fw-bold text-uppercase small mb-3">Nairobi Delivery Zones</h6>
+                    <h6 class="text-warning fw-bold text-uppercase small mb-3">Nairobi Delivery Coverage</h6>
                     <ul class="list-unstyled small text-secondary d-flex flex-column gap-2">
-                        <li>Westlands & Parklands (25–35 min)</li>
-                        <li>Kilimani, Kileleshwa & Lavington</li>
-                        <li>Karen, Lang'ata & Ngong Road</li>
-                        <li>Upper Hill & Nairobi CBD</li>
+                        <li>Ngara, Pangani, Parklands & Westlands</li>
+                        <li>CBD, Upper Hill, Kilimani & Lavington</li>
+                        <li>South B/C, Lang'ata, Karen & Thika Rd</li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h6 class="text-warning fw-bold text-uppercase small mb-3">Kitchen Hours & Studio</h6>
                     <p class="small text-secondary mb-2">Daily: 08:00 AM – 11:30 PM EAT</p>
-                    <p class="small text-secondary mb-3">Concierge: +254 700 448 920</p>
+                    <p class="small text-secondary mb-3">Kitchen Desk: +254 700 448 920</p>
                     <a href="/admin/churn" class="btn btn-outline-warning btn-sm rounded-pill px-3">Open Admin Studio →</a>
                 </div>
             </div>
@@ -1035,8 +1199,8 @@
                              style="width:58px;height:58px;font-size:1.4rem;" th:text="${#strings.substring(activeUser.fullName,0,1)}">T</div>
                         <div>
                             <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 mb-1" th:text="${activeUser.role == 'ROLE_ADMIN' ? 'Kitchen Administrator' : 'Verified Diner'}">Verified Diner</span>
-                            <h5 class="mb-0 fw-bold" th:text="${activeUser.fullName}">Trevor Lamar</h5>
-                            <small class="text-secondary" th:text="${activeUser.email}">trevor@foodie.co.ke</small>
+                            <h5 class="mb-0 fw-bold" th:text="${activeUser.fullName}">Nairobi Diner</h5>
+                            <small class="text-secondary" th:text="${activeUser.email}">diner@foodie.co.ke</small>
                         </div>
                     </div>
                     <button class="btn btn-outline-warning btn-sm rounded-pill px-3" onclick="bootstrap.Modal.getInstance(document.getElementById('profileModal')).hide(); loadOrderHistory();">
@@ -1118,7 +1282,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content foodie-modal-content rounded-4">
             <div class="modal-header foodie-modal-header">
-                <h5 class="modal-title font-editorial fw-bold text-warning">✦ Foodie Club Access</h5>
+                <h5 class="modal-title font-editorial fw-bold text-warning"> Foodie Club Access</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body p-4">
@@ -1157,49 +1321,128 @@
     </div>
 </div>
 
-<div class="offcanvas offcanvas-end foodie-offcanvas" tabindex="-1" id="cartDrawer">
+<div class="offcanvas offcanvas-end foodie-offcanvas" tabindex="-1" id="cartDrawer" style="width: 440px; max-width: 96vw;">
     <div class="offcanvas-header foodie-modal-header">
         <div>
-            <h5 class="offcanvas-title font-editorial fw-bold text-warning mb-0">🛒 Your Kitchen Tray</h5>
-            <small class="text-secondary">Prepared fresh upon confirmation</small>
+            <h5 class="offcanvas-title font-editorial fw-bold text-warning mb-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px;"><path d="M2 18h20"/><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 7v3"/><circle cx="12" cy="5.5" r="1.5"/></svg> Your Tasting Tray</h5>
+            <small class="text-secondary">Artisanal dishes prepared to order • Nairobi Kitchen</small>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
-    <div class="offcanvas-body d-flex flex-column p-4">
-        <div id="cartItems" class="flex-grow-1">
-            <div class="text-center py-5 text-secondary">
-                <div class="fs-2 mb-2">🍽</div>
-                <p class="mb-0">Your tray is empty.<br>Select any dish from the menu to begin.</p>
+    <div class="offcanvas-body d-flex flex-column p-4" style="overflow-y: auto;">
+        <div id="cartItems" class="mb-3">
+            <div class="text-center py-4 text-secondary">
+                <div class="text-warning mb-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px;"><path d="M2 18h20"/><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 7v3"/><circle cx="12" cy="5.5" r="1.5"/></svg></div>
+                <p class="mb-0 small">Your tasting tray is empty.<br>Select any signature dish from the menu to begin.</p>
             </div>
         </div>
-        <div class="border-top border-warning border-opacity-25 pt-3 mt-3">
+
+        <div class="p-3 rounded-4 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,193,7,0.2);">
+            <div class="text-warning fw-bold small text-uppercase mb-2" style="letter-spacing: 0.08em;">Nairobi Delivery & Rider Notes</div>
+
+            <div class="mb-2">
+                <label class="form-label small text-secondary mb-1">Nairobi Area / Estate *</label>
+                <select id="deliveryZoneInput" class="form-select form-select-sm bg-dark text-white border-warning border-opacity-25">
+                    <option value="Ngara & Fig Tree">Ngara & Fig Tree</option>
+                    <option value="Pangani & Muthaiga">Pangani & Muthaiga</option>
+                    <option value="Parklands & Highridge">Parklands & Highridge</option>
+                    <option value="Westlands & Waiyaki Way" selected>Westlands & Waiyaki Way</option>
+                    <option value="Nairobi CBD & Upper Hill">Nairobi CBD & Upper Hill</option>
+                    <option value="Kilimani & Kileleshwa">Kilimani & Kileleshwa</option>
+                    <option value="Lavington & Valley Arcade">Lavington & Valley Arcade</option>
+                    <option value="South B & South C">South B & South C</option>
+                    <option value="Lang'ata & Madaraka">Lang'ata & Madaraka</option>
+                    <option value="Karen & Ngong Road">Karen & Ngong Road</option>
+                    <option value="Roysambu, Mirema & Kasarani">Roysambu, Mirema & Kasarani</option>
+                    <option value="Eastleigh & Juja Road">Eastleigh & Juja Road</option>
+                    <option value="Buruburu & Donholm">Buruburu & Donholm</option>
+                    <option value="Other Nairobi Estate">Other Nairobi Estate (Specify below)</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label small text-secondary mb-1">Exact Drop-off Building, Court or Landmark *</label>
+                <input type="text" id="deliveryAddressInput" class="form-control form-control-sm bg-dark text-white border-warning border-opacity-25"
+                       placeholder="e.g., Ngara Rd, Equity Plaza 3rd Flr / Pangani Heights Gate B">
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label small text-secondary mb-1">Chef & Kitchen Specifications (Optional)</label>
+                <input type="text" id="kitchenNotesInput" class="form-control form-control-sm bg-dark text-white border-warning border-opacity-25"
+                       placeholder="e.g., Extra kachumbari, mild spice, pack cutlery">
+            </div>
+
+            <div>
+                <label class="form-label small text-secondary mb-1">Instructions for Delivery Rider / Driver *</label>
+                <textarea id="riderInstructionsInput" rows="2" class="form-control form-control-sm bg-dark text-white border-warning border-opacity-25"
+                          placeholder="e.g., Call 07XX on arrival at the main gate, ask for Trevor, or leave with reception"></textarea>
+            </div>
+        </div>
+
+        <div id="checkoutErrorInline" class="text-danger small fw-semibold mb-2" style="display:none;"></div>
+
+        <div class="border-top border-warning border-opacity-25 pt-3 mt-auto">
             <div class="d-flex justify-content-between align-items-center mb-1 small text-secondary">
-                <span>Nairobi Express Delivery</span>
-                <span class="text-success fw-semibold">FREE</span>
+                <span>Complimentary Nairobi Delivery</span>
+                <span class="text-success fw-semibold">COMPLIMENTARY</span>
             </div>
             <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
                 <span>Total Due:</span>
                 <span class="text-warning">KES <span id="cartTotal">0.00</span></span>
             </div>
-            <button class="btn btn-warning text-dark rounded-pill w-100 fw-extrabold py-2 shadow" onclick="submitOrder()">
-                Confirm & Place Order →
+            <button id="placeOrderBtn" class="btn btn-warning text-dark rounded-pill w-100 fw-extrabold py-2 shadow" onclick="submitOrder()">
+                Dispatch Order to Kitchen →
             </button>
-            <div id="checkoutAlert" class="mt-3"></div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="ordersModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content foodie-modal-content rounded-4">
-            <div class="modal-header foodie-modal-header d-flex justify-content-between align-items-center">
-                <h5 class="modal-title font-editorial fw-bold text-warning mb-0">☰ Your Culinary Order History</h5>
-                <div class="d-flex align-items-center gap-2">
-                    <button class="btn btn-outline-danger btn-sm rounded-pill px-3" onclick="clearOrderHistory()">Clear History</button>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+<div class="modal fade" id="ordersModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content foodie-modal-content rounded-4 border border-warning border-opacity-30 p-2">
+            <div class="modal-header border-secondary border-opacity-25">
+                <div>
+                    <h5 class="modal-title font-editorial fw-bold text-warning mb-0">Order History & Live Status</h5>
+                    <small class="text-secondary">Live kitchen preparation, Nairobi rider transit, and delivery verification</small>
                 </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body p-4" id="ordersModalBody">Loading...</div>
+            <div class="modal-body" id="ordersModalBody"></div>
+            <div class="modal-footer border-secondary border-opacity-25 justify-content-between">
+                <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="clearOrderHistory()">Clear History</button>
+                <button type="button" class="btn btn-sm btn-warning text-dark rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thankYouModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content foodie-modal-content rounded-4 border border-warning border-opacity-50 text-center p-4 p-md-5"
+             style="background: radial-gradient(circle at top, rgba(245,158,11,0.16) 0%, #140f0c 62%); box-shadow: 0 24px 60px rgba(0,0,0,0.75);">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
+                 style="width:72px;height:72px;background:rgba(245,158,11,0.12);border:1.5px solid rgba(251,191,36,0.55);color:#fbbf24;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 18h20"/>
+                    <path d="M4 18a8 8 0 0 1 16 0"/>
+                    <path d="M12 7v3"/>
+                    <circle cx="12" cy="5.5" r="1.5"/>
+                </svg>
+            </div>
+            <div class="small text-uppercase fw-bold tracking-wider mb-2" style="letter-spacing:0.12em;color:#34d399;">
+                Delivery Completed & Verified
+            </div>
+            <h3 class="font-editorial fw-bold text-warning mb-3">Asante Sana — Enjoy Your Meal</h3>
+            <p id="thankYouModalBody" class="text-light opacity-90 mb-4" style="font-size:0.96rem;line-height:1.65;">
+                Your freshly prepared dishes have arrived at your table, confirmed by both our Nairobi rider and your household. Thank you for dining with Foodie — we look forward to serving you again soon.
+            </p>
+            <div class="py-2 px-3 rounded-3 mb-4 small"
+                 style="background:rgba(255,255,255,0.04);border:1px solid rgba(251,191,36,0.18);color:#d6d3d1;">
+                Crafted fresh in our Nairobi kitchen • Your dining record has been updated
+            </div>
+            <button type="button" class="btn btn-warning text-dark rounded-pill fw-bold px-5 py-2 shadow-sm" data-bs-dismiss="modal">
+                Return to Menu
+            </button>
         </div>
     </div>
 </div>
@@ -1269,7 +1512,7 @@
             prefs
         };
         localStorage.setItem(profileStorageKey, JSON.stringify(payload));
-        document.getElementById('profSaveStatus').textContent = '✓ Saved';
+        document.getElementById('profSaveStatus').textContent = ' Saved';
         setTimeout(() => { document.getElementById('profSaveStatus').textContent = ''; }, 2500);
         showToast('Profile preferences saved');
     }
@@ -1366,45 +1609,95 @@
         renderCart();
     }
 
-    function renderCart() {
+        function renderCart() {
         document.getElementById('cartCount').textContent = cart.reduce((s, i) => s + i.quantity, 0);
         document.getElementById('cartTotal').textContent = cart.reduce((s, i) => s + (i.price * i.quantity), 0).toFixed(2);
         const itemsEl = document.getElementById('cartItems');
         if (!cart.length) {
-            itemsEl.innerHTML = `<div class="text-center py-5 text-secondary"><div class="fs-2 mb-2">🍽</div><p class="mb-0">Your tray is empty.<br>Select any dish from the menu to begin.</p></div>`;
+            itemsEl.innerHTML = `<div class="text-center py-4 text-secondary"><p class="mb-0 small">Your tasting tray is empty.<br>Select any signature dish from the menu to begin.</p></div>`;
             return;
         }
-        itemsEl.innerHTML = cart.map((item, idx) => `
+        itemsEl.innerHTML = cart.map((item, idx) => {
+            const dish = dishById[item.productId];
+            const thumb = dish ? dish.imageUrl : 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=160&q=80';
+            return `
             <div class="cart-item-card d-flex justify-content-between align-items-center mb-2">
-                <div>
-                    <div class="fw-bold">${item.name}</div>
-                    <small class="text-warning">KES ${(item.price * item.quantity).toFixed(2)} <span class="text-secondary">(${item.quantity} × ${item.price})</span></small>
+                <div class="d-flex align-items-center gap-2">
+                    <img src="${thumb}" alt="" style="width:44px;height:44px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,193,7,0.25);">
+                    <div>
+                        <div class="fw-bold small text-white">${item.name}</div>
+                        <small class="text-warning">KES ${(item.price * item.quantity).toFixed(2)} <span class="text-secondary">(${item.quantity} × ${item.price})</span></small>
+                    </div>
                 </div>
                 <div class="btn-group btn-group-sm">
                     <button class="btn btn-outline-warning rounded-start-pill" onclick="updateQty(${idx}, -1)">-</button>
                     <button class="btn btn-dark disabled text-white fw-bold">${item.quantity}</button>
                     <button class="btn btn-outline-warning rounded-end-pill" onclick="updateQty(${idx}, 1)">+</button>
                 </div>
-            </div>
-        `).join('');
+            </div>`;
+        }).join('');
+    }
+
+    function showCheckoutError(msg) {
+        const errEl = document.getElementById('checkoutErrorInline');
+        if (!msg) { errEl.style.display = 'none'; errEl.textContent = ''; return; }
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
     }
 
     async function submitOrder() {
-        const alertEl = document.getElementById('checkoutAlert');
-        if (!cart.length) { alertEl.innerHTML = '<div class="alert alert-warning rounded-pill py-2 text-center small fw-bold">Add dishes to your tray first.</div>'; return; }
+        showCheckoutError('');
+        if (!requireAuth('Sign in or create an account to place your culinary order.')) return;
+        if (!cart.length) { showCheckoutError('Select at least one dish for your tasting tray first.'); return; }
+
+        const deliveryZone = document.getElementById('deliveryZoneInput').value;
+        const deliveryAddress = document.getElementById('deliveryAddressInput').value.trim();
+        const kitchenNotes = document.getElementById('kitchenNotesInput').value.trim();
+        const riderInstructions = document.getElementById('riderInstructionsInput').value.trim();
+
+        if (!deliveryAddress) {
+            showCheckoutError('Please enter your Nairobi building, street, or drop-off landmark.');
+            document.getElementById('deliveryAddressInput').focus();
+            return;
+        }
+        if (!riderInstructions) {
+            showCheckoutError('Please add arrival instructions for your delivery rider (e.g., call at gate).');
+            document.getElementById('riderInstructionsInput').focus();
+            return;
+        }
+
+        const btn = document.getElementById('placeOrderBtn');
+        btn.disabled = true;
+        btn.textContent = 'Dispatching to Kitchen...';
+
         try {
             const res = await fetch('/api/orders', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: activeUserId, items: cart.map(c => ({ productId: c.productId, quantity: c.quantity })) })
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: activeUserId,
+                    deliveryZone,
+                    deliveryAddress,
+                    kitchenNotes,
+                    riderInstructions,
+                    items: cart.map(c => ({ productId: c.productId, quantity: c.quantity }))
+                })
             });
             if (!res.ok) throw new Error(await res.text());
             const order = await res.json();
             cart.forEach(c => trackClickstream(c.productId, c.name, 'PURCHASE'));
             cart = [];
             renderCart();
-            alertEl.innerHTML = `<div class="alert alert-success rounded-4 py-2 small fw-semibold">✓ Order #${order.id} confirmed! Total: KES ${order.totalAmount}</div>`;
+            document.getElementById('kitchenNotesInput').value = '';
+
+            const drawerInst = bootstrap.Offcanvas.getInstance(document.getElementById('cartDrawer'));
+            if (drawerInst) drawerInst.hide();
+            loadOrderHistory();
         } catch (err) {
-            alertEl.innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">Checkout failed: ${err.message}</div>`;
+            showCheckoutError(err.message);
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = 'Dispatch Order to Kitchen →';
         }
     }
 
@@ -1415,59 +1708,133 @@
         return d.toLocaleString('en-KE', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
     }
 
-    async function loadOrderHistory() {
-        if (!requireAuth('Sign in or create an account to view your order history.')) return;
-        const modal = new bootstrap.Modal(document.getElementById('ordersModal'));
-        const body = document.getElementById('ordersModalBody');
-        body.innerHTML = '<div class="text-center py-4 text-warning">Loading your order history...</div>';
-        modal.show();
-        const res = await fetch(`/api/orders/user/${activeUserId}`);
-        const orders = await res.json();
-        if (!orders.length) {
-            body.innerHTML = `<div class="text-center py-5 text-secondary"><div class="fs-2 mb-2">🍽</div><p class="mb-0">No orders placed yet for this account.</p></div>`;
-            return;
-        }
-        body.innerHTML = orders.map(o => `
-            <div class="cart-item-card mb-3">
-                <div class="d-flex justify-content-between align-items-center pb-2 mb-2 border-bottom border-warning border-opacity-10">
-                    <div>
-                        <strong class="text-warning fs-6">Order #${o.id}</strong>
-                        <span class="text-secondary small ms-2">• ${formatOrderDate(o.createdAt)}</span>
-                    </div>
-                    <span class="badge bg-success bg-opacity-25 text-success border border-success rounded-pill px-3">${o.status}</span>
-                </div>
-                <div class="d-flex flex-column gap-2 mb-3">
-                    ${o.items.map(i => {
-                        const dish = dishById[i.productId];
-                        const title = dish ? dish.name : 'Chef Signature Dish';
-                        const thumb = dish ? dish.imageUrl : 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=200&q=80';
-                        const lineTotal = (parseFloat(i.price) * i.quantity).toFixed(2);
-                        return `
-                            <div class="d-flex justify-content-between align-items-center bg-black bg-opacity-40 rounded-3 p-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img src="${thumb}" alt="" style="width:42px;height:42px;object-fit:cover;border-radius:8px;">
-                                    <div>
-                                        <div class="fw-semibold text-white small">${title}</div>
-                                        <div class="text-secondary" style="font-size:0.76rem;">Qty ${i.quantity} × KES ${i.price}</div>
-                                    </div>
-                                </div>
-                                <div class="fw-bold text-warning small">KES ${lineTotal}</div>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-                <div class="d-flex justify-content-between align-items-center pt-2 border-top border-warning border-opacity-10">
-                    <span class="small text-secondary">Total Paid</span>
-                    <span class="fw-extrabold text-warning fs-6">KES ${o.totalAmount}</span>
-                </div>
-            </div>
-        `).join('');
+    function formatStatusBadge(status) {
+        const s = (status || 'AWAITING_KITCHEN').toUpperCase();
+        if (s === 'TABLE_SERVED' || s === 'DELIVERED_CONFIRMED') return { label: 'TABLE SERVED & VERIFIED', cls: 'bg-success bg-opacity-25 text-success border-success' };
+        if (s === 'AT_YOUR_DOORSTEP') return { label: 'RIDER AT YOUR DOORSTEP', cls: 'bg-warning text-dark border-warning' };
+        if (s === 'KITCHEN_PREPARING') return { label: 'KITCHEN PREPARING & EN ROUTE', cls: 'bg-info bg-opacity-25 text-info border-info' };
+        if (s === 'ACCEPTED_BY_CHEF') return { label: 'ACCEPTED BY CHEF', cls: 'bg-primary bg-opacity-25 text-primary border-primary' };
+        if (s === 'DINER_CONFIRMED_AWAITING_RIDER') return { label: 'RECEIVED (AWAITING RIDER SIGN-OFF)', cls: 'bg-warning bg-opacity-25 text-warning border-warning' };
+        return { label: 'AWAITING KITCHEN ACCEPTANCE', cls: 'bg-secondary bg-opacity-25 text-light border-secondary' };
     }
 
-    async function clearOrderHistory() {
+    async function confirmOrderReceived(orderId) {
+        try {
+            const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
+            if (!res.ok) return;
+            const data = await res.json();
+            await loadOrderHistory();
+            if (data.bothConfirmed) { showExclusiveThankYouModal(orderId, ''); } else { showToast('Delivery receipt recorded! Waiting for rider confirmation.'); }
+        } catch (e) { console.error(e); }
+    }
+    function getHospitalityStage(status) {
+        const s = (status || 'AWAITING_KITCHEN').toUpperCase();
+        if (s === 'TABLE_SERVED') {
+            return {
+                label: 'Delivered & Verified',
+                caption: 'Delivered and verified by both our Nairobi rider and your household.',
+                pct: 100,
+                isTransit: false
+            };
+        }
+        if (s === 'AT_YOUR_DOORSTEP') {
+            return {
+                label: 'Rider at Doorstep',
+                caption: 'Your rider has arrived at your address. Confirm receipt once handed over.',
+                pct: 94,
+                isTransit: true
+            };
+        }
+        if (s === 'OUT_FOR_DELIVERY') {
+            return {
+                label: 'Rider En Route',
+                caption: 'Your order is packed warm and currently on transit across Nairobi.',
+                pct: 78,
+                isTransit: true
+            };
+        }
+        if (s === 'ACCEPTED_BY_CHEF' || s === 'KITCHEN_PREPARING') {
+            return {
+                label: 'Preparing in Kitchen',
+                caption: 'Our chefs are actively crafting and plating your dishes fresh to order.',
+                pct: 50,
+                isTransit: false
+            };
+        }
+        return {
+            label: 'Order Queued',
+            caption: 'Your order has been received by our Nairobi kitchen and is awaiting chef acceptance.',
+            pct: 22,
+            isTransit: false
+        };
+    }
+
+    async function confirmOrderReceived(orderId) {
+        try {
+            const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
+            if (!res.ok) return;
+            const data = await res.json();
+            if (data.bothConfirmed) { showExclusiveThankYouModal(orderId, ''); } else {
+                showToast('Receipt recorded. Delivery will close once our rider signs off.');
+            }
+            const ordersModalEl = document.getElementById('ordersModal');
+            if (ordersModalEl && ordersModalEl.classList.contains('show')) {
+                loadOrderHistory();
+            }
+            syncLiveOrderTracker();
+        } catch (e) { console.error(e); }
+    }
+
+    async function loadOrderHistory() {
+        if (!requireAuth('Please sign in to view your order history.')) return;
+        const modalEl = document.getElementById('ordersModal');
+        const body = document.getElementById('ordersModalBody');
+        if (!modalEl || !body) return;
+        const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+        body.innerHTML = '<div class="text-center py-4 text-warning small">Loading your order history...</div>';
+        modal.show();
+        try {
+            const res = await fetch(`/api/orders/user/${activeUserId}`);
+            const orders = await res.json();
+            if (!orders || !orders.length) {
+                body.innerHTML = '<div class="text-center py-5 text-secondary small">No orders placed yet for this account.</div>';
+                return;
+            }
+            body.innerHTML = orders.map(o => {
+                const ordRef = 'ORD-' + String(o.id).padStart(4, '0');
+                const stage = getHospitalityStage(o.status);
+                const confirmBtn = (stage.isTransit && !o.customerReceivedConfirmed)
+                    ? `<button class="btn btn-sm btn-warning text-dark rounded-pill px-3 fw-bold mt-3" onclick="confirmOrderReceived(${o.id})">Confirm Order Received</button>`
+                    : (o.customerReceivedConfirmed && stage.pct < 100
+                        ? '<div class="mt-2 small text-warning fw-semibold">Receipt confirmed — awaiting rider sign-off</div>'
+                        : '');
+
+                return `
+                    <div class="p-3 p-md-4 mb-3 rounded-4 bg-black bg-opacity-50 border border-warning border-opacity-25">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                            <div>
+                                <span class="fw-bold text-warning">${ordRef}</span>
+                                <span class="text-secondary small ms-2">${o.deliveryZone || 'Nairobi'}${o.deliveryAddress ? ' • ' + o.deliveryAddress : ''}</span>
+                            </div>
+                            <span class="badge bg-dark text-warning border border-warning border-opacity-50 rounded-pill px-3 py-1">${stage.label}</span>
+                        </div>
+                        <div class="small text-light mb-2">Total: <strong>KES ${o.totalAmount}</strong></div>
+                        <div class="editorial-progress-track my-2">
+                            <div class="editorial-progress-fill ${stage.pct === 100 ? 'is-complete' : ''}" style="width:${stage.pct}%;"></div>
+                        </div>
+                        <div class="small text-secondary">${stage.caption}</div>
+                        ${confirmBtn}
+                    </div>
+                `;
+            }).join('');
+        } catch (e) {
+            body.innerHTML = '<div class="text-center py-4 text-danger small">Unable to load order history right now.</div>';
+        }
+    }
+async function clearOrderHistory() {
         await fetch(`/api/portal/orders/user/${activeUserId}`, { method: 'DELETE' });
         document.getElementById('ordersModalBody').innerHTML =
-            `<div class="text-center py-5 text-secondary"><div class="fs-2 mb-2">✓</div><p class="mb-0">Order history cleared.</p></div>`;
+            `<div class="text-center py-5 text-secondary"><div class="fs-2 mb-2"></div><p class="mb-0">Order history cleared.</p></div>`;
         showToast('Order history cleared');
     }
 
@@ -1496,7 +1863,7 @@
     async function signInWithGoogle() {
         const res = await fetch('/api/portal/google-login', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ fullName: 'Trevor Lamar', email: 'trevor@foodie.co.ke' })
+            body: JSON.stringify({ fullName: 'Nairobi Diner', email: 'diner@foodie.co.ke' })
         });
         const data = await res.json();
         if (res.ok) window.location.href = `/store?userId=${data.id}`;
@@ -1509,7 +1876,7 @@
             body: JSON.stringify({ email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value })
         });
         const data = await res.json();
-        if (res.ok) window.location.href = data.role === 'ROLE_ADMIN' ? '/admin/churn' : `/?userId=${data.id}`;
+        if (res.ok) window.location.href = data.role === 'ROLE_ADMIN' ? '/admin/churn' : `/store?userId=${data.id}`;
         else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error}</div>`;
     }
 
@@ -1527,6 +1894,31 @@
         await fetch('/api/portal/logout', { method: 'POST' });
         window.location.href = '/store';
     }
+    async function checkCompletedOrdersGreeting() {
+        if (!activeUserId || activeUserId <= 0) return;
+        try {
+            const res = await fetch(`/api/orders/user/${activeUserId}`);
+            if (!res.ok) return;
+            const orders = await res.json();
+            const newlyCompleted = orders.find(o => o.status === 'TABLE_SERVED' && !localStorage.getItem('foodie_thanked_' + o.id));
+            if (newlyCompleted) {
+                showExclusiveThankYouModal(newlyCompleted.id, newlyCompleted.deliveryZone || 'Nairobi');
+            }
+        } catch (e) { console.error(e); }
+    }
+    window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
+    async function confirmOrderReceived(orderId) {
+        const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
+        if (res.ok) {
+            const data = await res.json();
+            if (data.bothConfirmed) { showExclusiveThankYouModal(orderId, ''); } else {
+                showToast('Delivery receipt recorded! Waiting for rider confirmation.');
+            }
+            loadOrderHistory();
+            syncLiveOrderTracker();
+        }
+    }
+
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -1702,6 +2094,31 @@
         }
         animate();
     })();
+    async function checkCompletedOrdersGreeting() {
+        if (!activeUserId || activeUserId <= 0) return;
+        try {
+            const res = await fetch(`/api/orders/user/${activeUserId}`);
+            if (!res.ok) return;
+            const orders = await res.json();
+            const newlyCompleted = orders.find(o => o.status === 'TABLE_SERVED' && !localStorage.getItem('foodie_thanked_' + o.id));
+            if (newlyCompleted) {
+                showExclusiveThankYouModal(newlyCompleted.id, newlyCompleted.deliveryZone || 'Nairobi');
+            }
+        } catch (e) { console.error(e); }
+    }
+    window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
+    async function confirmOrderReceived(orderId) {
+        const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
+        if (res.ok) {
+            const data = await res.json();
+            if (data.bothConfirmed) { showExclusiveThankYouModal(orderId, ''); } else {
+                showToast('Delivery receipt recorded! Waiting for rider confirmation.');
+            }
+            loadOrderHistory();
+            syncLiveOrderTracker();
+        }
+    }
+
 </script>
 <script id="hero3dDeckScript">
     (function initInteractiveHeroDeck() {
@@ -1802,6 +2219,31 @@
         renderDeck();
         resetAutoPlay();
     })();
+    async function checkCompletedOrdersGreeting() {
+        if (!activeUserId || activeUserId <= 0) return;
+        try {
+            const res = await fetch(`/api/orders/user/${activeUserId}`);
+            if (!res.ok) return;
+            const orders = await res.json();
+            const newlyCompleted = orders.find(o => o.status === 'TABLE_SERVED' && !localStorage.getItem('foodie_thanked_' + o.id));
+            if (newlyCompleted) {
+                showExclusiveThankYouModal(newlyCompleted.id, newlyCompleted.deliveryZone || 'Nairobi');
+            }
+        } catch (e) { console.error(e); }
+    }
+    window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
+    async function confirmOrderReceived(orderId) {
+        const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
+        if (res.ok) {
+            const data = await res.json();
+            if (data.bothConfirmed) { showExclusiveThankYouModal(orderId, ''); } else {
+                showToast('Delivery receipt recorded! Waiting for rider confirmation.');
+            }
+            loadOrderHistory();
+            syncLiveOrderTracker();
+        }
+    }
+
 </script>
 <script id="adminLoginAutoTrigger">
     document.addEventListener('DOMContentLoaded', () => {
@@ -1832,7 +2274,7 @@
                 };
 
                 document.getElementById('fillAdminDemoBtn')?.addEventListener('click', () => fillCreds('admin@foodie.co.ke', 'admin123'));
-                document.getElementById('fillCustDemoBtn')?.addEventListener('click', () => fillCreds('trevor@foodie.co.ke', 'password123'));
+                document.getElementById('fillCustDemoBtn')?.addEventListener('click', () => fillCreds('diner@foodie.co.ke', 'foodie123'));
             }
 
             if (isAdminFlow && window.bootstrap) {
@@ -1840,6 +2282,86 @@
             }
         }
     });
+    async function checkCompletedOrdersGreeting() {
+        if (!activeUserId || activeUserId <= 0) return;
+        try {
+            const res = await fetch(`/api/orders/user/${activeUserId}`);
+            if (!res.ok) return;
+            const orders = await res.json();
+            const newlyCompleted = orders.find(o => o.status === 'TABLE_SERVED' && !localStorage.getItem('foodie_thanked_' + o.id));
+            if (newlyCompleted) {
+                showExclusiveThankYouModal(newlyCompleted.id, newlyCompleted.deliveryZone || 'Nairobi');
+            }
+        } catch (e) { console.error(e); }
+    }
+    window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
+    async function confirmOrderReceived(orderId) {
+        const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
+        if (res.ok) {
+            const data = await res.json();
+            if (data.bothConfirmed) { showExclusiveThankYouModal(orderId, ''); } else {
+                showToast('Delivery receipt recorded! Waiting for rider confirmation.');
+            }
+            loadOrderHistory();
+            syncLiveOrderTracker();
+        }
+    }
+
+    async function syncLiveOrderTracker() {
+        if (!activeUserId || activeUserId <= 0) return;
+        try {
+            const res = await fetch(`/api/orders/user/${activeUserId}`);
+            if (!res.ok) return;
+            const orders = await res.json();
+
+            const newlyCompleted = orders.find(o => o.status === 'TABLE_SERVED' && !localStorage.getItem('foodie_thanked_' + o.id));
+            if (newlyCompleted) {
+                showExclusiveThankYouModal(newlyCompleted.id, newlyCompleted.deliveryZone || 'Nairobi');
+            }
+
+            const activeOrder = orders.find(o => o.status !== 'TABLE_SERVED');
+            const container = document.getElementById('liveOrderTrackerContainer');
+            const banner = document.getElementById('liveOrderTrackerBanner');
+            if (!container || !banner) return;
+
+            if (!activeOrder) {
+                container.style.display = 'none';
+                return;
+            }
+
+            const ordRef = 'ORD-' + String(activeOrder.id).padStart(4, '0');
+            const stage = getHospitalityStage(activeOrder.status);
+            const beaconClass = stage.isTransit ? 'transit' : '';
+            const confirmAction = (stage.isTransit && !activeOrder.customerReceivedConfirmed)
+                ? `<button class="btn btn-sm btn-warning text-dark rounded-pill px-3 fw-bold" onclick="confirmOrderReceived(${activeOrder.id})">Confirm Order Received</button>`
+                : (activeOrder.customerReceivedConfirmed
+                    ? '<span class="small text-warning fw-semibold px-2">Receipt Confirmed</span>'
+                    : '');
+
+            banner.innerHTML = `
+                <div class="flex-grow-1" style="min-width:260px;">
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                        <span class="status-beacon ${beaconClass}"></span>
+                        <span class="fw-bold text-warning small text-uppercase" style="letter-spacing:0.08em;">${stage.label}</span>
+                        <span class="badge bg-black bg-opacity-50 text-secondary border border-secondary border-opacity-25 rounded-pill px-2">${ordRef}</span>
+                    </div>
+                    <div class="small text-light opacity-85 mb-2">${stage.caption}</div>
+                    <div class="editorial-progress-track" style="max-width:460px;">
+                        <div class="editorial-progress-fill ${stage.pct === 100 ? 'is-complete' : ''}" style="width:${stage.pct}%;"></div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    ${confirmAction}
+                    <button class="btn btn-sm btn-outline-warning rounded-pill px-3" onclick="loadOrderHistory()">Order Details</button>
+                </div>
+            `;
+            container.style.display = 'block';
+        } catch (e) { console.error(e); }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+        syncLiveOrderTracker();
+        setInterval(syncLiveOrderTracker, 4000);
+    });
 </script>
-</body>
+
 </html>

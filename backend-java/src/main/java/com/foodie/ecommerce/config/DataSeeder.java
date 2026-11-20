@@ -2,6 +2,8 @@ package com.foodie.ecommerce.config;
 
 import com.foodie.ecommerce.model.Product;
 import com.foodie.ecommerce.model.User;
+import com.foodie.ecommerce.repository.ClickstreamRepository;
+import com.foodie.ecommerce.repository.OrderRepository;
 import com.foodie.ecommerce.repository.ProductRepository;
 import com.foodie.ecommerce.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -13,39 +15,64 @@ import java.security.MessageDigest;
 import java.util.HexFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 public class DataSeeder implements CommandLineRunner {
 
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
+    private final OrderRepository orderRepository;
+    private final ClickstreamRepository clickstreamRepository;
 
-    public DataSeeder(UserRepository userRepository, ProductRepository productRepository) {
+    public DataSeeder(UserRepository userRepository,
+                      ProductRepository productRepository,
+                      OrderRepository orderRepository,
+                      ClickstreamRepository clickstreamRepository) {
         this.userRepository = userRepository;
         this.productRepository = productRepository;
+        this.orderRepository = orderRepository;
+        this.clickstreamRepository = clickstreamRepository;
     }
 
     @Override
     public void run(String... args) {
-        List<String> demoEmails = List.of(
+        List<String> syntheticEmails = List.of(
+                "trevor@foodie.co.ke",
                 "amina@foodie.co.ke",
                 "brian@foodie.co.ke",
-                "faith@foodie.co.ke"
+                "faith@foodie.co.ke",
+                "diner@foodie.co.ke"
         );
         userRepository.findAll().stream()
-                .filter(u -> u.getEmail() != null && demoEmails.contains(u.getEmail().toLowerCase()))
-                .forEach(userRepository::delete);
+                .filter(u -> u.getEmail() != null && syntheticEmails.contains(u.getEmail().toLowerCase()))
+                .forEach(stale -> {
+                    orderRepository.findByUserIdOrderByCreatedAtDesc(stale.getId())
+                            .forEach(orderRepository::delete);
+                    userRepository.delete(stale);
+                });
 
-        if (userRepository.findByEmail("trevor@foodie.co.ke").isEmpty()) {
-            userRepository.save(new User(
-                    null, "Trevor Lamar", "trevor@foodie.co.ke", hashPassword("foodie123"), "ROLE_CUSTOMER", null
-            ));
-        }
-        if (userRepository.findByEmail("admin@foodie.co.ke").isEmpty()) {
-            userRepository.save(new User(
-                    null, "Kitchen Admin", "admin@foodie.co.ke", hashPassword("admin123"), "ROLE_ADMIN", null
-            ));
-        }
+        userRepository.findByEmail("admin@foodie.co.ke").ifPresentOrElse(
+                existing -> {
+                    existing.setFullName("Kitchen Admin");
+                    existing.setPasswordHash(hashPassword("admin123"));
+                    existing.setRole("ROLE_ADMIN");
+                    userRepository.save(existing);
+                },
+                () -> userRepository.save(new User(
+                        null, "Kitchen Admin", "admin@foodie.co.ke", hashPassword("admin123"), "ROLE_ADMIN", null
+                ))
+        );
+
+        Set<Long> validCustomerIds = userRepository.findAll().stream()
+                .filter(u -> !"ROLE_ADMIN".equalsIgnoreCase(u.getRole()))
+                .map(User::getId)
+                .collect(Collectors.toSet());
+
+        clickstreamRepository.findAll().stream()
+                .filter(log -> log.getUserId() == null || !validCustomerIds.contains(log.getUserId()))
+                .forEach(clickstreamRepository::delete);
 
         if (productRepository.count() == 0) {
             productRepository.saveAll(List.of(
