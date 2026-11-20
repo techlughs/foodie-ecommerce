@@ -150,7 +150,12 @@ public class PortalApiController {
         p.setPrice(new BigDecimal(String.valueOf(body.getOrDefault("price", "450.00"))));
         p.setImageUrl(String.valueOf(body.getOrDefault("imageUrl", "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80")).trim());
         p.setIngredients(parseIngredients(body.getOrDefault("ingredients", "Fresh Local Spices, Chef's Signature Blend")));
-        p.setNutritionalInfo(Map.of("calories", 540, "protein", "32g"));
+        Map<String, Object> nutrition = new java.util.LinkedHashMap<>();
+        nutrition.put("calories", parseCaloriesValue(body.get("calories"), 540));
+        nutrition.put("protein", parseNutritionText(body.get("protein"), "32g"));
+        nutrition.put("fat", parseNutritionText(body.get("fat"), "18g"));
+        nutrition.put("carbs", parseNutritionText(body.get("carbs"), "45g"));
+        p.setNutritionalInfo(nutrition);
         p.setAvailable(true);
         return ResponseEntity.ok(productRepository.save(p));
     }
@@ -178,6 +183,24 @@ public class PortalApiController {
             }
             if (body.containsKey("imageUrl") && !String.valueOf(body.get("imageUrl")).isBlank()) {
                 p.setImageUrl(String.valueOf(body.get("imageUrl")).trim());
+            }
+            if (body.containsKey("calories") || body.containsKey("protein") || body.containsKey("fat") || body.containsKey("carbs")) {
+                Map<String, Object> updatedNutrition = new java.util.LinkedHashMap<>(
+                    p.getNutritionalInfo() != null ? p.getNutritionalInfo() : Map.of()
+                );
+                if (body.containsKey("calories")) {
+                    updatedNutrition.put("calories", parseCaloriesValue(body.get("calories"), 540));
+                }
+                if (body.containsKey("protein")) {
+                    updatedNutrition.put("protein", parseNutritionText(body.get("protein"), "32g"));
+                }
+                if (body.containsKey("fat")) {
+                    updatedNutrition.put("fat", parseNutritionText(body.get("fat"), "18g"));
+                }
+                if (body.containsKey("carbs")) {
+                    updatedNutrition.put("carbs", parseNutritionText(body.get("carbs"), "45g"));
+                }
+                p.setNutritionalInfo(updatedNutrition);
             }
             return ResponseEntity.ok(productRepository.save(p));
         }).orElse(ResponseEntity.notFound().build());
@@ -277,5 +300,22 @@ public class PortalApiController {
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
                 .toList();
+    }
+
+    private int parseCaloriesValue(Object raw, int fallback) {
+        if (raw == null) return fallback;
+        String digits = String.valueOf(raw).replaceAll("[^0-9]", "");
+        if (digits.isBlank()) return fallback;
+        try {
+            return Integer.parseInt(digits);
+        } catch (NumberFormatException ex) {
+            return fallback;
+        }
+    }
+
+    private String parseNutritionText(Object raw, String fallback) {
+        if (raw == null) return fallback;
+        String val = String.valueOf(raw).trim();
+        return val.isBlank() ? fallback : val;
     }
 }
