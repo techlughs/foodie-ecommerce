@@ -35,23 +35,84 @@
         .btn-exec-emerald:hover { background: #10b981; color: #052e16; }
         .btn-exec-danger { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; font-weight: 600; }
         .btn-exec-danger:hover { background: #ef4444; color: #ffffff; }
+            #adminThreeBg {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            display: block;
+        }
+        body > nav,
+        body > .container,
+        body > .modal {
+            position: relative;
+            z-index: 1;
+        }
+        .kpi-card, .panel-card {
+            background: rgba(20, 14, 10, 0.64);
+            backdrop-filter: blur(12px);
+        }
+            .studio-navbar {
+            background: rgba(16, 11, 8, 0.72);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.20);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+        .studio-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.28rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #fbbf24;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(194, 65, 12, 0.12));
+            border: 1px solid rgba(251, 191, 36, 0.42);
+            border-radius: 999px;
+            box-shadow: 0 0 18px rgba(245, 158, 11, 0.14);
+        }
+        .studio-live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #34d399;
+            box-shadow: 0 0 8px rgba(52, 211, 153, 0.8);
+        }
+        .studio-subtag {
+            font-size: 0.76rem;
+            letter-spacing: 0.06em;
+            color: #d6d3d1;
+        }
     </style>
 </head>
 <body>
+<canvas id="adminThreeBg" aria-hidden="true"></canvas>
 
-<nav class="navbar navbar-dark bg-transparent sticky-top py-3" style="backdrop-filter: blur(14px);">
-    <div class="container">
-        <div class="navbar-brand d-flex align-items-center gap-2 mb-0">
-            <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-                <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#admLogo)" stroke="#fbbf24" stroke-width="1.5"/>
-                <path d="M20 8.5C15.6 13.8 13.5 17.6 13.5 21.8C13.5 25.6 16.4 28.5 20 28.5C23.6 28.5 26.5 25.6 26.5 21.8C26.5 17.6 24.4 13.8 20 8.5Z" fill="#0c0907"/>
-                <path d="M20 15C18 17.6 17 19.6 17 21.8C17 23.6 18.3 25 20 25C21.7 25 23 23.6 23 21.8C23 19.6 22 17.6 20 15Z" fill="#fbbf24"/>
-                <defs><linearGradient id="admLogo" x1="2" y1="2" x2="38" y2="38"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
-            </svg>
-            <span class="font-editorial fw-bold fs-4 text-warning">Foodie</span>
-            <span class="badge bg-warning text-dark rounded-pill">Admin Studio</span>
+<nav class="navbar navbar-dark studio-navbar sticky-top py-3">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div class="d-flex flex-wrap align-items-center gap-3">
+            <a href="/store" class="navbar-brand d-flex align-items-center gap-2 mb-0 text-decoration-none">
+                <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#admLogo)" stroke="#fbbf24" stroke-width="1.5"/>
+                    <path d="M20 8.5C15.6 13.8 13.5 17.6 13.5 21.8C13.5 25.6 16.4 28.5 20 28.5C23.6 28.5 26.5 25.6 26.5 21.8C26.5 17.6 24.4 13.8 20 8.5Z" fill="#0c0907"/>
+                    <path d="M20 15C18 17.6 17 19.6 17 21.8C17 23.6 18.3 25 20 25C21.7 25 23 23.6 23 21.8C23 19.6 22 17.6 20 15Z" fill="#fbbf24"/>
+                    <defs><linearGradient id="admLogo" x1="2" y1="2" x2="38" y2="38"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
+                </svg>
+                <span class="font-editorial fw-bold fs-4 text-warning">Foodie</span>
+            </a>
+            <span class="studio-badge">
+                <span class="studio-live-dot"></span>
+                Admin Studio
+            </span>
+            <span class="studio-subtag d-none d-lg-inline">Nairobi Culinary Operations & Retention Suite</span>
         </div>
-        <div class="d-flex align-items-center gap-2"><button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3" onclick="fetch('/api/portal/logout', { method: 'POST' }).then(function(){ window.location.href = '/store'; });">Sign Out</button></div>
+        <div class="d-flex align-items-center gap-2">
+            <button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3" onclick="fetch('/api/portal/logout', { method: 'POST' }).then(function(){ window.location.href = '/store'; });">Sign Out</button>
+        </div>
     </div>
 </nav>
 
@@ -106,7 +167,7 @@
         <div class="card-header bg-transparent border-0 pt-4 px-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
             <div>
                 <h5 class="font-editorial fw-bold mb-0 text-warning">Menu Catalog, Dish Details & Photo Studio</h5>
-                <small class="text-secondary">Rename dishes, edit descriptions & ingredients, update prices, or upload custom photos</small>
+                <small class="text-secondary">Rename dishes, edit descriptions & ingredients, update prices, or upload photos from any device</small>
             </div>
             <div class="d-flex flex-wrap align-items-center gap-2">
                 <input type="search" id="adminCatalogSearch" class="form-control form-control-sm form-control-dark rounded-pill px-3" style="width: 210px;"
@@ -126,7 +187,7 @@
                             <th>Photo</th>
                             <th>Dish Name & Category</th>
                             <th>Description & Ingredients</th>
-                            <th>Photo URL / Device Upload</th>
+                            <th>Device Photo Upload</th>
                             <th>Price (KES)</th>
                             <th class="text-end">Actions</th>
                         </tr>
@@ -154,13 +215,13 @@
                                        th:id="'ing-' + ${p.id}" th:value="${#strings.listJoin(p.ingredients, ', ')}"
                                        placeholder="Ingredients (comma-separated)">
                             </td>
-                            <td style="min-width: 240px;">
-                                <input type="text" class="form-control form-control-sm form-control-dark mb-1"
-                                       th:id="'imgurl-' + ${p.id}" th:value="${p.imageUrl}" placeholder="Paste image URL...">
-                                <div class="d-flex gap-1">
-                                    <input type="file" accept="image/*" class="form-control form-control-sm form-control-dark"
-                                           th:id="'file-' + ${p.id}">
-                                    <button class="btn btn-sm btn-outline-warning text-nowrap"
+                            <td style="min-width: 230px;">
+                                <div class="d-flex gap-1 align-items-center">
+                                    <input type="file" accept="image/*" capture="environment"
+                                           class="form-control form-control-sm form-control-dark"
+                                           th:id="'file-' + ${p.id}" th:data-id="${p.id}"
+                                           onchange="handleRowPhotoSelected(this)">
+                                    <button type="button" class="btn btn-sm btn-outline-warning text-nowrap"
                                             th:data-id="${p.id}" onclick="uploadDishPhoto(this)">Upload</button>
                                 </div>
                             </td>
@@ -431,7 +492,31 @@
                 <div class="mb-2"><label class="form-label small fw-bold text-warning">Price (KES)</label><input type="number" id="newProdPrice" class="form-control form-control-dark" value="550"></div>
                 <div class="mb-2"><label class="form-label small fw-bold text-warning">Description</label><textarea rows="2" id="newProdDesc" class="form-control form-control-dark" placeholder="Rich coastal coconut curry with fresh herbs"></textarea></div>
                 <div class="mb-2"><label class="form-label small fw-bold text-warning">Ingredients (comma-separated)</label><input type="text" id="newProdIng" class="form-control form-control-dark" placeholder="Red Snapper, Coconut Milk, Turmeric, Cilantro"></div>
-                <div class="mb-3"><label class="form-label small fw-bold text-warning">Image URL (or upload file after saving)</label><input type="text" id="newProdImg" class="form-control form-control-dark" value="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"></div>
+                <div class="row g-2 mb-2">
+                    <div class="col-6 col-md-3">
+                        <label class="form-label small fw-bold text-warning">Calories (kcal)</label>
+                        <input type="number" id="newProdKcal" class="form-control form-control-dark" value="540" min="0">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label class="form-label small fw-bold text-warning">Protein</label>
+                        <input type="text" id="newProdProtein" class="form-control form-control-dark" value="32g" placeholder="32g">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label class="form-label small fw-bold text-warning">Fats</label>
+                        <input type="text" id="newProdFat" class="form-control form-control-dark" value="18g" placeholder="18g">
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label class="form-label small fw-bold text-warning">Carbs</label>
+                        <input type="text" id="newProdCarbs" class="form-control form-control-dark" value="45g" placeholder="45g">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold text-warning">Dish Photo (From Device)</label>
+                    <input type="file" id="newProdFile" accept="image/*" class="form-control form-control-dark" onchange="previewNewDishPhoto(this)">
+                    <div class="mt-2 d-none" id="newProdPreviewWrap">
+                        <img id="newProdPreview" src="" alt="Selected dish preview" style="width:76px;height:76px;object-fit:cover;border-radius:10px;border:1px solid rgba(251,191,36,0.35);">
+                    </div>
+                </div>
                 <button class="btn btn-warning text-dark rounded-pill w-100 fw-bold" onclick="createNewProduct()">Save Dish to Menu</button>
             </div>
         </div>
@@ -446,6 +531,13 @@
         const res = await fetch('/api/portal/admin/orders/completed', { method: 'DELETE' });
         if (res.ok) window.location.reload();
     }
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.alert').forEach(el => {
+            setTimeout(() => {
+                if (el && el.parentNode) el.remove();
+            }, 4000);
+        });
+    });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js">    async function deleteAdminOrder(orderId) {
         const res = await fetch(`/api/portal/admin/orders/${orderId}`, { method: 'DELETE' });
@@ -455,6 +547,13 @@
         const res = await fetch('/api/portal/admin/orders/completed', { method: 'DELETE' });
         if (res.ok) window.location.reload();
     }
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.alert').forEach(el => {
+            setTimeout(() => {
+                if (el && el.parentNode) el.remove();
+            }, 4000);
+        });
+    });
 </script>
 <script th:inline="javascript">
     const churnRows = /*[[${churnRows}]]*/ [];
@@ -498,6 +597,28 @@
         });
     }
 
+        const alertTimers = {};
+    function showAutoDismissAlert(containerId, alertHtml, durationMs = 4000) {
+        const box = document.getElementById(containerId);
+        if (!box) return;
+        if (alertTimers[containerId]) {
+            clearTimeout(alertTimers[containerId]);
+            delete alertTimers[containerId];
+        }
+        box.innerHTML = alertHtml;
+        alertTimers[containerId] = setTimeout(() => {
+            box.innerHTML = '';
+            delete alertTimers[containerId];
+        }, durationMs);
+    }
+
+    function handleRowPhotoSelected(input) {
+        const id = input.getAttribute('data-id');
+        if (!id || !input.files || !input.files[0]) return;
+        const btn = document.querySelector(`button[onclick="uploadDishPhoto(this)"][data-id="${id}"]`);
+        uploadDishPhoto(btn || { getAttribute: () => id, textContent: 'Upload' });
+    }
+
     async function triggerRetention(btn) {
         const uid = btn.getAttribute('data-uid');
         const offer = btn.getAttribute('data-offer');
@@ -508,19 +629,46 @@
         document.getElementById('retentionAlert').innerHTML = `<div class="alert alert-success rounded-pill py-2 px-3 mb-3">${data.message}</div>`;
     }
 
+    function previewNewDishPhoto(input) {
+        const file = input.files && input.files[0];
+        const wrap = document.getElementById('newProdPreviewWrap');
+        const img = document.getElementById('newProdPreview');
+        if (!file || !wrap || !img) return;
+        const reader = new FileReader();
+        reader.onload = e => {
+            img.src = e.target.result;
+            wrap.classList.remove('d-none');
+        };
+        reader.readAsDataURL(file);
+    }
+
     async function createNewProduct() {
+        const fileInput = document.getElementById('newProdFile');
+        const selectedFile = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
         const payload = {
             name: document.getElementById('newProdName').value,
             category: document.getElementById('newProdCat').value,
             price: document.getElementById('newProdPrice').value,
             description: document.getElementById('newProdDesc').value,
             ingredients: document.getElementById('newProdIng').value,
-            imageUrl: document.getElementById('newProdImg').value
+            calories: document.getElementById('newProdKcal').value,
+            protein: document.getElementById('newProdProtein').value,
+            fat: document.getElementById('newProdFat').value,
+            carbs: document.getElementById('newProdCarbs').value
         };
         const res = await fetch('/api/portal/admin/products', {
             method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
         });
-        if (res.ok) window.location.reload();
+        if (!res.ok) return;
+        const created = await res.json();
+        if (selectedFile && created && created.id) {
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            await fetch(`/api/portal/admin/products/${created.id}/upload-image`, {
+                method: 'POST', body: formData
+            });
+        }
+        window.location.reload();
     }
 
     async function saveProductUpdates(btn) {
@@ -530,17 +678,33 @@
         const description = document.getElementById(`desc-${id}`).value;
         const ingredients = document.getElementById(`ing-${id}`).value;
         const price = document.getElementById(`price-${id}`).value;
-        const imageUrl = document.getElementById(`imgurl-${id}`).value;
+        const fileInput = document.getElementById(`file-${id}`);
+        const hasFile = fileInput && fileInput.files && fileInput.files[0];
 
         const res = await fetch(`/api/portal/admin/products/${id}`, {
             method: 'PUT', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, category, description, ingredients, price, imageUrl })
+            body: JSON.stringify({ name, category, description, ingredients, price })
         });
-        if (res.ok) {
-            document.getElementById(`thumb-${id}`).src = imageUrl;
-            document.getElementById('inventoryAlert').innerHTML =
-                `<div class="alert alert-success rounded-pill py-2 px-3 mb-3"> Saved "${name}" details, price, and photo to live storefront!</div>`;
+        if (!res.ok) return;
+
+        if (hasFile) {
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            const upRes = await fetch(`/api/portal/admin/products/${id}/upload-image`, {
+                method: 'POST', body: formData
+            });
+            if (upRes.ok) {
+                const upData = await upRes.json();
+                const thumb = document.getElementById(`thumb-${id}`);
+                if (thumb && upData.imageUrl) thumb.src = upData.imageUrl;
+                fileInput.value = '';
+            }
         }
+
+        showAutoDismissAlert(
+            'inventoryAlert',
+            `<div class="alert alert-success rounded-pill py-2 px-3 mb-3">Saved "${name}" details, nutrition, price, and photo to live storefront!</div>`
+        );
     }
 
     async function uploadDishPhoto(btn) {
@@ -593,6 +757,182 @@
         const res = await fetch('/api/portal/admin/orders/completed', { method: 'DELETE' });
         if (res.ok) window.location.reload();
     }
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.alert').forEach(el => {
+            setTimeout(() => {
+                if (el && el.parentNode) el.remove();
+            }, 4000);
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script type="x-shader/x-vertex" id="storefrontBgVert">
+varying vec2 vUv;
+void main() {
+    vUv = uv;
+    gl_Position = vec4(position, 1.0);
+}
+</script>
+<script type="x-shader/x-fragment" id="storefrontBgFrag">
+precision highp float;
+varying vec2 vUv;
+uniform float uTime;
+uniform vec2 uMouse;
+uniform float uScroll;
+uniform vec2 uRes;
+
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(
+        mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
+        mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+        u.y
+    );
+}
+float fbm(vec2 p) {
+    float v = 0.0;
+    float a = 0.5;
+    for (int i = 0; i < 5; i++) {
+        v += a * noise(p);
+        p = p * 2.02 + vec2(1.7, 9.2);
+        a *= 0.5;
+    }
+    return v;
+}
+
+void main() {
+    vec2 uv = vUv;
+    float aspect = uRes.x / max(uRes.y, 1.0);
+    vec2 p = vec2(uv.x * aspect, uv.y + uScroll * 0.22);
+
+    float t = uTime * 0.13;
+    vec2 q = vec2(fbm(p * 1.4 + vec2(0.0, -t)), fbm(p * 1.4 + vec2(5.2, -t * 1.2)));
+    float smoke = fbm(p * 1.8 + 2.2 * q - vec2(0.0, t * 1.5));
+
+    vec2 m = vec2(uMouse.x * aspect, 1.0 - uMouse.y);
+    float cursorGlow = exp(-distance(vec2(uv.x * aspect, uv.y), m) * 2.5) * 0.18;
+
+    vec3 obsidian = vec3(0.028, 0.020, 0.016);
+    vec3 deepEmber = vec3(0.28, 0.09, 0.02);
+    vec3 saffronGold = vec3(0.82, 0.45, 0.05);
+
+    vec3 col = mix(obsidian, deepEmber, smoothstep(0.30, 0.88, smoke) * 0.58);
+    col += saffronGold * pow(smoothstep(0.48, 0.96, smoke), 2.2) * 0.26;
+    col += saffronGold * cursorGlow;
+
+    float vig = smoothstep(1.25, 0.25, length((uv - 0.5) * vec2(1.2, 1.0)));
+    col *= (0.55 + 0.45 * vig);
+
+    gl_FragColor = vec4(col, 1.0);
+}
+</script>
+<script>
+(function initStorefrontStyleThreeBg() {
+    const canvas = document.getElementById('adminThreeBg');
+    const vertEl = document.getElementById('storefrontBgVert');
+    const fragEl = document.getElementById('storefrontBgFrag');
+    if (!window.THREE || !canvas || !vertEl || !fragEl) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: false, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    const uniforms = {
+        uTime: { value: 0 },
+        uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+        uScroll: { value: 0 },
+        uRes: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+    };
+
+    const shaderMat = new THREE.ShaderMaterial({
+        uniforms: uniforms,
+        vertexShader: vertEl.textContent,
+        fragmentShader: fragEl.textContent
+    });
+
+    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMat));
+
+    const pScene = new THREE.Scene();
+    const pCam = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+    pCam.position.z = 20;
+
+    const spriteCanvas = document.createElement('canvas');
+    spriteCanvas.width = 64;
+    spriteCanvas.height = 64;
+    const ctx = spriteCanvas.getContext('2d');
+    const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grad.addColorStop(0, 'rgba(255, 230, 160, 1)');
+    grad.addColorStop(0.35, 'rgba(245, 158, 11, 0.6)');
+    grad.addColorStop(1, 'rgba(245, 158, 11, 0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 64, 64);
+    const bokehTex = new THREE.CanvasTexture(spriteCanvas);
+
+    const count = 80;
+    const pos = new Float32Array(count * 3);
+    const vel = new Float32Array(count);
+    for (let i = 0; i < count; i++) {
+        pos[i * 3] = (Math.random() - 0.5) * 38;
+        pos[i * 3 + 1] = (Math.random() - 0.5) * 24;
+        pos[i * 3 + 2] = (Math.random() - 0.5) * 14;
+        vel[i] = 0.005 + Math.random() * 0.011;
+    }
+    const pGeo = new THREE.BufferGeometry();
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const pMat = new THREE.PointsMaterial({
+        map: bokehTex,
+        size: 0.6,
+        transparent: true,
+        opacity: 0.48,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending
+    });
+    const bokehPoints = new THREE.Points(pGeo, pMat);
+    pScene.add(bokehPoints);
+
+    renderer.autoClear = false;
+
+    window.addEventListener('mousemove', function(e) {
+        uniforms.uMouse.value.set(e.clientX / Math.max(window.innerWidth, 1), e.clientY / Math.max(window.innerHeight, 1));
+    });
+    window.addEventListener('resize', function() {
+        const w = window.innerWidth;
+        const h = Math.max(window.innerHeight, 1);
+        renderer.setSize(w, h);
+        uniforms.uRes.value.set(w, h);
+        pCam.aspect = w / h;
+        pCam.updateProjectionMatrix();
+    });
+
+    const clock = new THREE.Clock();
+    function animate() {
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+        uniforms.uTime.value = t;
+        uniforms.uScroll.value = window.scrollY / Math.max(window.innerHeight, 1);
+
+        const arr = pGeo.attributes.position.array;
+        for (let i = 0; i < count; i++) {
+            arr[i * 3 + 1] += vel[i];
+            arr[i * 3] += Math.sin(t * 0.6 + i) * 0.003;
+            if (arr[i * 3 + 1] > 13) arr[i * 3 + 1] = -13;
+        }
+        pGeo.attributes.position.needsUpdate = true;
+
+        renderer.clear();
+        renderer.render(scene, camera);
+        renderer.render(pScene, pCam);
+    }
+    animate();
+})();
 </script>
 </body>
 </html>
