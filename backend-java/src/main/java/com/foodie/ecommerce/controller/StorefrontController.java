@@ -73,7 +73,17 @@ public class StorefrontController {
 
     @GetMapping("/")
     public String welcome() {
-        return "welcome";
+        return "redirect:/store";
+    }
+
+    @GetMapping("/logout")
+    public String rootLogout(jakarta.servlet.http.HttpSession session, jakarta.servlet.http.HttpServletResponse response) {
+        session.invalidate();
+        jakarta.servlet.http.Cookie cookie = new jakarta.servlet.http.Cookie("FOODIE_UID", "");
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/store";
     }
 
     @GetMapping("/store")

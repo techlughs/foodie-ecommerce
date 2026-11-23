@@ -7,6 +7,7 @@ import java.util.List;
     private String deliveryAddress;
     private String kitchenNotes;
     private String riderInstructions;
+    private java.math.BigDecimal deliveryFee;
     private List<OrderItemRequest> items;
     @Data public static class OrderItemRequest { private String productId; private Integer quantity; }
 }

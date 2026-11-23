@@ -88,6 +88,35 @@
             color: #d6d3d1;
         }
     </style>
+<style id="foodie-admin-responsive-css">
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.table-responsive {
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 992px) {
+    .container, .container-fluid {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+    table th, table td {
+        white-space: nowrap;
+        font-size: 0.84rem;
+        padding: 0.65rem 0.75rem !important;
+    }
+    table td:nth-child(2), table td:nth-child(3) {
+        white-space: normal;
+        min-width: 190px;
+    }
+}
+@media (max-width: 576px) {
+    nav .badge, header .badge {
+        display: none;
+    }
+}
+</style>
 </head>
 <body>
 <canvas id="adminThreeBg" aria-hidden="true"></canvas>
@@ -762,7 +791,6 @@
         });
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script type="x-shader/x-vertex" id="storefrontBgVert">
 varying vec2 vUv;
 void main() {
@@ -828,107 +856,43 @@ void main() {
     gl_FragColor = vec4(col, 1.0);
 }
 </script>
-<script>
-(function initStorefrontStyleThreeBg() {
-    const canvas = document.getElementById('adminThreeBg');
-    const vertEl = document.getElementById('storefrontBgVert');
-    const fragEl = document.getElementById('storefrontBgFrag');
-    if (!window.THREE || !canvas || !vertEl || !fragEl) return;
+<script id="foodie-admin-live-sync">
+(function() {
+    let lastSnapshot = '';
+    async function syncAdminQueue() {
+        if (document.hidden) return;
+        const activeTag = document.activeElement && document.activeElement.tagName;
+        if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || activeTag === 'SELECT') return;
+        if (document.querySelector('.modal.show')) return;
+        try {
+            const sep = window.location.href.includes('?') ? '&' : '?';
+            const res = await fetch(window.location.href + sep + '_live=' + Date.now(), {
+                cache: 'no-store',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+            if (!res.ok) return;
+            const html = await res.text();
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const newRoot = doc.querySelector('main') || doc.body;
+            const curRoot = document.querySelector('main') || document.body;
+            if (!newRoot || !curRoot) return;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: false, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-    const uniforms = {
-        uTime: { value: 0 },
-        uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-        uScroll: { value: 0 },
-        uRes: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
-    };
-
-    const shaderMat = new THREE.ShaderMaterial({
-        uniforms: uniforms,
-        vertexShader: vertEl.textContent,
-        fragmentShader: fragEl.textContent
-    });
-
-    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMat));
-
-    const pScene = new THREE.Scene();
-    const pCam = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-    pCam.position.z = 20;
-
-    const spriteCanvas = document.createElement('canvas');
-    spriteCanvas.width = 64;
-    spriteCanvas.height = 64;
-    const ctx = spriteCanvas.getContext('2d');
-    const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    grad.addColorStop(0, 'rgba(255, 230, 160, 1)');
-    grad.addColorStop(0.35, 'rgba(245, 158, 11, 0.6)');
-    grad.addColorStop(1, 'rgba(245, 158, 11, 0)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 64, 64);
-    const bokehTex = new THREE.CanvasTexture(spriteCanvas);
-
-    const count = 80;
-    const pos = new Float32Array(count * 3);
-    const vel = new Float32Array(count);
-    for (let i = 0; i < count; i++) {
-        pos[i * 3] = (Math.random() - 0.5) * 38;
-        pos[i * 3 + 1] = (Math.random() - 0.5) * 24;
-        pos[i * 3 + 2] = (Math.random() - 0.5) * 14;
-        vel[i] = 0.005 + Math.random() * 0.011;
+            const snap = newRoot.innerHTML.replace(/\s+/g, ' ').trim();
+            if (!lastSnapshot) {
+                lastSnapshot = curRoot.innerHTML.replace(/\s+/g, ' ').trim();
+            }
+            if (snap && snap !== lastSnapshot) {
+                
+                const scrollPositions = Array.from(curRoot.querySelectorAll('.table-responsive, [style*="overflow"]')).map(el => el.scrollLeft);
+                lastSnapshot = snap;
+                curRoot.innerHTML = newRoot.innerHTML;
+                Array.from(curRoot.querySelectorAll('.table-responsive, [style*="overflow"]')).forEach((el, idx) => {
+                    if (typeof scrollPositions[idx] === 'number') el.scrollLeft = scrollPositions[idx];
+                });
+            }
+        } catch (e) {}
     }
-    const pGeo = new THREE.BufferGeometry();
-    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    const pMat = new THREE.PointsMaterial({
-        map: bokehTex,
-        size: 0.6,
-        transparent: true,
-        opacity: 0.48,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending
-    });
-    const bokehPoints = new THREE.Points(pGeo, pMat);
-    pScene.add(bokehPoints);
-
-    renderer.autoClear = false;
-
-    window.addEventListener('mousemove', function(e) {
-        uniforms.uMouse.value.set(e.clientX / Math.max(window.innerWidth, 1), e.clientY / Math.max(window.innerHeight, 1));
-    });
-    window.addEventListener('resize', function() {
-        const w = window.innerWidth;
-        const h = Math.max(window.innerHeight, 1);
-        renderer.setSize(w, h);
-        uniforms.uRes.value.set(w, h);
-        pCam.aspect = w / h;
-        pCam.updateProjectionMatrix();
-    });
-
-    const clock = new THREE.Clock();
-    function animate() {
-        requestAnimationFrame(animate);
-        const t = clock.getElapsedTime();
-        uniforms.uTime.value = t;
-        uniforms.uScroll.value = window.scrollY / Math.max(window.innerHeight, 1);
-
-        const arr = pGeo.attributes.position.array;
-        for (let i = 0; i < count; i++) {
-            arr[i * 3 + 1] += vel[i];
-            arr[i * 3] += Math.sin(t * 0.6 + i) * 0.003;
-            if (arr[i * 3 + 1] > 13) arr[i * 3 + 1] = -13;
-        }
-        pGeo.attributes.position.needsUpdate = true;
-
-        renderer.clear();
-        renderer.render(scene, camera);
-        renderer.render(pScene, pCam);
-    }
-    animate();
+    setInterval(syncAdminQueue, 2000);
 })();
 </script>
 </body>

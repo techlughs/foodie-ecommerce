@@ -854,14 +854,485 @@
             width: 100% !important;
         }
     </style>
+<style id="foodie-card-visibility">
+    .dish-card, .catalog-item, #recommendedSection, #catalogGrid, .hero-deck, .deck-card {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+</style>
+<style id="foodie-modern-rec-carousel">
+    #recommendedSection,
+    #recommendedSection .rec-carousel-viewport,
+    #recommendedSection .rec-carousel-track {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+    #recommendedSection .rec-carousel-viewport {
+        position: relative;
+        overflow: hidden;
+        padding: 0.35rem 0 1.35rem !important;
+    }
+    #recommendedSection .rec-carousel-track {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 1.5rem;
+        margin: 0 !important;
+        align-items: stretch !important;
+        will-change: transform;
+        transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #recommendedSection .rec-carousel-item {
+        flex: 0 0 calc(33.333% - 1rem);
+        max-width: calc(33.333% - 1rem);
+        padding: 0 !important;
+        display: flex !important;
+    }
+    #recommendedSection .rec-carousel-item .dish-card {
+        width: 100% !important;
+        height: 100% !important;
+    }
+    @media (max-width: 991.98px) {
+        #recommendedSection .rec-carousel-item {
+            flex: 0 0 calc(50% - 0.75rem);
+            max-width: calc(50% - 0.75rem);
+        }
+    }
+    @media (max-width: 575.98px) {
+        #recommendedSection .rec-carousel-item {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    .rec-nav-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1px solid rgba(251, 191, 36, 0.45);
+        background: #181512;
+        color: #fbbf24;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        line-height: 1;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .rec-nav-btn:hover {
+        background: #fbbf24;
+        color: #14110f;
+        border-color: #fbbf24;
+    }
+    .rec-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.45rem;
+        margin-top: 0.25rem;
+    }
+    .rec-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        border: none;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.25);
+        transition: all 0.25s ease;
+        cursor: pointer;
+    }
+    .rec-dot.active {
+        width: 24px;
+        background: #fbbf24;
+    }
+</style>
+<style id="foodie-strip-rec-outline">
+    #recommendedSection, .rec-panel, section#recommendedSection {
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        border: none !important;
+        border-width: 0 !important;
+        outline: none !important;
+        box-shadow: none !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    #recommendedSection::before, #recommendedSection::after {
+        display: none !important;
+        content: none !important;
+    }
+</style>
+<style id="foodie-hero-swahili-bg">
+    .hero-stage {
+        background-image:
+            linear-gradient(90deg, rgba(16, 12, 9, 0.90) 0%, rgba(16, 12, 9, 0.72) 52%, rgba(16, 12, 9, 0.35) 100%),
+            url('https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1600&q=85') !important;
+        background-size: cover !important;
+        background-position: center right !important;
+        background-repeat: no-repeat !important;
+    }
+    .hero-stage .hero-3d-stage,
+    .hero-stage .hero-ambient-ring,
+    .hero-stage .dish-deck,
+    .hero-stage #heroDeckDots {
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+</style>
+<style id="foodie-grey-text-contrast">
+    
+    .text-secondary,
+    .text-muted,
+    .hero-metric-lbl,
+    .section-kicker,
+    .brand-sub,
+    .form-text,
+    small.text-secondary,
+    span.text-secondary,
+    p.text-secondary,
+    div.text-secondary {
+        color: #f3ede4 !important;
+        opacity: 0.92 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+    }
+    .card-text.text-light,
+    .hero-stage p.text-light {
+        color: #faf6f0 !important;
+        opacity: 0.95 !important;
+    }
+    .form-control-dark::placeholder {
+        color: rgba(243, 237, 228, 0.72) !important;
+    }
+</style>
+<style id="foodie-navbar-fix">
+    nav.navbar,
+    .navbar-foodie {
+        position: relative !important;
+        top: auto !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+        box-shadow: none !important;
+    }
+    .navbar-foodie .navbar-toggler {
+        display: none !important;
+    }
+    .navbar-foodie .nav-link,
+    .navbar-foodie .nav-link.active,
+    .navbar-foodie .nav-link:focus {
+        color: #f3ede4 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+        transition: color 0.2s ease !important;
+    }
+    .navbar-foodie .nav-link:hover {
+        color: #fbbf24 !important;
+    }
+    .navbar-foodie .nav-icon-btn,
+    .navbar-foodie .nav-pill-glass,
+    .navbar-foodie .btn,
+    .navbar-foodie button:not(.navbar-toggler),
+    .navbar-foodie a.nav-action {
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 6px 8px !important;
+        color: #f8f4ee !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: color 0.2s ease, transform 0.2s ease !important;
+    }
+    .navbar-foodie .nav-icon-btn:hover,
+    .navbar-foodie .nav-pill-glass:hover,
+    .navbar-foodie .btn:hover,
+    .navbar-foodie button:not(.navbar-toggler):hover {
+        color: #fbbf24 !important;
+        transform: translateY(-1px);
+    }
+    .tray-count-pill {
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        color: #fbbf24 !important;
+        margin-left: 4px !important;
+        background: transparent !important;
+    }
+</style>
+<style id="foodie-profile-tabs-style">
+    #profileTabs .nav-link { color: #b8afa4 !important; background: transparent !important; }
+    #profileTabs .nav-link:hover { color: #ffffff !important; background: rgba(255,255,255,0.05) !important; }
+    #profileTabs .nav-link.active { color: #fbbf24 !important; background: rgba(251,191,36,0.12) !important; }
+</style>
+<style id="foodie-payment-tabs-style">
+    .pay-option-row:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    .pay-check-circle {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+</style>
+
+<style id="foodie-critical-fixes">
+  header nav a, .navbar a.nav-link, nav.navbar .nav-link, nav a[href^="#"] {
+    color: #f8f5f0 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85) !important;
+  }
+  header nav a:hover, .navbar a.nav-link:hover {
+    color: #f5b942 !important;
+  }
+  section, .bg-light, .bg-white, [style*="background:#f"], [style*="background: #f"],
+  [style*="background-color:#f"], [style*="background-color: #f"],
+  [style*="background:#e"], [style*="background: #e"] {
+    background-color: #12100e !important;
+    color: #f5f2ed !important;
+  }
+  .modal-content, .offcanvas, .card, .dropdown-menu {
+    background-color: #181512 !important;
+    color: #f5f2ed !important;
+  }
+  button[onclick*="filterCategory"], .category-btn, .filter-pill {
+    color: #f5f2ed !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  }
+  button[onclick*="filterCategory"].active, .category-btn.active, .filter-pill.active {
+    background: #f5b942 !important;
+    color: #141210 !important;
+    border-color: #f5b942 !important;
+  }
+  #profileTabs .nav-link {
+    color: #d6d0c7 !important;
+    background: transparent !important;
+  }
+  #profileTabs .nav-link.active {
+    background: #f5b942 !important;
+    color: #141210 !important;
+    font-weight: 700 !important;
+  }
+</style>
+
+<style id="foodie-dark-lock">
+  html, body, main, section, .container, .container-fluid {
+    background-color: #12100e !important;
+    background-image: none !important;
+    color: #f5f2ed !important;
+  }
+  header nav a, .navbar a.nav-link, nav.navbar .nav-link {
+    color: #f8f5f0 !important;
+    opacity: 1 !important;
+  }
+</style>
+
+<style id="foodie-nav-click-shield">
+  nav.navbar, header, .navbar, .navbar a, .navbar button {
+    position: relative;
+    z-index: 1060 !important;
+    pointer-events: auto !important;
+  }
+  .modal:not(.show), .offcanvas:not(.show) {
+    pointer-events: none !important;
+  }
+</style>
+
+<script id="foodie-clickstream-shim">
+window.trackClickstream = window.trackClickstream || function(productId, productName, action) {
+    try {
+        fetch('/api/clickstream', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userId: (typeof window.activeUserId !== 'undefined' && window.activeUserId !== null) ? String(window.activeUserId) : 'guest',
+                productId: productId ? String(productId) : '',
+                productName: productName || '',
+                action: action || 'ORDER_PLACED'
+            })
+        }).catch(function() {});
+    } catch (e) {}
+};
+</script>
+<style id="foodie-progress-pulse-css">
+@keyframes foodieLineBlink {
+    0%, 100% { opacity: 1; filter: brightness(1.15); }
+    50% { opacity: 0.32; filter: brightness(0.85); }
+}
+@keyframes foodieDotBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(0.82); }
+}
+#flpBarFill.is-blinking {
+    animation: foodieLineBlink 1.15s ease-in-out infinite;
+}
+#flpDot.is-blinking {
+    animation: foodieDotBlink 1.15s ease-in-out infinite;
+}
+</style>
+<style id="foodie-store-responsive-css">
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+body.modal-open {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+}
+body.modal-open header,
+body.modal-open nav,
+body.modal-open .navbar {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
+#customerOrdersHistoryModal {
+    z-index: 1065 !important;
+}
+
+@media (max-width: 991.98px) {
+    header .navbar, nav.navbar,
+    header .navbar > .container, header .navbar > .container-fluid,
+    nav.navbar > .container, nav.navbar > .container-fluid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        gap: 8px !important;
+    }
+    header .navbar-brand, nav.navbar .navbar-brand {
+        display: flex !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        margin-right: 0 !important;
+    }
+    header .navbar-brand *, nav.navbar .navbar-brand * {
+        white-space: nowrap !important;
+    }
+    header .navbar-toggler, nav.navbar .navbar-toggler {
+        display: none !important;
+    }
+    header .navbar-collapse, nav.navbar .navbar-collapse {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        flex-basis: auto !important;
+        flex-grow: 0 !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        width: auto !important;
+    }
+    header .navbar-collapse > *, nav.navbar .navbar-collapse > * {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        margin: 0 !important;
+        gap: 8px !important;
+    }
+    header .navbar-nav .nav-link, nav.navbar .navbar-nav .nav-link,
+    header .d-none.d-md-inline, header .d-none.d-lg-inline,
+    nav .d-none.d-md-inline, nav .d-none.d-lg-inline {
+        display: none !important;
+    }
+    header .navbar-collapse button, header .navbar-collapse a,
+    nav.navbar .navbar-collapse button, nav.navbar .navbar-collapse a {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 768px) {
+    header, nav.navbar {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    .hero-title, h1.display-4, h1.display-5 {
+        font-size: clamp(1.85rem, 7vw, 2.75rem) !important;
+        line-height: 1.18 !important;
+    }
+    #foodieThankYouPopup {
+        top: 72px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    header .navbar-brand, nav.navbar .navbar-brand {
+        font-size: 0.95rem !important;
+        gap: 6px !important;
+    }
+    header .navbar-brand small, header .navbar-brand span,
+    nav.navbar .navbar-brand small, nav.navbar .navbar-brand span {
+        font-size: 0.54rem !important;
+        letter-spacing: 0.8px !important;
+    }
+    header .navbar-collapse > *, nav.navbar .navbar-collapse > * {
+        gap: 4px !important;
+    }
+    header .navbar-collapse button, header .navbar-collapse a,
+    nav.navbar .navbar-collapse button, nav.navbar .navbar-collapse a {
+        padding: 4px 6px !important;
+        font-size: 0.76rem !important;
+        gap: 4px !important;
+    }
+    header .navbar-collapse svg, nav.navbar .navbar-collapse svg {
+        width: 17px !important;
+        height: 17px !important;
+    }
+    #foodieLiveProgressDock {
+        bottom: 12px !important;
+        padding: 12px 14px !important;
+        border-radius: 14px !important;
+    }
+    #foodieLiveProgressDock > .d-flex {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    #foodieLiveProgressDock > .d-flex > .d-flex:last-child {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    #flpConfirmBtn {
+        flex-grow: 1;
+        text-align: center;
+    }
+    .modal-dialog {
+        margin: 0.65rem;
+    }
+}
+</style>
 </head>
 <body>
-<canvas id="threeBgCanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-
-<canvas id="threeBgCanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas><div style="position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 35%, transparent 25%, rgba(8,6,4,0.82) 100%);"></div>
+<div style="position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 35%, transparent 25%, rgba(8,6,4,0.82) 100%);"></div>
 
 <div class="page-layer">
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-foodie sticky-top py-2">
+    <nav style="position:relative;z-index:1050;" class="navbar navbar-expand-lg navbar-dark navbar-foodie  py-2">
         <div class="container">
             <a class="brand-logo-wrap" href="/">
                 <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
@@ -885,21 +1356,15 @@
                 </div>
             </a>
 
-            <button class="navbar-toggler border-warning border-opacity-50" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
             <div class="collapse navbar-collapse" id="navMain">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active fw-semibold" href="#recommendedSection">Curated Picks</a></li>
                     <li class="nav-item"><a class="nav-link fw-semibold" href="#menuSection">Kitchen Menu</a></li>
                                     </ul>
                 <div class="d-flex flex-wrap align-items-center gap-2">
-                    <button class="btn nav-pill-btn nav-pill-glass" onclick="openProfileModal()">◈ Profile</button>
-                    <button th:if="${loggedInUser == null}" class="btn nav-pill-btn nav-pill-glass" data-bs-toggle="modal" data-bs-target="#authModal"> Sign In</button>
-                    <button th:if="${loggedInUser != null}" class="btn nav-pill-btn nav-pill-glass" onclick="logoutUser()">Sign Out</button>
-                    <button class="btn nav-pill-btn nav-pill-glass" onclick="loadOrderHistory()"> Orders</button>
-                    <button class="btn nav-pill-btn btn-warning text-dark fw-extrabold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px;"><path d="M2 18h20"/><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 7v3"/><circle cx="12" cy="5.5" r="1.5"/></svg> Tasting Tray (<span id="cartCount">0</span>)</button>
+                    <button class="btn nav-pill-btn nav-icon-btn text-dark fw-extrabold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" onclick="if(typeof renderCart==='function')renderCart();" title="Tasting Tray" aria-label="Tasting Tray"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18"></path><path d="M5 17a7 7 0 0 1 14 0"></path><path d="M12 7v3"></path><circle cx="12" cy="6" r="1"></circle></svg><span class="tray-count-pill" id="cartCount">0</span></button>
+                    <button type="button" class="btn nav-pill-btn nav-pill-glass" onclick="loadOrderHistory()" title="Your Orders" aria-label="Your Orders"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></button>
+                    <button type="button" class="btn nav-pill-btn nav-pill-glass" data-bs-toggle="modal" data-bs-target="#profileModal" onclick="openProfileModal()" title="Profile & Preferences" aria-label="Profile & Preferences"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></button>
                 </div>
             </div>
         </div>
@@ -958,17 +1423,17 @@
             </div>
         </div>
 
-        <section id="recommendedSection" class="mb-5 anim-enter anim-delay-2">
+        <section id="recommendedSection" class="mb-5" style="background:transparent!important;border:none!important;box-shadow:none!important;outline:none!important;padding:0!important;border-radius:0!important;">
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <div>
                     <div class="section-kicker">Curated For Your Palate</div>
                     <h2 class="font-editorial fw-bold mb-0"><span th:if="${loggedInUser != null}">Recommended For <span class="text-warning" th:text="${loggedInUser.fullName}">Guest</span></span><span th:if="${loggedInUser == null}">Recommended <span class="text-warning">Selections</span></span></h2>
                 </div>
-                <span class="text-secondary small d-none d-md-inline">Handpicked signature dishes</span>
+                <div class="d-flex align-items-center gap-3"><span class="text-secondary small d-none d-md-inline">Handpicked signature dishes</span><div class="d-flex align-items-center gap-2"><button type="button" class="rec-nav-btn" id="recPrevBtn" aria-label="Previous dish">‹</button><button type="button" class="rec-nav-btn" id="recNextBtn" aria-label="Next dish">›</button></div></div>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-4" th:each="rec : ${recommendedProducts}">
+            <div class="rec-carousel-viewport"><div class="rec-carousel-track" id="recCarouselTrack">
+                <div class="rec-carousel-item" th:each="rec : ${recommendedProducts}">
                     <div class="card dish-card h-100">
                         <div class="dish-img-wrap" style="cursor:pointer;"
                              th:data-id="${rec.id}" th:data-name="${rec.name}" th:data-desc="${rec.description}"
@@ -1001,8 +1466,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div></div><div class="rec-dots" id="recCarouselDots"></div></section>
 
         <section id="menuSection" class="mb-5">
             <div class="mb-3">
@@ -1037,7 +1501,7 @@
             </div>
 
             <div class="row g-4" id="catalogGrid">
-                <div class="col-md-4 catalog-item"
+                <div class="col-lg-3 col-md-6 catalog-item"
                      th:each="product : ${products}"
                      th:data-id="${product.id}"
                      th:data-name="${product.name}"
@@ -1062,17 +1526,8 @@
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <h5 class="card-title fw-bold mb-0" th:text="${product.name}">Dish Name</h5>
-                                <span class="text-warning small fw-bold"> 4.9</span>
                             </div>
-                            <p class="card-text text-light opacity-75 small mb-2" th:text="${product.description}">Description</p>
-                            <div class="mb-2">
-                                <span class="badge bg-dark text-warning border border-warning border-opacity-25 me-1 mb-1"
-                                      th:each="ing : ${product.ingredients}" th:text="${ing}">Ingredient</span>
-                            </div>
-                            <div class="small text-secondary mb-3 flex-grow-1" th:if="${product.nutritionalInfo != null}">
-                                <span th:text="${product.nutritionalInfo['calories']} + ' kcal'">650 kcal</span> ·
-                                <span th:text="'Protein: ' + ${product.nutritionalInfo['protein']}">35g</span>
-                            </div>
+                            <p class="card-text text-light opacity-75 small mb-3 flex-grow-1" th:text="${product.description}">Description</p>
                             <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-25">
                                 <button class="btn btn-outline-light btn-sm rounded-pill flex-grow-1"
                                         th:data-id="${product.id}" th:data-name="${product.name}" th:data-desc="${product.description}"
@@ -1187,88 +1642,139 @@
 
 <div class="modal fade" id="profileModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content foodie-modal-content rounded-4">
-            <div class="modal-header foodie-modal-header">
-                <h5 class="modal-title font-editorial fw-bold text-warning">◈ Member Dining Profile</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body p-4">
-                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4 p-3 rounded-4 bg-black bg-opacity-50 border border-warning border-opacity-25">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="rounded-circle bg-warning text-dark fw-extrabold d-flex align-items-center justify-content-center shadow"
-                             style="width:58px;height:58px;font-size:1.4rem;" th:text="${#strings.substring(activeUser.fullName,0,1)}">T</div>
+        <div class="modal-content rounded-4 overflow-hidden" style="background:#141210;border:1px solid rgba(255,255,255,0.12);box-shadow:0 24px 64px rgba(0,0,0,0.8);">
+            <div class="row g-0" style="min-height: 420px;">
+                
+                <div class="col-md-4 p-4 d-flex flex-column justify-content-between" style="background:#0f0d0b;border-right:1px solid rgba(255,255,255,0.08);">
+                    <div>
+                        <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom border-secondary border-opacity-25">
+                            <div id="profAvatarInitial" class="rounded-circle bg-warning text-dark fw-bold d-flex align-items-center justify-content-center flex-shrink-0"
+                                 style="width:42px;height:42px;font-size:1.05rem;">U</div>
+                            <div class="overflow-hidden">
+                                <div id="profSidebarName" class="fw-semibold text-white text-truncate" th:text="${loggedInUser?.fullName}">Member</div>
+                                <div id="profSidebarEmail" class="small text-secondary text-truncate" th:text="${loggedInUser?.email}">member@foodie.co.ke</div>
+                            </div>
+                        </div>
+
+                        <div class="nav flex-column nav-pills gap-1" id="profileTabs" role="tablist">
+                            <button class="nav-link active text-start small fw-semibold py-2 px-3 rounded-2"
+                                    id="prof-overview-tab" data-bs-toggle="pill" data-bs-target="#profOverviewPane" type="button" role="tab">
+                                Account Details
+                            </button>
+                            <button class="nav-link text-start small fw-semibold py-2 px-3 rounded-2"
+                                    id="prof-address-tab" data-bs-toggle="pill" data-bs-target="#profAddressPane" type="button" role="tab">
+                                Delivery Address
+                            </button>
+                            <button class="nav-link text-start small fw-semibold py-2 px-3 rounded-2"
+                                    id="prof-payment-tab" data-bs-toggle="pill" data-bs-target="#profPaymentPane" type="button" role="tab">
+                                Payment Methods
+                            </button>
+                            </div>
+                    </div>
+
+                    <div class="pt-3 border-top border-secondary border-opacity-25">
+                        <button type="button" id="profileSignOutBtn" onclick="window.performFoodieSignOut(event)" class="foodie-profile-signout-pill" title="Sign Out" aria-label="Sign Out"><svg style="pointer-events:none;" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></button>
+                    </div>
+                </div>
+
+                <div class="col-md-8 p-4 d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-secondary border-opacity-25">
                         <div>
-                            <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 mb-1" th:text="${activeUser.role == 'ROLE_ADMIN' ? 'Kitchen Administrator' : 'Verified Diner'}">Verified Diner</span>
-                            <h5 class="mb-0 fw-bold" th:text="${activeUser.fullName}">Nairobi Diner</h5>
-                            <small class="text-secondary" th:text="${activeUser.email}">diner@foodie.co.ke</small>
+                            <h6 class="mb-0 fw-bold text-white">Profile & Preferences</h6>
+                            <small class="text-secondary">Manage your contact, delivery address, and saved payment</small>
                         </div>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
-                    <button class="btn btn-outline-warning btn-sm rounded-pill px-3" onclick="bootstrap.Modal.getInstance(document.getElementById('profileModal')).hide(); loadOrderHistory();">
-                        View Orders (<span th:text="${orderCount}">0</span>)
-                    </button>
-                </div>
 
-                <div class="row g-3 text-center mb-4">
-                    <div class="col-sm-4">
-                        <div class="p-3 bg-black bg-opacity-50 border border-warning border-opacity-15 rounded-3">
-                            <div class="fs-4 fw-bold text-warning" th:text="${orderCount}">0</div>
-                            <small class="text-secondary">Completed Orders</small>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="p-3 bg-black bg-opacity-50 border border-warning border-opacity-15 rounded-3">
-                            <div class="fs-4 fw-bold text-warning" id="profileTotalSpent">KES 0</div>
-                            <small class="text-secondary">Total Spent</small>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="p-3 bg-black bg-opacity-50 border border-warning border-opacity-15 rounded-3">
-                            <div class="fs-4 fw-bold text-success">Ready</div>
-                            <small class="text-secondary">Nairobi Express</small>
-                        </div>
-                    </div>
-                </div>
+                    <div class="tab-content flex-grow-1 d-flex flex-column">
+                        
+                        <div class="tab-pane fade show active flex-grow-1" id="profOverviewPane" role="tabpanel">
+                            <div class="mb-3">
+                                <label class="form-label small text-secondary mb-1">Full Name</label>
+                                <input type="text" id="profFullName" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                       th:value="${loggedInUser?.fullName}" readonly style="opacity:0.8;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-secondary mb-1">Email Address</label>
+                                <input type="email" id="profEmail" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                       th:value="${loggedInUser?.email}" readonly style="opacity:0.8;">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label small text-secondary mb-1">Primary Phone Number</label>
+                                <input type="text" id="profPhone" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                       placeholder="e.g. 0712 345 678">
+                            </div>
 
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <div class="p-3 rounded-4 bg-black bg-opacity-40 border border-warning border-opacity-15 h-100">
-                            <h6 class="text-warning fw-bold small text-uppercase mb-3">Delivery Details</h6>
-                            <div class="mb-2">
-                                <label class="form-label small text-secondary mb-1">Nairobi Zone / Estate</label>
-                                <select id="profZone" class="form-select form-select-sm form-select-dark">
-                                    <option value="Westlands & Parklands">Westlands & Parklands</option>
-                                    <option value="Kilimani & Kileleshwa">Kilimani & Kileleshwa</option>
-                                    <option value="Lavington">Lavington</option>
-                                    <option value="Karen & Lang'ata">Karen & Lang'ata</option>
-                                    <option value="Upper Hill & CBD">Upper Hill & CBD</option>
+                            <div class="d-flex justify-content-end align-items-center gap-3 pt-3 mt-auto border-top border-secondary border-opacity-25">
+                                <span class="small text-success fw-semibold" id="profSaveStatus"></span>
+                                <button type="button" class="btn btn-sm fw-semibold px-4 py-2 rounded-pill"
+                                        style="background:#f5f2ed;color:#141210;border:1px solid rgba(255,255,255,0.2);letter-spacing:0.01em;"
+                                        onclick="saveProfilePrefs('overview', this)">
+                                    Save Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade flex-grow-1" id="profAddressPane" role="tabpanel">
+                            <div class="mb-3">
+                                <label class="form-label small text-secondary mb-1">Nairobi Area / Estate</label>
+                                <select id="profZone" class="form-select form-select-sm bg-dark text-white border-secondary border-opacity-50">
+                                    <option value="Nairobi CBD & Upper Hill" data-fee="100">Nairobi CBD & Upper Hill — KES 100 delivery</option>
+                                    <option value="Ngara & Fig Tree" data-fee="120">Ngara & Fig Tree — KES 120 delivery</option>
+                                    <option value="Parklands & Highridge" data-fee="140">Parklands & Highridge — KES 140 delivery</option>
+                                    <option value="Pangani & Muthaiga" data-fee="150">Pangani & Muthaiga — KES 150 delivery</option>
+                                    <option value="Westlands & Waiyaki Way" data-fee="160" selected>Westlands & Waiyaki Way — KES 160 delivery</option>
+                                    <option value="Kilimani & Kileleshwa" data-fee="180">Kilimani & Kileleshwa — KES 180 delivery</option>
+                                    <option value="Lavington & Valley Arcade" data-fee="200">Lavington & Valley Arcade — KES 200 delivery</option>
+                                    <option value="South B & South C" data-fee="220">South B & South C — KES 220 delivery</option>
+                                    <option value="Lang'ata & Madaraka" data-fee="250">Lang'ata & Madaraka — KES 250 delivery</option>
+                                    <option value="Karen & Ngong Road" data-fee="320">Karen & Ngong Road — KES 320 delivery</option>
                                 </select>
                             </div>
-                            <div class="mb-2">
-                                <label class="form-label small text-secondary mb-1">Street / Apartment / Landmark</label>
-                                <input type="text" id="profAddress" class="form-control form-control-sm form-control-dark" placeholder="e.g. Waiyaki Way, Apt 4B">
+                            <div class="mb-4">
+                                <label class="form-label small text-secondary mb-1">Building, Apartment or Landmark</label>
+                                <input type="text" id="profAddress" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                       placeholder="e.g. PRGG+JF9, La Casa Bendita, Murang'a Rd">
                             </div>
-                            <div>
-                                <label class="form-label small text-secondary mb-1">Phone Number</label>
-                                <input type="text" id="profPhone" class="form-control form-control-sm form-control-dark" placeholder="+254 7XX XXX XXX">
+
+                            <div class="d-flex justify-content-end align-items-center gap-3 pt-3 mt-auto border-top border-secondary border-opacity-25">
+                                <span class="small text-success fw-semibold" id="profAddrSaveStatus"></span>
+                                <button type="button" class="btn btn-sm fw-semibold px-4 py-2 rounded-pill"
+                                        style="background:#f5f2ed;color:#141210;border:1px solid rgba(255,255,255,0.2);letter-spacing:0.01em;"
+                                        onclick="saveProfilePrefs('address', this)">
+                                    Save Address
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="p-3 rounded-4 bg-black bg-opacity-40 border border-warning border-opacity-15 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <h6 class="text-warning fw-bold small text-uppercase mb-3">Taste & Spice Preferences</h6>
-                                <div class="d-flex flex-wrap gap-2 mb-3" id="profPrefChips">
-                                    <button type="button" class="pref-chip" data-pref="Extra Chili / Pilipili" onclick="togglePrefChip(this)">Extra Chili / Pilipili</button>
-                                    <button type="button" class="pref-chip" data-pref="Charcoal Grilled" onclick="togglePrefChip(this)">Charcoal Grilled</button>
-                                    <button type="button" class="pref-chip" data-pref="Coastal Spices" onclick="togglePrefChip(this)">Coastal Spices</button>
-                                    <button type="button" class="pref-chip" data-pref="Less Oil" onclick="togglePrefChip(this)">Less Oil</button>
-                                </div>
-                                <label class="form-label small text-secondary mb-1">Kitchen Note</label>
-                                <input type="text" id="profNote" class="form-control form-control-sm form-control-dark" placeholder="e.g. Pack kachumbari separately">
+
+                        <div class="tab-pane fade flex-grow-1" id="profPaymentPane" role="tabpanel">
+                            <div class="mb-3">
+                                <label class="form-label small text-secondary mb-1">Default Checkout Method</label>
+                                <select id="profDefaultPayment" class="form-select form-select-sm bg-dark text-white border-secondary border-opacity-50">
+                                    <option value="M-Pesa - Pay Now">M-Pesa - Pay Now</option>
+                                    <option value="Visa">Visa / Mastercard</option>
+                                    <option value="PayPal">PayPal</option>
+                                    <option value="Cash on Delivery">Cash on Delivery</option>
+                                </select>
                             </div>
-                            <div class="mt-3 pt-2 d-flex justify-content-between align-items-center">
-                                <span class="small text-success" id="profSaveStatus"></span>
-                                <button class="btn btn-warning btn-sm rounded-pill fw-bold text-dark px-4" onclick="saveProfilePrefs()">Save Profile</button>
+                            <div class="mb-3">
+                                <label class="form-label small text-secondary mb-1">Saved M-Pesa Number</label>
+                                <input type="text" id="profMpesaNumber" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                       placeholder="e.g. 0712 345 678">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label small text-secondary mb-1">Saved Card (Last 4 Digits)</label>
+                                <input type="text" id="profVisaLast4" maxlength="4" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                       placeholder="e.g. 7987" value="7987">
+                            </div>
+
+                            <div class="d-flex justify-content-end align-items-center gap-3 pt-3 mt-auto border-top border-secondary border-opacity-25">
+                                <span class="small text-success fw-semibold" id="profPaySaveStatus"></span>
+                                <button type="button" class="btn btn-sm fw-semibold px-4 py-2 rounded-pill"
+                                        style="background:#f5f2ed;color:#141210;border:1px solid rgba(255,255,255,0.2);letter-spacing:0.01em;"
+                                        onclick="saveProfilePrefs('payment', this)">
+                                    Save Payment
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1321,96 +1827,127 @@
     </div>
 </div>
 
-<div class="offcanvas offcanvas-end foodie-offcanvas" tabindex="-1" id="cartDrawer" style="width: 440px; max-width: 96vw;">
-    <div class="offcanvas-header foodie-modal-header">
+<div class="offcanvas offcanvas-end foodie-offcanvas" tabindex="-1" id="cartDrawer" style="width: 440px; max-width: 96vw; background:#14110f;">
+    <div class="offcanvas-header foodie-modal-header border-bottom border-secondary border-opacity-25">
         <div>
-            <h5 class="offcanvas-title font-editorial fw-bold text-warning mb-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px;"><path d="M2 18h20"/><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 7v3"/><circle cx="12" cy="5.5" r="1.5"/></svg> Your Tasting Tray</h5>
-            <small class="text-secondary">Artisanal dishes prepared to order • Nairobi Kitchen</small>
+            <h5 class="offcanvas-title font-editorial fw-bold text-warning mb-0">Your Tasting Tray</h5>
+            <small class="text-secondary">Nairobi Kitchen Checkout</small>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column p-4" style="overflow-y: auto;">
-        <div id="cartItems" class="mb-3">
-            <div class="text-center py-4 text-secondary">
-                <div class="text-warning mb-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px;"><path d="M2 18h20"/><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 7v3"/><circle cx="12" cy="5.5" r="1.5"/></svg></div>
-                <p class="mb-0 small">Your tasting tray is empty.<br>Select any signature dish from the menu to begin.</p>
-            </div>
+        
+        <div id="cartEmptyState" class="my-auto text-center py-5">
+            <p class="text-secondary mb-0">There's nothing to see here.</p>
         </div>
 
-        <div class="p-3 rounded-4 mb-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,193,7,0.2);">
-            <div class="text-warning fw-bold small text-uppercase mb-2" style="letter-spacing: 0.08em;">Nairobi Delivery & Rider Notes</div>
+        <div id="cartPopulatedState" class="d-flex flex-column flex-grow-1" style="display:none !important;">
+            <div id="cartItems" class="mb-3"></div>
 
-            <div class="mb-2">
-                <label class="form-label small text-secondary mb-1">Nairobi Area / Estate *</label>
-                <select id="deliveryZoneInput" class="form-select form-select-sm bg-dark text-white border-warning border-opacity-25">
-                    <option value="Ngara & Fig Tree">Ngara & Fig Tree</option>
-                    <option value="Pangani & Muthaiga">Pangani & Muthaiga</option>
-                    <option value="Parklands & Highridge">Parklands & Highridge</option>
-                    <option value="Westlands & Waiyaki Way" selected>Westlands & Waiyaki Way</option>
-                    <option value="Nairobi CBD & Upper Hill">Nairobi CBD & Upper Hill</option>
-                    <option value="Kilimani & Kileleshwa">Kilimani & Kileleshwa</option>
-                    <option value="Lavington & Valley Arcade">Lavington & Valley Arcade</option>
-                    <option value="South B & South C">South B & South C</option>
-                    <option value="Lang'ata & Madaraka">Lang'ata & Madaraka</option>
-                    <option value="Karen & Ngong Road">Karen & Ngong Road</option>
-                    <option value="Roysambu, Mirema & Kasarani">Roysambu, Mirema & Kasarani</option>
-                    <option value="Eastleigh & Juja Road">Eastleigh & Juja Road</option>
-                    <option value="Buruburu & Donholm">Buruburu & Donholm</option>
-                    <option value="Other Nairobi Estate">Other Nairobi Estate (Specify below)</option>
-                </select>
-            </div>
-
-            <div class="mb-2">
-                <label class="form-label small text-secondary mb-1">Exact Drop-off Building, Court or Landmark *</label>
-                <input type="text" id="deliveryAddressInput" class="form-control form-control-sm bg-dark text-white border-warning border-opacity-25"
-                       placeholder="e.g., Ngara Rd, Equity Plaza 3rd Flr / Pangani Heights Gate B">
-            </div>
-
-            <div class="mb-2">
-                <label class="form-label small text-secondary mb-1">Chef & Kitchen Specifications (Optional)</label>
-                <input type="text" id="kitchenNotesInput" class="form-control form-control-sm bg-dark text-white border-warning border-opacity-25"
-                       placeholder="e.g., Extra kachumbari, mild spice, pack cutlery">
-            </div>
-
-            <div>
-                <label class="form-label small text-secondary mb-1">Instructions for Delivery Rider / Driver *</label>
-                <textarea id="riderInstructionsInput" rows="2" class="form-control form-control-sm bg-dark text-white border-warning border-opacity-25"
-                          placeholder="e.g., Call 07XX on arrival at the main gate, ask for Trevor, or leave with reception"></textarea>
-            </div>
+            <div class="p-3 rounded-3 mb-3" style="background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.09);">
+                
+<div id="savedAddressDisplayRow" class="d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-secondary border-opacity-25">
+    <div class="d-flex align-items-center gap-3" style="min-width:0;">
+        <div class="text-secondary flex-shrink-0" style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
         </div>
-
-        <div id="checkoutErrorInline" class="text-danger small fw-semibold mb-2" style="display:none;"></div>
-
-        <div class="border-top border-warning border-opacity-25 pt-3 mt-auto">
-            <div class="d-flex justify-content-between align-items-center mb-1 small text-secondary">
-                <span>Complimentary Nairobi Delivery</span>
-                <span class="text-success fw-semibold">COMPLIMENTARY</span>
-            </div>
-            <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
-                <span>Total Due:</span>
-                <span class="text-warning">KES <span id="cartTotal">0.00</span></span>
-            </div>
-            <button id="placeOrderBtn" class="btn btn-warning text-dark rounded-pill w-100 fw-extrabold py-2 shadow" onclick="submitOrder()">
-                Dispatch Order to Kitchen →
-            </button>
+        <div style="min-width:0;">
+            <div id="trayAddressTitle" class="fw-semibold text-white text-truncate" style="font-size:0.95rem;line-height:1.3;">Set Drop-off Building</div>
+            <div id="trayAddressSub" class="text-secondary text-truncate" style="font-size:0.82rem;line-height:1.3;">Westlands & Waiyaki Way</div>
         </div>
+    </div>
+    <button type="button" id="trayAddressEditBtn" onclick="window.toggleTrayAddressEditor()"
+            class="btn btn-sm fw-semibold text-white rounded-pill px-3 py-1 flex-shrink-0"
+            style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.08);">
+        Edit
+    </button>
+</div>
+
+<div id="trayAddressInlineEditor" class="p-3 mb-3 rounded-3 d-none" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);">
+    <div class="mb-2">
+                    <label class="form-label small text-secondary mb-1">Nairobi Area / Estate *</label>
+                    <select id="deliveryZoneInput" onchange="renderCart()" class="form-select form-select-sm bg-dark text-white border-secondary border-opacity-50">
+                        <option value="Nairobi CBD & Upper Hill" data-fee="100">Nairobi CBD & Upper Hill (KES 100)</option>
+                        <option value="Ngara & Fig Tree" data-fee="120">Ngara & Fig Tree (KES 120)</option>
+                        <option value="Parklands & Highridge" data-fee="140">Parklands & Highridge (KES 140)</option>
+                        <option value="Pangani & Muthaiga" data-fee="150">Pangani & Muthaiga (KES 150)</option>
+                        <option value="Westlands & Waiyaki Way" data-fee="160" selected>Westlands & Waiyaki Way (KES 160)</option>
+                        <option value="Kilimani & Kileleshwa" data-fee="180">Kilimani & Kileleshwa (KES 180)</option>
+                        <option value="Lavington & Valley Arcade" data-fee="200">Lavington & Valley Arcade (KES 200)</option>
+                        <option value="South B & South C" data-fee="220">South B & South C (KES 220)</option>
+                        <option value="Lang'ata & Madaraka" data-fee="250">Lang'ata & Madaraka (KES 250)</option>
+                        <option value="Karen & Ngong Road" data-fee="320">Karen & Ngong Road (KES 320)</option>
+                    </select>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label small text-secondary mb-1">Drop-off Building / Landmark *</label>
+                    <input type="text" id="deliveryAddressInput" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                           placeholder="e.g., Westlands, Waiyaki Way, 3rd Flr">
+                </div>
+    <div class="d-flex justify-content-end gap-2 mt-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="window.toggleTrayAddressEditor(false)">Cancel</button>
+        <button type="button" class="btn btn-sm fw-semibold rounded-pill px-3" style="background:#f5f2ed;color:#141210;" onclick="window.saveTrayAddressInline()">Save Address</button>
     </div>
 </div>
 
-<div class="modal fade" id="ordersModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content foodie-modal-content rounded-4 border border-warning border-opacity-30 p-2">
-            <div class="modal-header border-secondary border-opacity-25">
-                <div>
-                    <h5 class="modal-title font-editorial fw-bold text-warning mb-0">Order History & Live Status</h5>
-                    <small class="text-secondary">Live kitchen preparation, Nairobi rider transit, and delivery verification</small>
+                <div class="mb-2">
+                    <label class="form-label small text-secondary mb-1">Kitchen Note</label>
+                    <input type="text" id="kitchenNotesInput" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                           placeholder="e.g., Pack kachumbari separately, mild chili">
                 </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+
+                <div>
+                    <label class="form-label small text-secondary mb-1">Instructions for Delivery Rider / Driver *</label>
+                    <textarea id="riderInstructionsInput" rows="2" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                              placeholder="e.g., Call on arrival at the main gate"></textarea>
+                </div>
             </div>
-            <div class="modal-body" id="ordersModalBody"></div>
-            <div class="modal-footer border-secondary border-opacity-25 justify-content-between">
-                <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="clearOrderHistory()">Clear History</button>
-                <button type="button" class="btn btn-sm btn-warning text-dark rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Close</button>
+
+            <div class="p-3 rounded-3 mb-3" style="background:#141414;border:1px solid rgba(255,255,255,0.10);">
+                <div class="fw-bold text-white mb-3" style="font-size:1.05rem;">Payment</div>
+                <input type="hidden" id="selectedPaymentMethod" value="M-Pesa - Pay Now">
+                <div class="d-flex align-items-center justify-content-between gap-2">
+                    <div class="d-flex align-items-center gap-3 overflow-hidden">
+                        <div id="activePaymentIcon" class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                             style="width:34px;height:34px;background:#0e0e0e;border:1px solid rgba(255,255,255,0.16);">
+                            <span style="color:#4ade80;font-weight:800;font-size:0.62rem;letter-spacing:-0.03em;">M-PESA</span>
+                        </div>
+                        <div class="overflow-hidden">
+                            <div id="activePaymentLabel" class="fw-semibold text-white text-truncate" style="font-size:0.95rem;">M-Pesa - Pay Now</div>
+                            <div id="activePaymentSub" class="small text-secondary text-truncate" style="font-size:0.78rem;">Saved in profile</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-sm rounded-pill px-3 py-1 fw-semibold text-white flex-shrink-0"
+                            style="background:#262626;border:none;" onclick="openPayWithModal()">
+                        Edit
+                    </button>
+                </div>
+            </div>
+
+            <div id="checkoutErrorInline" class="text-danger small fw-semibold mb-2" style="display:none;"></div>
+
+            <div class="border-top border-secondary border-opacity-25 pt-3 mt-auto">
+                <div class="d-flex justify-content-between small text-secondary mb-1">
+                    <span>Items Subtotal</span>
+                    <span>KES <span id="cartSubtotal">0.00</span></span>
+                </div>
+                <div class="d-flex justify-content-between small text-secondary mb-2">
+                    <span>Rider Delivery (<span id="deliveryZoneLabel">Westlands</span>)</span>
+                    <span>KES <span id="cartDeliveryFee">160.00</span></span>
+                </div>
+                <div class="d-flex justify-content-between fw-bold fs-5 mb-3 pt-2 border-top border-secondary border-opacity-25">
+                    <span>Total Due</span>
+                    <span class="text-warning">KES <span id="cartTotal">0.00</span></span>
+                </div>
+                <button id="placeOrderBtn" class="btn w-100 fw-bold py-2 rounded-2"
+                        style="background:#fbbf24;color:#141210;border:none;" onclick="submitOrder()">
+                    Place Order
+                </button>
             </div>
         </div>
     </div>
@@ -1449,11 +1986,29 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script th:inline="javascript">
-    const activeUserId = /*[[${userId}]]*/ 1;
-    const isLoggedIn = /*[[${loggedInUser != null}]]*/ false;
-    function requireAuth(msg) { if (!isLoggedIn) { document.getElementById('authAlert').innerHTML = '<div class="alert alert-warning rounded-4 py-2 small fw-semibold">' + (msg || 'Please sign in or create an account first.') + '</div>'; new bootstrap.Modal(document.getElementById('authModal')).show(); return false; } return true; }
+    window.activeUserId = /*[[${userId}]]*/ 1;
+    window.isLoggedIn = /*[[${loggedInUser != null}]]*/ false;
+</script>
+<script>
+    const activeUserId = window.activeUserId;
+    const isLoggedIn = window.isLoggedIn;
+    function requireAuth(msg) { if (!window._userInitiatedAction) return false; if (!isLoggedIn) { document.getElementById('authAlert').innerHTML = '<div class="alert alert-warning rounded-4 py-2 small fw-semibold">' + (msg || 'Please sign in or create an account first.') + '</div>'; new bootstrap.Modal(document.getElementById('authModal')).show(); return false; } return true; }
     let selectedCategory = 'ALL';
-    let cart = [];
+    let cart = []; if (typeof window.clearTray === "function") window.clearTray();
+    try {
+        const sc = JSON.parse(localStorage.getItem('foodie_tasting_tray') || '[]');
+        if (Array.isArray(sc)) cart = sc;
+    } catch (e) { cart = []; }
+    function persistCart() {
+        try { localStorage.setItem('foodie_tasting_tray', JSON.stringify(cart)); } catch (e) {}
+    }
+    try {
+        const savedCart = JSON.parse(localStorage.getItem('foodie_tasting_tray') || '[]');
+        if (Array.isArray(savedCart)) cart = savedCart;
+    } catch (e) { cart = []; }
+    function persistCart() {
+        try { localStorage.setItem('foodie_tasting_tray', JSON.stringify(cart)); } catch (e) {}
+    }
 
     const dishCatalog = Array.from(document.querySelectorAll('.catalog-item')).map(el => ({
         id: el.getAttribute('data-id'),
@@ -1494,100 +2049,105 @@
         setFeatured(0);
     })();
 
-    const profileStorageKey = `foodie_profile_${activeUserId}`;
+    function getProfileKey() {
+        const uid = (typeof activeUserId !== 'undefined' && activeUserId) ? activeUserId : 'guest';
+        return 'foodie_profile_' + uid;
+    }
+
     function getSavedProfile() {
-        try { return JSON.parse(localStorage.getItem(profileStorageKey) || '{}'); }
+        try { return JSON.parse(localStorage.getItem(getProfileKey()) || '{}'); }
         catch (_) { return {}; }
     }
-    function togglePrefChip(btn) {
-        btn.classList.toggle('active');
-    }
-    function saveProfilePrefs() {
-        const prefs = Array.from(document.querySelectorAll('#profPrefChips .pref-chip.active')).map(b => b.getAttribute('data-pref'));
-        const payload = {
-            zone: document.getElementById('profZone').value,
-            address: document.getElementById('profAddress').value.trim(),
-            phone: document.getElementById('profPhone').value.trim(),
-            note: document.getElementById('profNote').value.trim(),
-            prefs
-        };
-        localStorage.setItem(profileStorageKey, JSON.stringify(payload));
-        document.getElementById('profSaveStatus').textContent = ' Saved';
-        setTimeout(() => { document.getElementById('profSaveStatus').textContent = ''; }, 2500);
-        showToast('Profile preferences saved');
-    }
-    async function openProfileModal() {
-        if (!requireAuth('Sign in or create an account to view your profile.')) return;
-        const saved = getSavedProfile();
-        if (saved.zone) document.getElementById('profZone').value = saved.zone;
-        if (saved.address) document.getElementById('profAddress').value = saved.address;
-        if (saved.phone) document.getElementById('profPhone').value = saved.phone;
-        if (saved.note) document.getElementById('profNote').value = saved.note;
-        const activePrefs = new Set(saved.prefs || []);
-        document.querySelectorAll('#profPrefChips .pref-chip').forEach(b => {
-            b.classList.toggle('active', activePrefs.has(b.getAttribute('data-pref')));
-        });
 
+    function saveProfilePrefs(source, btnEl) {
         try {
-            const res = await fetch(`/api/orders/user/${activeUserId}`);
-            const orders = await res.json();
-            const sum = orders.reduce((acc, o) => acc + parseFloat(o.totalAmount || 0), 0);
-            document.getElementById('profileTotalSpent').textContent = `KES ${sum.toFixed(0)}`;
-        } catch (_) {}
+            const existing = getSavedProfile();
+            const zoneEl = document.getElementById('profZone');
+            const addrEl = document.getElementById('profAddress');
+            const phoneEl = document.getElementById('profPhone');
+            const payMethodEl = document.getElementById('profDefaultPayment');
+            const mpesaEl = document.getElementById('profMpesaNumber');
+            const visaEl = document.getElementById('profVisaLast4');
 
-        new bootstrap.Modal(document.getElementById('profileModal')).show();
+            const payload = {
+                zone: zoneEl ? zoneEl.value : (existing.zone || 'Westlands & Waiyaki Way'),
+                address: addrEl ? addrEl.value.trim() : (existing.address || ''),
+                phone: phoneEl ? phoneEl.value.trim() : (existing.phone || ''),
+                paymentMethod: payMethodEl ? payMethodEl.value : (existing.paymentMethod || 'M-Pesa - Pay Now'),
+                mpesaNumber: (mpesaEl && mpesaEl.value.trim()) ? mpesaEl.value.trim() : ((phoneEl && phoneEl.value.trim()) || existing.mpesaNumber || ''),
+                visaLast4: (visaEl && visaEl.value.trim()) ? visaEl.value.trim().replace(/[^0-9]/g, '').slice(-4) : (existing.visaLast4 || '7987')
+            };
+
+            localStorage.setItem(getProfileKey(), JSON.stringify(payload));
+
+            const delivZone = document.getElementById('deliveryZoneInput');
+            if (delivZone && payload.zone) {
+                delivZone.value = payload.zone;
+                delivZone.dataset.userChanged = '1';
+            }
+            const delivAddr = document.getElementById('deliveryAddressInput');
+            if (delivAddr && payload.address) {
+                delivAddr.value = payload.address;
+            }
+            if (typeof syncPaymentCardFromProfile === 'function') syncPaymentCardFromProfile();
+            if (typeof renderCart === 'function') renderCart();
+
+            const statusMap = { overview: 'profSaveStatus', address: 'profAddrSaveStatus', payment: 'profPaySaveStatus' };
+            const statusEl = document.getElementById(statusMap[source] || 'profSaveStatus');
+            if (statusEl) {
+                statusEl.textContent = 'Saved to your account';
+                setTimeout(() => { statusEl.textContent = ''; }, 2600);
+            }
+
+            if (btnEl) {
+                const origText = btnEl.getAttribute('data-orig-text') || btnEl.textContent.trim();
+                btnEl.setAttribute('data-orig-text', origText);
+                btnEl.textContent = 'Saved';
+                btnEl.style.background = '#262626';
+                btnEl.style.color = '#4ade80';
+                btnEl.style.borderColor = 'rgba(74, 222, 128, 0.45)';
+                setTimeout(() => {
+                    btnEl.textContent = origText;
+                    btnEl.style.background = '#f5f2ed';
+                    btnEl.style.color = '#141210';
+                    btnEl.style.borderColor = 'rgba(255,255,255,0.2)';
+                }, 1800);
+            }
+        } catch (err) {
+            console.error('Profile save error:', err);
+        }
     }
 
-    function showToast(msg) {
-        document.getElementById('foodieToastMsg').textContent = msg;
-        new bootstrap.Toast(document.getElementById('foodieToast'), { delay: 2200 }).show();
-    }
-
-    function trackClickstream(productId, productName, eventType) {
-        fetch('/api/portal/clickstream', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId: activeUserId, productId, productName, eventType })
-        }).catch(() => {});
-    }
-
-    function openDishDetail(el) {
-        const id = el.getAttribute('data-id');
-        const name = el.getAttribute('data-name');
-        const desc = el.getAttribute('data-desc');
-        const price = el.getAttribute('data-price');
-        const cat = el.getAttribute('data-cat');
-        const img = el.getAttribute('data-img');
-        const cal = el.getAttribute('data-cal');
-        const prot = el.getAttribute('data-prot');
-        const ing = el.getAttribute('data-ing');
-
-        document.getElementById('detailImg').src = img;
-        document.getElementById('detailCat').textContent = cat;
-        document.getElementById('detailName').textContent = name;
-        document.getElementById('detailDesc').textContent = desc;
-        document.getElementById('detailIng').textContent = ing;
-        document.getElementById('detailNutrition').textContent = `${cal} kcal | Protein: ${prot}`;
-        document.getElementById('detailPrice').textContent = price;
-
-        document.getElementById('detailAddBtn').onclick = () => {
-            addItemToCartState(id, name, parseFloat(price));
-            bootstrap.Modal.getInstance(document.getElementById('dishDetailModal')).hide();
-        };
-
-        const similarBox = document.getElementById('similarItemsContainer');
-        const matches = Array.from(document.querySelectorAll('.catalog-item'))
-            .filter(c => c.getAttribute('data-category') === cat && !c.getAttribute('data-search').includes(name.toLowerCase()))
-            .slice(0, 3);
-        similarBox.innerHTML = matches.length
-            ? matches.map(m => {
-                const title = m.querySelector('.card-title').textContent;
-                const p = m.getAttribute('data-price');
-                return `<span class="badge bg-black text-warning border border-warning border-opacity-25 rounded-pill px-3 py-2">${title} · KES ${p}</span>`;
-            }).join('')
-            : '<span class="text-secondary small">Chef signature specialty</span>';
-
-        trackClickstream(id, name, 'VIEW');
-        new bootstrap.Modal(document.getElementById('dishDetailModal')).show();
+    async function openProfileModal() { if (typeof isUserAuthenticated === "function" && !isUserAuthenticated()) { const pm = document.getElementById("profileModal"); if (pm && typeof bootstrap !== "undefined") bootstrap.Modal.getOrCreateInstance(pm).hide(); }
+        try {
+            if (!isLoggedIn) {
+                requireAuth('Sign in or create an account to view your profile.');
+                return;
+            }
+            const modalEl = document.getElementById('profileModal');
+            const nameVal = (document.getElementById('profFullName')?.value || document.getElementById('profSidebarName')?.textContent || 'U').trim();
+            if (document.getElementById('profAvatarInitial') && nameVal) {
+                document.getElementById('profAvatarInitial').textContent = nameVal.charAt(0).toUpperCase();
+            }
+            if (!modalEl) {
+                alert('Profile modal element is missing from the page.');
+                return;
+            }
+            const saved = getSavedProfile();
+            if (saved.zone && document.getElementById('profZone')) document.getElementById('profZone').value = saved.zone;
+            if (saved.address && document.getElementById('profAddress')) document.getElementById('profAddress').value = saved.address;
+            if (saved.phone && document.getElementById('profPhone')) document.getElementById('profPhone').value = saved.phone;
+            if (saved.paymentMethod && document.getElementById('profDefaultPayment')) document.getElementById('profDefaultPayment').value = saved.paymentMethod;
+            if ((saved.mpesaNumber || saved.phone) && document.getElementById('profMpesaNumber')) {
+                document.getElementById('profMpesaNumber').value = saved.mpesaNumber || saved.phone;
+            }
+            if (saved.visaLast4 && document.getElementById('profVisaLast4')) {
+                document.getElementById('profVisaLast4').value = saved.visaLast4;
+            }
+            bootstrap.Modal.getOrCreateInstance(modalEl).show();
+        } catch (err) {
+            alert('Profile error: ' + err.message);
+        }
     }
 
     function addToCart(btn) {
@@ -1595,12 +2155,14 @@
     }
 
     function addItemToCartState(id, name, price) {
-        const existing = cart.find(item => item.productId === id);
+        const pid = String(id);
+        const existing = cart.find(item => String(item.productId) === pid);
         if (existing) existing.quantity += 1;
-        else cart.push({ productId: id, name, price, quantity: 1 });
+        else cart.push({ productId: pid, name, price: Number(price) || 0, quantity: 1 });
+        persistCart();
         renderCart();
-        trackClickstream(id, name, 'ADD_TO_CART');
-        showToast(`Added "${name}" to your tray`);
+        try { if (typeof trackClickstream === 'function') trackClickstream(pid, name, 'ADD_TO_CART'); } catch (e) {}
+        try { if (typeof showToast === 'function') showToast(`Added "${name}" to your tray`); } catch (e) {};
     }
 
     function updateQty(index, delta) {
@@ -1609,33 +2171,146 @@
         renderCart();
     }
 
-        function renderCart() {
-        document.getElementById('cartCount').textContent = cart.reduce((s, i) => s + i.quantity, 0);
-        document.getElementById('cartTotal').textContent = cart.reduce((s, i) => s + (i.price * i.quantity), 0).toFixed(2);
+        let pendingPayMethod = 'M-Pesa - Pay Now';
+
+    function syncPaymentCardFromProfile() {
+        const saved = getSavedProfile();
+        const method = saved.paymentMethod || 'M-Pesa - Pay Now';
+        const mpesaNum = saved.mpesaNumber || saved.phone || '';
+        const visaLast4 = saved.visaLast4 || '7987';
+
+        const hiddenInput = document.getElementById('selectedPaymentMethod');
+        const iconEl = document.getElementById('activePaymentIcon');
+        const labelEl = document.getElementById('activePaymentLabel');
+        const subEl = document.getElementById('activePaymentSub');
+        if (!hiddenInput || !iconEl || !labelEl || !subEl) return;
+
+        hiddenInput.value = method;
+        if (method === 'Visa') {
+            iconEl.style.background = '#1a369c';
+            iconEl.innerHTML = '<span style="color:#ffffff;font-weight:800;font-size:0.68rem;">VISA</span>';
+            labelEl.textContent = 'Visa ••••' + visaLast4;
+            subEl.textContent = 'Saved card (Simulated)';
+        } else if (method === 'Cash on Delivery') {
+            iconEl.style.background = '#263322';
+            iconEl.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#86efac" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/></svg>';
+            labelEl.textContent = 'Cash on Delivery';
+            subEl.textContent = 'Pay rider upon arrival';
+        } else {
+            iconEl.style.background = '#0e0e0e';
+            iconEl.innerHTML = '<span style="color:#4ade80;font-weight:800;font-size:0.60rem;letter-spacing:-0.03em;">M-PESA</span>';
+            labelEl.textContent = 'M-Pesa - Pay Now';
+            subEl.textContent = mpesaNum ? mpesaNum : 'Saved in profile';
+        }
+    }
+
+    function openPayWithModal() {
+        const saved = getSavedProfile();
+        pendingPayMethod = document.getElementById('selectedPaymentMethod')?.value || saved.paymentMethod || 'M-Pesa - Pay Now';
+        const mpesaNum = saved.mpesaNumber || saved.phone || '';
+        const visaLast4 = saved.visaLast4 || '7987';
+
+        if (document.getElementById('payOptMpesaSub')) {
+            document.getElementById('payOptMpesaSub').textContent = mpesaNum ? mpesaNum : 'Tap + Add to set phone number';
+        }
+        if (document.getElementById('payOptVisaTitle')) {
+            document.getElementById('payOptVisaTitle').textContent = 'Visa ••••' + visaLast4;
+        }
+        if (document.getElementById('quickMpesaInput')) document.getElementById('quickMpesaInput').value = mpesaNum;
+        if (document.getElementById('quickVisaInput')) document.getElementById('quickVisaInput').value = visaLast4;
+        document.getElementById('quickAddPaymentBox').style.display = 'none';
+
+        selectPayWithOption(pendingPayMethod);
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('payWithModal')).show();
+    }
+
+    function selectPayWithOption(method) {
+        pendingPayMethod = method;
+        document.getElementById('check-mpesa').classList.toggle('d-none', method !== 'M-Pesa - Pay Now');
+        document.getElementById('check-visa').classList.toggle('d-none', method !== 'Visa');
+        document.getElementById('check-cash').classList.toggle('d-none', method !== 'Cash on Delivery');
+    }
+
+    function toggleQuickAddPayment() {
+        const box = document.getElementById('quickAddPaymentBox');
+        box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function confirmPayWithSelection() {
+        const saved = getSavedProfile();
+        const newMpesa = document.getElementById('quickMpesaInput')?.value.trim();
+        const newVisa = document.getElementById('quickVisaInput')?.value.trim();
+        saved.paymentMethod = pendingPayMethod;
+        if (newMpesa) saved.mpesaNumber = newMpesa;
+        if (newVisa) saved.visaLast4 = newVisa.slice(-4);
+        localStorage.setItem(getProfileKey(), JSON.stringify(saved));
+
+        syncPaymentCardFromProfile();
+        const modalInst = bootstrap.Modal.getInstance(document.getElementById('payWithModal'));
+        if (modalInst) modalInst.hide();
+    }
+
+    function getSelectedDeliveryFee() {
+        const sel = document.getElementById('deliveryZoneInput');
+        if (!sel || sel.selectedIndex < 0) return 160;
+        const opt = sel.options[sel.selectedIndex];
+        return parseFloat(opt.getAttribute('data-fee') || '160');
+    }
+
+    function renderCart() {
+        const list = Array.isArray(cart) ? cart : [];
+        const count = list.reduce((sum, item) => sum + (Number(item.quantity) || 1), 0);
+        const subtotal = list.reduce((sum, item) => sum + ((Number(item.price) || 0) * (Number(item.quantity) || 1)), 0);
+        const deliveryFee = list.length ? (typeof getSelectedDeliveryFee === 'function' ? getSelectedDeliveryFee() : 160) : 0;
+        const grandTotal = subtotal + deliveryFee;
+
+        document.querySelectorAll('#cartCount').forEach(el => el.textContent = count);
+        if (document.getElementById('cartSubtotal')) document.getElementById('cartSubtotal').textContent = subtotal.toFixed(2);
+        if (document.getElementById('cartDeliveryFee')) document.getElementById('cartDeliveryFee').textContent = deliveryFee.toFixed(2);
+        const zoneSel = document.getElementById('deliveryZoneInput');
+        if (zoneSel && document.getElementById('deliveryZoneLabel') && zoneSel.value) {
+            document.getElementById('deliveryZoneLabel').textContent = zoneSel.value.split('&')[0].trim();
+        }
+        if (document.getElementById('cartTotal')) document.getElementById('cartTotal').textContent = grandTotal.toFixed(2);
+
+        const emptyEl = document.getElementById('cartEmptyState');
+        const popEl = document.getElementById('cartPopulatedState');
         const itemsEl = document.getElementById('cartItems');
-        if (!cart.length) {
-            itemsEl.innerHTML = `<div class="text-center py-4 text-secondary"><p class="mb-0 small">Your tasting tray is empty.<br>Select any signature dish from the menu to begin.</p></div>`;
+
+        if (!list.length) {
+            if (emptyEl) emptyEl.style.setProperty('display', 'block', 'important');
+            if (popEl) popEl.style.setProperty('display', 'none', 'important');
+            if (itemsEl) itemsEl.innerHTML = '';
             return;
         }
-        itemsEl.innerHTML = cart.map((item, idx) => {
-            const dish = dishById[item.productId];
-            const thumb = dish ? dish.imageUrl : 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=160&q=80';
-            return `
-            <div class="cart-item-card d-flex justify-content-between align-items-center mb-2">
-                <div class="d-flex align-items-center gap-2">
-                    <img src="${thumb}" alt="" style="width:44px;height:44px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,193,7,0.25);">
-                    <div>
-                        <div class="fw-bold small text-white">${item.name}</div>
-                        <small class="text-warning">KES ${(item.price * item.quantity).toFixed(2)} <span class="text-secondary">(${item.quantity} × ${item.price})</span></small>
+
+        if (emptyEl) emptyEl.style.setProperty('display', 'none', 'important');
+        if (popEl) popEl.style.setProperty('display', 'flex', 'important');
+
+        if (itemsEl) {
+            itemsEl.innerHTML = list.map((item, idx) => {
+                const pid = String(item.productId ?? item.id ?? '');
+                const dish = (typeof dishById !== 'undefined' && dishById) ? dishById[pid] : null;
+                const thumb = (dish && dish.imageUrl) ? dish.imageUrl : 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=160&q=80';
+                const lineTotal = ((Number(item.price) || 0) * (Number(item.quantity) || 1)).toFixed(2);
+                return `
+                <div class="cart-item-card d-flex justify-content-between align-items-center p-2 mb-2 rounded-3" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="${thumb}" alt="${item.name}" style="width:44px;height:44px;object-fit:cover;border-radius:8px;">
+                        <div>
+                            <div class="fw-semibold text-white small">${item.name}</div>
+                            <div class="text-warning small">KES ${lineTotal}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="btn-group btn-group-sm">
-                    <button class="btn btn-outline-warning rounded-start-pill" onclick="updateQty(${idx}, -1)">-</button>
-                    <button class="btn btn-dark disabled text-white fw-bold">${item.quantity}</button>
-                    <button class="btn btn-outline-warning rounded-end-pill" onclick="updateQty(${idx}, 1)">+</button>
-                </div>
-            </div>`;
-        }).join('');
+                    <div class="d-flex align-items-center gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQty(${idx}, -1)">-</button>
+                        <span class="px-2 small fw-bold text-white">${item.quantity}</span>
+                        <button type="button" class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQty(${idx}, 1)">+</button>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+        try { if (typeof syncPaymentCardFromProfile === 'function') syncPaymentCardFromProfile(); } catch (e) {}
     }
 
     function showCheckoutError(msg) {
@@ -1648,12 +2323,27 @@
     async function submitOrder() {
         showCheckoutError('');
         if (!requireAuth('Sign in or create an account to place your culinary order.')) return;
+        if (Array.isArray(window.cart) && window.cart.length > 0) { cart = window.cart; }
         if (!cart.length) { showCheckoutError('Select at least one dish for your tasting tray first.'); return; }
 
         const deliveryZone = document.getElementById('deliveryZoneInput').value;
         const deliveryAddress = document.getElementById('deliveryAddressInput').value.trim();
         const kitchenNotes = document.getElementById('kitchenNotesInput').value.trim();
         const riderInstructions = document.getElementById('riderInstructionsInput').value.trim();
+        const savedProf = getSavedProfile();
+        const paymentMethod = document.getElementById('selectedPaymentMethod')?.value || savedProf.paymentMethod || 'M-Pesa - Pay Now';
+        const mpesaPhone = savedProf.mpesaNumber || savedProf.phone || '';
+        const visaLast4 = savedProf.visaLast4 || '7987';
+        if (paymentMethod === 'M-Pesa - Pay Now' && !mpesaPhone) {
+            showCheckoutError('Please add your M-Pesa phone number in Payment (click Edit) or in your Profile.');
+            return;
+        }
+        const deliveryFee = getSelectedDeliveryFee();
+        const paymentDetail = paymentMethod === 'M-Pesa - Pay Now'
+            ? `M-Pesa (${mpesaPhone})`
+            : (paymentMethod === 'Visa' ? `Visa ••••${visaLast4}` : 'Cash on Delivery');
+        const paymentTag = `[Payment: ${paymentDetail} | Delivery: KES ${deliveryFee}]`;
+        const fullRiderInstructions = `${paymentTag} ${riderInstructions}`;
 
         if (!deliveryAddress) {
             showCheckoutError('Please enter your Nairobi building, street, or drop-off landmark.');
@@ -1679,7 +2369,8 @@
                     deliveryZone,
                     deliveryAddress,
                     kitchenNotes,
-                    riderInstructions,
+                    riderInstructions: fullRiderInstructions,
+                    deliveryFee,
                     items: cart.map(c => ({ productId: c.productId, quantity: c.quantity }))
                 })
             });
@@ -1715,10 +2406,10 @@
         if (s === 'KITCHEN_PREPARING') return { label: 'KITCHEN PREPARING & EN ROUTE', cls: 'bg-info bg-opacity-25 text-info border-info' };
         if (s === 'ACCEPTED_BY_CHEF') return { label: 'ACCEPTED BY CHEF', cls: 'bg-primary bg-opacity-25 text-primary border-primary' };
         if (s === 'DINER_CONFIRMED_AWAITING_RIDER') return { label: 'RECEIVED (AWAITING RIDER SIGN-OFF)', cls: 'bg-warning bg-opacity-25 text-warning border-warning' };
-        return { label: 'AWAITING KITCHEN ACCEPTANCE', cls: 'bg-secondary bg-opacity-25 text-light border-secondary' };
+        return { label: 'Order sent to kitchen ACCEPTANCE', cls: 'bg-secondary bg-opacity-25 text-light border-secondary' };
     }
 
-    async function confirmOrderReceived(orderId) {
+    window.confirmOrderReceived = async function(orderId) {
         try {
             const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
             if (!res.ok) return;
@@ -1731,8 +2422,8 @@
         const s = (status || 'AWAITING_KITCHEN').toUpperCase();
         if (s === 'TABLE_SERVED') {
             return {
-                label: 'Delivered & Verified',
-                caption: 'Delivered and verified by both our Nairobi rider and your household.',
+                label: 'Delivered',
+                caption: 'Order handed over and confirmed.',
                 pct: 100,
                 isTransit: false
             };
@@ -1740,22 +2431,22 @@
         if (s === 'AT_YOUR_DOORSTEP') {
             return {
                 label: 'Rider at Doorstep',
-                caption: 'Your rider has arrived at your address. Confirm receipt once handed over.',
+                caption: 'Your rider is outside. Confirm once handed over.',
                 pct: 94,
                 isTransit: true
             };
         }
         if (s === 'OUT_FOR_DELIVERY') {
             return {
-                label: 'Rider En Route',
-                caption: 'Your order is packed warm and currently on transit across Nairobi.',
+                label: 'Out for delivery',
+                caption: 'Your rider is on the way.',
                 pct: 78,
                 isTransit: true
             };
         }
         if (s === 'ACCEPTED_BY_CHEF' || s === 'KITCHEN_PREPARING') {
             return {
-                label: 'Preparing in Kitchen',
+                label: 'Preparing your order',
                 caption: 'Our chefs are actively crafting and plating your dishes fresh to order.',
                 pct: 50,
                 isTransit: false
@@ -1769,7 +2460,7 @@
         };
     }
 
-    async function confirmOrderReceived(orderId) {
+    window.confirmOrderReceived = async function(orderId) {
         try {
             const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
             if (!res.ok) return;
@@ -1890,7 +2581,7 @@ async function clearOrderHistory() {
         else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error}</div>`;
     }
 
-    async function logoutUser() {
+    window.logoutUser = async function logoutUser() {
         await fetch('/api/portal/logout', { method: 'POST' });
         window.location.href = '/store';
     }
@@ -1907,207 +2598,7 @@ async function clearOrderHistory() {
         } catch (e) { console.error(e); }
     }
     window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
-    async function confirmOrderReceived(orderId) {
-        const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
-        if (res.ok) {
-            const data = await res.json();
-            if (data.bothConfirmed) { showExclusiveThankYouModal(orderId, ''); } else {
-                showToast('Delivery receipt recorded! Waiting for rider confirmation.');
-            }
-            loadOrderHistory();
-            syncLiveOrderTracker();
-        }
-    }
-
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    (function initStorefrontThreeAndMotion() {
-        const cards = document.querySelectorAll('.dish-card');
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, idx) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('card-visible'), (idx % 3) * 85);
-                    cardObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08 });
-        cards.forEach(c => cardObserver.observe(c));
-
-        const canvas = document.getElementById('threeBgCanvas');
-        if (!window.THREE || !canvas) return;
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        const uniforms = {
-            uTime: { value: 0 },
-            uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-            uScroll: { value: 0 },
-            uRes: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
-        };
-
-        const shaderMat = new THREE.ShaderMaterial({
-            uniforms,
-            vertexShader: `
-                varying vec2 vUv;
-                void main() {
-                    vUv = uv;
-                    gl_Position = vec4(position, 1.0);
-                }
-            `,
-            fragmentShader: `
-                precision highp float;
-                varying vec2 vUv;
-                uniform float uTime;
-                uniform vec2 uMouse;
-                uniform float uScroll;
-                uniform vec2 uRes;
-
-                float hash(vec2 p) {
-                    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
-                }
-                float noise(vec2 p) {
-                    vec2 i = floor(p);
-                    vec2 f = fract(p);
-                    vec2 u = f * f * (3.0 - 2.0 * f);
-                    return mix(
-                        mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
-                        mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
-                        u.y
-                    );
-                }
-                float fbm(vec2 p) {
-                    float v = 0.0;
-                    float a = 0.5;
-                    for (int i = 0; i < 5; i++) {
-                        v += a * noise(p);
-                        p = p * 2.02 + vec2(1.7, 9.2);
-                        a *= 0.5;
-                    }
-                    return v;
-                }
-
-                void main() {
-                    vec2 uv = vUv;
-                    float aspect = uRes.x / max(uRes.y, 1.0);
-                    vec2 p = vec2(uv.x * aspect, uv.y + uScroll * 0.22);
-
-                    float t = uTime * 0.13;
-                    vec2 q = vec2(fbm(p * 1.4 + vec2(0.0, -t)), fbm(p * 1.4 + vec2(5.2, -t * 1.2)));
-                    float smoke = fbm(p * 1.8 + 2.2 * q - vec2(0.0, t * 1.5));
-
-                    vec2 m = vec2(uMouse.x * aspect, 1.0 - uMouse.y);
-                    float cursorGlow = exp(-distance(vec2(uv.x * aspect, uv.y), m) * 2.5) * 0.18;
-
-                    vec3 obsidian = vec3(0.028, 0.020, 0.016);
-                    vec3 deepEmber = vec3(0.28, 0.09, 0.02);
-                    vec3 saffronGold = vec3(0.82, 0.45, 0.05);
-
-                    vec3 col = mix(obsidian, deepEmber, smoothstep(0.30, 0.88, smoke) * 0.58);
-                    col += saffronGold * pow(smoothstep(0.48, 0.96, smoke), 2.2) * 0.26;
-                    col += saffronGold * cursorGlow;
-
-                    float vig = smoothstep(1.25, 0.25, length((uv - 0.5) * vec2(1.2, 1.0)));
-                    col *= (0.55 + 0.45 * vig);
-
-                    gl_FragColor = vec4(col, 1.0);
-                }
-            `
-        });
-
-        const quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMat);
-        scene.add(quad);
-
-        const pScene = new THREE.Scene();
-        const pCam = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-        pCam.position.z = 20;
-
-        const spriteCanvas = document.createElement('canvas');
-        spriteCanvas.width = 64;
-        spriteCanvas.height = 64;
-        const ctx = spriteCanvas.getContext('2d');
-        const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-        grad.addColorStop(0, 'rgba(255, 230, 160, 1)');
-        grad.addColorStop(0.35, 'rgba(245, 158, 11, 0.6)');
-        grad.addColorStop(1, 'rgba(245, 158, 11, 0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, 64, 64);
-        const bokehTex = new THREE.CanvasTexture(spriteCanvas);
-
-        const count = 80;
-        const pos = new Float32Array(count * 3);
-        const vel = new Float32Array(count);
-        for (let i = 0; i < count; i++) {
-            pos[i * 3] = (Math.random() - 0.5) * 38;
-            pos[i * 3 + 1] = (Math.random() - 0.5) * 24;
-            pos[i * 3 + 2] = (Math.random() - 0.5) * 14;
-            vel[i] = 0.005 + Math.random() * 0.011;
-        }
-        const pGeo = new THREE.BufferGeometry();
-        pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        const pMat = new THREE.PointsMaterial({
-            map: bokehTex,
-            size: 0.6,
-            transparent: true,
-            opacity: 0.48,
-            depthWrite: false,
-            blending: THREE.AdditiveBlending
-        });
-        const bokehPoints = new THREE.Points(pGeo, pMat);
-        pScene.add(bokehPoints);
-
-        renderer.autoClear = false;
-
-        window.addEventListener('mousemove', e => {
-            uniforms.uMouse.value.set(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
-        });
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            uniforms.uRes.value.set(window.innerWidth, window.innerHeight);
-            pCam.aspect = window.innerWidth / window.innerHeight;
-            pCam.updateProjectionMatrix();
-        });
-
-        const clock = new THREE.Clock();
-        function animate() {
-            requestAnimationFrame(animate);
-            const t = clock.getElapsedTime();
-            uniforms.uTime.value = t;
-            uniforms.uScroll.value = window.scrollY / Math.max(window.innerHeight, 1);
-
-            const arr = pGeo.attributes.position.array;
-            for (let i = 0; i < count; i++) {
-                arr[i * 3 + 1] += vel[i];
-                arr[i * 3] += Math.sin(t * 0.6 + i) * 0.003;
-                if (arr[i * 3 + 1] > 13) arr[i * 3 + 1] = -13;
-            }
-            pGeo.attributes.position.needsUpdate = true;
-
-            renderer.clear();
-            renderer.render(scene, camera);
-            renderer.render(pScene, pCam);
-        }
-        animate();
-    })();
-    async function checkCompletedOrdersGreeting() {
-        if (!activeUserId || activeUserId <= 0) return;
-        try {
-            const res = await fetch(`/api/orders/user/${activeUserId}`);
-            if (!res.ok) return;
-            const orders = await res.json();
-            const newlyCompleted = orders.find(o => o.status === 'TABLE_SERVED' && !localStorage.getItem('foodie_thanked_' + o.id));
-            if (newlyCompleted) {
-                showExclusiveThankYouModal(newlyCompleted.id, newlyCompleted.deliveryZone || 'Nairobi');
-            }
-        } catch (e) { console.error(e); }
-    }
-    window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
-    async function confirmOrderReceived(orderId) {
+    window.confirmOrderReceived = async function(orderId) {
         const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
         if (res.ok) {
             const data = await res.json();
@@ -2232,7 +2723,7 @@ async function clearOrderHistory() {
         } catch (e) { console.error(e); }
     }
     window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
-    async function confirmOrderReceived(orderId) {
+    window.confirmOrderReceived = async function(orderId) {
         const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
         if (res.ok) {
             const data = await res.json();
@@ -2247,6 +2738,19 @@ async function clearOrderHistory() {
 </script>
 <script id="adminLoginAutoTrigger">
     document.addEventListener('DOMContentLoaded', () => {
+    if (typeof renderCart === 'function') renderCart();
+        const trayEl = document.getElementById('cartDrawer') || document.querySelector('.offcanvas');
+        if (trayEl) {
+            trayEl.addEventListener('show.bs.offcanvas', function() {
+                if (typeof renderCart === 'function') renderCart();
+            });
+        }
+        const pm = document.getElementById('profileModal');
+    if (pm) {
+        pm.addEventListener('show.bs.modal', () => {
+            if (typeof openProfileModal === 'function') openProfileModal();
+        });
+    }
         const params = new URLSearchParams(window.location.search);
         const isAdminFlow = params.get('adminLogin') === '1';
         const modalEl = document.getElementById('authModal');
@@ -2295,7 +2799,7 @@ async function clearOrderHistory() {
         } catch (e) { console.error(e); }
     }
     window.addEventListener('DOMContentLoaded', checkCompletedOrdersGreeting);
-    async function confirmOrderReceived(orderId) {
+    window.confirmOrderReceived = async function(orderId) {
         const res = await fetch(`/api/orders/${orderId}/confirm-delivery`, { method: 'POST' });
         if (res.ok) {
             const data = await res.json();
@@ -2364,4 +2868,1827 @@ async function clearOrderHistory() {
     });
 </script>
 
+<script id="foodie-modern-rec-carousel">
+(function () {
+    function initRecCarousel() {
+        const sec = document.getElementById('recommendedSection');
+        const track = document.getElementById('recCarouselTrack');
+        const dots = document.getElementById('recCarouselDots');
+        const prevBtn = document.getElementById('recPrevBtn');
+        const nextBtn = document.getElementById('recNextBtn');
+        if (!sec || !track || track.dataset.ready === '1') return;
+        track.dataset.ready = '1';
+
+        const seen = new Set(
+            Array.from(track.querySelectorAll('[data-id]')).map(el => String(el.getAttribute('data-id')))
+        );
+        const catalogItems = Array.from(document.querySelectorAll('#catalogGrid .catalog-item'));
+        let added = 0;
+
+        for (const item of catalogItems) {
+            if (added >= 3) break;
+            const id = String(item.getAttribute('data-id') || '');
+            if (!id || seen.has(id)) continue;
+
+            const card = item.querySelector('.dish-card');
+            if (!card) continue;
+
+            const cloneCard = card.cloneNode(true);
+            const imgWrap = cloneCard.querySelector('.dish-img-wrap');
+            if (imgWrap && !imgWrap.querySelector('.rec-ribbon')) {
+                const ribbon = document.createElement('span');
+                ribbon.className = 'rec-ribbon';
+                ribbon.textContent = 'Top Pick';
+                imgWrap.appendChild(ribbon);
+            }
+
+            const slide = document.createElement('div');
+            slide.className = 'rec-carousel-item';
+            slide.appendChild(cloneCard);
+            track.appendChild(slide);
+            seen.add(id);
+            added++;
+        }
+
+        const baseSlides = Array.from(track.querySelectorAll('.rec-carousel-item'));
+        const n = baseSlides.length;
+        if (n === 0) return;
+
+        const cloneCount = Math.min(3, n);
+        for (let i = 0; i < cloneCount; i++) {
+            const c = baseSlides[i].cloneNode(true);
+            c.setAttribute('aria-hidden', 'true');
+            track.appendChild(c);
+        }
+
+        let idx = 0;
+        let busy = false;
+        let timer = null;
+
+        function getStep() {
+            const first = track.querySelector('.rec-carousel-item');
+            if (!first) return 380;
+            const gap = parseFloat(getComputedStyle(track).gap) || 24;
+            return first.getBoundingClientRect().width + gap;
+        }
+
+        function renderDots() {
+            if (!dots) return;
+            const active = ((idx % n) + n) % n;
+            if (dots.children.length !== n) {
+                dots.innerHTML = Array.from({ length: n }, (_, i) =>
+                    '<button type="button" class="rec-dot' + (i === active ? ' active' : '') + '" data-i="' + i + '" aria-label="Dish ' + (i + 1) + '"></button>'
+                ).join('');
+                dots.querySelectorAll('.rec-dot').forEach(dot => {
+                    dot.addEventListener('click', function () {
+                        stop();
+                        goTo(parseInt(this.getAttribute('data-i'), 10), true);
+                        start();
+                    });
+                });
+            } else {
+                Array.from(dots.children).forEach((d, i) => d.classList.toggle('active', i === active));
+            }
+        }
+
+        function goTo(target, animate) {
+            if (busy && animate) return;
+            idx = target;
+            track.style.transition = animate ? 'transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+            track.style.transform = 'translate3d(-' + (idx * getStep()) + 'px, 0, 0)';
+            if (animate) busy = true;
+            renderDots();
+        }
+
+        track.addEventListener('transitionend', function () {
+            busy = false;
+            if (idx >= n) {
+                idx = idx % n;
+                track.style.transition = 'none';
+                track.style.transform = 'translate3d(-' + (idx * getStep()) + 'px, 0, 0)';
+            }
+        });
+
+        function next() { goTo(idx + 1, true); }
+
+        function prev() {
+            if (idx <= 0) {
+                track.style.transition = 'none';
+                idx = n;
+                track.style.transform = 'translate3d(-' + (idx * getStep()) + 'px, 0, 0)';
+                track.offsetHeight;
+            }
+            goTo(idx - 1, true);
+        }
+
+        function start() {
+            stop();
+            timer = setInterval(next, 2800);
+        }
+
+        function stop() {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', function () { stop(); next(); start(); });
+        if (prevBtn) prevBtn.addEventListener('click', function () { stop(); prev(); start(); });
+
+        sec.addEventListener('mouseenter', stop);
+        sec.addEventListener('mouseleave', start);
+        window.addEventListener('resize', function () { goTo(idx, false); });
+
+        renderDots();
+        start();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initRecCarousel);
+    } else {
+        initRecCarousel();
+    }
+})();
+</script>
+
+<script id="foodie-address-row-sync">
+(function() {
+    function getUid() {
+        return (typeof window.activeUserId !== 'undefined' && window.activeUserId !== null) ? window.activeUserId : 'guest';
+    }
+    function readProf() {
+        try { return JSON.parse(localStorage.getItem('foodie_profile_' + getUid()) || '{}'); }
+        catch (e) { return {}; }
+    }
+    function writeProf(data) {
+        try { localStorage.setItem('foodie_profile_' + getUid(), JSON.stringify(data)); }
+        catch (e) {}
+    }
+
+    window.syncSavedAddressRow = function() {
+        const prof = readProf();
+        const zoneSel = document.getElementById('deliveryZoneInput');
+        const addrInp = document.getElementById('deliveryAddressInput');
+
+        if (zoneSel && prof.zone && !zoneSel.dataset.userChanged) {
+            zoneSel.value = prof.zone;
+        }
+        if (addrInp && prof.address && !addrInp.dataset.userChanged) {
+            addrInp.value = prof.address;
+        }
+
+        const building = (addrInp && addrInp.value.trim()) || (prof.address || '').trim() || 'Set Drop-off Building';
+        let zoneText = '';
+        if (zoneSel && zoneSel.value) {
+            zoneText = zoneSel.value.split('(')[0].trim();
+        } else if (prof.zone) {
+            zoneText = prof.zone.split('(')[0].trim();
+        } else {
+            zoneText = 'Nairobi Delivery Zone';
+        }
+
+        const titleEl = document.getElementById('trayAddressTitle');
+        const subEl = document.getElementById('trayAddressSub');
+        if (titleEl) titleEl.textContent = building;
+        if (subEl) subEl.textContent = zoneText + ', Nairobi';
+
+        const editor = document.getElementById('trayAddressInlineEditor');
+        if (editor && building === 'Set Drop-off Building' && !editor.dataset.initialized) {
+            editor.classList.remove('d-none');
+            editor.dataset.initialized = '1';
+        }
+    };
+
+    window.toggleTrayAddressEditor = function(forceState) {
+        const editor = document.getElementById('trayAddressInlineEditor');
+        if (!editor) return;
+        const show = (typeof forceState === 'boolean') ? forceState : editor.classList.contains('d-none');
+        editor.classList.toggle('d-none', !show);
+    };
+
+    window.saveTrayAddressInline = function() {
+        const zoneSel = document.getElementById('deliveryZoneInput');
+        const addrInp = document.getElementById('deliveryAddressInput');
+        const prof = readProf();
+        const updated = {
+            ...prof,
+            zone: zoneSel ? zoneSel.value : (prof.zone || ''),
+            address: addrInp ? addrInp.value.trim() : (prof.address || '')
+        };
+        if (zoneSel) zoneSel.dataset.userChanged = '1';
+        if (addrInp) addrInp.dataset.userChanged = '1';
+        writeProf(updated);
+
+        if (document.getElementById('profDefaultZone') && updated.zone) document.getElementById('profDefaultZone').value = updated.zone;
+        if (document.getElementById('profDefaultAddress')) document.getElementById('profDefaultAddress').value = updated.address;
+
+        window.syncSavedAddressRow();
+        if (typeof window.renderCart === 'function') window.renderCart();
+        window.toggleTrayAddressEditor(false);
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        window.syncSavedAddressRow();
+        const drawer = document.getElementById('cartDrawer');
+        if (drawer) {
+            drawer.addEventListener('show.bs.offcanvas', window.syncSavedAddressRow);
+        }
+    });
+})();
+</script>
+
+<div class="modal fade" id="payWithModal" tabindex="-1" aria-hidden="true" style="z-index: 1090;">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+        <div class="modal-content rounded-4 overflow-hidden" style="background:#161310;border:1px solid rgba(255,255,255,0.14);box-shadow:0 24px 64px rgba(0,0,0,0.85);">
+            <div class="modal-header border-bottom border-secondary border-opacity-25 px-4 py-3">
+                <h6 class="modal-title fw-bold text-white mb-0">Pay with</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3">
+                <div class="d-flex flex-column gap-2">
+                    
+                    <div class="p-3 rounded-3 pay-choice-card" data-method="M-Pesa - Pay Now" onclick="window.selectPayMethod('M-Pesa - Pay Now')"
+                         style="cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="pay-logo-slot" data-logo="M-Pesa - Pay Now"></div>
+                                <div>
+                                    <div class="fw-semibold text-white small">M-Pesa - Pay Now</div>
+                                    <div class="text-secondary" style="font-size:0.75rem;">STK Push to saved number</div>
+                                </div>
+                            </div>
+                            <span class="text-warning fw-bold" id="chk-mpesa">✓</span>
+                        </div>
+                        <div class="mt-2 pt-2 border-top border-secondary border-opacity-25" onclick="event.stopPropagation();">
+                            <input type="text" id="pwMpesaInput" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                   placeholder="M-Pesa phone (e.g. 0712 345 678)">
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 pay-choice-card" data-method="Cash on Delivery" onclick="window.selectPayMethod('Cash on Delivery')"
+                         style="cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="pay-logo-slot" data-logo="Cash on Delivery"></div>
+                                <div>
+                                    <div class="fw-semibold text-white small">Cash on Delivery</div>
+                                    <div class="text-secondary" style="font-size:0.75rem;">Pay rider upon drop-off</div>
+                                </div>
+                            </div>
+                            <span class="text-warning fw-bold d-none" id="chk-cash">✓</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 pay-choice-card" data-method="PayPal" onclick="window.selectPayMethod('PayPal')"
+                         style="cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="pay-logo-slot" data-logo="PayPal"></div>
+                                <div>
+                                    <div class="fw-semibold text-white small">PayPal</div>
+                                    <div class="text-secondary" style="font-size:0.75rem;">Express digital checkout</div>
+                                </div>
+                            </div>
+                            <span class="text-warning fw-bold d-none" id="chk-paypal">✓</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 pay-choice-card" data-method="Visa" onclick="window.selectPayMethod('Visa')"
+                         style="cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="pay-logo-slot" data-logo="Visa"></div>
+                                <div>
+                                    <div class="fw-semibold text-white small" id="pwVisaTitle">Visa •••• 7987</div>
+                                    <div class="text-secondary" style="font-size:0.75rem;">Instant simulated card charge</div>
+                                </div>
+                            </div>
+                            <span class="text-warning fw-bold d-none" id="chk-visa">✓</span>
+                        </div>
+                        <div class="mt-2 pt-2 border-top border-secondary border-opacity-25" onclick="event.stopPropagation();">
+                            <input type="text" id="pwVisaInput" maxlength="4" class="form-control form-control-sm bg-dark text-white border-secondary border-opacity-50"
+                                   placeholder="Last 4 digits (e.g. 7987)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-top border-secondary border-opacity-25 px-3 py-2">
+                <button type="button" class="btn btn-sm fw-semibold w-100 py-2 rounded-pill"
+                        style="background:#f5f2ed;color:#141210;"
+                        onclick="window.confirmPayWithSelection()">
+                    Confirm Payment Method
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="foodie-unified-controller">
+(function() {
+    const TRAY_KEY = 'foodie_nairobi_tray_v1';
+    let selectedPayMethod = 'M-Pesa - Pay Now';
+
+    function getUid() {
+        return (typeof window.activeUserId !== 'undefined' && window.activeUserId !== null) ? window.activeUserId : 'guest';
+    }
+
+    function readProfile() {
+        try { return JSON.parse(localStorage.getItem('foodie_profile_' + getUid()) || '{}'); }
+        catch (e) { return {}; }
+    }
+
+    function writeProfile(data) {
+        try { localStorage.setItem('foodie_profile_' + getUid(), JSON.stringify(data)); }
+        catch (e) {}
+    }
+
+    function loadTray() {
+        try {
+            const arr = JSON.parse(localStorage.getItem(TRAY_KEY) || '[]');
+            return Array.isArray(arr) ? arr : [];
+        } catch (e) { return []; }
+    }
+
+    function saveTray(items) {
+        try { localStorage.setItem(TRAY_KEY, JSON.stringify(items)); }
+        catch (e) {}
+    }
+
+    window.clearTray = function() {
+        window.cart = [];
+        try { localStorage.removeItem(TRAY_KEY); } catch (e) {}
+        if (typeof window.renderCart === 'function') window.renderCart();
+    };
+
+    if (localStorage.getItem('foodie_tray_v2_clean') !== '1') {
+        try { localStorage.removeItem(TRAY_KEY); } catch (e) {}
+        localStorage.setItem('foodie_tray_v2_clean', '1');
+    }
+    window.cart = loadTray();
+
+    function wipeTrayNow() {
+        window.cart = [];
+        if (typeof cart !== 'undefined' && Array.isArray(cart)) { cart.length = 0; }
+        try { localStorage.removeItem(TRAY_KEY); } catch (e) {}
+        if (typeof window.renderCart === 'function') window.renderCart();
+    }
+    window.clearTray = wipeTrayNow;
+
+    const _origFetch2 = window.fetch;
+    if (typeof _origFetch2 === 'function' && !_origFetch2._foodieUniversalOrderHook) {
+        window.fetch = async function(input, init) {
+            const response = await _origFetch2.apply(this, arguments);
+            try {
+                const url = ((typeof input === 'string') ? input : (input && input.url ? input.url : '')).toLowerCase();
+                const method = ((init && init.method) || (input && input.method) || 'GET').toUpperCase();
+                if (method === 'POST' && url.includes('order') && response && response.ok) {
+                    wipeTrayNow();
+                }
+            } catch (e) {}
+            return response;
+        };
+        window.fetch._foodieUniversalOrderHook = true;
+    }
+
+    function getDeliveryFee() {
+        const sel = document.getElementById('deliveryZoneInput');
+        if (!sel || sel.selectedIndex < 0) return 160;
+        const opt = sel.options[sel.selectedIndex];
+        return parseFloat((opt && opt.getAttribute('data-fee')) || '160') || 160;
+    }
+
+    window.applyPaymentToCheckoutCard = function() {
+        const prof = readProfile();
+        const method = prof.paymentMethod || 'M-Pesa - Pay Now';
+        const mpesa = prof.mpesaNumber || prof.phone || '';
+        const last4 = prof.visaLast4 || '7987';
+
+        let displayTitle = method;
+        let displaySub = 'Saved in profile';
+        if (method === 'M-Pesa - Pay Now') {
+            displayTitle = 'M-Pesa - Pay Now';
+            displaySub = mpesa ? ('STK Push \u2022 ' + mpesa) : 'Saved in profile';
+        } else if (method === 'Visa') {
+            displayTitle = 'Visa \u2022\u2022\u2022\u2022 ' + last4;
+            displaySub = 'Saved card in profile';
+        } else if (method === 'Cash on Delivery') {
+            displayTitle = 'Cash on Delivery';
+            displaySub = 'Pay rider on arrival';
+        }
+
+        const drawer = document.getElementById('cartDrawer');
+        if (drawer) {
+            drawer.querySelectorAll('.fw-semibold, .fw-bold').forEach(el => {
+                const t = el.textContent.trim();
+                if (t.startsWith('M-Pesa') || t.startsWith('Visa') || t.startsWith('Cash on Delivery')) {
+                    el.textContent = displayTitle;
+                    if (el.nextElementSibling) el.nextElementSibling.textContent = displaySub;
+                }
+            });
+        }
+        const hiddenInput = document.getElementById('paymentMethodInput') || document.getElementById('selectedPaymentMethod');
+        if (hiddenInput) hiddenInput.value = displayTitle;
+    };
+
+    window.renderCart = function() {
+        const items = Array.isArray(window.cart) ? window.cart : [];
+        const totalCount = items.reduce((s, i) => s + (Number(i.quantity) || 1), 0);
+        const subtotal = items.reduce((s, i) => s + ((Number(i.price) || 0) * (Number(i.quantity) || 1)), 0);
+        const deliveryFee = items.length ? getDeliveryFee() : 0;
+        const grandTotal = subtotal + deliveryFee;
+
+        document.querySelectorAll('#cartCount').forEach(el => { el.textContent = String(totalCount); });
+        if (document.getElementById('cartSubtotal')) document.getElementById('cartSubtotal').textContent = subtotal.toFixed(2);
+        if (document.getElementById('cartDeliveryFee')) document.getElementById('cartDeliveryFee').textContent = deliveryFee.toFixed(2);
+        const zoneSel = document.getElementById('deliveryZoneInput');
+        if (zoneSel && document.getElementById('deliveryZoneLabel') && zoneSel.value) {
+            document.getElementById('deliveryZoneLabel').textContent = zoneSel.value.split('&')[0].trim();
+        }
+        if (document.getElementById('cartTotal')) document.getElementById('cartTotal').textContent = grandTotal.toFixed(2);
+
+        const emptyEl = document.getElementById('cartEmptyState');
+        const popEl = document.getElementById('cartPopulatedState');
+        const itemsEl = document.getElementById('cartItems');
+
+        if (items.length === 0) {
+            if (emptyEl) emptyEl.style.setProperty('display', 'block', 'important');
+            if (popEl) popEl.style.setProperty('display', 'none', 'important');
+            if (itemsEl) itemsEl.innerHTML = '';
+            return;
+        }
+
+        if (emptyEl) emptyEl.style.setProperty('display', 'none', 'important');
+        if (popEl) popEl.style.setProperty('display', 'flex', 'important');
+
+        if (itemsEl) {
+            itemsEl.innerHTML = items.map((item, idx) => {
+                const pid = String(item.productId ?? item.id ?? '');
+                const dish = (typeof dishById !== 'undefined' && dishById) ? dishById[pid] : null;
+                const thumb = (dish && dish.imageUrl) ? dish.imageUrl : 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=160&q=80';
+                const lineTotal = ((Number(item.price) || 0) * (Number(item.quantity) || 1)).toFixed(2);
+                return '<div class="cart-item-card d-flex justify-content-between align-items-center p-2 mb-2 rounded-3" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);">' +
+                    '<div class="d-flex align-items-center gap-2">' +
+                        '<img src="' + thumb + '" alt="' + item.name + '" style="width:44px;height:44px;object-fit:cover;border-radius:8px;">' +
+                        '<div>' +
+                            '<div class="fw-semibold text-white small">' + item.name + '</div>' +
+                            '<div class="text-warning small">KES ' + lineTotal + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="d-flex align-items-center gap-1">' +
+                        '<button type="button" class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="window.updateQty(' + idx + ', -1)">-</button>' +
+                        '<span class="px-2 small fw-bold text-white">' + item.quantity + '</span>' +
+                        '<button type="button" class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="window.updateQty(' + idx + ', 1)">+</button>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }
+        window.applyPaymentToCheckoutCard();
+    };
+
+    window.addItemToCartState = function(id, name, price) {
+        const pid = String(id);
+        const existing = window.cart.find(i => String(i.productId) === pid);
+        if (existing) existing.quantity = (Number(existing.quantity) || 1) + 1;
+        else window.cart.push({ productId: pid, name: name || 'Dish', price: Number(price) || 0, quantity: 1 });
+        saveTray(window.cart);
+        window.renderCart();
+        if (typeof trackClickstream === 'function') { try { trackClickstream(pid, name, 'ADD_TO_CART'); } catch (e) {} }
+        if (typeof showToast === 'function') { try { showToast('Added "' + name + '" to your tray'); } catch (e) {} }
+    };
+
+    window.addToCart = function(btnOrId, name, price) {
+        if (btnOrId && typeof btnOrId === 'object' && typeof btnOrId.getAttribute === 'function') {
+            window.addItemToCartState(btnOrId.getAttribute('data-id'), btnOrId.getAttribute('data-name'), parseFloat(btnOrId.getAttribute('data-price') || '0'));
+        } else {
+            window.addItemToCartState(btnOrId, name, price);
+        }
+    };
+
+    window.updateQty = function(idx, delta) {
+        if (!window.cart[idx]) return;
+        window.cart[idx].quantity = (Number(window.cart[idx].quantity) || 1) + delta;
+        if (window.cart[idx].quantity <= 0) window.cart.splice(idx, 1);
+        saveTray(window.cart);
+        window.renderCart();
+    };
+
+    function highlightPayChoice(method) {
+        selectedPayMethod = method;
+        document.querySelectorAll('.pay-choice-card').forEach(card => {
+            const match = card.getAttribute('data-method') === method;
+            card.style.borderColor = match ? '#f5b942' : 'rgba(255,255,255,0.12)';
+            card.style.background = match ? 'rgba(245,185,66,0.08)' : 'rgba(255,255,255,0.04)';
+        });
+        if (document.getElementById('chk-mpesa')) document.getElementById('chk-mpesa').classList.toggle('d-none', method !== 'M-Pesa - Pay Now');
+        if (document.getElementById('chk-visa')) document.getElementById('chk-visa').classList.toggle('d-none', method !== 'Visa');
+        if (document.getElementById('chk-cash')) document.getElementById('chk-cash').classList.toggle('d-none', method !== 'Cash on Delivery');
+    }
+
+    window.selectPayMethod = highlightPayChoice;
+
+    window.openPayWithModal = function() {
+        const prof = readProfile();
+        const cur = prof.paymentMethod || 'M-Pesa - Pay Now';
+        const last4 = prof.visaLast4 || '7987';
+        if (document.getElementById('pwMpesaInput')) document.getElementById('pwMpesaInput').value = prof.mpesaNumber || prof.phone || '';
+        if (document.getElementById('pwVisaInput')) document.getElementById('pwVisaInput').value = last4;
+        if (document.getElementById('pwVisaTitle')) document.getElementById('pwVisaTitle').textContent = 'Visa \u2022\u2022\u2022\u2022 ' + last4;
+        highlightPayChoice(cur);
+        const mEl = document.getElementById('payWithModal');
+        if (mEl && typeof bootstrap !== 'undefined') bootstrap.Modal.getOrCreateInstance(mEl).show();
+    };
+
+    window.confirmPayWithSelection = function() {
+        const prof = readProfile();
+        const mpesaVal = (document.getElementById('pwMpesaInput')?.value || '').trim();
+        const visaVal = (document.getElementById('pwVisaInput')?.value || '').trim() || '7987';
+        const updated = {
+            ...prof,
+            paymentMethod: selectedPayMethod,
+            mpesaNumber: mpesaVal || prof.mpesaNumber || prof.phone || '',
+            phone: prof.phone || mpesaVal || '',
+            visaLast4: visaVal
+        };
+        writeProfile(updated);
+        if (document.getElementById('profDefaultPayment')) document.getElementById('profDefaultPayment').value = selectedPayMethod;
+        if (document.getElementById('profMpesaNumber') && updated.mpesaNumber) document.getElementById('profMpesaNumber').value = updated.mpesaNumber;
+        if (document.getElementById('profVisaLast4')) document.getElementById('profVisaLast4').value = visaVal;
+        window.applyPaymentToCheckoutCard();
+        const mEl = document.getElementById('payWithModal');
+        if (mEl && typeof bootstrap !== 'undefined') bootstrap.Modal.getOrCreateInstance(mEl).hide();
+    };
+
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('button');
+        if (btn && btn.closest('#cartDrawer') && btn.id !== 'trayAddressEditBtn' && !btn.closest('#savedAddressDisplayRow') && btn.textContent.trim() === 'Edit') {
+            e.preventDefault();
+            window.openPayWithModal();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        window.cart = loadTray();
+        window.renderCart();
+        const drawer = document.getElementById('cartDrawer');
+        if (drawer) {
+            drawer.addEventListener('show.bs.offcanvas', window.renderCart);
+        }
+    });
+})();
+</script>
+
+<div class="modal fade" id="legacyCustomerOrdersHistoryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content text-white" style="background:#141210;border:1px solid rgba(245,185,66,0.32);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,0.75);">
+      <div class="modal-header border-secondary border-opacity-25 px-4 pt-4 pb-3">
+        <div>
+          <h5 class="modal-title fw-bold mb-0" style="color:#f5b942;letter-spacing:0.2px;">Your Orders</h5>
+          <small class="text-white-50">Nairobi Kitchen Order History &amp; Live Tracking</small>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body px-4 py-3" id="legacyCustomerOrdersHistoryBody">
+        <div class="text-white-50 small">Loading your orders...</div>
+      </div>
+      <div class="modal-footer border-secondary border-opacity-25 px-4 py-3">
+        <button type="button" class="btn btn-sm btn-outline-warning rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="foodieLiveProgressDock" style="display:none;position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:1065;width:min(680px,calc(100vw - 24px));background:rgba(20,18,16,0.96);backdrop-filter:blur(12px);border:1px solid rgba(245,185,66,0.38);border-radius:16px;padding:14px 18px;box-shadow:0 18px 44px rgba(0,0,0,0.72);">
+  <div class="d-flex justify-content-between align-items-start gap-3">
+    <div class="flex-grow-1">
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+        <span id="flpDot" style="width:9px;height:9px;border-radius:50%;background:#f5b942;display:inline-block;"></span>
+        <span id="flpStageLabel" class="fw-semibold small" style="color:#f5b942;letter-spacing:0.2px;">Awaiting kitchen confirmation</span>
+        
+      </div>
+      <div id="flpStageDesc" class="text-white-50 small">Your order has been received by our Nairobi kitchen.</div>
+    </div>
+    <div class="d-flex align-items-center gap-2 flex-shrink-0">
+      <button type="button" id="flpConfirmBtn" class="btn btn-sm fw-semibold rounded-pill px-3" style="display:none;background:#f5b942;color:#141210;font-size:0.76rem;">Confirm Received</button>
+      <button type="button" id="flpDetailsBtn" class="btn btn-sm btn-outline-warning rounded-pill px-3" style="font-size:0.76rem;">Details</button>
+      <button type="button" id="flpCloseBtn" title="Hide progress bar" aria-label="Hide progress bar" class="btn btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width:28px;height:28px;background:rgba(255,255,255,0.08);color:#d1d5db;border:1px solid rgba(255,255,255,0.14);line-height:1;">&times;</button>
+    </div>
+  </div>
+  <div class="mt-2 pt-1">
+    <div style="height:4px;background:rgba(255,255,255,0.1);border-radius:99px;overflow:hidden;">
+      <div id="flpBarFill" style="width:22%;height:100%;background:#f5b942;border-radius:99px;transition:width 0.45s ease,background-color 0.35s ease;"></div>
+    </div>
+  </div>
+</div>
+
+<script id="foodie-nav-orders-handler">
+(function() {
+    const HIDE_KEY = 'foodie_hidden_progress_order_id';
+    let cachedDishMap = null;
+    let currentTrackedOrder = null;
+
+    function buildDishLookup() {
+        if (cachedDishMap && Object.keys(cachedDishMap).length > 0) return cachedDishMap;
+        const map = {};
+        if (typeof dishById !== 'undefined' && dishById) {
+            Object.keys(dishById).forEach(k => { map[String(k)] = dishById[k]; });
+        }
+        document.querySelectorAll('[data-id][data-name]').forEach(el => {
+            const id = String(el.getAttribute('data-id') || '').trim();
+            const name = String(el.getAttribute('data-name') || '').trim();
+            if (id && name && !map[id]) {
+                const card = el.closest('.card, .dish-card, [class*="col-"]');
+                const img = card ? card.querySelector('img') : null;
+                map[id] = { id: id, name: name, imageUrl: img ? img.src : '' };
+            }
+        });
+        cachedDishMap = map;
+        return map;
+    }
+
+    function resolveItemInfo(item) {
+        const pid = String(item.productId || item.id || '').trim();
+        const map = buildDishLookup();
+        const found = map[pid];
+        const name = item.productName || item.name || (found && found.name) || 'Artisanal Nairobi Dish';
+        const imageUrl = item.imageUrl || (found && found.imageUrl) || 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=160&q=80';
+        return { name, imageUrl };
+    }
+
+    function formatOrderStatus(rawStatus, custConfirmed, adminConfirmed) {
+        const st = String(rawStatus || 'PENDING').toUpperCase().replace(/\s+/g, '_').trim();
+        const isCustDone = Boolean(custConfirmed);
+        const isAdminDone = Boolean(adminConfirmed);
+
+        if (
+            st.includes('COMPLET') ||
+            st.includes('TABLE_SERVED') ||
+            (isCustDone && isAdminDone) ||
+            (st.includes('DELIVER') && isCustDone)
+        ) {
+            return {
+                label: 'Order delivered',
+                pct: 100,
+                color: '#22c55e',
+                badgeStyle: 'background:rgba(34,197,94,0.14);color:#4ade80;border:1px solid rgba(34,197,94,0.35);',
+                desc: 'Thank you for ordering from Foodie Nairobi! Your meal has been delivered and verified.',
+                active: false,
+                needsConfirm: false
+            };
+        }
+
+        if (
+            (isAdminDone && !isCustDone) ||
+            st.includes('DELIVER') ||
+            st.includes('ARRIV') ||
+            st.includes('DOOR') ||
+            st === 'DINER_CONFIRMED_AWAITING_CONCIERGE'
+        ) {
+            return {
+                label: 'Rider at doorstep',
+                pct: 88,
+                color: '#38bdf8',
+                badgeStyle: 'background:rgba(56,189,248,0.14);color:#7dd3fc;border:1px solid rgba(56,189,248,0.35);',
+                desc: 'Your rider is outside. Confirm once handed over.',
+                active: true,
+                needsConfirm: !isCustDone
+            };
+        }
+
+        if (isCustDone && !isAdminDone) {
+            return {
+                label: 'Receipt confirmed',
+                pct: 94,
+                color: '#22c55e',
+                badgeStyle: 'background:rgba(34,197,94,0.14);color:#4ade80;border:1px solid rgba(34,197,94,0.35);',
+                desc: 'Receipt confirmed! Finalizing handoff with rider.',
+                active: true,
+                needsConfirm: false
+            };
+        }
+
+        if (
+            st.includes('DISPATCH') ||
+            st.includes('ROUTE') ||
+            st.includes('OUT_FOR') ||
+            st.includes('TRANSIT') ||
+            st.includes('RIDER')
+        ) {
+            return {
+                label: 'Out for delivery',
+                pct: 72,
+                color: '#f5b942',
+                badgeStyle: 'background:rgba(245,185,66,0.14);color:#fcd34d;border:1px solid rgba(245,185,66,0.35);',
+                desc: 'Your order is packed warm and heading to your Nairobi drop-off.',
+                active: true,
+                needsConfirm: false
+            };
+        }
+
+        if (st === 'AWAITING_KITCHEN' || st === '' || st === 'PENDING' || st === 'PLACED') {
+            return {
+                label: 'Awaiting kitchen confirmation',
+                pct: 18,
+                color: '#a89f91',
+                badgeStyle: 'background:rgba(255,255,255,0.08);color:#d6cfc4;border:1px solid rgba(255,255,255,0.16);',
+                desc: 'Your order has been sent to the kitchen and is awaiting confirmation.',
+                active: true,
+                needsConfirm: false
+            };
+        }
+
+        return {
+            label: 'Preparing your order',
+            pct: 45,
+            color: '#f3c64f',
+            badgeStyle: 'background:rgba(243,198,79,0.14);color:#f3c64f;border:1px solid rgba(243,198,79,0.35);',
+            desc: 'The kitchen is preparing your meal.',
+            active: true,
+            needsConfirm: false
+        };
+    }
+
+    function formatOrderRef(order) {
+        if (order.orderNumber) return order.orderNumber;
+        const rawId = String(order.id || order._id || '');
+        if (/^\d+$/.test(rawId)) return 'ORD-' + rawId.padStart(4, '0');
+        return 'ORD-' + rawId.slice(-4).toUpperCase();
+    }
+
+    async function submitCustomerReceiptConfirmation(orderId) {
+        const candidates = [
+            { url: '/api/orders/' + encodeURIComponent(orderId) + '/confirm-delivery', method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ customerReceivedConfirmed: true }) },
+            { url: '/api/orders/' + encodeURIComponent(orderId) + '/confirm-delivery', method: 'POST' },
+            { url: '/api/portal/admin/orders/' + encodeURIComponent(orderId) + '/status', method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status: 'COMPLETED', customerReceivedConfirmed: true }) },
+            { url: '/api/portal/admin/orders/' + encodeURIComponent(orderId) + '/status?status=COMPLETED', method: 'POST' },
+            { url: '/api/orders/' + encodeURIComponent(orderId) + '/confirm-received', method: 'POST' },
+            { url: '/api/orders/' + encodeURIComponent(orderId) + '/confirm-received', method: 'PUT' },
+            { url: '/api/orders/' + encodeURIComponent(orderId) + '/customer-confirm', method: 'POST' },
+            { url: '/api/orders/' + encodeURIComponent(orderId) + '/confirm', method: 'POST' }
+        ];
+        for (const c of candidates) {
+            try {
+                const opts = { method: c.method };
+                if (c.headers) opts.headers = c.headers;
+                if (c.body) opts.body = c.body;
+                const res = await fetch(c.url, opts);
+                if (res && res.ok) return true;
+            } catch (e) {}
+        }
+        return false;
+    }
+
+    let thankYouTimer = null;
+    function triggerThankYouNotification() {
+        let toast = document.getElementById('foodieCleanThankYouToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'foodieCleanThankYouToast';
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
+            toast.style.cssText = 'position:fixed;bottom:22px;right:22px;z-index:1085;background:#141416;border:1px solid #27272a;border-radius:10px;padding:12px 15px;box-shadow:0 12px 28px rgba(0,0,0,0.65);display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:290px;max-width:360px;opacity:0;transform:translateY(12px);transition:opacity 0.25s ease,transform 0.25s ease;pointer-events:none;';
+            toast.innerHTML = `
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;">
+                        <circle cx="10" cy="10" r="9" fill="#16a34a" fill-opacity="0.18" stroke="#22c55e" stroke-width="1.5"/>
+                        <path d="M6.5 10.2L8.8 12.5L13.6 7.7" stroke="#22c55e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div>
+                        <div style="font-size:0.86rem;font-weight:600;color:#fafafa;line-height:1.25;">Order delivered</div>
+                        <div style="font-size:0.78rem;color:#a1a1aa;margin-top:2px;line-height:1.35;">Thank you for ordering with Foodie Nairobi. Enjoy your meal.</div>
+                    </div>
+                </div>
+                <button type="button" onclick="const el=document.getElementById('foodieCleanThankYouToast');if(el){el.style.opacity='0';el.style.pointerEvents='none';}" aria-label="Close" style="background:transparent;border:none;color:#71717a;font-size:1.1rem;line-height:1;padding:2px 4px;cursor:pointer;">×</button>
+            `;
+            document.body.appendChild(toast);
+        }
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+        toast.style.pointerEvents = 'auto';
+        if (window._foodieCleanThankYouTimer) clearTimeout(window._foodieCleanThankYouTimer);
+        window._foodieCleanThankYouTimer = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(12px)';
+            toast.style.pointerEvents = 'none';
+        }, 4500);
+    }
+
+    function hideProgressDockSmoothly(oid) {
+        if (oid) sessionStorage.setItem(HIDE_KEY, oid);
+        const dock = document.getElementById('foodieLiveProgressDock');
+        if (!dock || dock.style.display === 'none') return;
+        dock.classList.add('is-vanishing');
+        setTimeout(() => {
+            dock.style.display = 'none';
+            dock.classList.remove('is-vanishing');
+        }, 360);
+    }
+
+    function renderFloatingProgressBar(order) {
+        const dock = document.getElementById('foodieLiveProgressDock');
+        if (!dock) return;
+        if (!order) {
+            dock.style.display = 'none';
+            return;
+        }
+        const oid = String(order.id || order.orderNumber || '');
+        const meta = formatOrderStatus(order.status, order.customerReceivedConfirmed, order.adminArrivedConfirmed);
+        const ref = formatOrderRef(order);
+        currentTrackedOrder = order;
+
+        if (!meta.active || order.customerReceivedConfirmed) {
+            if (dock.style.display !== 'none' || sessionStorage.getItem('foodie_had_active_' + oid)) {
+                triggerThankYouNotification(ref);
+            }
+            hideProgressDockSmoothly(oid);
+            return;
+        }
+
+        sessionStorage.setItem('foodie_had_active_' + oid, '1');
+
+        if (sessionStorage.getItem(HIDE_KEY) === oid) {
+            dock.style.display = 'none';
+            return;
+        }
+
+        const dotEl = document.getElementById('flpDot');
+        const fillEl = document.getElementById('flpBarFill');
+        dotEl.style.background = meta.color;
+        document.getElementById('flpStageLabel').style.color = meta.color;
+        document.getElementById('flpStageLabel').textContent = meta.label;
+        document.getElementById('flpStageDesc').textContent = meta.desc;
+        fillEl.style.width = meta.pct + '%';
+        fillEl.style.background = meta.color;
+
+        fillEl.classList.add('is-blinking');
+        dotEl.classList.add('is-blinking');
+
+        const confirmBtn = document.getElementById('flpConfirmBtn');
+        if (confirmBtn) {
+            confirmBtn.textContent = 'Confirm Order Received';
+            confirmBtn.style.display = meta.needsConfirm ? 'inline-block' : 'none';
+            confirmBtn.onclick = async function() {
+                if (!order.id) return;
+                confirmBtn.disabled = true;
+                confirmBtn.textContent = 'Confirming...';
+                await submitCustomerReceiptConfirmation(order.id);
+                confirmBtn.disabled = false;
+                
+                hideProgressDockSmoothly(oid);
+                triggerThankYouNotification(ref);
+                setTimeout(() => refreshOrdersAndDock(false), 600);
+            };
+        }
+
+        dock.classList.remove('is-vanishing');
+        dock.style.display = 'block';
+    }
+
+    function parseOrderTimestamp(val) {
+        if (!val) return 0;
+        if (Array.isArray(val)) {
+            
+            const [y, m, d, hh = 0, mm = 0, ss = 0] = val;
+            return new Date(y, (m || 1) - 1, d || 1, hh, mm, ss).getTime() || 0;
+        }
+        const parsed = Date.parse(String(val));
+        return Number.isNaN(parsed) ? 0 : parsed;
+    }
+
+    function normalizeOrderRecord(o) {
+        if (!o || typeof o !== 'object') return o;
+        return Object.assign({}, o, {
+            id: o.id || o._id || o.orderId,
+            status: o.status || o.orderStatus || o.state || 'PENDING',
+            customerReceivedConfirmed: Boolean(o.customerReceivedConfirmed || o.customerConfirmed || o.receivedConfirmed),
+            adminArrivedConfirmed: Boolean(o.adminArrivedConfirmed || o.adminConfirmed || o.riderArrivedConfirmed)
+        });
+    }
+
+    function sortNewestFirst(list) {
+        return list.map(normalizeOrderRecord).sort((a, b) => {
+            const ta = parseOrderTimestamp(a.createdAt || a.orderDate || a.timestamp);
+            const tb = parseOrderTimestamp(b.createdAt || b.orderDate || b.timestamp);
+            if (ta && tb && ta !== tb) return tb - ta;
+            const na = parseInt(String(a.orderNumber || '').replace(/\D/g, ''), 10) || 0;
+            const nb = parseInt(String(b.orderNumber || '').replace(/\D/g, ''), 10) || 0;
+            if (na !== nb) return nb - na;
+            return String(b.id || '').localeCompare(String(a.id || ''));
+        });
+    }
+
+    async function fetchUserOrders() {
+        const urlUid = Number(new URLSearchParams(window.location.search).get('userId')) || 0;
+        const winUid = (typeof window.activeUserId !== 'undefined' && Number(window.activeUserId) > 0) ? Number(window.activeUserId) : 0;
+        const scopeUid = (typeof activeUserId !== 'undefined' && Number(activeUserId) > 0) ? Number(activeUserId) : 0;
+        const uid = urlUid || winUid || scopeUid || null;
+
+        if (!uid) return [];
+
+        try {
+            const res = await fetch('/api/orders/user/' + uid + '?_t=' + Date.now(), { cache: 'no-store' });
+            if (res.ok) {
+                const data = await res.json();
+                const arr = Array.isArray(data) ? data : (Array.isArray(data.orders) ? data.orders : []);
+                return arr.filter(o => {
+                    const owner = o.userId ?? o.customerId;
+                    return owner === undefined || owner === null || String(owner) === String(uid);
+                });
+            }
+        } catch (e) {}
+        return [];
+    }
+
+    async function refreshOrdersAndDock(forceShow) {
+        const orders = await fetchUserOrders();
+        if (!orders.length) return;
+        const latest = orders.find(o => formatOrderStatus(o.status, o.customerReceivedConfirmed, o.adminArrivedConfirmed).active) || orders[0];
+        const meta = formatOrderStatus(latest.status, latest.customerReceivedConfirmed, latest.adminArrivedConfirmed);
+        if (forceShow) {
+            sessionStorage.removeItem(HIDE_KEY);
+        }
+        
+        if (meta.active || forceShow) {
+            renderFloatingProgressBar(latest);
+        } else {
+            const dock = document.getElementById('foodieLiveProgressDock');
+            if (dock && dock.style.display !== 'none') {
+                renderFloatingProgressBar(latest);
+            }
+        }
+    }
+
+    window.showOrderProgressBarFor = function(orderId) {
+        sessionStorage.removeItem(HIDE_KEY);
+        refreshOrdersAndDock(true);
+        const modalEl = document.getElementById('customerOrdersHistoryModal');
+        if (modalEl && typeof bootstrap !== 'undefined') bootstrap.Modal.getOrCreateInstance(modalEl).hide();
+    };
+
+    window.openCustomerOrdersHistory = async function() {
+        document.querySelectorAll('.modal.show').forEach(m => {
+            if (m.id !== 'customerOrdersHistoryModal' && typeof bootstrap !== 'undefined') {
+                const inst = bootstrap.Modal.getInstance(m);
+                if (inst) inst.hide();
+            }
+        });
+
+        const modalEl = document.getElementById('customerOrdersHistoryModal');
+        const bodyEl = modalEl ? modalEl.querySelector('#customerOrdersHistoryBody') : document.getElementById('customerOrdersHistoryBody');
+        if (!modalEl || !bodyEl) return;
+
+        bodyEl.innerHTML = '<div class="text-center py-5" style="color:#a89f91;">Loading your Nairobi Kitchen orders...</div>';
+        if (typeof bootstrap !== 'undefined') {
+            setTimeout(() => bootstrap.Modal.getOrCreateInstance(modalEl).show(), 80);
+        }
+
+        try {
+            const userId = getActiveUserId();
+            const fetchWithTimeout = async (url, ms = 5000) => {
+                const ctrl = new AbortController();
+                const timer = setTimeout(() => ctrl.abort(), ms);
+                try {
+                    return await fetch(url, { headers: { 'Accept': 'application/json' }, signal: ctrl.signal });
+                } finally {
+                    clearTimeout(timer);
+                }
+            };
+
+            const [catalog, orders] = await Promise.all([
+                getProductCatalog().catch(() => ({ mapById: {}, mapByPrice: {} })),
+                (async () => {
+                    for (const url of [
+                        `/api/orders/user/${encodeURIComponent(userId)}`,
+                        `/api/orders?userId=${encodeURIComponent(userId)}`,
+                        `/orders/user/${encodeURIComponent(userId)}`
+                    ]) {
+                        try {
+                            const res = await fetchWithTimeout(url, 5000);
+                            if (res && res.ok) {
+                                const data = await res.json();
+                                return Array.isArray(data) ? data : (data.orders || data.content || []);
+                            }
+                        } catch (_) {}
+                    }
+                    return [];
+                })()
+            ]);
+
+            if (!orders || orders.length === 0) {
+                bodyEl.innerHTML = '<div class="text-center py-5" style="color:#a89f91;">No orders found yet for this account.</div>';
+                return;
+            }
+
+            bodyEl.innerHTML = orders.map(o => renderOrderCard(o, catalog)).join('');
+        } catch (err) {
+            console.error('Order history load error:', err);
+            bodyEl.innerHTML = '<div class="text-center py-4" style="color:#e3b341;">Unable to load orders right now. Please refresh and try again.</div>';
+        }
+    };
+
+    function findNavbarOrdersButton() {
+        const nav = document.querySelector('nav, header');
+        if (!nav) return null;
+        const candidates = Array.from(nav.querySelectorAll('button, a'));
+        let btn = candidates.find(el => {
+            const meta = (
+                (el.id || '') + ' ' +
+                (el.getAttribute('title') || '') + ' ' +
+                (el.getAttribute('aria-label') || '') + ' ' +
+                (el.getAttribute('data-bs-target') || '') + ' ' +
+                (el.getAttribute('onclick') || '')
+            ).toLowerCase();
+            return meta.includes('order') && !meta.includes('cart') && !meta.includes('tray');
+        });
+        if (btn) return btn;
+        const trayEl = nav.querySelector('#cartCount');
+        const trayBtn = trayEl ? trayEl.closest('button, a') : null;
+        if (trayBtn && trayBtn.previousElementSibling && trayBtn.previousElementSibling.querySelector('svg')) {
+            return trayBtn.previousElementSibling;
+        }
+        return null;
+    }
+
+    function wireControls() {
+        const btn = findNavbarOrdersButton();
+        if (btn) {
+            btn.style.cursor = 'pointer';
+            const svg = btn.querySelector('svg');
+            if (svg) svg.style.pointerEvents = 'none';
+            if (!btn.dataset.foodieOrdersWired) {
+                btn.dataset.foodieOrdersWired = '1';
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.openCustomerOrdersHistory();
+                });
+            }
+        }
+
+        const closeBtn = document.getElementById('flpCloseBtn');
+        if (closeBtn && !closeBtn.dataset.wired) {
+            closeBtn.dataset.wired = '1';
+            closeBtn.addEventListener('click', function() {
+                if (currentTrackedOrder) {
+                    const oid = String(currentTrackedOrder.id || currentTrackedOrder.orderNumber || '');
+                    sessionStorage.setItem(HIDE_KEY, oid);
+                }
+                const dock = document.getElementById('foodieLiveProgressDock');
+                if (dock) dock.style.display = 'none';
+            });
+        }
+
+        const detailsBtn = document.getElementById('flpDetailsBtn');
+        if (detailsBtn && !detailsBtn.dataset.wired) {
+            detailsBtn.dataset.wired = '1';
+            detailsBtn.addEventListener('click', function() {
+                window.openCustomerOrdersHistory();
+            });
+        }
+
+        const origFetch = window.fetch;
+        if (typeof origFetch === 'function' && !origFetch._foodieDockHooked) {
+            window.fetch = async function(input, init) {
+                const res = await origFetch.apply(this, arguments);
+                try {
+                    const url = ((typeof input === 'string') ? input : (input && input.url ? input.url : '')).toLowerCase();
+                    const method = ((init && init.method) || (input && input.method) || 'GET').toUpperCase();
+                    if (method === 'POST' && url.includes('order') && res && res.ok) {
+                        sessionStorage.removeItem(HIDE_KEY);
+                        setTimeout(() => refreshOrdersAndDock(true), 350);
+                    }
+                } catch (e) {}
+                return res;
+            };
+            window.fetch._foodieDockHooked = true;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        wireControls();
+        refreshOrdersAndDock(false);
+        setInterval(() => refreshOrdersAndDock(false), 2000);
+    });
+    if (document.readyState !== 'loading') {
+        wireControls();
+        refreshOrdersAndDock(false);
+    }
+})();
+</script>
+
+<script id="foodie-orphan-backdrop-cleanup">
+(function() {
+    function isUserAuthenticated() {
+        
+        const navSignOut = Array.from(document.querySelectorAll('header a, header button, nav a, nav button'))
+            .some(el => /sign\s*out/i.test((el.textContent || el.getAttribute('aria-label') || '').trim()) || (el.getAttribute('aria-label') === 'Profile & Preferences') && el.offsetParent !== null);
+        if (navSignOut) return true;
+
+        const profModal = Array.from(document.querySelectorAll('.modal')).find(m =>
+            /Profile & Preferences/i.test(m.textContent || '')
+        );
+        if (profModal) {
+            const emailInput = profModal.querySelector('input[type="email"], input[value*="@"]');
+            if (emailInput && emailInput.value && emailInput.value.includes('@')) return true;
+        }
+        return false;
+    }
+
+    function getModals() {
+        const all = Array.from(document.querySelectorAll('.modal'));
+        return {
+            authModal: all.find(m => /Foodie Club Access/i.test(m.textContent || '')),
+            profileModal: all.find(m => /Profile & Preferences/i.test(m.textContent || ''))
+        };
+    }
+
+    function pruneBackdrops() {
+        const openModals = document.querySelectorAll('.modal.show');
+        const backdrops = Array.from(document.querySelectorAll('.modal-backdrop'));
+        if (openModals.length === 0) {
+            backdrops.forEach(b => b.remove());
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        } else if (backdrops.length > 1) {
+            backdrops.slice(0, -1).forEach(b => b.remove());
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('header button, header a, nav button, nav a');
+        if (!trigger) return;
+
+        const { authModal, profileModal } = getModals();
+        if (!authModal || !profileModal) return;
+
+        const targetSel = trigger.getAttribute('data-bs-target') || trigger.getAttribute('href') || '';
+        const isProfileTrigger = (profileModal.id && targetSel === '#' + profileModal.id) ||
+                                 (trigger.closest('header, nav') && trigger.querySelector('svg') && !/sign\s*out|curated|kitchen|menu/i.test(trigger.textContent || '') && trigger.textContent.trim() === '');
+
+        if (isProfileTrigger && !isUserAuthenticated()) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            profileModal.classList.remove('show');
+            profileModal.style.display = 'none';
+            profileModal.setAttribute('aria-hidden', 'true');
+
+            if (typeof bootstrap !== 'undefined') {
+                bootstrap.Modal.getOrCreateInstance(authModal).show();
+            }
+            setTimeout(pruneBackdrops, 40);
+        }
+    }, true);
+
+    document.addEventListener('show.bs.modal', function(e) {
+        const { authModal, profileModal } = getModals();
+        if (profileModal && e.target === profileModal && !isUserAuthenticated()) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            if (authModal && typeof bootstrap !== 'undefined') {
+                bootstrap.Modal.getOrCreateInstance(authModal).show();
+            }
+        }
+    }, true);
+
+    document.addEventListener('shown.bs.modal', pruneBackdrops);
+    document.addEventListener('hidden.bs.modal', () => setTimeout(pruneBackdrops, 60));
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('[data-bs-dismiss="modal"], .btn-close')) {
+            setTimeout(pruneBackdrops, 320);
+        }
+    }, true);
+})();
+</script>
+
+<style id="foodie-orders-modal-polish">
+#customerOrdersHistoryModal .modal-content {
+    background: #141210;
+    color: #f3ede4;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.75);
+}
+#customerOrdersHistoryBody {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+#customerOrdersHistoryBody::-webkit-scrollbar {
+    width: 5px;
+}
+#customerOrdersHistoryBody::-webkit-scrollbar-track {
+    background: transparent;
+}
+#customerOrdersHistoryBody::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 4px;
+}
+.foodie-order-card {
+    background: #1a1714;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s ease;
+}
+.foodie-order-card:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+}
+.foodie-num {
+    font-variant-numeric: tabular-nums;
+}
+.foodie-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}
+.foodie-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.foodie-reorder-btn {
+    background: transparent;
+    color: #e6dfd5;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 6px;
+    padding: 4px 11px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+.foodie-reorder-btn:hover {
+    background: rgba(243, 198, 79, 0.12);
+    border-color: #f3c64f;
+    color: #f3c64f;
+}
+</style>
+
+<div class="modal fade" id="customerOrdersHistoryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom:1px solid rgba(255,255,255,0.08);padding:18px 22px;">
+        <div>
+          <h5 class="modal-title mb-0" style="color:#f5efe6;font-size:1.15rem;font-weight:600;letter-spacing:-0.01em;">Order History</h5>
+          <div style="font-size:0.8rem;color:#8e867b;margin-top:2px;">Past receipts and active kitchen deliveries</div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="font-size:0.8rem;opacity:0.65;"></button>
+      </div>
+      <div class="modal-body" id="customerOrdersHistoryBody" style="padding:16px 22px;">
+        <div class="text-center py-5" style="color:#8e867b;font-size:0.88rem;">Loading orders...</div>
+      </div>
+      <div class="modal-footer" style="border-top:1px solid rgba(255,255,255,0.08);padding:12px 22px;justify-content:flex-end;">
+        <button type="button" class="btn btn-sm" data-bs-dismiss="modal" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#e6dfd5;border-radius:6px;padding:6px 16px;font-size:0.82rem;font-weight:500;">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="foodie-customer-orders-history-js">
+(function() {
+    let catalogCache = null;
+
+    function getActiveUserId() {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('userId')) return params.get('userId');
+            if (window.currentUser && window.currentUser.id) return String(window.currentUser.id);
+            const stored = localStorage.getItem('foodie_user_id') || localStorage.getItem('userId');
+            if (stored) return String(stored);
+        } catch (_) {}
+        return '6';
+    }
+
+    async function getProductCatalog() {
+        if (catalogCache) return catalogCache;
+        const mapById = {};
+        const mapByPrice = {};
+
+        try {
+            document.querySelectorAll('[data-product-id], .dish-card, .menu-card, .card').forEach(card => {
+                const titleEl = card.querySelector('h3, h4, h5, .card-title, .dish-title');
+                const imgEl = card.querySelector('img');
+                const priceMatch = (card.textContent || '').match(/KES\s*([\d,]+)/i);
+                const name = titleEl ? titleEl.textContent.trim() : '';
+                const img = imgEl ? (imgEl.getAttribute('src') || '') : '';
+                const pid = card.getAttribute('data-product-id') || card.getAttribute('data-id') || '';
+                if (name && name.length < 70) {
+                    if (pid) mapById[String(pid)] = { name, img };
+                    if (priceMatch) {
+                        const p = Number(priceMatch[1].replace(/,/g, ''));
+                        if (p > 0 && !mapByPrice[p]) mapByPrice[p] = { name, img };
+                    }
+                }
+            });
+        } catch (_) {}
+
+        for (const ep of ['/api/products', '/api/menu', '/api/dishes']) {
+            try {
+                const res = await fetch(ep, { headers: { 'Accept': 'application/json' } });
+                if (res.ok) {
+                    const list = await res.json();
+                    const arr = Array.isArray(list) ? list : (list.content || list.products || []);
+                    arr.forEach(p => {
+                        const id = String(p.id || p._id || '');
+                        const name = p.name || p.title || p.dishName || '';
+                        const img = p.imageUrl || p.image || p.photoUrl || '';
+                        const price = Number(p.price || 0);
+                        if (id && name) mapById[id] = { name, img };
+                        if (price > 0 && name) mapByPrice[price] = { name, img };
+                    });
+                    break;
+                }
+            } catch (_) {}
+        }
+
+        catalogCache = { mapById, mapByPrice };
+        return catalogCache;
+    }
+
+    function formatHumanDate(raw) {
+        if (!raw) return 'Recently placed';
+        const d = new Date(raw);
+        if (isNaN(d.getTime())) return String(raw).replace('T', ' • ');
+        return d.toLocaleDateString('en-KE', { weekday: 'short', month: 'short', day: 'numeric' }) +
+               ' • ' +
+               d.toLocaleTimeString('en-KE', { hour: 'numeric', minute: '2-digit', hour12: true });
+    }
+
+    function resolveRawStatus(order) {
+        if (!order || typeof order !== 'object') return 'AWAITING_KITCHEN';
+        const raw = String(order.status || order.orderStatus || '').toUpperCase().trim();
+        if (raw === 'TABLE_SERVED' || (order.adminArrivedConfirmed === true && order.customerReceivedConfirmed === true)) {
+            return 'TABLE_SERVED';
+        }
+        return raw || 'AWAITING_KITCHEN';
+    }
+
+    function getStatusMeta(orderOrRaw) {
+        const raw = (orderOrRaw && typeof orderOrRaw === 'object') ? resolveRawStatus(orderOrRaw) : String(orderOrRaw || '').toUpperCase();
+        if (raw === 'TABLE_SERVED' || raw.includes('SERVED') || raw.includes('COMPLET') || raw.includes('DELIVER')) {
+            return { code: 'TABLE_SERVED', label: 'Delivered', active: false, bg: 'rgba(63, 185, 80, 0.12)', color: '#56d364', dot: '#3fb950' };
+        }
+        if (raw === 'AT_YOUR_DOORSTEP' || raw === 'DINER_CONFIRMED_AWAITING_CONCIERGE' || raw.includes('DOOR') || raw.includes('ARRIV')) {
+            return { code: raw, label: 'Rider at Doorstep', active: true, bg: 'rgba(243, 198, 79, 0.14)', color: '#f3c64f', dot: '#f3c64f' };
+        }
+        if (raw === 'RIDER_EN_ROUTE' || raw.includes('ROUTE') || raw.includes('TRANSIT') || raw.includes('DISPATCH')) {
+            return { code: raw, label: 'Out for Delivery', active: true, bg: 'rgba(88, 166, 255, 0.14)', color: '#79c0ff', dot: '#58a6ff' };
+        }
+        if (raw === 'ACCEPTED_BY_CHEF' || raw.includes('CHEF') || raw.includes('PREP') || raw.includes('KITCHEN') || raw.includes('COOK')) {
+            return { code: raw, label: 'Preparing', active: true, bg: 'rgba(210, 153, 34, 0.14)', color: '#e3b341', dot: '#d29922' };
+        }
+        return { code: raw || 'AWAITING_KITCHEN', label: 'Order Placed', active: true, bg: 'rgba(255, 255, 255, 0.08)', color: '#d0c8bc', dot: '#a89f91' };
+    }
+
+    function resolveItemDetails(it, catalog) {
+        const pid = String(it.productId || (it.product && (it.product.id || it.product._id)) || it.id || '');
+        const unitPrice = Number(it.price || it.unitPrice || (it.product && it.product.price) || 0);
+        const catMatch = (pid && catalog.mapById[pid]) || (unitPrice > 0 && catalog.mapByPrice[unitPrice]) || null;
+
+        const name = it.productName || it.dishName || it.name || it.title ||
+                     (it.product && (it.product.name || it.product.title)) ||
+                     (catMatch && catMatch.name) || 'Kitchen Dish';
+
+        const img = it.imageUrl || it.productImage || it.image ||
+                    (it.product && (it.product.imageUrl || it.product.image)) ||
+                    (catMatch && catMatch.img) || '';
+
+        const qty = Number(it.quantity || it.qty || 1);
+        return { pid, name, img, qty, unitPrice };
+    }
+
+    window.confirmOrderReceiptFromHistory = async function(orderId, btnEl) {
+        if (!orderId) return;
+        if (btnEl) {
+            btnEl.disabled = true;
+            btnEl.textContent = 'Confirming...';
+        }
+        try {
+            const res = await fetch(`/api/orders/${encodeURIComponent(orderId)}/confirm-delivery`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            if (res.ok) {
+                await loadAndRenderOrders();
+            }
+        } catch (_) {
+            if (btnEl) {
+                btnEl.disabled = false;
+                btnEl.textContent = 'Confirm Received';
+            }
+        }
+    };
+
+    window.reorderFromHistory = function(productId, dishName, btnEl) {
+        
+        const card = productId ? document.querySelector(`[data-product-id="${productId}"], [data-id="${productId}"]`) : null;
+        const addBtn = card ? card.querySelector('button') : null;
+        if (addBtn) {
+            addBtn.click();
+        } else if (typeof window.addToCart === 'function' && productId) {
+            window.addToCart(productId);
+        }
+        if (btnEl) {
+            const orig = btnEl.textContent;
+            btnEl.textContent = 'Added to Tray';
+            btnEl.style.borderColor = '#56d364';
+            btnEl.style.color = '#56d364';
+            setTimeout(() => {
+                btnEl.textContent = orig;
+                btnEl.style.borderColor = '';
+                btnEl.style.color = '';
+            }, 1400);
+        }
+    };
+
+    function renderOrderCard(order, catalog) {
+        const orderId = order.id || order.orderId || order._id || '';
+        const shortId = String(orderId || 'ORD').slice(-6).toUpperCase();
+        const st = getStatusMeta(order);
+        const total = Number(order.totalAmount || order.total || 0);
+        const items = Array.isArray(order.items) ? order.items : [];
+
+        let itemsSubtotal = 0;
+        let firstItem = null;
+        const itemsHtml = items.length
+            ? items.map(it => {
+                const resolved = resolveItemDetails(it, catalog);
+                if (!firstItem) firstItem = resolved;
+                const { name, img, qty, unitPrice } = resolved;
+                itemsSubtotal += unitPrice * qty;
+                const thumb = img
+                    ? `<img src="${img}" alt="${name}" style="width:44px;height:44px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0;">`
+                    : `<div style="width:44px;height:44px;border-radius:8px;background:#221e1a;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#a89f91;font-weight:600;font-size:0.85rem;flex-shrink:0;">${qty}×</div>`;
+
+                return `<div class="d-flex align-items-center justify-content-between py-2">
+                    <div class="d-flex align-items-center gap-3">
+                        ${thumb}
+                        <div>
+                            <div style="font-weight:500;color:#f3ede4;font-size:0.92rem;">${name}</div>
+                            <div class="foodie-num" style="color:#8e867b;font-size:0.78rem;">Qty ${qty} · KES ${unitPrice.toLocaleString()}</div>
+                        </div>
+                    </div>
+                    <div class="foodie-num" style="color:#e6dfd5;font-weight:500;font-size:0.9rem;white-space:nowrap;">KES ${(unitPrice * qty).toLocaleString()}</div>
+                </div>`;
+            }).join('')
+            : `<div style="color:#8e867b;font-size:0.88rem;padding:6px 0;">${order.itemsSummary || 'Kitchen order'}</div>`;
+
+        const deliveryFee = (total > itemsSubtotal && itemsSubtotal > 0) ? (total - itemsSubtotal) : 0;
+        const zoneLabel = order.deliveryZone ? ` · ${order.deliveryZone}` : '';
+        const payLabel = order.paymentMethod || order.paymentMode || 'Cash on Delivery';
+
+        const needsCustomerConfirm = st.active && !order.customerReceivedConfirmed &&
+            (st.code === 'AT_YOUR_DOORSTEP' || st.code === 'RIDER_EN_ROUTE' || st.code === 'ACCEPTED_BY_CHEF');
+
+        const actionBtn = needsCustomerConfirm
+            ? `<button type="button" onclick="window.confirmOrderReceiptFromHistory('${orderId}', this)" style="background:#f3c64f;color:#141210;border:none;border-radius:6px;padding:5px 12px;font-size:0.76rem;font-weight:600;cursor:pointer;">Confirm Received</button>`
+            : (firstItem ? `<button type="button" class="foodie-reorder-btn" onclick="window.reorderFromHistory('${firstItem.pid}', '${firstItem.name.replace(/'/g, "\\'")}', this)">Reorder</button>` : '');
+
+        return `<div class="foodie-order-card">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                <div class="d-flex align-items-center gap-2">
+                    <span style="font-size:0.86rem;font-weight:500;color:#d6cfc4;">${formatHumanDate(order.createdAt || order.orderDate)}</span>
+                </div>
+                <span class="foodie-status-pill" style="background:${st.bg};color:${st.color};">
+                    <span class="foodie-status-dot" style="background:${st.dot};"></span>
+                    ${st.label}
+                </span>
+            </div>
+
+            <div class="py-1">${itemsHtml}</div>
+
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 pt-2 mt-1" style="border-top:1px solid rgba(255,255,255,0.06);">
+                <div style="font-size:0.78rem;color:#8e867b;">
+                    ${payLabel}${zoneLabel}${deliveryFee > 0 ? ` · Delivery KES ${deliveryFee.toLocaleString()}` : ''}
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    ${actionBtn}
+                    <div class="foodie-num" style="text-align:right;font-size:0.92rem;">
+                        <span style="color:#8e867b;margin-right:4px;">Total</span>
+                        <strong style="color:#f5efe6;font-weight:600;">KES ${total.toLocaleString()}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    async function loadAndRenderOrders() {
+        const modalEl = document.getElementById('customerOrdersHistoryModal');
+        const bodyEl = modalEl ? modalEl.querySelector('#customerOrdersHistoryBody') : document.getElementById('customerOrdersHistoryBody');
+        if (!bodyEl) return;
+
+        bodyEl.innerHTML = '<div class="text-center py-5" style="color:#a89f91;">Loading your Nairobi Kitchen orders...</div>';
+
+        try {
+            const userId = getActiveUserId();
+            const [catalog, res] = await Promise.all([
+                getProductCatalog().catch(() => ({ mapById: {}, mapByPrice: {} })),
+                fetch(`/api/orders/user/${encodeURIComponent(userId)}`, { headers: { 'Accept': 'application/json' } })
+            ]);
+
+            if (!res.ok) {
+                bodyEl.innerHTML = `<div class="text-center py-4" style="color:#e3b341;">Could not fetch orders (HTTP ${res.status}).</div>`;
+                return;
+            }
+
+            const data = await res.json();
+            const orders = Array.isArray(data) ? data : (data.orders || data.content || []);
+
+            if (!orders.length) {
+                bodyEl.innerHTML = '<div class="text-center py-5" style="color:#a89f91;">No orders found yet for this account.</div>';
+                return;
+            }
+
+            bodyEl.innerHTML = orders.map(o => renderOrderCard(o, catalog)).join('');
+        } catch (err) {
+            bodyEl.innerHTML = `<div class="text-center py-4" style="color:#e3b341;">Unable to load orders: ${err && err.message ? err.message : 'Network error'}</div>`;
+        }
+    }
+
+    window.openCustomerOrdersHistory = function() {
+        document.querySelectorAll('.modal.show').forEach(m => {
+            if (m.id !== 'customerOrdersHistoryModal' && typeof bootstrap !== 'undefined') {
+                const inst = bootstrap.Modal.getInstance(m);
+                if (inst) inst.hide();
+            }
+        });
+
+        const modalEl = document.getElementById('customerOrdersHistoryModal');
+        if (!modalEl) return;
+
+        if (typeof bootstrap !== 'undefined') {
+            bootstrap.Modal.getOrCreateInstance(modalEl).show();
+        }
+        loadAndRenderOrders();
+    };
+
+    document.addEventListener('shown.bs.modal', function(e) {
+        if (e.target && e.target.id === 'customerOrdersHistoryModal') {
+            loadAndRenderOrders();
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        const target = e.target.closest('button, a, [role="tab"], li');
+        if (!target) return;
+        const txt = (target.textContent || '').replace(/\s+/g, ' ').trim();
+        const isProfileOrderHistory = /^Order History(?:\s*\(\d+\))?$/i.test(txt);
+        const isNavOrdersIcon = target.closest('header, nav') && (
+            (target.getAttribute('title') || '').toLowerCase().includes('order') ||
+            (target.getAttribute('aria-label') || '').toLowerCase().includes('order') ||
+            (target.getAttribute('onclick') || '').includes('Order')
+        );
+
+        if (isProfileOrderHistory || isNavOrdersIcon) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.openCustomerOrdersHistory();
+        }
+    }, true);
+})();
+</script>
+
+<style id="foodie-payment-logos-css">
+.foodie-pay-row-with-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.foodie-pay-logo-badge {
+    width: 44px;
+    height: 30px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+</style>
+<script id="foodie-payment-logos-js">
+(function() {
+    const LOGOS = {
+        mpesa: `<span class="foodie-pay-logo-badge" style="background:#0f2417;border-color:rgba(67,176,42,0.4);" aria-hidden="true">
+            <svg width="38" height="22" viewBox="0 0 64 36" fill="none">
+                <rect x="2" y="5" width="60" height="26" rx="4" fill="#43B02A"/>
+                <path d="M44 5H58C60.2 5 62 6.8 62 9V27C62 29.2 60.2 31 58 31H40L44 5Z" fill="#E31E24"/>
+                <text x="22" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="800" font-size="11.5" letter-spacing="-0.4">M-PESA</text>
+            </svg>
+        </span>`,
+        cod: `<span class="foodie-pay-logo-badge" style="background:#262118;border-color:rgba(243,198,79,0.35);" aria-hidden="true">
+            <svg width="30" height="20" viewBox="0 0 36 24" fill="none">
+                <rect x="2" y="3" width="32" height="18" rx="3" stroke="#F3C64F" stroke-width="2" fill="rgba(243,198,79,0.12)"/>
+                <circle cx="18" cy="12" r="4" stroke="#F3C64F" stroke-width="1.8"/>
+                <line x1="6" y1="7" x2="6" y2="17" stroke="#F3C64F" stroke-width="1.6" stroke-linecap="round"/>
+                <line x1="30" y1="7" x2="30" y2="17" stroke="#F3C64F" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+        </span>`,
+        paypal: `<span class="foodie-pay-logo-badge" style="background:#101c33;border-color:rgba(0,112,224,0.42);" aria-hidden="true">
+            <svg width="26" height="22" viewBox="0 0 28 28" fill="none">
+                <path d="M19.8 6.4C19.1 5.6 17.7 5.2 15.8 5.2H9.9C9.5 5.2 9.1 5.5 9 5.9L6.5 21.8C6.4 22.1 6.7 22.4 7 22.4H10.7L11.6 16.6V16.8C11.7 16.4 12 16.1 12.5 16.1H14.3C17.8 16.1 20.5 14.7 21.3 10.6C21.3 10.4 21.4 10.2 21.4 10C21.6 8.5 21.1 7.4 19.8 6.4Z" fill="#0070E0"/>
+                <path d="M21.4 10C20.6 13.9 18 15.3 14.5 15.3H12.7C12.3 15.3 11.9 15.6 11.8 16L10.6 23.6C10.5 23.9 10.8 24.2 11.1 24.2H14.2C14.6 24.2 14.9 23.9 15 23.5L15.7 19C15.8 18.6 16.1 18.3 16.5 18.3H17C20 18.3 22.4 17.1 23.1 13.5C23.4 12 23.2 10.8 21.4 10Z" fill="#38A1FF"/>
+            </svg>
+        </span>`,
+        visa: `<span class="foodie-pay-logo-badge" style="background:#131b36;border-color:rgba(92,132,255,0.4);" aria-hidden="true">
+            <svg width="38" height="20" viewBox="0 0 60 24" fill="none">
+                <rect x="1" y="2" width="58" height="20" rx="3.5" fill="#1A1F71"/>
+                <path d="M1 19H59V20.5C59 21.3 58.3 22 57.5 22H2.5C1.7 22 1 21.3 1 20.5V19Z" fill="#F7B600"/>
+                <text x="30" y="15.5" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-style="italic" font-weight="900" font-size="12.5" letter-spacing="0.6">VISA</text>
+            </svg>
+        </span>`
+    };
+
+    function detectKey(txt) {
+        const t = txt.toLowerCase();
+        if (t.includes('m-pesa') || t.includes('mpesa')) return 'mpesa';
+        if (t.includes('cash on delivery')) return 'cod';
+        if (t.includes('paypal')) return 'paypal';
+        if (t.includes('visa') || t.includes('card')) return 'visa';
+        return null;
+    }
+
+    function injectPaymentLogos() {
+        document.querySelectorAll('.modal, [role="dialog"]').forEach(modal => {
+            if (!/Pay with/i.test(modal.textContent || '')) return;
+
+            modal.querySelectorAll('div, label, button').forEach(card => {
+                if (card.dataset.foodieLogoInjected === '1') return;
+                const directText = Array.from(card.childNodes)
+                    .filter(n => n.nodeType === 3)
+                    .map(n => n.textContent.trim())
+                    .join(' ');
+                const ownTxt = directText || (card.children.length === 0 ? (card.textContent || '').trim() : '');
+                const key = detectKey(ownTxt);
+                if (!key) return;
+
+                if (ownTxt.length > 35) return;
+
+                const titleBlock = card.parentElement;
+                if (!titleBlock || titleBlock.dataset.foodieLogoWrapped === '1') return;
+
+                if (!/(STK Push|Pay rider|Express digital|Instant simulated)/i.test(titleBlock.textContent || '')) return;
+
+                titleBlock.dataset.foodieLogoWrapped = '1';
+                card.dataset.foodieLogoInjected = '1';
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'foodie-pay-row-with-logo';
+                titleBlock.parentNode.insertBefore(wrapper, titleBlock);
+                wrapper.insertAdjacentHTML('beforeend', LOGOS[key]);
+                wrapper.appendChild(titleBlock);
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', injectPaymentLogos);
+    } else {
+        injectPaymentLogos();
+    }
+    document.addEventListener('shown.bs.modal', injectPaymentLogos);
+    document.addEventListener('click', () => setTimeout(injectPaymentLogos, 40), true);
+})();
+</script>
+
+<script>
+if (typeof window.logoutUser !== 'function') {
+    window.logoutUser = async function() {
+        try { await fetch('/api/portal/logout', { method: 'POST', credentials: 'same-origin' }); } catch (e) {}
+        try { sessionStorage.clear(); } catch (e) {}
+        window.location.href = '/store';
+    };
+}
+</script>
+<script>
+window.performFoodieSignOut = async function(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    try {
+        await fetch('/api/portal/logout', { method: 'POST', credentials: 'same-origin' });
+    } catch (err) {}
+    try {
+        ['foodieUser', 'currentUser', 'user', 'authUser', 'foodie_user'].forEach(k => {
+            localStorage.removeItem(k);
+            sessionStorage.removeItem(k);
+        });
+    } catch (err) {}
+    document.cookie.split(';').forEach(c => {
+        const name = c.split('=')[0].trim();
+        if (name && name !== 'JSESSIONID') {
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+        }
+    });
+    const pm = document.getElementById('profileModal');
+    if (pm) {
+        pm.querySelectorAll('input').forEach(inp => inp.value = '');
+        if (typeof bootstrap !== 'undefined') {
+            bootstrap.Modal.getOrCreateInstance(pm).hide();
+        }
+    }
+    setTimeout(() => {
+        const am = document.getElementById('authModal');
+        if (am && typeof bootstrap !== 'undefined') {
+            bootstrap.Modal.getOrCreateInstance(am).show();
+        } else {
+            window.location.href = '/store';
+        }
+    }, 220);
+};
+document.addEventListener('click', function(e) {
+    const btn = e.target && e.target.closest ? e.target.closest('#profileSignOutBtn') : null;
+    if (btn) window.performFoodieSignOut(e);
+}, true);
+</script>
+<style id="foodie-profile-editorial-polish">
+#profileModal .modal-content {
+    background: linear-gradient(165deg, #171411 0%, #100e0c 100%) !important;
+    border: 1px solid rgba(245, 166, 35, 0.18) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.78) !important;
+}
+#profileModal .form-control,
+#profileModal .form-select {
+    background-color: #1c1916 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: #f8f5f0 !important;
+    padding: 0.7rem 0.95rem !important;
+    font-size: 0.94rem !important;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+}
+#profileModal .form-control:focus,
+#profileModal .form-select:focus {
+    border-color: rgba(245, 166, 35, 0.65) !important;
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.14) !important;
+    background-color: #211d19 !important;
+}
+#profileModal .form-label,
+#profileModal label {
+    color: #b8afa4 !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    margin-bottom: 0.42rem !important;
+}
+#profileModal button[type="submit"],
+#profileModal .btn-outline-light,
+#profileModal .btn-dark {
+    background: linear-gradient(135deg, #f6b138 0%, #e59417 100%) !important;
+    color: #14110e !important;
+    border: none !important;
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    padding: 0.62rem 1.5rem !important;
+    box-shadow: 0 8px 20px rgba(245, 166, 35, 0.22) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+#profileModal button[type="submit"]:hover,
+#profileModal .btn-outline-light:hover,
+#profileModal .btn-dark:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(245, 166, 35, 0.34) !important;
+}
+.foodie-profile-signout-pill {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #8e867c;
+    cursor: pointer;
+    transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+.foodie-profile-signout-pill:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #f3efe9;
+}
+#profileModal .form-control::placeholder {
+    color: #6b645c !important;
+    opacity: 1 !important;
+}
+</style>
+<script>
+document.addEventListener('shown.bs.modal', function(e) {
+    if (!e.target || e.target.id !== 'profileModal') return;
+    e.target.querySelectorAll('input').forEach(inp => {
+        const lbl = (inp.previousElementSibling?.textContent || inp.placeholder || '').toLowerCase();
+        if (!inp.placeholder) {
+            if (lbl.includes('m-pesa') || lbl.includes('phone')) inp.placeholder = 'e.g. 0712 345 678';
+            else if (lbl.includes('card') || lbl.includes('visa')) inp.placeholder = 'e.g. 4242';
+            else if (lbl.includes('address') || lbl.includes('street')) inp.placeholder = 'e.g. Kilimani, Argwings Kodhek Rd';
+        }
+    });
+});
+</script>
+</body>
 </html>

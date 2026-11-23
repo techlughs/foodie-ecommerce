@@ -15,6 +15,14 @@ public class OrderController {
     public OrderController(OrderRepository orderRepository, ProductRepository productRepository) {
         this.orderRepository = orderRepository; this.productRepository = productRepository;
     }
+    @GetMapping
+    public org.springframework.http.ResponseEntity<?> getOrdersRoot(@RequestParam(required = false) Long userId) {
+        if (userId != null) {
+            return org.springframework.http.ResponseEntity.ok(orderRepository.findByUserIdOrderByCreatedAtDesc(userId));
+        }
+        return org.springframework.http.ResponseEntity.ok(java.util.List.of());
+    }
+
     @PostMapping @Transactional
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest request) {
         if (request.getUserId() == null || request.getUserId() <= 0 || request.getItems() == null || request.getItems().isEmpty()) {
@@ -42,7 +50,8 @@ public class OrderController {
             item.setOrder(order); item.setProductId(product.getId()); item.setQuantity(qty); item.setPrice(linePrice);
             order.getItems().add(item);
         }
-        order.setTotalAmount(total);
+        BigDecimal fee = (request.getDeliveryFee() != null && request.getDeliveryFee().compareTo(BigDecimal.ZERO) > 0) ? request.getDeliveryFee() : BigDecimal.ZERO;
+        order.setTotalAmount(total.add(fee));
         return ResponseEntity.ok(orderRepository.save(order));
     }
     @GetMapping("/user/{userId}")
