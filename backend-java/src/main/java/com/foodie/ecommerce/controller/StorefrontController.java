@@ -161,22 +161,55 @@ public class StorefrontController {
                 .sorted((a, b) -> Long.compare(b.getId(), a.getId()))
                 .collect(Collectors.toList());
 
-        var churnRows = new ArrayList();
+        var churnRows = new ArrayList<>();
         long highRiskCount = 0;
 
+        java.time.LocalDateTime now = java.time.LocalDateTime.now();
         for (User customer : customers) {
             Long uid = customer.getId();
-            ChurnPredictionResponse pred = aiIntegrationService.getChurnPrediction(uid);
+            List<Order> userHistory = customerOrders.stream()
+                    .filter(o -> uid.equals(o.getUserId()))
+                    .collect(Collectors.toList());
+
+            int totalOrders = userHistory.size();
+            int daysSinceLast = 0;
+            int ordersLast30d = 0;
+            double avgOrderValue = 0.0;
+
+            if (totalOrders > 0) {
+                java.time.LocalDateTime latestOrderAt = userHistory.stream()
+                        .map(Order::getCreatedAt)
+                        .filter(Objects::nonNull)
+                        .max(java.time.LocalDateTime::compareTo)
+                        .orElse(now);
+                daysSinceLast = (int) Math.max(0, java.time.temporal.ChronoUnit.DAYS.between(latestOrderAt, now));
+
+                java.time.LocalDateTime cutoff30d = now.minusDays(30);
+                ordersLast30d = (int) userHistory.stream()
+                        .filter(o -> o.getCreatedAt() == null || !o.getCreatedAt().isBefore(cutoff30d))
+                        .count();
+
+                double totalSpent = userHistory.stream()
+                        .map(Order::getTotalAmount)
+                        .filter(Objects::nonNull)
+                        .mapToDouble(BigDecimal::doubleValue)
+                        .sum();
+                avgOrderValue = Math.round((totalSpent / totalOrders) * 100.0) / 100.0;
+            }
+
+            double abandonmentRate = totalOrders >= 3 ? 0.10 : (totalOrders == 0 ? 0.25 : 0.18);
+            ChurnPredictionResponse pred = aiIntegrationService.getLiveChurnPrediction(
+                    uid, totalOrders, daysSinceLast, ordersLast30d, avgOrderValue, abandonmentRate);
 
             double score = (pred != null && pred.getChurnRiskScore() != null) ? pred.getChurnRiskScore() : 0.14;
             String level = (pred != null && pred.getRiskLevel() != null) ? pred.getRiskLevel() : "Low";
             String action = (pred != null && pred.getRecommendedAction() != null) ? pred.getRecommendedAction() : "Standard loyalty points";
 
-            if ("High".equalsIgnoreCase(level)) {
+           if ("High".equalsIgnoreCase(level)) {
                 highRiskCount++;
             }
 
-            var row = new LinkedHashMap();
+            var row = new LinkedHashMap<>();
             row.put("userId", uid);
             row.put("customerName", customer.getFullName());
             row.put("customerEmail", customer.getEmail());
@@ -201,12 +234,12 @@ public class StorefrontController {
         var categoryCounts = products.stream()
                 .collect(Collectors.groupingBy(Product::getCategory, Collectors.counting()));
 
-        var userNames = new LinkedHashMap();
+        var userNames = new LinkedHashMap<>();
         for (User u : customers) {
             userNames.put(u.getId(), u.getFullName());
         }
 
-        var dishNames = new LinkedHashMap();
+        var dishNames = new LinkedHashMap<>();
         for (Product p : products) {
             dishNames.put(p.getId(), p.getName());
         }
@@ -224,8 +257,8 @@ public class StorefrontController {
         model.addAttribute("totalOrdersCount", customerOrders.size());
         model.addAttribute("overallChurnRate", overallChurnRate);
         model.addAttribute("mlOnline", aiIntegrationService.isMlServiceOnline());
-        model.addAttribute("categoryLabels", new ArrayList(categoryCounts.keySet()));
-        model.addAttribute("categoryValues", new ArrayList(categoryCounts.values()));
+        model.addAttribute("categoryLabels", new ArrayList<>(categoryCounts.keySet()));
+        model.addAttribute("categoryValues", new ArrayList<>(categoryCounts.values()));
         model.addAttribute("allOrders", customerOrders);
         model.addAttribute("userNames", userNames);
         model.addAttribute("dishNames", dishNames);

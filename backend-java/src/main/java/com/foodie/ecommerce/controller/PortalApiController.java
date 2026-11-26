@@ -295,11 +295,13 @@ public class PortalApiController {
                 order.setAdminArrivedConfirmed(true);
                 if (Boolean.TRUE.equals(order.getCustomerReceivedConfirmed())) {
                     order.setStatus("TABLE_SERVED");
+                    order.setDeliveredAt(java.time.LocalDateTime.now());
                 } else {
                     order.setStatus("AT_YOUR_DOORSTEP");
                 }
             } else {
                 order.setStatus(nextStatus);
+                if ("TABLE_SERVED".equalsIgnoreCase(nextStatus)) { order.setDeliveredAt(java.time.LocalDateTime.now()); }
             }
             Order saved = orderRepository.save(order);
             return ResponseEntity.ok(Map.of(

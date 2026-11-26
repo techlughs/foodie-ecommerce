@@ -99,19 +99,23 @@ public class OrderController {
         if (activeOffer != null) {
             String lower = activeOffer.toLowerCase();
 
-            if (lower.contains("25%")) {
-                BigDecimal targetAmount = nyamaChomaSubtotal.compareTo(BigDecimal.ZERO) > 0 ? nyamaChomaSubtotal : foodSubtotal;
-                discount = targetAmount.multiply(new BigDecimal("0.25")).setScale(2, RoundingMode.HALF_UP);
-                offerSummary = "25% Voucher (-KES " + discount + ")";
-            } else if (lower.contains("20%")) {
-                discount = foodSubtotal.multiply(new BigDecimal("0.20")).setScale(2, RoundingMode.HALF_UP);
-                offerSummary = "20% Voucher (-KES " + discount + ")";
-            } else if (lower.contains("15%") || lower.contains("welcome")) {
+            java.util.regex.Matcher pctMatcher = java.util.regex.Pattern.compile("(\\d+(?:\\.\\d+)?)\\s*%").matcher(lower);
+            java.util.regex.Matcher kesMatcher = java.util.regex.Pattern.compile("kes\\s*(\\d+(?:\\.\\d+)?)").matcher(lower);
+
+            if (pctMatcher.find()) {
+                BigDecimal pct = new BigDecimal(pctMatcher.group(1));
+                BigDecimal rate = pct.divide(new BigDecimal("100"), 4, RoundingMode.HALF_UP);
+                BigDecimal targetAmount = (pct.compareTo(new BigDecimal("25")) == 0 && nyamaChomaSubtotal.compareTo(BigDecimal.ZERO) > 0)
+                        ? nyamaChomaSubtotal : foodSubtotal;
+                discount = targetAmount.multiply(rate).setScale(2, RoundingMode.HALF_UP);
+                offerSummary = pct.stripTrailingZeros().toPlainString() + "% Offer (-KES " + discount + ")";
+            } else if (lower.contains("welcome")) {
                 discount = foodSubtotal.multiply(new BigDecimal("0.15")).setScale(2, RoundingMode.HALF_UP);
-                offerSummary = "15% Offer (-KES " + discount + ")";
-            } else if (lower.contains("10%")) {
-                discount = foodSubtotal.multiply(new BigDecimal("0.10")).setScale(2, RoundingMode.HALF_UP);
-                offerSummary = "10% Loyalty Discount (-KES " + discount + ")";
+                offerSummary = "15% Welcome Offer (-KES " + discount + ")";
+            } else if (kesMatcher.find()) {
+                BigDecimal flatOff = new BigDecimal(kesMatcher.group(1)).setScale(2, RoundingMode.HALF_UP);
+                discount = flatOff.min(foodSubtotal);
+                offerSummary = "KES " + discount + " Off";
             }
 
             if ((lower.contains("free") && lower.contains("delivery")) || lower.contains("welcome")) {
@@ -142,8 +146,11 @@ public class OrderController {
 
         String baseNotes = request.getKitchenNotes() != null ? request.getKitchenNotes().trim() : "";
         if (offerSummary != null) {
-            String badge = "[REDEEMED: " + activeOffer + " -> " + offerSummary + "]";
-            order.setKitchenNotes(baseNotes.isEmpty() ? badge : baseNotes + " | " + badge);
+            String cleanOffer = activeOffer != null ? activeOffer.trim() : offerSummary;
+            String noteText = cleanOffer.equalsIgnoreCase(offerSummary)
+                    ? "Offer applied: " + cleanOffer
+                    : "Offer applied: " + cleanOffer + " (" + offerSummary + ")";
+            order.setKitchenNotes(baseNotes.isEmpty() ? noteText : baseNotes + " | " + noteText);
         } else {
             order.setKitchenNotes(baseNotes);
         }
@@ -172,6 +179,7 @@ public class OrderController {
             if (Boolean.TRUE.equals(order.getAdminArrivedConfirmed()) || "AT_YOUR_DOORSTEP".equalsIgnoreCase(order.getStatus())) {
                 order.setAdminArrivedConfirmed(true);
                 order.setStatus("TABLE_SERVED");
+                order.setDeliveredAt(java.time.LocalDateTime.now());
             } else {
                 order.setStatus("DINER_CONFIRMED_AWAITING_CONCIERGE");
             }

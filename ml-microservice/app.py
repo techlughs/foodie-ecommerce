@@ -1,8 +1,9 @@
-﻿import os
+import os
 import joblib
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -63,6 +64,53 @@ def home():
             "catalog_items": len(catalog_df),
         },
     }
+
+class LiveChurnMetrics(BaseModel):
+    user_id: int
+    total_orders: int
+    days_since_last_order: int
+    orders_last_30d: int
+    avg_order_value_kes: float
+    cart_abandonment_rate: float = 0.15
+
+def _format_churn_tier(user_id: int, churn_prob: float, total_orders: int):
+    if total_orders == 0:
+        return {
+            "user_id": user_id,
+            "churn_risk_score": 0.15,
+            "risk_level": "Low",
+            "recommended_action": "Welcome Onboarding Offer",
+        }
+    if churn_prob >= 0.70:
+        risk_level = "High"
+        action = "20% Comeback Voucher + Free Delivery"
+    elif churn_prob >= 0.40:
+        risk_level = "Medium"
+        action = "10% Loyalty Discount on Next Order"
+    else:
+        risk_level = "Low"
+        action = "Complimentary Kenyan Masala Chai Pot"
+
+    return {
+        "user_id": user_id,
+        "churn_risk_score": round(churn_prob, 3),
+        "risk_level": risk_level,
+        "recommended_action": action,
+    }
+
+@app.post("/predict-churn/live")
+def predict_churn_live(metrics: LiveChurnMetrics):
+    if metrics.total_orders == 0:
+        return _format_churn_tier(metrics.user_id, 0.15, 0)
+
+    features = pd.DataFrame([{
+        "days_since_last_order": metrics.days_since_last_order,
+        "orders_last_30d": metrics.orders_last_30d,
+        "avg_order_value_kes": metrics.avg_order_value_kes,
+        "cart_abandonment_rate": metrics.cart_abandonment_rate,
+    }])[FEATURE_COLS]
+    churn_prob = float(churn_model.predict_proba(features)[0][1])
+    return _format_churn_tier(metrics.user_id, churn_prob, metrics.total_orders)
 
 @app.get("/predict-churn/{user_id}")
 def predict_churn(user_id: int):
@@ -136,3 +184,7 @@ def get_recommendations(user_id: int, top_n: int = 3):
         "strategy": "hybrid_tfidf_behavioral",
         "recommended_items": top_dishes,
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)

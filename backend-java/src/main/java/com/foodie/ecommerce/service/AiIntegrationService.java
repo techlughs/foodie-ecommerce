@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AiIntegrationService {
@@ -40,6 +41,42 @@ public class AiIntegrationService {
                     "rfm_collaborative_engine",
                     List.of("Charcoal Nyama Choma Platter", "Coastal Swahili Beef Pilau", "Kenyan Masala Chai Pot")
             );
+        }
+    }
+
+    public ChurnPredictionResponse getLiveChurnPrediction(
+            Long userId,
+            int totalOrders,
+            int daysSinceLastOrder,
+            int ordersLast30d,
+            double avgOrderValueKes,
+            double cartAbandonmentRate) {
+        if (totalOrders == 0) {
+            return new ChurnPredictionResponse(userId, 0.15, "Low", "Welcome Onboarding Offer");
+        }
+        try {
+            Map<String, Object> payload = Map.of(
+                    "user_id", userId,
+                    "total_orders", totalOrders,
+                    "days_since_last_order", daysSinceLastOrder,
+                    "orders_last_30d", ordersLast30d,
+                    "avg_order_value_kes", avgOrderValueKes,
+                    "cart_abandonment_rate", cartAbandonmentRate
+            );
+            return restClient.post()
+                    .uri("/predict-churn/live")
+                    .body(payload)
+                    .retrieve()
+                    .body(ChurnPredictionResponse.class);
+        } catch (Exception ex) {
+            double score = daysSinceLastOrder >= 21 ? 0.76
+                    : (daysSinceLastOrder >= 10 || ordersLast30d <= 1 ? 0.46 : 0.18);
+            if (score >= 0.70) {
+                return new ChurnPredictionResponse(userId, score, "High", "20% Comeback Voucher + Free Delivery");
+            } else if (score >= 0.40) {
+                return new ChurnPredictionResponse(userId, score, "Medium", "10% Loyalty Discount on Next Order");
+            }
+            return new ChurnPredictionResponse(userId, score, "Low", "Complimentary Kenyan Masala Chai Pot");
         }
     }
 
