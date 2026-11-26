@@ -154,10 +154,10 @@ public class PortalApiController {
 
     @PostMapping("/clickstream")
     public ResponseEntity<?> logClick(@RequestBody Map<String, Object> payload) {
-        Long userId = payload.get("userId") != null ? Long.valueOf(payload.get("userId").toString()) : 1L;
+        Long userId = 1L; if (payload.get("userId") != null) { try { userId = Long.valueOf(payload.get("userId").toString().trim()); } catch (NumberFormatException ignored) {} }
         String productId = String.valueOf(payload.getOrDefault("productId", ""));
         String productName = String.valueOf(payload.getOrDefault("productName", ""));
-        String eventType = String.valueOf(payload.getOrDefault("eventType", "VIEW"));
+        Object rawType = payload.get("eventType") != null ? payload.get("eventType") : payload.get("action"); String eventType = (rawType != null && !rawType.toString().isBlank()) ? rawType.toString() : "VIEW";
 
         clickstreamRepository.save(new ClickstreamLog(null, userId, productId, productName, eventType, LocalDateTime.now()));
         return ResponseEntity.ok(Map.of("logged", true));
@@ -312,12 +312,58 @@ public class PortalApiController {
 
     @PostMapping("/admin/retention/{userId}")
     public ResponseEntity<?> triggerRetention(@PathVariable Long userId, @RequestBody Map<String, String> body) {
-        String offer = body.getOrDefault("offer", "20% Loyalty Voucher");
-        return ResponseEntity.ok(Map.of(
-                "status", "DISPATCHED",
-                "userId", userId,
-                "message", "Retention offer '" + offer + "' sent to Customer #" + userId
-        ));
+        String offer = body.getOrDefault("offer", "20% Loyalty Voucher").trim();
+        return userRepository.findById(userId).map(user -> {
+            user.setActiveRetentionOffer(offer);
+            userRepository.save(user);
+            return ResponseEntity.ok(Map.of(
+                    "status", "DISPATCHED",
+                    "userId", userId,
+                    "offer", offer,
+                    "message", "Retention offer '" + offer + "' sent to " + user.getFullName()
+            ));
+        }).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/user/{userId}/offer")
+    public ResponseEntity<?> getUserOffer(@PathVariable Long userId) {
+        if (userId == null || userId <= 0) {
+            return ResponseEntity.ok(Map.of("offer", ""));
+        }
+        return userRepository.findById(userId)
+                .map(u -> ResponseEntity.ok(Map.of("offer", u.getActiveRetentionOffer() != null ? u.getActiveRetentionOffer() : "")))
+                .orElseGet(() -> ResponseEntity.ok(Map.of("offer", "")));
+    }
+
+    @PostMapping("/user/{userId}/offer/dismiss")
+    public ResponseEntity<?> dismissUserOffer(@PathVariable Long userId) {
+        return userRepository.findById(userId).map(u -> {
+            u.setActiveRetentionOffer(null);
+            userRepository.save(u);
+            return ResponseEntity.ok(Map.of("dismissed", true));
+        }).orElseGet(() -> ResponseEntity.ok(Map.of("dismissed", false)));
+    }
+
+    @GetMapping("/admin/activity")
+    public ResponseEntity<?> getLiveStorefrontActivity() {
+        Map<Long, String> customerNames = new java.util.HashMap<>();
+        for (User u : userRepository.findAll()) {
+            if (!"ROLE_ADMIN".equalsIgnoreCase(u.getRole())) {
+                customerNames.put(u.getId(), u.getFullName());
+            }
+        }
+        var formatter = java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss");
+        java.util.List<java.util.Map<String, Object>> events = clickstreamRepository.findTop20ByOrderByTimestampDesc().stream()
+                .filter(log -> log.getUserId() != null && customerNames.containsKey(log.getUserId()))
+                .limit(10)
+                .map(log -> Map.<String, Object>of(
+                        "eventType", log.getEventType() != null ? log.getEventType() : "VIEW",
+                        "customerName", customerNames.getOrDefault(log.getUserId(), "Customer"),
+                        "productName", log.getProductName() != null ? log.getProductName() : "Dish",
+                        "time", log.getTimestamp() != null ? log.getTimestamp().format(formatter) : ""
+                ))
+                .toList();
+        return ResponseEntity.ok(events);
     }
 
     private List<String> parseIngredients(Object raw) {
@@ -342,7 +388,34 @@ public class PortalApiController {
         }
     }
 
-    private String parseNutritionText(Object raw, String fallback) {
+        @GetMapping("/user/{userId}/profile")
+    public ResponseEntity<?> getUserProfile(@PathVariable Long userId) {
+        return userRepository.findById(userId).map(u -> {
+            java.util.Map<String, Object> data = new java.util.HashMap<>();
+            data.put("phone", u.getPhone() != null ? u.getPhone() : "");
+            data.put("zone", u.getDeliveryZone() != null ? u.getDeliveryZone() : "");
+            data.put("address", u.getDeliveryAddress() != null ? u.getDeliveryAddress() : "");
+            data.put("paymentMethod", u.getDefaultPaymentMethod() != null ? u.getDefaultPaymentMethod() : "");
+            data.put("mpesaNumber", u.getMpesaNumber() != null ? u.getMpesaNumber() : "");
+            data.put("visaLast4", u.getVisaLast4() != null ? u.getVisaLast4() : "");
+            return ResponseEntity.ok(data);
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/user/{userId}/profile")
+    public ResponseEntity<?> saveUserProfile(@PathVariable Long userId, @RequestBody Map<String, Object> payload) {
+        return userRepository.findById(userId).map(u -> {
+            if (payload.containsKey("phone")) u.setPhone(String.valueOf(payload.get("phone")).trim());
+            if (payload.containsKey("zone")) u.setDeliveryZone(String.valueOf(payload.get("zone")).trim());
+            if (payload.containsKey("address")) u.setDeliveryAddress(String.valueOf(payload.get("address")).trim());
+            if (payload.containsKey("paymentMethod")) u.setDefaultPaymentMethod(String.valueOf(payload.get("paymentMethod")).trim());
+            if (payload.containsKey("mpesaNumber")) u.setMpesaNumber(String.valueOf(payload.get("mpesaNumber")).trim());
+            if (payload.containsKey("visaLast4")) u.setVisaLast4(String.valueOf(payload.get("visaLast4")).trim());
+            userRepository.save(u);
+            return ResponseEntity.ok(Map.of("saved", true));
+        }).orElse(ResponseEntity.notFound().build());
+    }
+private String parseNutritionText(Object raw, String fallback) {
         if (raw == null) return fallback;
         String val = String.valueOf(raw).trim();
         return val.isBlank() ? fallback : val;

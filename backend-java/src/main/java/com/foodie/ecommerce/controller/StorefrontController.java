@@ -100,8 +100,8 @@ public class StorefrontController {
         List<Product> allProducts = productRepository.findAll();
         List<User> allUsers = userRepository.findAll();
         User activeUser = (activeId > 0L)
-                ? userRepository.findById(activeId).orElse(new User(activeId, "Guest Foodie", "guest@foodie.co.ke", "", "ROLE_CUSTOMER", null))
-                : new User(0L, "Guest Foodie", "guest@foodie.co.ke", "", "ROLE_CUSTOMER", null);
+                ? userRepository.findById(activeId).orElse(new User(activeId, "Guest Foodie", "guest@foodie.co.ke", "", "ROLE_CUSTOMER", null, null))
+                : new User(0L, "Guest Foodie", "guest@foodie.co.ke", "", "ROLE_CUSTOMER", null, null);
 
         RecommendationResponse aiRecs = aiIntegrationService.getRecommendations(activeId > 0L ? activeId : 1L, 3);
         Set<String> recNames = (aiRecs != null && aiRecs.getRecommendedItems() != null)
@@ -126,6 +126,7 @@ public class StorefrontController {
 
         model.addAttribute("userId", activeId);
         model.addAttribute("activeUser", activeUser);
+        model.addAttribute("activeRetentionOffer", activeUser.getActiveRetentionOffer() != null ? activeUser.getActiveRetentionOffer() : "");
         model.addAttribute("loggedInUser", loggedIn);
         model.addAttribute("allUsers", allUsers);
         model.addAttribute("products", allProducts);
@@ -182,6 +183,7 @@ public class StorefrontController {
             row.put("scorePercent", Math.round(score * 1000.0) / 10.0);
             row.put("riskLevel", level);
             row.put("recommendedAction", action);
+            row.put("activeOffer", customer.getActiveRetentionOffer() != null ? customer.getActiveRetentionOffer() : "");
             churnRows.add(row);
         }
 
@@ -228,6 +230,6 @@ public class StorefrontController {
         model.addAttribute("userNames", userNames);
         model.addAttribute("dishNames", dishNames);
         model.addAttribute("recentLogs", customerLogs);
-        return "churn-dashboard";
+        return "admin";
     }
 }

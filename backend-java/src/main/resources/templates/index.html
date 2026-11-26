@@ -4185,16 +4185,16 @@
 </style>
 
 <script id="foodie-clickstream-shim">
-window.trackClickstream = window.trackClickstream || function(productId, productName, action) {
+window.trackClickstream = function(productId, productName, action) {
     try {
-        fetch('/api/clickstream', {
-            method: 'POST',
+        fetch('/api/portal/clickstream', {
+            method: 'POST', credentials: 'same-origin', keepalive: true,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 userId: (typeof window.activeUserId !== 'undefined' && window.activeUserId !== null) ? String(window.activeUserId) : 'guest',
                 productId: productId ? String(productId) : '',
                 productName: productName || '',
-                action: action || 'ORDER_PLACED'
+                eventType: action || 'VIEW', action: action || 'VIEW'
             })
         }).catch(function() {});
     } catch (e) {}
@@ -5161,10 +5161,10 @@ html, body, .page-layer {
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
                     <span class="hero-eyebrow-pill mb-3">
-                         Nairobi Kitchen - Open Daily
+                         Nairobi Kitchen - <span style="color: var(--bs-warning, #ffc107);">Open Daily</span>
                     </span>
                     <h1 class="display-5 font-editorial fw-bold mb-3 lh-sm" style="color: #f4efe6;">
-                        Charcoal Grills & Coastal Classics, <span style="color: #e6be7a;" th:text="${loggedInUser != null ? loggedInUser.fullName : 'Nairobi'}">Nairobi</span>
+                        Charcoal Grills & Coastal Classics, <span style="color: var(--bs-warning, #ffc107);" th:text="${loggedInUser != null ? loggedInUser.fullName : 'Nairobi'}">Nairobi</span>
                     </h1>
                     <p class="mb-4" style="color: rgba(244, 239, 230, 0.82); font-size: 1.02rem; line-height: 1.65; max-width: 52ch;">
                         Slow-roasted Nyama Choma, coastal Swahili biryani, and fresh Lake Victoria tilapia, cooked to order and delivered hot across Nairobi.
@@ -5255,7 +5255,7 @@ html, body, .page-layer {
                             <div class="mt-3 pt-2 border-top border-secondary border-opacity-25">
                                 <button type="button" class="btn btn-dish-gold w-100"
                                         th:data-id="${rec.id}" th:data-name="${rec.name}" th:data-price="${rec.price}"
-                                        onclick="event.stopPropagation(); addToCart(this);">+ Add to Cart</button>
+                                        onclick="event.stopPropagation(); addToCart(this);">+ Add to Tray</button>
                                 </div>
                             </div>
                         </div>
@@ -5328,7 +5328,7 @@ html, body, .page-layer {
                                 
                                 <button class="btn btn-warning btn-sm rounded-pill flex-grow-1 fw-bold text-dark"
                                         th:data-id="${product.id}" th:data-name="${product.name}" th:data-price="${product.price}"
-                                        onclick="addToCart(this)">+ Add to Cart</button>
+                                        onclick="addToCart(this)">+ Add to Tray</button>
                             </div>
                         </div>
                     </div>
@@ -5403,7 +5403,7 @@ html, body, .page-layer {
     </div>
 </div>
 
-<div class="modal fade" id="dishDetailModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-lg modal-dialog-centered">`r`n        <div class="modal-content rounded-4 overflow-hidden" style="background:#141210;border:1px solid rgba(230,190,122,0.22);box-shadow:0 24px 64px rgba(0,0,0,0.85);">
+<div class="modal fade" id="dishDetailModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-lg modal-dialog-centered">        <div class="modal-content rounded-4 overflow-hidden" style="background:#141210;border:1px solid rgba(230,190,122,0.22);box-shadow:0 24px 64px rgba(0,0,0,0.85);">
 <style id="foodie-dish-detail-close-btn">
 #dishDetailModal .modal-content {
     position: relative !important;
@@ -5650,7 +5650,7 @@ html, body, .page-layer {
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content foodie-modal-content rounded-4">
             <div class="modal-header foodie-modal-header">
-                <h5 class="modal-title font-editorial fw-bold text-warning"> Member Sign In</h5>
+                <h5 class="modal-title font-editorial fw-bold text-warning">Member <span class="auth-title-gold">Sign In</span></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body p-4">
@@ -5785,6 +5785,10 @@ html, body, .page-layer {
                     <span>Items Subtotal</span>
                     <span>KES <span id="cartSubtotal">0.00</span></span>
                 </div>
+                <div id="cartOfferRow" class="d-flex justify-content-between small text-success fw-semibold mb-1" style="display:none !important;">
+                    <span id="cartOfferLabel">Active Perk</span>
+                    <span id="cartOfferValue">-KES 0.00</span>
+                </div>
                 <div class="d-flex justify-content-between small text-secondary mb-2">
                     <span>Rider Delivery (<span id="deliveryZoneLabel">Westlands</span>)</span>
                     <span>KES <span id="cartDeliveryFee">160.00</span></span>
@@ -5887,7 +5891,7 @@ html, body, .page-layer {
             }, 140);
             document.getElementById('heroShowcaseCat').textContent = d.category;
             document.getElementById('heroShowcaseTitle').textContent = d.name;
-            document.getElementById('heroShowcaseMeta').textContent = `KES ${d.price.toFixed(2)} • ${d.calories} kcal`;
+            document.getElementById('heroShowcaseMeta').textContent = `KES ${d.price.toFixed(2)} - ${d.calories} kcal`;
             document.getElementById('heroShowcaseBtn').onclick = () => addItemToCartState(d.id, d.name, d.price);
             strip.querySelectorAll('.showcase-thumb').forEach((t, i) => t.classList.toggle('active', i === idx));
         }
@@ -5928,6 +5932,14 @@ html, body, .page-layer {
             };
 
             localStorage.setItem(getProfileKey(), JSON.stringify(payload));
+            const uidForProf = (typeof activeUserId !== 'undefined' && activeUserId) ? activeUserId : window.activeUserId;
+            if (uidForProf && Number(uidForProf) > 0) {
+                fetch('/api/portal/user/' + encodeURIComponent(uidForProf) + '/profile', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(() => {});
+            }
 
             const delivZone = document.getElementById('deliveryZoneInput');
             if (delivZone && payload.zone) {
@@ -5983,7 +5995,18 @@ html, body, .page-layer {
                 alert('Profile modal element is missing from the page.');
                 return;
             }
-            const saved = getSavedProfile();
+            let saved = getSavedProfile();
+            const uidLoad = (typeof activeUserId !== 'undefined' && activeUserId) ? activeUserId : window.activeUserId;
+            if (uidLoad && Number(uidLoad) > 0) {
+                try {
+                    const profRes = await fetch('/api/portal/user/' + encodeURIComponent(uidLoad) + '/profile', { cache: 'no-store' });
+                    if (profRes.ok) {
+                        const remoteProf = await profRes.json();
+                        saved = Object.assign({}, saved, Object.fromEntries(Object.entries(remoteProf).filter(([, v]) => v)));
+                        localStorage.setItem(getProfileKey(), JSON.stringify(saved));
+                    }
+                } catch (_) {}
+            }
             if (saved.zone && document.getElementById('profZone')) document.getElementById('profZone').value = saved.zone;
             if (saved.address && document.getElementById('profAddress')) document.getElementById('profAddress').value = saved.address;
             if (saved.phone && document.getElementById('profPhone')) document.getElementById('profPhone').value = saved.phone;
@@ -6270,12 +6293,15 @@ html, body, .page-layer {
             });
             if (!res.ok) throw new Error(await res.text());
             const order = await res.json();
-            cart.forEach(c => trackClickstream(c.productId, c.name, 'PURCHASE'));
+            const purchasedItems = (Array.isArray(window.cart) && window.cart.length) ? window.cart : cart; purchasedItems.forEach(c => trackClickstream(c.productId, c.name, 'PURCHASE'));
             cart = [];
             renderCart();
             document.getElementById('kitchenNotesInput').value = '';
 
             const drawerInst = bootstrap.Offcanvas.getInstance(document.getElementById('cartDrawer'));
+            window.activeRetentionOffer = '';
+            const bannerEl = document.getElementById('foodieRetentionBanner');
+            if (bannerEl) bannerEl.style.display = 'none';
             if (drawerInst) drawerInst.hide();
             loadOrderHistory();
         } catch (err) {
@@ -6543,7 +6569,7 @@ async function clearOrderHistory() {
                     <div>
                         <span class="deck-pill-tag">${s.cat}</span>
                         <h3 class="deck-dish-title">${s.title}</h3>
-                        <div class="deck-dish-meta">${s.price} • Prepared Fresh to Order</div>
+                        <div class="deck-dish-meta">${s.price} - Prepared Fresh to Order</div>
                     </div>
                     ${s.onclickAttr ? `<button type="button" class="deck-add-btn" onclick="${s.onclickAttr}">+ Add Dish</button>` : ''}
                 </div>
@@ -6901,6 +6927,25 @@ async function clearOrderHistory() {
     }
 
     window.syncSavedAddressRow = function() {
+        let uid = getUid();
+        if (!uid || uid === 'guest') {
+            const qUid = new URLSearchParams(window.location.search).get('userId');
+            if (qUid && Number(qUid) > 0) uid = qUid;
+        }
+        if (uid && Number(uid) > 0 && window._trayProfFetchedForUid !== String(uid)) {
+            window._trayProfFetchedForUid = String(uid);
+            fetch('/api/portal/user/' + encodeURIComponent(uid) + '/profile', { cache: 'no-store' })
+                .then(r => r.ok ? r.json() : null)
+                .then(remote => {
+                    if (!remote) return;
+                    const merged = Object.assign({}, readProf(), Object.fromEntries(Object.entries(remote).filter(([, v]) => v)));
+                    writeProf(merged);
+                    window.syncSavedAddressRow();
+                    if (typeof window.syncPaymentCardFromProfile === 'function') window.syncPaymentCardFromProfile();
+                    if (typeof window.renderCart === 'function') window.renderCart();
+                })
+                .catch(() => {});
+        }
         const prof = readProf();
         const zoneSel = document.getElementById('deliveryZoneInput');
         const addrInp = document.getElementById('deliveryAddressInput');
@@ -6926,11 +6971,9 @@ async function clearOrderHistory() {
         const subEl = document.getElementById('trayAddressSub');
         if (titleEl) titleEl.textContent = building;
         if (subEl) subEl.textContent = zoneText + ', Nairobi';
-
-        const editor = document.getElementById('trayAddressInlineEditor');
-        if (editor && building === 'Set Drop-off Building' && !editor.dataset.initialized) {
-            editor.classList.remove('d-none');
-            editor.dataset.initialized = '1';
+        const editorClosed = document.getElementById('trayAddressInlineEditor');
+        if (editorClosed && !editorClosed.dataset.userEditing) {
+            editorClosed.classList.add('d-none');
         }
     };
 
@@ -6953,6 +6996,14 @@ async function clearOrderHistory() {
         if (zoneSel) zoneSel.dataset.userChanged = '1';
         if (addrInp) addrInp.dataset.userChanged = '1';
         writeProf(updated);
+        const uidTray = (typeof activeUserId !== 'undefined' && activeUserId) ? activeUserId : window.activeUserId;
+        if (uidTray && Number(uidTray) > 0) {
+            fetch('/api/portal/user/' + encodeURIComponent(uidTray) + '/profile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ zone: updated.zone, address: updated.address })
+            }).catch(() => {});
+        }
 
         if (document.getElementById('profDefaultZone') && updated.zone) document.getElementById('profDefaultZone').value = updated.zone;
         if (document.getElementById('profDefaultAddress')) document.getElementById('profDefaultAddress').value = updated.address;
@@ -7162,16 +7213,81 @@ async function clearOrderHistory() {
         if (hiddenInput) hiddenInput.value = displayTitle;
     };
 
+    window.computeOfferAdjustment = function(items, subtotal, baseDeliveryFee) {
+        const offer = (window.activeRetentionOffer || '').trim();
+        if (!offer) return { discount: 0, deliveryFee: baseDeliveryFee, label: '', valueText: '' };
+
+        const lower = offer.toLowerCase();
+        let discount = 0;
+        let deliveryFee = baseDeliveryFee;
+        let parts = [];
+
+        const nyamaSubtotal = items.reduce((s, i) => {
+            const name = (i.name || '').toLowerCase();
+            return name.includes('nyama choma') ? s + ((Number(i.price) || 0) * (Number(i.quantity) || 1)) : s;
+        }, 0);
+
+        if (lower.includes('25%')) {
+            const base = nyamaSubtotal > 0 ? nyamaSubtotal : subtotal;
+            discount = Math.round(base * 0.25 * 100) / 100;
+            parts.push('25% Off');
+        } else if (lower.includes('20%')) {
+            discount = Math.round(subtotal * 0.20 * 100) / 100;
+            parts.push('20% Off');
+        } else if (lower.includes('15%') || lower.includes('welcome')) {
+            discount = Math.round(subtotal * 0.15 * 100) / 100;
+            parts.push('15% Off');
+        } else if (lower.includes('10%')) {
+            discount = Math.round(subtotal * 0.10 * 100) / 100;
+            parts.push('10% Off');
+        }
+
+        if ((lower.includes('free') && lower.includes('delivery')) || lower.includes('welcome')) {
+            deliveryFee = 0;
+            parts.push('Free Delivery');
+        }
+
+        if (lower.includes('masala chai')) {
+            parts.push('+ Free Kenyan Masala Chai Pot');
+        }
+
+        const valueText = discount > 0
+            ? `-KES ${discount.toFixed(2)}`
+            : (lower.includes('masala chai') ? 'FREE CHAI' : 'KES 0.00');
+
+        return {
+            discount,
+            deliveryFee,
+            label: `Perk (${parts.join(' + ')})`,
+            valueText
+        };
+    };
+
     window.renderCart = function() {
         const items = Array.isArray(window.cart) ? window.cart : [];
         const totalCount = items.reduce((s, i) => s + (Number(i.quantity) || 1), 0);
         const subtotal = items.reduce((s, i) => s + ((Number(i.price) || 0) * (Number(i.quantity) || 1)), 0);
-        const deliveryFee = items.length ? getDeliveryFee() : 0;
-        const grandTotal = subtotal + deliveryFee;
+        const baseDeliveryFee = items.length ? getDeliveryFee() : 0;
+        const adj = items.length
+            ? window.computeOfferAdjustment(items, subtotal, baseDeliveryFee)
+            : { discount: 0, deliveryFee: 0, label: '', valueText: '' };
+        const deliveryFee = adj.deliveryFee;
+        const grandTotal = Math.max(0, subtotal - adj.discount) + deliveryFee;
 
         document.querySelectorAll('#cartCount').forEach(el => { el.textContent = String(totalCount); });
         if (document.getElementById('cartSubtotal')) document.getElementById('cartSubtotal').textContent = subtotal.toFixed(2);
         if (document.getElementById('cartDeliveryFee')) document.getElementById('cartDeliveryFee').textContent = deliveryFee.toFixed(2);
+
+        const offerRow = document.getElementById('cartOfferRow');
+        if (offerRow) {
+            if (items.length && adj.label) {
+                offerRow.style.setProperty('display', 'flex', 'important');
+                document.getElementById('cartOfferLabel').textContent = adj.label;
+                document.getElementById('cartOfferValue').textContent = adj.valueText;
+            } else {
+                offerRow.style.setProperty('display', 'none', 'important');
+            }
+        }
         const zoneSel = document.getElementById('deliveryZoneInput');
         if (zoneSel && document.getElementById('deliveryZoneLabel') && zoneSel.value) {
             document.getElementById('deliveryZoneLabel').textContent = zoneSel.value.split('&')[0].trim();
@@ -7544,39 +7660,38 @@ async function clearOrderHistory() {
         return false;
     }
 
-    let thankYouTimer = null;
-    function triggerThankYouNotification() {
+        let thankYouTimer = null;
+    function triggerThankYouNotification(orderRef) {
+        const key = orderRef ? ('foodie_thanked_toast_' + String(orderRef)) : null;
+        if (key && sessionStorage.getItem(key)) return;
+        if (key) sessionStorage.setItem(key, '1');
         let toast = document.getElementById('foodieCleanThankYouToast');
         if (!toast) {
             toast = document.createElement('div');
             toast.id = 'foodieCleanThankYouToast';
             toast.setAttribute('role', 'status');
             toast.setAttribute('aria-live', 'polite');
-            toast.style.cssText = 'position:fixed;bottom:22px;right:22px;z-index:1085;background:#141416;border:1px solid #27272a;border-radius:10px;padding:12px 15px;box-shadow:0 12px 28px rgba(0,0,0,0.65);display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:290px;max-width:360px;opacity:0;transform:translateY(12px);transition:opacity 0.25s ease,transform 0.25s ease;pointer-events:none;';
+            toast.style.cssText = 'position:fixed;bottom:22px;right:22px;z-index:1085;background:#141416;border:1px solid #27272a;border-radius:10px;padding:12px 15px;box-shadow:0 12px 28px rgba(0,0,0,0.65);display:flex;align-items:center;gap:10px;min-width:290px;max-width:360px;opacity:0;transform:translateY(12px);transition:opacity 0.25s ease,transform 0.25s ease;pointer-events:none;';
             toast.innerHTML = `
-                <div style="display:flex;align-items:center;gap:10px;">
-                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;">
-                        <circle cx="10" cy="10" r="9" fill="#16a34a" fill-opacity="0.18" stroke="#22c55e" stroke-width="1.5"/>
-                        <path d="M6.5 10.2L8.8 12.5L13.6 7.7" stroke="#22c55e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <div>
-                        <div style="font-size:0.86rem;font-weight:600;color:#fafafa;line-height:1.25;">Order delivered</div>
-                        <div style="font-size:0.78rem;color:#a1a1aa;margin-top:2px;line-height:1.35;">Thank you for ordering with Foodie Nairobi. Enjoy your meal.</div>
-                    </div>
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;">
+                    <circle cx="10" cy="10" r="9" fill="#16a34a" fill-opacity="0.18" stroke="#22c55e" stroke-width="1.5"/>
+                    <path d="M6.5 10.2L8.8 12.5L13.6 7.7" stroke="#22c55e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                    <div style="font-size:0.86rem;font-weight:600;color:#fafafa;line-height:1.25;">Order delivered</div>
+                    <div style="font-size:0.78rem;color:#a1a1aa;margin-top:2px;line-height:1.35;">Thank you for ordering with Foodie Nairobi. Enjoy your meal.</div>
                 </div>
-                <button type="button" onclick="const el=document.getElementById('foodieCleanThankYouToast');if(el){el.style.opacity='0';el.style.pointerEvents='none';}" aria-label="Close" style="background:transparent;border:none;color:#71717a;font-size:1.1rem;line-height:1;padding:2px 4px;cursor:pointer;">×</button>
             `;
             document.body.appendChild(toast);
         }
         toast.style.opacity = '1';
         toast.style.transform = 'translateY(0)';
-        toast.style.pointerEvents = 'auto';
         if (window._foodieCleanThankYouTimer) clearTimeout(window._foodieCleanThankYouTimer);
         window._foodieCleanThankYouTimer = setTimeout(() => {
             toast.style.opacity = '0';
             toast.style.transform = 'translateY(12px)';
-            toast.style.pointerEvents = 'none';
-        }, 4500);
+            setTimeout(() => { if (toast && toast.parentNode) toast.parentNode.removeChild(toast); }, 300);
+        }, 4000);
     }
 
     function hideProgressDockSmoothly(oid) {
@@ -7604,6 +7719,7 @@ async function clearOrderHistory() {
 
         if (!meta.active || order.customerReceivedConfirmed) {
             if (dock.style.display !== 'none' || sessionStorage.getItem('foodie_had_active_' + oid)) {
+                sessionStorage.removeItem('foodie_had_active_' + oid);
                 triggerThankYouNotification(ref);
             }
             hideProgressDockSmoothly(oid);
@@ -9539,6 +9655,7 @@ window.openDishDetail = function(sourceEl) {
     const img = dataEl.getAttribute('data-img') || (card.querySelector('img')?.getAttribute('src') || '');
     const cal = dataEl.getAttribute('data-cal') || '550';
     const prot = dataEl.getAttribute('data-prot') || '30g';
+    const _vk = String(id || name); const _now = Date.now(); if (typeof window.trackClickstream === 'function' && _vk && (!window._lastViewTrack || window._lastViewTrack.key !== _vk || (_now - window._lastViewTrack.ts) > 1500)) { window._lastViewTrack = { key: _vk, ts: _now }; window.trackClickstream(id, name, 'VIEW'); }
     const ing = dataEl.getAttribute('data-ing') || 'Fresh Kenyan spices, locally sourced ingredients';
 
     const modalEl = document.getElementById('dishDetailModal');
@@ -9562,7 +9679,7 @@ window.openDishDetail = function(sourceEl) {
     if (ingEl) ingEl.textContent = ing;
 
     const nutEl = document.getElementById('detailNutrition');
-    if (nutEl) nutEl.textContent = `${cal} kcal • ${prot} protein`;
+    if (nutEl) nutEl.textContent = `${cal} kcal - ${prot} protein`;
 
     const priceEl = document.getElementById('detailPrice');
     if (priceEl) priceEl.textContent = Number(price) ? Number(price).toLocaleString("en-KE") : price;
@@ -9608,7 +9725,7 @@ window.openDishDetail = function(sourceEl) {
             chip.type = 'button';
             chip.className = 'btn btn-sm rounded-pill px-3 py-1';
             chip.style.cssText = 'background:rgba(230,190,122,0.08);color:#f4efe6;border:1px solid rgba(230,190,122,0.28);font-size:0.78rem;transition:all 0.18s ease;';
-            chip.innerHTML = `${item.name} <span style="color:#fbbf24;font-weight:700;">• KES ${Number(item.price) ? Number(item.price).toLocaleString("en-KE") : item.price}</span>`;
+            chip.innerHTML = `${item.name} <span style="color:#fbbf24;font-weight:700;">- KES ${Number(item.price) ? Number(item.price).toLocaleString("en-KE") : item.price}</span>`;
             chip.onmouseenter = () => { chip.style.borderColor = '#e6be7a'; chip.style.background = 'rgba(230,190,122,0.16)'; };
             chip.onmouseleave = () => { chip.style.borderColor = 'rgba(230,190,122,0.28)'; chip.style.background = 'rgba(230,190,122,0.08)'; };
             chip.onclick = () => window.openDishDetail(item.card);
@@ -10585,6 +10702,321 @@ input[type="range"].form-range::-moz-range-thumb {
 .filter-bar #categoryButtons {
     row-gap: 0.45rem !important;
     column-gap: 1.15rem !important;
+}
+</style>
+<div id="foodieRetentionBanner" style="display:none; position:fixed; bottom:24px; left:24px; z-index:2050; max-width:390px; background:linear-gradient(135deg,#1d1712,#120e0b); border:1px solid rgba(212,175,55,0.65); border-radius:16px; padding:16px 18px; box-shadow:0 18px 40px rgba(0,0,0,0.75); color:#f5efe6;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+        <div>
+            <div style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:#e6be7a; font-weight:700; margin-bottom:4px;">Exclusive Chef Reward</div>
+            <div id="foodieRetentionOfferText" style="font-size:0.95rem; font-weight:600; color:#ffffff; line-height:1.35;"></div>
+            <div style="font-size:0.78rem; color:#bfb5a6; margin-top:4px;">Applied automatically at checkout on your next order.</div>
+        </div>
+        <button type="button" id="foodieDismissOfferBtn" aria-label="Dismiss offer" style="background:none; border:none; color:#bfb5a6; font-size:1.2rem; line-height:1; cursor:pointer; padding:2px 4px;">\u00D7</button>
+    </div>
+</div>
+<script id="foodie-live-retention-offer">
+(function() {
+    let currentShownOffer = '';
+
+    function resolveOfferUserId() {
+        try {
+            if (typeof getActiveUserId === 'function') {
+                const id = Number(getActiveUserId());
+                if (Number.isFinite(id) && id > 0) return id;
+            }
+            const urlId = Number(new URLSearchParams(window.location.search).get('userId') || 0);
+            if (Number.isFinite(urlId) && urlId > 0) return urlId;
+            const winId = Number(window.activeUserId || 0);
+            if (Number.isFinite(winId) && winId > 0) return winId;
+        } catch (e) {}
+        return 0;
+    }
+
+    function renderRetentionOffer(offerText) {
+        const banner = document.getElementById('foodieRetentionBanner');
+        const textEl = document.getElementById('foodieRetentionOfferText');
+        if (!banner || !textEl) return;
+        const savedProf = (typeof getSavedProfile === 'function') ? getSavedProfile() : (typeof readProfile === 'function' ? readProfile() : {});
+        const userZone = (document.getElementById('deliveryZoneInput')?.value || savedProf?.zone || '').trim();
+        const clean = (offerText || '').trim().replace(/Westlands\/Kilimani/gi, userZone || 'Your Area');
+        const uid = resolveOfferUserId();
+        if (!clean || uid <= 0) {
+            banner.style.display = 'none';
+            currentShownOffer = '';
+            return;
+        }
+        if (clean !== currentShownOffer) {
+            currentShownOffer = clean;
+            textEl.textContent = clean;
+            banner.style.display = 'block';
+        }
+    }
+
+    async function pollRetentionOffer() {
+        const uid = resolveOfferUserId();
+        if (uid <= 0) return;
+        try {
+            const res = await fetch('/api/portal/user/' + encodeURIComponent(uid) + '/offer?_t=' + Date.now(), {
+                credentials: 'same-origin',
+                cache: 'no-store'
+            });
+            if (res.ok) {
+                const data = await res.json();
+                renderRetentionOffer(data.offer || '');
+            }
+        } catch (e) {}
+    }
+
+    const subtitleEl = document.querySelector('#foodieRetentionBanner div > div:nth-child(3)');
+    if (subtitleEl) subtitleEl.textContent = 'Applied automatically at checkout on your next order.';
+    const dismissBtn = document.getElementById('foodieDismissOfferBtn');
+    if (dismissBtn) {
+        dismissBtn.textContent = '\u00D7';
+        dismissBtn.addEventListener('click', async function() {
+            document.getElementById('foodieRetentionBanner').style.display = 'none';
+            currentShownOffer = '';
+            window.activeRetentionOffer = '';
+            const uid = resolveOfferUserId();
+            if (uid > 0) {
+                try {
+                    await fetch('/api/portal/user/' + encodeURIComponent(uid) + '/offer/dismiss', {
+                        method: 'POST',
+                        credentials: 'same-origin'
+                    });
+                } catch (e) {}
+            }
+        });
+    }
+
+    if (window.activeRetentionOffer) renderRetentionOffer(window.activeRetentionOffer);
+    pollRetentionOffer();
+    setInterval(pollRetentionOffer, 2000);
+})();
+</script>
+<style id="foodie-profile-subtle-clean">
+#profileModal .form-control,
+#profileModal .form-select {
+    transition: border-color 0.16s ease, background-color 0.16s ease !important;
+}
+#profileModal .form-control:focus,
+#profileModal .form-select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+#profileModal button[onclick*="saveProfilePrefs"] {
+    background: #24211d !important;
+    color: #ece7df !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: none !important;
+    transition: background-color 0.16s ease, border-color 0.16s ease !important;
+}
+#profileModal button[onclick*="saveProfilePrefs"]:hover,
+#profileModal button[onclick*="saveProfilePrefs"]:focus-visible {
+    background: #2f2b26 !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.24) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+#profileModal button[onclick*="saveProfilePrefs"]:active {
+    background: #38332d !important;
+    box-shadow: none !important;
+}
+</style>
+<style id="foodie-auth-subtle-clean">
+#authModal .foodie-modal-header .modal-title {
+    color: #f4efe6 !important;
+}
+#authModal .foodie-modal-header .modal-title span.auth-title-gold {
+    color: var(--bs-warning, #ffc107) !important;
+}
+#authModal .foodie-auth-tabs {
+    display: flex;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+#authModal .foodie-auth-tabs .nav-item {
+    flex: 1 1 0;
+}
+#authModal .foodie-auth-tabs .nav-link {
+    width: 100%;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 0 !important;
+    padding: 0.55rem 0.25rem !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    box-shadow: none !important;
+    transition: color 0.16s ease, border-color 0.16s ease, opacity 0.16s ease !important;
+}
+#authModal .foodie-auth-tabs .auth-tab-signin {
+    color: rgba(229, 184, 75, 0.52) !important;
+}
+#authModal .foodie-auth-tabs .auth-tab-signin:hover {
+    color: rgba(229, 184, 75, 0.85) !important;
+}
+#authModal .foodie-auth-tabs .auth-tab-signin.active {
+    color: var(--bs-warning, #ffc107) !important;
+    border-bottom-color: var(--bs-warning, #ffc107) !important;
+}
+#authModal .foodie-auth-tabs .auth-tab-register {
+    color: rgba(242, 207, 126, 0.52) !important;
+}
+#authModal .foodie-auth-tabs .auth-tab-register:hover {
+    color: rgba(242, 207, 126, 0.85) !important;
+}
+#authModal .foodie-auth-tabs .auth-tab-register.active {
+    color: #f2cf7e !important;
+    border-bottom-color: #f2cf7e !important;
+}
+#authModal .form-control-dark {
+    background-color: #1c1916 !important;
+    color: #f4efe6 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    transition: border-color 0.16s ease, background-color 0.16s ease !important;
+}
+#authModal .form-control-dark:focus {
+    background-color: #201d19 !important;
+    color: #ffffff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+#authModal .form-control-dark:-webkit-autofill,
+#authModal .form-control-dark:-webkit-autofill:hover,
+#authModal .form-control-dark:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f4efe6 !important;
+    -webkit-box-shadow: 0 0 0 1000px #1c1916 inset !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+#authModal button[onclick*="submitLogin"],
+#authModal button[onclick*="submitRegister"] {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0.35rem 0.75rem !important;
+    letter-spacing: 0.02em !important;
+    transition: color 0.16s ease, opacity 0.16s ease !important;
+}
+#authModal button[onclick*="submitLogin"] {
+    color: var(--bs-warning, #ffc107) !important;
+}
+#authModal button[onclick*="submitLogin"]:hover,
+#authModal button[onclick*="submitLogin"]:focus-visible {
+    background: transparent !important;
+    border: none !important;
+    color: #f3ce72 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+#authModal button[onclick*="submitLogin"]:active {
+    background: transparent !important;
+    opacity: 0.8 !important;
+    box-shadow: none !important;
+}
+#authModal button[onclick*="submitRegister"] {
+    color: #f2cf7e !important;
+}
+#authModal button[onclick*="submitRegister"]:hover,
+#authModal button[onclick*="submitRegister"]:focus-visible {
+    background: transparent !important;
+    border: none !important;
+    color: #fae1a3 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+#authModal button[onclick*="submitRegister"]:active {
+    background: transparent !important;
+    opacity: 0.8 !important;
+    box-shadow: none !important;
+}
+#authModal .auth-side-alert {
+    margin-top: 0.85rem !important;
+    text-align: center !important;
+}
+#authModal .auth-side-alert .alert {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.4 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    color: rgba(236, 231, 223, 0.72) !important;
+}
+#authModal .auth-side-alert .alert-danger {
+    background: transparent !important;
+    border: none !important;
+    color: #d69898 !important;
+}
+#authModal .auth-side-alert .alert-success {
+    background: transparent !important;
+    border: none !important;
+    color: #98c7ab !important;
+}
+#authModal .auth-side-alert .alert-warning,
+#authModal .auth-side-alert .alert-info {
+    background: transparent !important;
+    border: none !important;
+    color: rgba(236, 231, 223, 0.72) !important;
+}
+</style>
+<script id="foodie-auth-enter-flow">
+(function() {
+    function wireAuthChain(steps, submitFnName) {
+        steps.forEach((id, idx) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const isLast = idx === steps.length - 1;
+            el.setAttribute('enterkeyhint', isLast ? 'go' : 'next');
+            el.addEventListener('keydown', function(e) {
+                if (e.key !== 'Enter' && e.keyCode !== 13) return;
+                e.preventDefault();
+                if (!isLast) {
+                    const nextEl = document.getElementById(steps[idx + 1]);
+                    if (nextEl) {
+                        nextEl.focus();
+                        if (typeof nextEl.select === 'function') nextEl.select();
+                    }
+                } else if (typeof window[submitFnName] === 'function') {
+                    window[submitFnName]();
+                }
+            });
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        wireAuthChain(['loginEmail', 'loginPassword'], 'submitLogin');
+        wireAuthChain(['regName', 'regEmail', 'regPassword'], 'submitRegister');
+
+        const origGetById = document.getElementById.bind(document);
+        document.getElementById = function(id) {
+            if (id === 'authAlert') {
+                const regPane = origGetById('registerTab');
+                if (regPane && regPane.classList.contains('active')) {
+                    return origGetById('registerAlert');
+                }
+                return origGetById('loginAlert');
+            }
+            return origGetById(id);
+        };
+    });
+})();
+</script>
+<style id="foodie-card-price-gold">
+.dish-card .price-pill,
+.dish-card .price-pill *,
+.dish-card .dish-card-price {
+    color: var(--bs-warning, #ffc107) !important;
 }
 </style>
 </body>

@@ -52,10 +52,10 @@ public class AiIntegrationService {
         } catch (Exception ex) {
             int bucket = (int) (Math.abs(userId) % 4);
             return switch (bucket) {
-                case 1 -> new ChurnPredictionResponse(userId, 0.14, "Low", "VIP Platinum Tier: Complimentary Masala Chai on next order");
-                case 2 -> new ChurnPredictionResponse(userId, 0.78, "High", "Win-Back Trigger: 25% Nyama Choma Voucher + Free Westlands/Kilimani Delivery");
-                case 3 -> new ChurnPredictionResponse(userId, 0.48, "Medium", "Retention Nudge: 15% Coastal Pilau Weekend Bundle Offer");
-                default -> new ChurnPredictionResponse(userId, 0.22, "Low", "Loyalty Streak Active: Double Foodie Points");
+                case 1 -> new ChurnPredictionResponse(userId, 0.14, "Low", "Complimentary Masala Chai on next order");
+                case 2 -> new ChurnPredictionResponse(userId, 0.78, "High", "25% Nyama Choma Voucher + Free Delivery");
+                case 3 -> new ChurnPredictionResponse(userId, 0.48, "Medium", "15% Coastal Pilau Weekend Bundle Offer");
+                default -> new ChurnPredictionResponse(userId, 0.22, "Low", "Double Foodie Points on next order");
             };
         }
     }
