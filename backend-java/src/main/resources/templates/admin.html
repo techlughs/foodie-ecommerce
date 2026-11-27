@@ -1018,22 +1018,23 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status })
             });
-            if (res.ok) location.reload();
+            if (res.ok) { if (window.syncOrderSections) await window.syncOrderSections(); }
         } catch (e) { console.error(e); }
     }
 
     async function deleteAdminOrder(orderId) {
         const res = await fetch(`/api/portal/admin/orders/${orderId}`, { method: 'DELETE' });
-        if (res.ok) window.location.reload();
+        if (res.ok) { if (window.syncOrderSections) await window.syncOrderSections(); }
     }
 
     async function clearAllCompletedOrders() {
         const res = await fetch('/api/portal/admin/orders/completed', { method: 'DELETE' });
-        if (res.ok) window.location.reload();
+        if (res.ok) { if (window.syncOrderSections) await window.syncOrderSections(); }
     }
 
     (function() {
         let lastOrderSnap = '';
+        window.syncOrderSections = syncOrderSections;
         async function syncOrderSections() {
             if (document.hidden) return;
             const activeTag = document.activeElement && document.activeElement.tagName;
@@ -1069,6 +1070,8 @@
             } catch (e) {}
         }
         setInterval(syncOrderSections, 3000);
+        document.addEventListener('visibilitychange', () => { if (!document.hidden) syncOrderSections(); });
+        window.addEventListener('focus', syncOrderSections);
     })();
 </script>
 <script id="foodie-live-admin-activity">
@@ -1230,5 +1233,204 @@
     });
 })();
 </script>
+<style id="foodie-admin-responsive">
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+#completedOrdersSection .table-responsive,
+.table-responsive {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+#completedOrdersSection .table-responsive::-webkit-scrollbar,
+.table-responsive::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+nav.studio-navbar button[title="Sign Out"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #f8f4ee !important;
+    padding: 6px 8px !important;
+    border-radius: 0 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+nav.studio-navbar button[title="Sign Out"]:hover {
+    color: #fbbf24 !important;
+    transform: translateY(-1px);
+}
+@media (max-width: 991.98px) {
+    nav.studio-navbar {
+        padding-top: 0.55rem !important;
+        padding-bottom: 0.55rem !important;
+    }
+    nav.studio-navbar .container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        row-gap: 0.3rem !important;
+    }
+    nav.studio-navbar .container > div:first-child {
+        display: contents !important;
+    }
+    nav.studio-navbar a.navbar-brand {
+        order: 1 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.38rem !important;
+        margin-right: 0 !important;
+    }
+    nav.studio-navbar a.navbar-brand > div.d-flex {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: baseline !important;
+        gap: 0.32rem !important;
+    }
+    nav.studio-navbar .brand-wordmark {
+        font-size: 1.08rem !important;
+        line-height: 1 !important;
+    }
+    nav.studio-navbar .brand-subtitle {
+        display: inline-block !important;
+        color: #f3ede4 !important;
+        -webkit-text-fill-color: #f3ede4 !important;
+        margin-top: 0 !important;
+        font-size: 0.52rem !important;
+        letter-spacing: 0.06em !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+    nav.studio-navbar .container > div:last-child {
+        order: 2 !important;
+        margin-left: auto !important;
+    }
+    nav.studio-navbar .container > div:first-child > span {
+        order: 3 !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        font-size: 0.72rem !important;
+        letter-spacing: 0.1em !important;
+        padding-top: 0.1rem !important;
+    }
+    #adminKpiRow h3 {
+        font-size: 1.15rem !important;
+        word-break: break-word;
+    }
+    #adminKpiRow .kpi-card {
+        padding: 0.75rem !important;
+    }
+    .card-body.px-4.pb-4 {
+        padding-left: 0.85rem !important;
+        padding-right: 0.85rem !important;
+    }
+    #adminCatalogSearch {
+        width: 100% !important;
+        flex: 1 1 160px !important;
+    }
+    #catalogTableBody,
+    table.table-dark-foodie:has(#catalogTableBody),
+    table.table-dark-foodie:has(#catalogTableBody) tbody {
+        display: block !important;
+        width: 100% !important;
+    }
+    table.table-dark-foodie:has(#catalogTableBody) thead {
+        display: none !important;
+    }
+    #catalogTableBody tr {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: flex-start !important;
+        gap: 0.65rem !important;
+        padding: 0.9rem !important;
+        margin-bottom: 0.85rem !important;
+        background: rgba(255, 255, 255, 0.025) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 0.85rem !important;
+    }
+    #catalogTableBody td {
+        border: none !important;
+        padding: 0 !important;
+        min-width: 0 !important;
+        white-space: normal !important;
+    }
+    #catalogTableBody td:nth-child(1) {
+        flex: 0 0 64px !important;
+        width: 64px !important;
+    }
+    #catalogTableBody td:nth-child(2) {
+        flex: 1 1 calc(100% - 76px) !important;
+        width: calc(100% - 76px) !important;
+    }
+    #catalogTableBody td:nth-child(3) {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+    }
+    #catalogTableBody td:nth-child(4) {
+        flex: 0 0 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        min-height: 32px;
+    }
+    #catalogTableBody td:nth-child(5) {
+        flex: 1 1 110px !important;
+    }
+    #catalogTableBody td:nth-child(5) input[type="number"] {
+        width: 100% !important;
+    }
+    #catalogTableBody td:nth-child(6) {
+        flex: 0 0 auto !important;
+        margin-left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        min-height: 32px;
+    }
+    #completedOrdersSection .card-header {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: flex-start !important;
+    }
+    #completedOrdersSection .card-header > div:first-child {
+        flex: 1 1 100% !important;
+    }
+    #completedOrdersSection .card-header > button {
+        margin-left: auto !important;
+        align-self: flex-end !important;
+    }
+    .table-responsive {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav-pills, .nav-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.35rem;
+        padding-bottom: 0.25rem;
+    }
+    .nav-pills .nav-link, .nav-tabs .nav-link {
+        white-space: nowrap;
+        font-size: 0.82rem;
+    }
+}
+@media (max-width: 400px) {
+    nav.studio-navbar a.navbar-brand svg {
+        width: 20px !important;
+        height: 23px !important;
+    }
+    nav.studio-navbar .brand-wordmark {
+        font-size: 0.98rem !important;
+    }
+    nav.studio-navbar .brand-subtitle {
+        font-size: 0.46rem !important;
+        letter-spacing: 0.04em !important;
+    }
+}
+</style>
 </body>
 </html>

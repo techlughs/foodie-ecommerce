@@ -5110,6 +5110,127 @@ html, body, .page-layer {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35) !important;
 }
 </style>
+<style id="foodie-modal-box-cleanup">
+#dishDetailModal .foodie-detail-close-x {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: 1 !important;
+}
+#dishDetailModal .foodie-detail-close-x:hover,
+#dishDetailModal .foodie-detail-close-x:focus,
+#dishDetailModal .foodie-detail-close-x:active {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+#dishDetailModal #similarItemsContainer > * {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 2px 0 !important;
+}
+#dishDetailModal #similarItemsContainer > *:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-decoration: underline;
+}
+</style>
+<style id=foodie-responsive-polish>
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+img, video, canvas, svg {
+    max-width: 100%;
+}
+@media (max-width: 1199.98px) {
+    .container, .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+@media (max-width: 991.98px) {
+    header .container, header .container-fluid,
+    nav .container, nav .container-fluid,
+    .navbar .container, .navbar .container-fluid {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .hero-section, .hero-banner {
+        min-height: auto !important;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .hero-section h1, .hero-banner h1 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+    }
+    .dish-card img {
+        height: 200px;
+        object-fit: cover;
+    }
+    #dishDetailModal .modal-dialog {
+        margin: 0.75rem auto;
+        max-width: calc(100% - 1.5rem);
+    }
+    #dishDetailModal .row > [class*=col-] {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #dishDetailModal img {
+        max-height: 260px;
+        width: 100%;
+        object-fit: cover;
+    }
+    #profileModal .modal-dialog,
+    #customerOrdersHistoryModal .modal-dialog {
+        margin: 0.75rem auto;
+        max-width: calc(100% - 1.5rem);
+    }
+}
+@media (max-width: 575.98px) {
+    section, .hero-section {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    .navbar-brand {
+        font-size: 1.05rem !important;
+    }
+    .nav-pill-btn {
+        padding: 0.35rem 0.6rem !important;
+        font-size: 0.78rem !important;
+    }
+    .d-flex.gap-3 {
+        gap: 0.5rem !important;
+    }
+    .offcanvas, #cartDrawer {
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+    #authModal .modal-dialog,
+    #payWithModal .modal-dialog,
+    #thankYouModal .modal-dialog,
+    #legacyCustomerOrdersHistoryModal .modal-dialog {
+        margin: 0.5rem auto;
+        max-width: calc(100% - 1rem);
+    }
+    #authModal .modal-body,
+    #profileModal .modal-body,
+    #customerOrdersHistoryModal .modal-body {
+        padding: 1rem !important;
+    }
+    footer .row > [class*=col-] {
+        margin-bottom: 1.25rem;
+    }
+}
+</style>
 </head>
 <body>
 <div class="page-layer">
@@ -5141,11 +5262,11 @@ html, body, .page-layer {
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active fw-semibold" href="#recommendedSection">Top Picks</a></li>
                     <li class="nav-item"><a class="nav-link fw-semibold" href="#menuSection">Kitchen Menu</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="/admin/churn" id="navOpenAdminStudio">Open Admin Studio</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="/admin/churn" id="navOpenAdminStudio">Open Admin Page</a></li>
                     <li class="nav-item"></li>
                                     </ul>
                 <div class="d-flex flex-wrap align-items-center gap-2">
-                    <button class="btn nav-pill-btn nav-icon-btn text-dark fw-extrabold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" onclick="if(typeof renderCart==='function')renderCart();" title="Tasting Tray" aria-label="Tasting Tray"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18"></path><path d="M5 17a7 7 0 0 1 14 0"></path><path d="M12 7v3"></path><circle cx="12" cy="6" r="1"></circle></svg><span class="tray-count-pill" id="cartCount">0</span></button>
+                    <button class="btn nav-pill-btn nav-icon-btn text-dark fw-extrabold shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" onclick="if(typeof renderCart==='function')renderCart();" title="Tasting Tray" aria-label="Tasting Tray"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18"></path><path d="M5 17a7 7 0 0 1 14 0"></path><path d="M12 7v3"></path><circle cx="12" cy="6" r="1"></circle></svg><span class="tray-count-pill" id="cartCount" style="display:none;"></span></button>
                     <button type="button" class="btn nav-pill-btn nav-pill-glass" onclick="if(!window.isLoggedIn||!window.activeUserId||Number(window.activeUserId)<=0){if(typeof window.openCleanAuthModal==='function'){window.openCleanAuthModal('Sign in to view your order history and receipts.');}else{bootstrap.Modal.getOrCreateInstance(document.getElementById('authModal')).show();}return false;}loadOrderHistory();" title="Your Orders" aria-label="Your Orders"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></button>
                     <button type="button" class="btn nav-pill-btn nav-pill-glass" onclick="openProfileModal()" title="Profile & Preferences" aria-label="Profile & Preferences"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></button>
                 </div>
@@ -6179,7 +6300,7 @@ html, body, .page-layer {
         const deliveryFee = list.length ? (typeof getSelectedDeliveryFee === 'function' ? getSelectedDeliveryFee() : 160) : 0;
         const grandTotal = subtotal + deliveryFee;
 
-        document.querySelectorAll('#cartCount').forEach(el => el.textContent = count);
+        document.querySelectorAll('#cartCount').forEach(el => { const n = Number(count) || 0; el.textContent = n <= 0 ? '' : (n === 1 ? '1' : '1+'); el.style.display = n > 0 ? '' : 'none'; });
         if (document.getElementById('cartSubtotal')) document.getElementById('cartSubtotal').textContent = subtotal.toFixed(2);
         if (document.getElementById('cartDeliveryFee')) document.getElementById('cartDeliveryFee').textContent = deliveryFee.toFixed(2);
         const zoneSel = document.getElementById('deliveryZoneInput');
@@ -6592,7 +6713,7 @@ async function clearOrderHistory() {
             });
             dotNodes.forEach((d, i) => {
                 d.classList.remove('active');
-                void d.offsetWidth; 
+                void d.offsetWidth;
                 if (i === activeIndex) d.classList.add('active');
             });
         }
@@ -7281,7 +7402,7 @@ async function clearOrderHistory() {
         const deliveryFee = adj.deliveryFee;
         const grandTotal = Math.max(0, subtotal - adj.discount) + deliveryFee;
 
-        document.querySelectorAll('#cartCount').forEach(el => { el.textContent = String(totalCount); });
+        document.querySelectorAll('#cartCount').forEach(el => { const n = Number(totalCount) || 0; el.textContent = n <= 0 ? '' : (n === 1 ? '1' : '1+'); el.style.display = n > 0 ? '' : 'none'; });
         if (document.getElementById('cartSubtotal')) document.getElementById('cartSubtotal').textContent = subtotal.toFixed(2);
         if (document.getElementById('cartDeliveryFee')) document.getElementById('cartDeliveryFee').textContent = deliveryFee.toFixed(2);
 
@@ -7763,7 +7884,7 @@ async function clearOrderHistory() {
                 confirmBtn.textContent = 'Confirming...';
                 await submitCustomerReceiptConfirmation(order.id);
                 confirmBtn.disabled = false;
-                
+
                 hideProgressDockSmoothly(oid);
                 triggerThankYouNotification(ref);
                 setTimeout(() => refreshOrdersAndDock(false), 600);
@@ -7777,7 +7898,7 @@ async function clearOrderHistory() {
     function parseOrderTimestamp(val) {
         if (!val) return 0;
         if (Array.isArray(val)) {
-            
+
             const [y, m, d, hh = 0, mm = 0, ss = 0] = val;
             return new Date(y, (m || 1) - 1, d || 1, hh, mm, ss).getTime() || 0;
         }
@@ -7837,7 +7958,7 @@ async function clearOrderHistory() {
         if (forceShow) {
             sessionStorage.removeItem(HIDE_KEY);
         }
-        
+
         if (meta.active || forceShow) {
             renderFloatingProgressBar(latest);
         } else {
@@ -9602,7 +9723,7 @@ document.addEventListener('shown.bs.modal', function(e) {
         }
         if (typeof origSetCategory === 'function') {
             origSetCategory(cat, btnEl);
-            
+
             document.querySelectorAll('#categoryButtons .cat-tab, #categoryButtons button').forEach(b => {
                 b.classList.remove('btn-warning', 'btn-outline-warning', 'text-dark', 'fw-bold');
                 if (b !== btnEl) b.classList.remove('active');
@@ -9741,7 +9862,7 @@ document.addEventListener('click', function(e) {
         running = true;
         try {
             cards.forEach(card => {
-                
+
                 const priceEl = card.querySelector('.price-pill');
                 if (priceEl && priceEl.textContent.includes('.0')) {
                     const rawNum = parseFloat(priceEl.textContent.replace(/[^0-9.]/g, ''));
@@ -10237,7 +10358,7 @@ body,
     const categoryNames = ["All", "Grills & Mains", "Swahili Classics", "Coastal & Lake", "Street Favorites", "Drinks & Desserts"];
 
     function stripBoxes() {
-        
+
         const candidates = document.querySelectorAll("div, section, label, h1, h2, h3, h4, h5, h6, span, p");
         for (let i = 0; i < candidates.length; i++) {
             const el = candidates[i];
@@ -11162,5 +11283,195 @@ input[type="range"].form-range::-moz-range-thumb {
     });
 })();
 </script>
+<style id=foodie-mobile-nav-links>
+@media (max-width: 991.98px) {
+    nav.navbar-foodie,
+    nav.navbar-foodie div,
+    nav.navbar-foodie ul,
+    nav.navbar-foodie li,
+    nav.navbar-foodie a,
+    nav.navbar-foodie button {
+        border: 0 !important;
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    nav.navbar-foodie .container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        row-gap: 0.35rem !important;
+    }
+    nav.navbar-foodie a.brand-logo-wrap {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.38rem !important;
+        width: auto !important;
+        max-width: none !important;
+        overflow: visible !important;
+        flex: 0 0 auto !important;
+        order: 1 !important;
+    }
+    nav.navbar-foodie a.brand-logo-wrap > div {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: baseline !important;
+        gap: 0.32rem !important;
+        width: auto !important;
+        max-width: none !important;
+        overflow: visible !important;
+    }
+    nav.navbar-foodie .brand-wordmark {
+        display: inline-block !important;
+        font-size: 1.08rem !important;
+        line-height: 1 !important;
+    }
+    nav.navbar-foodie span.brand-sub {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+        color: #f3ede4 !important;
+        -webkit-text-fill-color: #f3ede4 !important;
+        margin: 0 !important;
+        font-size: 0.52rem !important;
+        letter-spacing: 0.06em !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+    nav.navbar-foodie.navbar-expand-lg .navbar-collapse,
+    nav.navbar-foodie #navMain {
+        display: contents !important;
+    }
+    nav.navbar-foodie #navMain > div.d-flex {
+        order: 2 !important;
+        margin-left: auto !important;
+        width: auto !important;
+        flex: 0 0 auto !important;
+        display: inline-flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 0.2rem !important;
+    }
+    nav.navbar-foodie #navMain > div.d-flex .nav-pill-btn {
+        padding: 4px 5px !important;
+    }
+    nav.navbar-foodie #navMain > ul.navbar-nav {
+        order: 3 !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 1.1rem !important;
+        margin: 0 !important;
+        padding-top: 0.15rem !important;
+    }
+    nav.navbar-foodie #navMain > ul.navbar-nav .nav-item:empty {
+        display: none !important;
+    }
+    nav.navbar-foodie #navMain > ul.navbar-nav .nav-link {
+        display: inline-block !important;
+        padding: 0.15rem 0 !important;
+        font-size: 0.84rem !important;
+        white-space: nowrap !important;
+    }
+}
+@media (max-width: 400px) {
+    nav.navbar-foodie a.brand-logo-wrap svg {
+        width: 20px !important;
+        height: 23px !important;
+    }
+    nav.navbar-foodie .brand-wordmark {
+        font-size: 0.98rem !important;
+    }
+    nav.navbar-foodie span.brand-sub {
+        font-size: 0.46rem !important;
+        letter-spacing: 0.04em !important;
+    }
+    nav.navbar-foodie #navMain > div.d-flex {
+        gap: 0.12rem !important;
+    }
+    nav.navbar-foodie #navMain > div.d-flex .nav-pill-btn {
+        padding: 3px 4px !important;
+    }
+    nav.navbar-foodie #navMain > div.d-flex svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+}
+</style>
+<style id="foodie-notifications-responsive">
+@media (max-width: 575.98px) {
+    #foodieLiveProgressDock {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 14px !important;
+        transform: none !important;
+        width: auto !important;
+        max-width: none !important;
+        padding: 12px 14px !important;
+        border-radius: 14px !important;
+        box-sizing: border-box !important;
+    }
+    #foodieLiveProgressDock > div:first-child {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.45rem !important;
+        padding-right: 24px !important;
+    }
+    #foodieLiveProgressDock #flpCloseBtn {
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+    }
+    #foodieLiveProgressDock > div:first-child > div:last-child {
+        justify-content: flex-start !important;
+    }
+    #foodieCleanThankYouToast {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 14px !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        width: auto !important;
+        padding: 10px 12px !important;
+        border-radius: 12px !important;
+        box-sizing: border-box !important;
+    }
+    #foodieRetentionBanner {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 14px !important;
+        max-width: none !important;
+        width: auto !important;
+        padding: 12px 14px !important;
+        border-radius: 14px !important;
+        box-sizing: border-box !important;
+    }
+    #foodieRetentionBanner #foodieRetentionOfferText {
+        font-size: 0.88rem !important;
+        line-height: 1.3 !important;
+        word-break: break-word !important;
+    }
+    .toast-container {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 14px !important;
+        padding: 0 !important;
+        max-width: none !important;
+        width: auto !important;
+    }
+    #foodieToast {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+</style>
 </body>
 </html>
