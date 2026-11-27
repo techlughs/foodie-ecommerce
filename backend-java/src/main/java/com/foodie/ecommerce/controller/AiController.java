@@ -47,4 +47,9 @@ public class AiController {
     public ChurnPredictionResponse getCustomerChurnRisk(@PathVariable Long userId) {
         return aiIntegrationService.getChurnPrediction(userId);
     }
+
+    @GetMapping("/metrics")
+    public Map<String, Object> getModelValidationMetrics() {
+        return aiIntegrationService.getModelMetrics();
+    }
 }

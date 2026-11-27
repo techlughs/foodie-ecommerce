@@ -150,6 +150,58 @@
             box-shadow: none !important;
             outline: none !important;
         }
+        .dish-photo-picker {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px dashed rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+        }
+        .dish-photo-thumb {
+            width: 52px;
+            height: 52px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            flex-shrink: 0;
+        }
+        .dish-photo-placeholder {
+            width: 52px;
+            height: 52px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            flex-shrink: 0;
+        }
+        .btn-save-dish-subtle {
+            background: transparent;
+            color: #f5b800;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            padding: 4px 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            letter-spacing: 0.01em;
+            text-shadow: none;
+            transition: color 0.18s ease, text-shadow 0.18s ease;
+        }
+        .btn-save-dish-subtle:hover {
+            color: #ffcf40;
+            text-shadow: 0 0 6px rgba(245, 184, 0, 0.22);
+        }
+        .btn-save-dish-subtle:active {
+            color: #e6ac00;
+            text-shadow: none;
+        }
         .btn-dark-subtle {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.14);
@@ -253,28 +305,28 @@
         <div class="col-6 col-md-3">
             <div class="card kpi-card p-3 h-100">
                 <span class="kpi-label">Total Sales Revenue</span>
-                <h3 class="fw-bold mt-1 mb-1">KES <span th:text="${totalRevenue}">0.00</span></h3>
-                <small style="color: var(--gold-accent);">Avg Order: KES <span th:text="${averageOrderValue}">0</span></small>
+                <h3 class="fw-bold mt-1 mb-1">KES <span id="kpiTotalRevenue" th:text="${totalRevenue}">0.00</span></h3>
+                <small style="color: var(--gold-accent);">Avg Order: KES <span id="kpiAvgOrder" th:text="${averageOrderValue}">0</span></small>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="card kpi-card p-3 h-100">
                 <span class="kpi-label">Active Customers</span>
-                <h3 class="fw-bold mt-1 mb-1" th:text="${activeUsersCount}">0</h3>
-                <small class="text-secondary" th:text="${totalOrdersCount} + ' Completed Orders'">0 Completed Orders</small>
+                <h3 class="fw-bold mt-1 mb-1" id="kpiActiveCustomers" th:text="${activeUsersCount}">0</h3>
+                <small class="text-secondary" id="kpiCompletedOrders" th:text="${totalOrdersCount} + ' Completed Orders'">0 Completed Orders</small>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="card kpi-card p-3 h-100">
                 <span class="kpi-label">High-Risk Churn Share</span>
-                <h3 class="fw-bold mt-1 mb-1" style="color: #fca5a5;"><span th:text="${overallChurnRate}">0.0</span>%</h3>
+                <h3 class="fw-bold mt-1 mb-1" style="color: #fca5a5;"><span id="kpiHighRiskShare" th:text="${overallChurnRate}">0.0</span>%</h3>
                 <small class="text-secondary">Customers above 60% risk</small>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="card kpi-card p-3 h-100">
                 <span class="kpi-label">Menu Catalog</span>
-                <h3 class="fw-bold mt-1 mb-1" th:text="${#lists.size(products)}">0</h3>
+                <h3 class="fw-bold mt-1 mb-1" id="kpiMenuCatalogCount" th:text="${#lists.size(products)}">0</h3>
                 <small class="text-secondary">Active storefront dishes</small>
             </div>
         </div>
@@ -707,10 +759,10 @@
                 <h5 class="section-heading mb-1">Model Validation Metrics</h5>
                 <p class="text-secondary small mb-3">Holdout evaluation benchmarks for churn and recommendation models</p>
                 <div class="row g-2 mb-3">
-                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Churn Accuracy</small><span class="fs-5 fw-bold text-light">91.4%</span></div></div>
-                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Churn ROC-AUC</small><span class="fs-5 fw-bold text-light">0.942</span></div></div>
-                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Precision / Recall</small><span class="fs-5 fw-bold text-light">0.89 / 0.87</span></div></div>
-                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Recommender Precision@3</small><span class="fs-5 fw-bold" style="color: var(--gold-accent);">86.7%</span></div></div>
+                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Churn Accuracy</small><span class="fs-5 fw-bold text-light" th:text="${modelMetrics != null ? modelMetrics['churn_accuracy'] + '%' : '91.4%'}">91.4%</span></div></div>
+                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Churn ROC-AUC</small><span class="fs-5 fw-bold text-light" th:text="${modelMetrics != null ? modelMetrics['churn_roc_auc'] : '0.942'}">0.942</span></div></div>
+                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Precision / Recall</small><span class="fs-5 fw-bold text-light" th:text="${modelMetrics != null ? modelMetrics['churn_precision'] + ' / ' + modelMetrics['churn_recall'] : '0.89 / 0.87'}">0.89 / 0.87</span></div></div>
+                    <div class="col-6"><div class="p-3 rounded-3" style="background: var(--surface-input); border: 1px solid var(--border-muted);"><small class="text-secondary d-block">Recommender Precision@3</small><span class="fs-5 fw-bold" style="color: var(--gold-accent);" th:text="${modelMetrics != null ? modelMetrics['recommender_precision_at_3'] + '%' : '86.7%'}">86.7%</span></div></div>
                 </div>
                 <div class="d-flex align-items-center gap-2 small mt-1">
                     <span th:style="${mlOnline} ? 'width:7px;height:7px;border-radius:50%;background:var(--bs-warning,#ffc107);display:inline-block;' : 'width:7px;height:7px;border-radius:50%;background:#8c8275;display:inline-block;'"></span>
@@ -791,14 +843,21 @@
                         <input type="text" id="newProdCarbs" class="form-control form-control-dark" value="45g" placeholder="45g">
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label small text-secondary">Dish Photo</label>
-                    <input type="file" id="newProdFile" accept="image/*" class="form-control form-control-dark" onchange="previewNewDishPhoto(this)">
-                    <div class="mt-2 d-none" id="newProdPreviewWrap">
-                        <img id="newProdPreview" src="" alt="Selected dish preview" style="width:72px;height:72px;object-fit:cover;border-radius:10px;border:1px solid var(--border-subtle);">
-                    </div>
+                    <input type="file" id="newProdFile" accept="image/*" class="d-none" onchange="previewNewDishPhoto(this)">
+                    <label for="newProdFile" class="dish-photo-picker mb-0">
+                        <div id="newProdPlaceholder" class="dish-photo-placeholder">IMG</div>
+                        <img id="newProdPreview" src="" alt="Selected dish preview" class="dish-photo-thumb d-none">
+                        <div class="overflow-hidden">
+                            <div id="newProdFileName" class="small fw-medium text-light text-truncate">Select dish photo</div>
+                            <div class="text-secondary" style="font-size: 0.75rem;">JPG, PNG, or WEBP</div>
+                        </div>
+                    </label>
                 </div>
-                <button class="btn btn-gold-subtle rounded-2 w-100" onclick="createNewProduct()">Save Dish</button>
+                <div class="d-flex justify-content-center pt-1">
+                    <button type="button" class="btn-save-dish-subtle" onclick="createNewProduct()">Save Dish</button>
+                </div>
             </div>
         </div>
     </div>
@@ -811,10 +870,13 @@
     const catLabels = /*[[${categoryLabels}]]*/ [];
     const catValues = /*[[${categoryValues}]]*/ [];
 
+    let churnChartInstance = null;
+    let categoryChartInstance = null;
+
     document.addEventListener('DOMContentLoaded', () => {
         const churnCanvas = document.getElementById('churnChart');
         if (churnCanvas && typeof Chart !== 'undefined') {
-            new Chart(churnCanvas, {
+            churnChartInstance = new Chart(churnCanvas, {
                 type: 'bar',
                 data: {
                     labels: churnRows.length ? churnRows.map(r => r.customerName) : ['No Customers'],
@@ -840,7 +902,7 @@
 
         const catCanvas = document.getElementById('categoryChart');
         if (catCanvas && typeof Chart !== 'undefined') {
-            new Chart(catCanvas, {
+            categoryChartInstance = new Chart(catCanvas, {
                 type: 'doughnut',
                 data: {
                     labels: catLabels.length ? catLabels : ['Grills & Mains', 'Swahili Classics', 'Coastal & Lake', 'Street Favorites', 'Drinks & Desserts'],
@@ -874,18 +936,26 @@
         });
     }
 
-    const alertTimers = {};
-    function showAutoDismissAlert(containerId, message, durationMs = 3500) {
-        const box = document.getElementById(containerId);
-        if (!box) return;
-        if (alertTimers[containerId]) {
-            clearTimeout(alertTimers[containerId]);
-            delete alertTimers[containerId];
+    let toastTimer = null;
+    function showAutoDismissAlert(containerId, message, durationMs = 2800) {
+        let toast = document.getElementById('foodieAdminToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'foodieAdminToast';
+            toast.style.cssText = 'position:fixed;bottom:20px;right:24px;z-index:1080;padding:8px 14px;border-radius:4px;background:#14110e;border:1px solid rgba(255,255,255,0.14);border-left:3px solid #f5b800;color:#e8e3da;font-size:0.82rem;font-weight:500;letter-spacing:0.01em;opacity:0;transition:opacity 0.15s ease;pointer-events:none;';
+            document.body.appendChild(toast);
         }
-        box.innerHTML = `<div class="py-2 px-3 mb-3 rounded-2 small" style="background: rgba(245,184,0,0.12); border: 1px solid rgba(245,184,0,0.3); color: #f5b800;">${message}</div>`;
-        alertTimers[containerId] = setTimeout(() => {
-            box.innerHTML = '';
-            delete alertTimers[containerId];
+        if (toastTimer) {
+            clearTimeout(toastTimer);
+            toastTimer = null;
+        }
+        toast.textContent = message;
+        requestAnimationFrame(() => {
+            toast.style.opacity = '1';
+        });
+        toastTimer = setTimeout(() => {
+            toast.style.opacity = '0';
+            toastTimer = null;
         }, durationMs);
     }
 
@@ -908,15 +978,117 @@
 
     function previewNewDishPhoto(input) {
         const file = input.files && input.files[0];
-        const wrap = document.getElementById('newProdPreviewWrap');
+        const placeholder = document.getElementById('newProdPlaceholder');
         const img = document.getElementById('newProdPreview');
-        if (!file || !wrap || !img) return;
+        const label = document.getElementById('newProdFileName');
+        if (!file || !img) return;
+        if (label) label.textContent = file.name;
         const reader = new FileReader();
         reader.onload = e => {
             img.src = e.target.result;
-            wrap.classList.remove('d-none');
+            img.classList.remove('d-none');
+            if (placeholder) placeholder.classList.add('d-none');
         };
         reader.readAsDataURL(file);
+    }
+
+    function escapeHtmlAttr(val) {
+        return String(val ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
+    function appendCatalogProductRow(prod) {
+        const tbody = document.getElementById('catalogTableBody');
+        if (!tbody || !prod || !prod.id) return;
+        const id = escapeHtmlAttr(prod.id);
+        const fallbackImg = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=160&q=80';
+        const imgUrl = prod.imageUrl && String(prod.imageUrl).trim() ? escapeHtmlAttr(prod.imageUrl) : fallbackImg;
+        const name = escapeHtmlAttr(prod.name || '');
+        const cat = String(prod.category || 'Grills & Mains');
+        const desc = String(prod.description || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const ing = Array.isArray(prod.ingredients) ? escapeHtmlAttr(prod.ingredients.join(', ')) : escapeHtmlAttr(prod.ingredients || '');
+        const price = escapeHtmlAttr(prod.price != null ? prod.price : '');
+
+        const categories = ['Grills & Mains', 'Swahili Classics', 'Coastal & Lake', 'Street Favorites', 'Drinks & Desserts'];
+        const optionsHtml = categories.map(c =>
+            `<option value="${escapeHtmlAttr(c)}"${c === cat ? ' selected' : ''}>${escapeHtmlAttr(c)}</option>`
+        ).join('');
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>
+                <img id="thumb-${id}"
+                     src="${imgUrl}"
+                     onerror="this.onerror=null;this.src='${fallbackImg}';"
+                     alt="Dish photo"
+                     style="width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid rgba(245,184,0,0.22);">
+            </td>
+            <td style="min-width: 195px;">
+                <input type="text" class="form-control form-control-sm form-control-dark fw-semibold mb-1"
+                       id="name-${id}" value="${name}" placeholder="Dish name">
+                <select class="form-select form-select-sm form-select-dark" style="color: var(--gold-accent) !important;" id="cat-${id}">
+                    ${optionsHtml}
+                </select>
+            </td>
+            <td style="min-width: 245px;">
+                <textarea rows="2" class="form-control form-control-sm form-control-dark mb-1"
+                          id="desc-${id}" placeholder="Dish description...">${desc}</textarea>
+                <input type="text" class="form-control form-control-sm form-control-dark"
+                       id="ing-${id}" value="${ing}"
+                       placeholder="Ingredients (comma-separated)">
+            </td>
+            <td class="text-nowrap">
+                <input type="file" accept="image/*" class="d-none"
+                       id="file-${id}" data-id="${id}"
+                       onchange="handleRowPhotoSelected(this)">
+                <button type="button"
+                        class="btn btn-link p-0 border-0 text-decoration-none d-inline-flex align-items-center gap-2"
+                        style="color: var(--text-muted); font-size: 0.82rem; box-shadow: none; outline: none; transition: color 0.15s ease;"
+                        onmouseover="this.style.color='var(--gold-accent)'"
+                        onmouseout="this.style.color='var(--text-muted)'"
+                        data-file-id="file-${id}" onclick="document.getElementById(this.getAttribute('data-file-id')).click()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <span>Change photo</span>
+                </button>
+            </td>
+            <td>
+                <input type="number" class="form-control form-control-sm form-control-dark" style="width:92px;"
+                       id="price-${id}" value="${price}">
+            </td>
+            <td class="text-end text-nowrap">
+                <div class="d-inline-flex align-items-center gap-3">
+                    <button type="button"
+                            class="btn btn-link p-0 border-0 text-decoration-none fw-semibold"
+                            style="color: #f5b800; font-size: 0.82rem; box-shadow: none; outline: none; transition: color 0.15s ease;"
+                            onmouseover="this.style.color='#d9a300'"
+                            onmouseout="this.style.color='#f5b800'"
+                            data-id="${id}" onclick="saveProductUpdates(this)">Save</button>
+                    <button type="button"
+                            class="btn btn-link p-0 border-0 d-inline-flex align-items-center"
+                            style="color: var(--text-muted); box-shadow: none; outline: none; transition: color 0.15s ease;"
+                            onmouseover="this.style.color='#f87171'"
+                            onmouseout="this.style.color='var(--text-muted)'"
+                            title="Delete Dish" aria-label="Delete Dish"
+                            data-id="${id}" onclick="deleteProduct(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="3 6 5 6 21 6"/>
+                            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                            <path d="M10 11v6"/>
+                            <path d="M14 11v6"/>
+                            <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                        </svg>
+                    </button>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
     }
 
     async function createNewProduct() {
@@ -941,11 +1113,36 @@
         if (selectedFile && created && created.id) {
             const formData = new FormData();
             formData.append('file', selectedFile);
-            await fetch(`/api/portal/admin/products/${created.id}/upload-image`, {
+            const upRes = await fetch(`/api/portal/admin/products/${created.id}/upload-image`, {
                 method: 'POST', body: formData
             });
+            if (upRes.ok) {
+                const upData = await upRes.json();
+                if (upData.imageUrl) created.imageUrl = upData.imageUrl;
+            }
         }
-        window.location.reload();
+
+        appendCatalogProductRow(created);
+
+        const modalEl = document.getElementById('addProductModal');
+        if (modalEl && typeof bootstrap !== 'undefined') {
+            const inst = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+            inst.hide();
+        }
+        ['newProdName', 'newProdPrice', 'newProdDesc', 'newProdIng', 'newProdKcal', 'newProdProtein', 'newProdFat', 'newProdCarbs'].forEach(fid => {
+            const el = document.getElementById(fid);
+            if (el) el.value = '';
+        });
+        if (fileInput) fileInput.value = '';
+        const prevImg = document.getElementById('newProdPreview');
+        const prevPh = document.getElementById('newProdPlaceholder');
+        const prevLbl = document.getElementById('newProdFileName');
+        if (prevImg) { prevImg.src = ''; prevImg.classList.add('d-none'); }
+        if (prevPh) prevPh.classList.remove('d-none');
+        if (prevLbl) prevLbl.textContent = 'No file selected';
+
+        showAutoDismissAlert('inventoryAlert', `Added "${created.name || payload.name}" to catalog.`);
+        if (window.syncAdminDashboardLive) window.syncAdminDashboardLive();
     }
 
     async function saveProductUpdates(btn) {
@@ -979,6 +1176,7 @@
         }
 
         showAutoDismissAlert('inventoryAlert', `Saved "${name}" changes.`);
+        if (window.syncAdminDashboardLive) window.syncAdminDashboardLive();
     }
 
     async function uploadDishPhoto(btn) {
@@ -1007,8 +1205,15 @@
 
     async function deleteProduct(btn) {
         const id = btn.getAttribute('data-id');
+        const row = btn.closest('tr');
+        const nameInput = document.getElementById(`name-${id}`);
+        const dishName = nameInput && nameInput.value ? nameInput.value : 'Dish';
         const res = await fetch(`/api/portal/admin/products/${id}`, { method: 'DELETE' });
-        if (res.ok) window.location.reload();
+        if (res.ok) {
+            if (row) row.remove();
+            showAutoDismissAlert('inventoryAlert', `Removed "${dishName}" from catalog.`);
+            if (window.syncAdminDashboardLive) window.syncAdminDashboardLive();
+        }
     }
 
     async function advanceOrderStatus(orderId, status) {
@@ -1432,5 +1637,127 @@ nav.studio-navbar button[title="Sign Out"]:hover {
     }
 }
 </style>
+<script id="foodie-live-admin-dashboard">
+(function() {
+    function esc(v) {
+        return String(v ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    window.syncAdminDashboardLive = async function() {
+        try {
+            const res = await fetch('/api/portal/admin/live-metrics?_t=' + Date.now(), {
+                credentials: 'same-origin',
+                cache: 'no-store'
+            });
+            if (!res.ok) return;
+            const data = await res.json();
+
+            const revEl = document.getElementById('kpiTotalRevenue');
+            const avgEl = document.getElementById('kpiAvgOrder');
+            const custEl = document.getElementById('kpiActiveCustomers');
+            const ordEl = document.getElementById('kpiCompletedOrders');
+            const riskEl = document.getElementById('kpiHighRiskShare');
+            const catCntEl = document.getElementById('kpiMenuCatalogCount');
+
+            if (revEl && data.totalRevenue != null) revEl.textContent = data.totalRevenue;
+            if (avgEl && data.averageOrderValue != null) avgEl.textContent = data.averageOrderValue;
+            if (custEl && data.activeUsersCount != null) custEl.textContent = data.activeUsersCount;
+            if (ordEl && data.totalOrdersCount != null) ordEl.textContent = `${data.totalOrdersCount} Completed Orders`;
+            if (riskEl && data.overallChurnRate != null) riskEl.textContent = Number(data.overallChurnRate).toFixed(1);
+            if (catCntEl && data.catalogCount != null) catCntEl.textContent = data.catalogCount;
+
+            const rows = Array.isArray(data.churnRows) ? data.churnRows : [];
+
+            if (typeof churnChartInstance !== 'undefined' && churnChartInstance) {
+                churnChartInstance.data.labels = rows.length ? rows.map(r => r.customerName) : ['No Customers'];
+                churnChartInstance.data.datasets[0].data = rows.length ? rows.map(r => r.scorePercent) : [0];
+                churnChartInstance.data.datasets[0].backgroundColor = rows.map(r =>
+                    r.riskLevel === 'High'
+                        ? 'rgba(248, 113, 113, 0.78)'
+                        : (r.riskLevel === 'Medium' ? 'rgba(245, 184, 0, 0.82)' : 'rgba(110, 231, 183, 0.75)')
+                );
+                churnChartInstance.update('none');
+            }
+
+            if (typeof categoryChartInstance !== 'undefined' && categoryChartInstance) {
+                const labels = Array.isArray(data.categoryLabels) && data.categoryLabels.length
+                    ? data.categoryLabels
+                    : ['Grills & Mains', 'Swahili Classics', 'Coastal & Lake', 'Street Favorites', 'Drinks & Desserts'];
+                const values = Array.isArray(data.categoryValues) && data.categoryValues.length
+                    ? data.categoryValues
+                    : [1, 1, 1, 1, 1];
+                categoryChartInstance.data.labels = labels;
+                categoryChartInstance.data.datasets[0].data = values;
+                categoryChartInstance.update('none');
+            }
+
+            const churnTbody = document.getElementById('churnRiskTbody');
+            if (churnTbody) {
+                const activeBtn = document.querySelector('#riskFilterGroup .btn.active');
+                const activeTier = activeBtn && activeBtn.textContent.trim() !== 'All'
+                    ? activeBtn.textContent.trim()
+                    : 'ALL';
+
+                churnTbody.innerHTML = rows.map(r => {
+                    const risk = r.riskLevel || 'Low';
+                    const barColor = risk === 'High' ? '#dc4c4c' : (risk === 'Medium' ? '#f5b800' : '#6ee7b7');
+                    const textColor = risk === 'High' ? '#f87171' : (risk === 'Medium' ? '#f5b800' : '#86efac');
+                    const actionText = String(r.recommendedAction || '').replace('Win-Back Trigger: ', '');
+                    const offerLabel = r.activeOffer && String(r.activeOffer).trim() ? 'Resend offer' : 'Send offer';
+                    const hiddenStyle = (activeTier !== 'ALL' && risk !== activeTier) ? ' style="display:none;"' : '';
+                    return `
+                        <tr class="churn-row" data-risk="${esc(risk)}"${hiddenStyle}>
+                            <td>
+                                <div class="fw-semibold">${esc(r.customerName)}</div>
+                                <small class="text-secondary">${esc(r.customerEmail)}</small>
+                            </td>
+                            <td style="min-width:165px;">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="progress flex-grow-1" style="height: 4px; background: rgba(255,255,255,0.08);">
+                                        <div class="progress-bar" style="width:${esc(r.scorePercent)}%; background-color:${barColor}"></div>
+                                    </div>
+                                    <span class="fw-semibold small">${esc(r.scorePercent)}%</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="fw-semibold" style="font-size: 0.85rem; color: ${textColor};">${esc(risk)}</span>
+                            </td>
+                            <td class="small text-secondary">${esc(actionText)}</td>
+                            <td class="text-end">
+                                <div class="d-inline-flex align-items-center gap-2">
+                                    <button type="button"
+                                            class="btn btn-link p-0 border-0 text-decoration-none fw-semibold"
+                                            style="color: #f5b800; font-size: 0.82rem; box-shadow: none; outline: none; transition: color 0.15s ease;"
+                                            onmouseover="this.style.color='#d9a300'"
+                                            onmouseout="this.style.color='#f5b800'"
+                                            data-uid="${esc(r.userId)}"
+                                            data-offer="${esc(r.recommendedAction)}"
+                                            onclick="triggerRetention(this)">${offerLabel}</button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+
+                if (window.applyAdminSectionPagination) {
+                    window.applyAdminSectionPagination('churn');
+                }
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    setInterval(window.syncAdminDashboardLive, 4000);
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) window.syncAdminDashboardLive();
+    });
+    window.addEventListener('focus', window.syncAdminDashboardLive);
+})();
+</script>
 </body>
 </html>

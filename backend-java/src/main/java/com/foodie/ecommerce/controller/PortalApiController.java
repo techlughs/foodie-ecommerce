@@ -10,6 +10,7 @@ import com.foodie.ecommerce.repository.ClickstreamRepository;
 import com.foodie.ecommerce.repository.OrderRepository;
 import com.foodie.ecommerce.repository.ProductRepository;
 import com.foodie.ecommerce.repository.UserRepository;
+import com.foodie.ecommerce.service.AiIntegrationService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -35,15 +36,18 @@ public class PortalApiController {
     private final ProductRepository productRepository;
     private final ClickstreamRepository clickstreamRepository;
     private final OrderRepository orderRepository;
+    private final AiIntegrationService aiIntegrationService;
 
     public PortalApiController(UserRepository userRepository,
                                ProductRepository productRepository,
                                ClickstreamRepository clickstreamRepository,
-                               OrderRepository orderRepository) {
+                               OrderRepository orderRepository,
+                               AiIntegrationService aiIntegrationService) {
         this.userRepository = userRepository;
         this.productRepository = productRepository;
         this.clickstreamRepository = clickstreamRepository;
         this.orderRepository = orderRepository;
+        this.aiIntegrationService = aiIntegrationService;
     }
 
         private void attachAuthCookie(HttpServletResponse response, Long userId) {
@@ -63,7 +67,7 @@ public class PortalApiController {
                 com.foodie.ecommerce.model.User u = new com.foodie.ecommerce.model.User();
                 u.setEmail(email);
                 u.setFullName("admin@foodie.co.ke".equals(email) ? "Executive Chef Admin" : "Nairobi Diner");
-                u.setRole("admin@foodie.co.ke".equals(email) ? "ADMIN" : "CUSTOMER");
+                u.setRole("admin@foodie.co.ke".equals(email) ? "ROLE_ADMIN" : "ROLE_CUSTOMER");
                 return u;
             });
             demoUser.setPasswordHash(DataSeeder.hashPassword(password));
@@ -113,28 +117,6 @@ public class PortalApiController {
         return ResponseEntity.ok(Map.of("id", created.getId(), "fullName", created.getFullName(), "role", created.getRole()));
     }
 
-    @PostMapping("/google-login")
-    public ResponseEntity<?> googleLogin(@RequestBody Map<String, String> payload, HttpSession session, HttpServletResponse response) {
-        String email = payload.getOrDefault("email", "").trim().toLowerCase();
-        String fullName = payload.getOrDefault("fullName", "").trim();
-        if (email.isEmpty()) {
-            return ResponseEntity.badRequest().body(Map.of("error", "Valid Google account email is required."));
-        }
-        final String resolvedName = fullName.isEmpty() ? email.split("@")[0] : fullName;
-        User user = userRepository.findByEmail(email).orElseGet(() -> {
-            User created = new User(null, resolvedName, email, "GOOGLE_OAUTH_USER", "ROLE_CUSTOMER", null);
-            return userRepository.save(created);
-        });
-        session.setAttribute("loggedInUser", user);
-        attachAuthCookie(response, user.getId());
-        return ResponseEntity.ok(Map.of(
-                "id", user.getId(),
-                "fullName", user.getFullName(),
-                "email", user.getEmail(),
-                "role", user.getRole()
-        ));
-    }
-
     @GetMapping("/logout")
     public void logoutGet(HttpSession session, HttpServletResponse response) throws java.io.IOException {
         session.invalidate();
@@ -143,6 +125,34 @@ public class PortalApiController {
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         response.sendRedirect("/store");
+    }
+
+    @DeleteMapping("/user/{id}")
+    public ResponseEntity<?> deleteUserAccount(@PathVariable Long id, HttpSession session, HttpServletResponse response) {
+        return userRepository.findById(id).map(user -> {
+            String role = user.getRole() != null ? user.getRole().toUpperCase() : "";
+            if ("ROLE_ADMIN".equals(role) || "ADMIN".equals(role) || "admin@foodie.co.ke".equalsIgnoreCase(user.getEmail())) {
+                return ResponseEntity.status(403).body(Map.of("error", "Administrator accounts cannot be permanently deleted."));
+            }
+            List<Order> userOrders = orderRepository.findByUserIdOrderByCreatedAtDesc(id);
+            if (!userOrders.isEmpty()) {
+                orderRepository.deleteAll(userOrders);
+            }
+            List<ClickstreamLog> logs = clickstreamRepository.findAll().stream()
+                    .filter(l -> id.equals(l.getUserId()))
+                    .toList();
+            if (!logs.isEmpty()) {
+                clickstreamRepository.deleteAll(logs);
+            }
+            userRepository.delete(user);
+
+            Object sessionObj = session.getAttribute("loggedInUser");
+            if (sessionObj instanceof User sessionUser && id.equals(sessionUser.getId())) {
+                session.invalidate();
+                attachAuthCookie(response, null);
+            }
+            return ResponseEntity.ok(Map.of("deleted", true, "id", id));
+        }).orElseGet(() -> ResponseEntity.status(404).body(Map.of("error", "User account not found.")));
     }
 
     @PostMapping("/logout")
@@ -344,6 +354,110 @@ public class PortalApiController {
             userRepository.save(u);
             return ResponseEntity.ok(Map.of("dismissed", true));
         }).orElseGet(() -> ResponseEntity.ok(Map.of("dismissed", false)));
+    }
+
+    @GetMapping("/admin/live-metrics")
+    public ResponseEntity<?> getLiveAdminMetrics() {
+        List<User> allUsers = userRepository.findAll();
+        java.util.Set<Long> adminIds = allUsers.stream()
+                .filter(u -> "ROLE_ADMIN".equalsIgnoreCase(u.getRole()) || "ADMIN".equalsIgnoreCase(u.getRole()))
+                .map(User::getId)
+                .collect(java.util.stream.Collectors.toSet());
+
+        List<User> customers = allUsers.stream()
+                .filter(u -> !"ROLE_ADMIN".equalsIgnoreCase(u.getRole()) && !"ADMIN".equalsIgnoreCase(u.getRole()))
+                .toList();
+
+        List<Product> products = productRepository.findAll();
+
+        List<Order> customerOrders = orderRepository.findAll().stream()
+                .filter(o -> o.getUserId() != null && !adminIds.contains(o.getUserId()))
+                .toList();
+
+        java.util.List<java.util.Map<String, Object>> churnRows = new java.util.ArrayList<>();
+        long highRiskCount = 0;
+        LocalDateTime now = LocalDateTime.now();
+
+        for (User customer : customers) {
+            Long uid = customer.getId();
+            List<Order> userHistory = customerOrders.stream()
+                    .filter(o -> uid.equals(o.getUserId()))
+                    .toList();
+
+            int totalOrders = userHistory.size();
+            int daysSinceLast = 0;
+            int ordersLast30d = 0;
+            double avgOrderValue = 0.0;
+
+            if (totalOrders > 0) {
+                LocalDateTime latestOrderAt = userHistory.stream()
+                        .map(Order::getCreatedAt)
+                        .filter(java.util.Objects::nonNull)
+                        .max(LocalDateTime::compareTo)
+                        .orElse(now);
+                daysSinceLast = (int) Math.max(0, java.time.temporal.ChronoUnit.DAYS.between(latestOrderAt, now));
+
+                LocalDateTime cutoff30d = now.minusDays(30);
+                ordersLast30d = (int) userHistory.stream()
+                        .filter(o -> o.getCreatedAt() == null || !o.getCreatedAt().isBefore(cutoff30d))
+                        .count();
+
+                double totalSpent = userHistory.stream()
+                        .map(Order::getTotalAmount)
+                        .filter(java.util.Objects::nonNull)
+                        .mapToDouble(BigDecimal::doubleValue)
+                        .sum();
+                avgOrderValue = Math.round((totalSpent / totalOrders) * 100.0) / 100.0;
+            }
+
+            double abandonmentRate = totalOrders >= 3 ? 0.10 : (totalOrders == 0 ? 0.25 : 0.18);
+            var pred = aiIntegrationService.getLiveChurnPrediction(
+                    uid, totalOrders, daysSinceLast, ordersLast30d, avgOrderValue, abandonmentRate);
+
+            double score = (pred != null && pred.getChurnRiskScore() != null) ? pred.getChurnRiskScore() : 0.14;
+            String level = (pred != null && pred.getRiskLevel() != null) ? pred.getRiskLevel() : "Low";
+            String action = (pred != null && pred.getRecommendedAction() != null) ? pred.getRecommendedAction() : "Standard loyalty points";
+
+            if ("High".equalsIgnoreCase(level)) {
+                highRiskCount++;
+            }
+
+            java.util.Map<String, Object> row = new java.util.LinkedHashMap<>();
+            row.put("userId", uid);
+            row.put("customerName", customer.getFullName());
+            row.put("customerEmail", customer.getEmail());
+            row.put("scorePercent", Math.round(score * 1000.0) / 10.0);
+            row.put("riskLevel", level);
+            row.put("recommendedAction", action);
+            row.put("activeOffer", customer.getActiveRetentionOffer() != null ? customer.getActiveRetentionOffer() : "");
+            churnRows.add(row);
+        }
+
+        BigDecimal totalRevenue = customerOrders.stream()
+                .map(Order::getTotalAmount)
+                .filter(java.util.Objects::nonNull)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        BigDecimal averageOrderValue = customerOrders.isEmpty()
+                ? BigDecimal.ZERO
+                : totalRevenue.divide(BigDecimal.valueOf(customerOrders.size()), 0, java.math.RoundingMode.HALF_UP);
+
+        double overallChurnRate = churnRows.isEmpty() ? 0.0 : Math.round((highRiskCount * 1000.0) / churnRows.size()) / 10.0;
+
+        var categoryCounts = products.stream()
+                .collect(java.util.stream.Collectors.groupingBy(Product::getCategory, java.util.stream.Collectors.counting()));
+
+        java.util.Map<String, Object> out = new java.util.LinkedHashMap<>();
+        out.put("totalRevenue", totalRevenue.toPlainString());
+        out.put("averageOrderValue", averageOrderValue.toPlainString());
+        out.put("activeUsersCount", customers.size());
+        out.put("totalOrdersCount", customerOrders.size());
+        out.put("overallChurnRate", overallChurnRate);
+        out.put("catalogCount", products.size());
+        out.put("categoryLabels", new java.util.ArrayList<>(categoryCounts.keySet()));
+        out.put("categoryValues", new java.util.ArrayList<>(categoryCounts.values()));
+        out.put("churnRows", churnRows);
+        return ResponseEntity.ok(out);
     }
 
     @GetMapping("/admin/activity")

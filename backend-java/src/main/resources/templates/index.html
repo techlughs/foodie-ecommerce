@@ -161,7 +161,7 @@
             transform: translateY(0);
         }
         .dish-card.card-visible:hover {
-            transform: translateY(-6px);
+            transform: translateY(-1px) !important;
         }
         .dish-card-legacy {
             background: var(--foodie-surface);
@@ -172,9 +172,8 @@
             transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
         }
         .dish-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(245, 158, 11, 0.55);
-            box-shadow: 0 22px 44px rgba(0, 0, 0, 0.58);
+            transform: translateY(-1px) !important;
+            border-color: rgba(230, 190, 122, 0.16);
         }
         .dish-img-wrap {
             position: relative;
@@ -188,7 +187,7 @@
             object-fit: cover;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .dish-card:hover .dish-img-wrap img { transform: scale(1.02); }
+        .dish-card:hover .dish-img-wrap img { transform: scale(1); }
         .price-pill {
             position: absolute;
             bottom: 12px;
@@ -265,19 +264,6 @@
             color: #fff;
             border-color: #f59e0b;
             box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.18);
-        }
-        .google-btn {
-            background: #ffffff;
-            color: #1f2937;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            font-weight: 700; transition: transform 0.15s ease, box-shadow 0.2s ease;
-        }
-        .google-btn:hover {
-            background: #f9fafb;
-            color: #111827;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
         }
         .auth-divider {
             display: flex;
@@ -514,9 +500,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -645,8 +630,7 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
         }
         .dish-card:hover {
-            border-color: rgba(230, 190, 122, 0.24) !important;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.42) !important;
+            border-color: rgba(230, 190, 122, 0.16) !important;
         }
         .dish-img-wrap {
             height: 225px !important;
@@ -664,7 +648,7 @@
             transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) !important;
         }
         .dish-card:hover .dish-img-wrap img {
-            transform: scale(1.02) !important;
+            transform: scale(1) !important;
         }
         .dish-card h5, .dish-card .card-title {
             font-family: 'Cormorant Garamond', Georgia, serif !important;
@@ -914,9 +898,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -1347,9 +1330,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -1607,9 +1589,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -1815,9 +1796,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -2108,9 +2088,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -2327,9 +2306,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -2546,9 +2524,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -2773,9 +2750,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -3034,9 +3010,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -3241,9 +3216,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -3458,9 +3432,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -3701,9 +3674,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -3915,9 +3887,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -4128,9 +4099,8 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -4363,9 +4333,8 @@ window.trackClickstream = function(productId, productName, action) {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -4710,9 +4679,8 @@ body.modal-open .navbar {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -4780,9 +4748,8 @@ body.modal-open .navbar {
 }
 #menuSection .dish-card:hover,
 #recommendedSection .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.28) !important;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 
 #menuSection .dish-card img,
@@ -5292,7 +5259,21 @@ img, video, canvas, svg {
                     </p>
                     <div class="d-flex flex-wrap gap-2">
                         <a href="#menuSection" class="btn btn-hero-gold">Explore Full Menu</a>
-                        <a href="#recommendedSection" class="btn btn-hero-ghost">Your Top Picks</a>
+                        <style id="hero-top-picks-gold">
+#heroTopPicksBtn {
+    background-color: #f5c518 !important;
+    border-color: #f5c518 !important;
+    color: #141210 !important;
+    font-weight: 600 !important;
+}
+#heroTopPicksBtn:hover,
+#heroTopPicksBtn:focus-visible {
+    background-color: #ffd43b !important;
+    border-color: #ffd43b !important;
+    color: #141210 !important;
+}
+</style>
+<a href="#recommendedSection" id="heroTopPicksBtn" class="btn btn-hero-ghost">Your Top Picks</a>
                     </div>
                     <div class="hero-metrics">
                         <div>
@@ -5691,7 +5672,47 @@ img, video, canvas, svg {
                                        placeholder="e.g. 0712 345 678">
                             </div>
 
-                            <div class="d-flex justify-content-end align-items-center gap-3 pt-3 mt-auto border-top border-secondary border-opacity-25">
+                            <div id="deleteAccountConfirmBox" class="mb-3 p-3 rounded-2" style="display:none;background:rgba(220,53,69,0.08);border:1px solid rgba(220,53,69,0.28);">
+                                <div class="small text-light mb-2">Permanently delete your account and all order history? This cannot be undone.</div>
+                                <div id="deleteAccountError" class="small text-danger mb-2" style="display:none;"></div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <button type="button" id="confirmDeleteAccountBtn" class="btn btn-sm p-0 text-danger"
+                                            style="background:transparent;border:none;box-shadow:none;line-height:1;"
+                                            title="Confirm Delete" aria-label="Confirm Delete"
+                                            onclick="executePermanentAccountDelete(this)">
+                                        <svg style="pointer-events:none;" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-sm p-0 text-secondary"
+                                            style="background:transparent;border:none;box-shadow:none;font-size:0.82rem;line-height:1;"
+                                            onclick="toggleDeleteAccountPrompt(false)">Cancel</button>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center gap-3 pt-3 mt-auto border-top border-secondary border-opacity-25">
+                                <style id="delete-account-hover-glow">
+#profileModal #deleteAccountTriggerBtn {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 0.82rem;
+    opacity: 0.72;
+    transition: opacity 0.22s ease, text-shadow 0.22s ease, color 0.22s ease !important;
+}
+#profileModal #deleteAccountTriggerBtn:hover,
+#profileModal #deleteAccountTriggerBtn:focus-visible {
+    opacity: 0.88 !important;
+    color: #dc3545 !important;
+    text-shadow: 0 0 4px rgba(220, 53, 69, 0.14) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+</style>
+<button type="button" id="deleteAccountTriggerBtn" class="btn btn-sm px-2 py-1 text-danger" onclick="toggleDeleteAccountPrompt(true)">Delete Account</button>
                                 <button type="button" class="btn btn-sm fw-semibold px-4 py-2 rounded-2"
                                         style="background:#f5f2ed;color:#141210;border:1px solid rgba(255,255,255,0.2);letter-spacing:0.01em;"
                                         onclick="saveProfilePrefs('overview', this)">
@@ -5782,13 +5803,13 @@ img, video, canvas, svg {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="loginTab">
-                        <div class="mb-3"><label class="form-label small fw-bold text-warning">Email Address</label><input type="email" id="loginEmail" class="form-control form-control-dark" value="" placeholder="you@example.com"></div>
+                        <div class="mb-3"><label class="form-label small fw-bold text-warning">Email Address</label><input type="email" id="loginEmail" class="form-control form-control-dark" value="" placeholder="foodie@gmail.com"></div>
                         <div class="mb-3"><label class="form-label small fw-bold text-warning">Password</label><input type="password" id="loginPassword" class="form-control form-control-dark" value="" placeholder="Enter your password"></div>
                         <div class="d-flex justify-content-center mt-3"><button type="button" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-3" onclick="submitLogin()">Sign In</button></div>
                     </div>
                     <div class="tab-pane fade" id="registerTab">
                         <div class="mb-2"><label class="form-label small fw-bold text-warning">Full Name</label><input type="text" id="regName" class="form-control form-control-dark" placeholder="Your Full Name"></div>
-                        <div class="mb-2"><label class="form-label small fw-bold text-warning">Email Address</label><input type="email" id="regEmail" class="form-control form-control-dark" placeholder="you@example.com"></div>
+                        <div class="mb-2"><label class="form-label small fw-bold text-warning">Email Address</label><input type="email" id="regEmail" class="form-control form-control-dark" placeholder="foodie@gmail.com"></div>
                         <div class="mb-3"><label class="form-label small fw-bold text-warning">Password</label><input type="password" id="regPassword" class="form-control form-control-dark" placeholder="Min 4 characters"></div>
                         <div class="d-flex justify-content-center mt-3"><button type="button" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-3" onclick="submitRegister()">Create Account</button></div>
                     </div>
@@ -5966,7 +5987,7 @@ img, video, canvas, svg {
 <script>
     const activeUserId = window.activeUserId;
     const isLoggedIn = window.isLoggedIn;
-    function requireAuth(msg) { if (!window._userInitiatedAction) return false; if (!isLoggedIn) { document.getElementById('authAlert').innerHTML = '<div class="alert alert-warning rounded-4 py-2 small fw-semibold">' + (msg || 'Please sign in or create an account first.') + '</div>'; new bootstrap.Modal(document.getElementById('authModal')).show(); return false; } return true; }
+    function requireAuth(msg) { if (!window._userInitiatedAction) return false; if (!isLoggedIn) { document.getElementById('authAlert').innerHTML = '<div class="small text-light opacity-75 text-center mb-0">' + (msg || 'Please sign in or create an account first.') + '</div>'; new bootstrap.Modal(document.getElementById('authModal')).show(); return false; } return true; }
     let selectedCategory = 'ALL';
     let cart = []; if (typeof window.clearTray === "function") window.clearTray();
     try {
@@ -6596,35 +6617,131 @@ async function clearOrderHistory() {
             card.style.display = (matchCat && matchPrice && matchQuery) ? 'block' : 'none';
         });
     }
-
-    async function signInWithGoogle() {
-        const res = await fetch('/api/portal/google-login', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ fullName: 'Nairobi Diner', email: 'diner@foodie.co.ke' })
+    function showAuthFeedback(message, type = 'danger', focusEl = null) {
+        const alertBox = document.getElementById('authAlert');
+        if (alertBox) {
+            const colorCls = type === 'danger' ? 'text-danger' : 'text-light opacity-75';
+            alertBox.innerHTML = `<div class="small ${colorCls} text-center mb-0">${message}</div>`;
+        }
+        ['loginEmail', 'loginPassword', 'regName', 'regEmail', 'regPassword'].forEach(fid => {
+            const inp = document.getElementById(fid);
+            if (inp) inp.style.removeProperty('border-color');
         });
-        const data = await res.json();
-        if (res.ok) window.location.href = `/store?userId=${data.id}`;
-        else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error || 'Google sign-in failed'}</div>`;
+        if (focusEl) {
+            focusEl.style.setProperty('border-color', 'rgba(248, 113, 113, 0.7)', 'important');
+            focusEl.focus();
+        }
+    }
+
+    function clearAuthFeedback() {
+        const alertBox = document.getElementById('authAlert');
+        if (alertBox) alertBox.innerHTML = '';
+        ['loginEmail', 'loginPassword', 'regName', 'regEmail', 'regPassword'].forEach(fid => {
+            const inp = document.getElementById(fid);
+            if (inp) inp.style.removeProperty('border-color');
+        });
     }
 
     async function submitLogin() {
-        const res = await fetch('/api/portal/login', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value })
-        });
-        const data = await res.json();
-        if (res.ok) window.location.href = data.role === 'ROLE_ADMIN' ? '/admin/churn' : `/store?userId=${data.id}`;
-        else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error}</div>`;
+        const emailEl = document.getElementById('loginEmail');
+        const passEl = document.getElementById('loginPassword');
+        const btn = document.querySelector('#loginTab button[onclick*="submitLogin"]');
+        const email = emailEl ? emailEl.value.trim() : '';
+        const password = passEl ? passEl.value : '';
+
+        if (!email) {
+            showAuthFeedback('Please enter your email address.', 'danger', emailEl);
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showAuthFeedback('Please enter a valid email address.', 'danger', emailEl);
+            return;
+        }
+        if (!password) {
+            showAuthFeedback('Please enter your password.', 'danger', passEl);
+            return;
+        }
+
+        clearAuthFeedback();
+        const origLabel = btn ? btn.textContent : 'Sign In';
+        if (btn) { btn.disabled = true; btn.textContent = 'Signing in...'; }
+
+        try {
+            const res = await fetch('/api/portal/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'same-origin',
+                body: JSON.stringify({ email, password })
+            });
+            let data = {};
+            try { data = await res.json(); } catch (_) {}
+
+            if (res.ok) {
+                showAuthFeedback('Signed in. Redirecting...', 'success');
+                const role = String(data.role || '').toUpperCase();
+                window.location.href = (role === 'ROLE_ADMIN' || role === 'ADMIN') ? '/admin/churn' : `/store?userId=${data.id}`;
+                return;
+            }
+            showAuthFeedback(data.error || 'Incorrect email or password.', 'danger', passEl);
+        } catch (err) {
+            showAuthFeedback('Unable to reach the server. Please try again.', 'danger');
+        } finally {
+            if (btn) { btn.disabled = false; btn.textContent = origLabel; }
+        }
     }
 
     async function submitRegister() {
-        const res = await fetch('/api/portal/register', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ fullName: document.getElementById('regName').value, email: document.getElementById('regEmail').value, password: document.getElementById('regPassword').value })
-        });
-        const data = await res.json();
-        if (res.ok) window.location.href = `/store?userId=${data.id}`;
-        else document.getElementById('authAlert').innerHTML = `<div class="alert alert-danger rounded-4 py-2 small">${data.error}</div>`;
+        const nameEl = document.getElementById('regName');
+        const emailEl = document.getElementById('regEmail');
+        const passEl = document.getElementById('regPassword');
+        const btn = document.querySelector('#registerTab button[onclick*="submitRegister"]');
+        const fullName = nameEl ? nameEl.value.trim() : '';
+        const email = emailEl ? emailEl.value.trim() : '';
+        const password = passEl ? passEl.value : '';
+
+        if (!fullName) {
+            showAuthFeedback('Please enter your full name.', 'danger', nameEl);
+            return;
+        }
+        if (!email) {
+            showAuthFeedback('Please enter your email address.', 'danger', emailEl);
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showAuthFeedback('Please enter a valid email address.', 'danger', emailEl);
+            return;
+        }
+        if (password.length < 4) {
+            showAuthFeedback('Password must be at least 4 characters.', 'danger', passEl);
+            return;
+        }
+
+        clearAuthFeedback();
+        const origLabel = btn ? btn.textContent : 'Create Account';
+        if (btn) { btn.disabled = true; btn.textContent = 'Creating account...'; }
+
+        try {
+            const res = await fetch('/api/portal/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'same-origin',
+                body: JSON.stringify({ fullName, email, password })
+            });
+            let data = {};
+            try { data = await res.json(); } catch (_) {}
+
+            if (res.ok) {
+                showAuthFeedback('Account created. Redirecting...', 'success');
+                window.location.href = `/store?userId=${data.id}`;
+                return;
+            }
+            const focusTarget = (data.error && data.error.toLowerCase().includes('email')) ? emailEl : null;
+            showAuthFeedback(data.error || 'Could not create account. Please check your details.', 'danger', focusTarget);
+        } catch (err) {
+            showAuthFeedback('Unable to reach the server. Please try again.', 'danger');
+        } finally {
+            if (btn) { btn.disabled = false; btn.textContent = origLabel; }
+        }
     }
 
     window.logoutUser = async function logoutUser() {
@@ -6844,15 +6961,9 @@ async function clearOrderHistory() {
                 showExclusiveThankYouModal(newlyCompleted.id, newlyCompleted.deliveryZone || 'Nairobi');
             }
 
-            const activeOrder = orders.find(o => o.status !== 'TABLE_SERVED');
             const container = document.getElementById('liveOrderTrackerContainer');
-            const banner = document.getElementById('liveOrderTrackerBanner');
-            if (!container || !banner) return;
-
-            if (!activeOrder) {
-                container.style.display = 'none';
-                return;
-            }
+            if (container) container.style.display = 'none';
+            return;
 
             const ordRef = 'ORD-' + String(activeOrder.id).padStart(4, '0');
             const stage = getHospitalityStage(activeOrder.status);
@@ -8144,23 +8255,6 @@ async function clearOrderHistory() {
     font-size: 1.15rem !important;
     letter-spacing: -0.01em;
 }
-#authModal .google-btn {
-    background: #1d1915 !important;
-    color: #f3ede4 !important;
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    border-radius: 12px !important;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.65rem 1rem !important;
-    transition: background-color 0.16s ease, border-color 0.16s ease;
-}
-#authModal .google-btn:hover {
-    background: #26211c !important;
-    border-color: rgba(230, 190, 122, 0.4) !important;
-    color: #ffffff !important;
-    transform: none !important;
-    box-shadow: none !important;
-}
 #authModal .auth-divider {
     color: #8e867b !important;
     font-size: 0.78rem;
@@ -8501,9 +8595,8 @@ async function clearOrderHistory() {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -9119,9 +9212,8 @@ async function clearOrderHistory() {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -9643,9 +9735,8 @@ document.addEventListener('click', function(e) {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 #recommendedSection .dish-card:hover, #catalogGrid .dish-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(230, 190, 122, 0.26) !important;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35) !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.16) !important;
 }
 #recommendedSection .rec-ribbon {
     background: #e6be7a !important;
@@ -11153,17 +11244,14 @@ input[type="range"].form-range::-moz-range-thumb {
         wireAuthChain(['loginEmail', 'loginPassword'], 'submitLogin');
         wireAuthChain(['regName', 'regEmail', 'regPassword'], 'submitRegister');
 
-        const origGetById = document.getElementById.bind(document);
-        document.getElementById = function(id) {
-            if (id === 'authAlert') {
-                const regPane = origGetById('registerTab');
-                if (regPane && regPane.classList.contains('active')) {
-                    return origGetById('registerAlert');
-                }
-                return origGetById('loginAlert');
-            }
-            return origGetById(id);
-        };
+        document.querySelectorAll('#authModal [data-bs-toggle="pill"], #authModal [data-bs-toggle="tab"]').forEach(tabBtn => {
+            tabBtn.addEventListener('shown.bs.tab', clearAuthFeedback);
+            tabBtn.addEventListener('click', clearAuthFeedback);
+        });
+        ['loginEmail', 'loginPassword', 'regName', 'regEmail', 'regPassword'].forEach(fid => {
+            const el = document.getElementById(fid);
+            if (el) el.addEventListener('input', clearAuthFeedback);
+        });
     });
 })();
 </script>
@@ -11473,5 +11561,238 @@ input[type="range"].form-range::-moz-range-thumb {
     }
 }
 </style>
+<script id="foodie-permanent-account-delete">
+window.toggleDeleteAccountPrompt = function(show) {
+    var box = document.getElementById('deleteAccountConfirmBox');
+    var err = document.getElementById('deleteAccountError');
+    if (err) {
+        err.textContent = '';
+        err.style.display = 'none';
+    }
+    if (box) {
+        box.style.display = show ? 'block' : 'none';
+    }
+};
+
+window.executePermanentAccountDelete = async function(btn) {
+    var uid = Number(window.activeUserId || 0);
+    if (!uid || uid <= 0) {
+        var params = new URLSearchParams(window.location.search);
+        uid = Number(params.get('userId') || 0);
+    }
+    if (!uid || uid <= 0) return;
+
+    var err = document.getElementById('deleteAccountError');
+    var origHtml = btn ? btn.innerHTML : '';
+    if (btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+    }
+    try {
+        var res = await fetch('/api/portal/user/' + encodeURIComponent(uid), {
+            method: 'DELETE',
+            credentials: 'same-origin'
+        });
+        var data = {};
+        try { data = await res.json(); } catch (_) {}
+        if (res.ok) {
+            try {
+                localStorage.removeItem('foodie_tasting_tray');
+                localStorage.removeItem('foodie_user_id');
+                localStorage.removeItem('userId');
+                localStorage.removeItem('foodie_tray_' + uid);
+                localStorage.removeItem('foodie_profile_' + uid);
+            } catch (_) {}
+            window.location.href = '/store';
+            return;
+        }
+        if (err) {
+            err.textContent = data.error || 'Could not delete account.';
+            err.style.display = 'block';
+        }
+    } catch (_) {
+        if (err) {
+            err.textContent = 'Network error. Please try again.';
+            err.style.display = 'block';
+        }
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            if (origHtml) btn.innerHTML = origHtml;
+        }
+    }
+};
+</script>
+<style id="dish-card-polish">
+.dish-card,
+.dish-card.card-visible,
+#recommendedSection .dish-card,
+#catalogGrid .dish-card,
+#menuSection .dish-card {
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease !important;
+}
+.dish-card:hover,
+.dish-card.card-visible:hover,
+#recommendedSection .dish-card:hover,
+#catalogGrid .dish-card:hover,
+#menuSection .dish-card:hover {
+    transform: translateY(-1px) !important;
+    border-color: rgba(230, 190, 122, 0.24) !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.30) !important;
+}
+.dish-card .dish-img-wrap {
+    position: relative !important;
+    overflow: hidden !important;
+}
+.dish-card .dish-img-wrap .cat-pill,
+.dish-card .dish-img-wrap .rec-ribbon,
+.dish-card .dish-img-wrap .price-pill {
+    z-index: 2 !important;
+}
+.dish-card .dish-img-wrap img {
+    position: relative !important;
+    z-index: 1 !important;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.dish-card:hover .dish-img-wrap img {
+    transform: scale(1.03) !important;
+}
+</style>
+<style id="dish-card-uniform-format">
+.dish-card .card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+.dish-card .dish-title-price-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: calc(1.26em * 2 + 0.35rem) !important;
+    margin-bottom: 0.55rem !important;
+}
+.dish-card .dish-title-price-row > *:first-child,
+.dish-card .dish-title-price-row .card-title,
+.dish-card .dish-title-price-row h5,
+.dish-card .dish-title-price-row .dish-card-title {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    font-size: clamp(0.95rem, 1.15vw, 1.15rem) !important;
+    line-height: 1.26 !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+.dish-card .dish-title-price-row .dish-card-price,
+.dish-card .dish-title-price-row > *:last-child {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+    padding-top: 0.1rem !important;
+    margin: 0 !important;
+}
+.dish-card .card-body > div:last-child {
+    margin-top: auto !important;
+}
+</style>
+<style id="profile-save-frameless">
+#profileModal button[onclick*="saveProfile"],
+#profileModal button[onclick*="Save"],
+#profileModal .border-top > button.btn-sm.fw-semibold {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    opacity: 0.88;
+    transition: opacity 0.2s ease, color 0.2s ease !important;
+}
+#profileModal button[onclick*="saveProfile"]:hover,
+#profileModal button[onclick*="Save"]:hover,
+#profileModal .border-top > button.btn-sm.fw-semibold:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    color: #f5c518 !important;
+}
+</style>
+<style id="auth-pw-toggle-style">
+.auth-pw-wrap {
+    position: relative;
+    width: 100%;
+}
+.auth-pw-wrap input.form-control-dark {
+    padding-right: 2.6rem !important;
+}
+.auth-pw-toggle-btn {
+    position: absolute;
+    right: 0.78rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent !important;
+    border: none !important;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    color: rgba(243, 237, 228, 0.55);
+    cursor: pointer;
+    box-shadow: none !important;
+    transition: color 0.18s ease, opacity 0.18s ease;
+}
+.auth-pw-toggle-btn:hover,
+.auth-pw-toggle-btn:focus-visible {
+    color: rgba(243, 237, 228, 0.92);
+    outline: none;
+}
+</style>
+<script id="auth-pw-toggle-script">
+document.addEventListener('DOMContentLoaded', function() {
+    var eyeSvg = '<svg width="18" height="14" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+                 '<path d="M3 10.5C5.6 5.2 9.2 3 12 3s6.4 2.2 9 7.5"></path>' +
+                 '<circle cx="12" cy="11.5" r="3.4"></circle>' +
+                 '</svg>';
+    var eyeOffSvg = '<svg width="18" height="14" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+                    '<path d="M3 10.5C5.6 5.2 9.2 3 12 3s6.4 2.2 9 7.5"></path>' +
+                    '<circle cx="12" cy="11.5" r="3.4"></circle>' +
+                    '<line x1="4" y1="16" x2="20" y2="2"></line>' +
+                    '</svg>';
+
+    ['loginPassword', 'regPassword'].forEach(function(id) {
+        var inp = document.getElementById(id);
+        if (!inp || inp.parentElement.classList.contains('auth-pw-wrap')) return;
+
+        var wrap = document.createElement('div');
+        wrap.className = 'auth-pw-wrap';
+        inp.parentNode.insertBefore(wrap, inp);
+        wrap.appendChild(inp);
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'auth-pw-toggle-btn';
+        btn.setAttribute('aria-label', 'Show password');
+        btn.innerHTML = eyeSvg;
+
+        btn.addEventListener('click', function() {
+            var show = inp.type === 'password';
+            inp.type = show ? 'text' : 'password';
+            btn.innerHTML = show ? eyeOffSvg : eyeSvg;
+            btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+        });
+
+        wrap.appendChild(btn);
+    });
+});
+</script>
 </body>
 </html>

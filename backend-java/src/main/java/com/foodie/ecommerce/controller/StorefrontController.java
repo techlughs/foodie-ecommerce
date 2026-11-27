@@ -92,7 +92,7 @@ public class StorefrontController {
                        HttpServletRequest request,
                        Model model) {
         User loggedIn = resolveCurrentUser(session, request);
-        if (loggedIn != null && "ROLE_ADMIN".equalsIgnoreCase(loggedIn.getRole())) {
+        if (loggedIn != null && ("ROLE_ADMIN".equalsIgnoreCase(loggedIn.getRole()) || "ADMIN".equalsIgnoreCase(loggedIn.getRole()))) {
             return "redirect:/admin/churn";
         }
         Long activeId = (loggedIn != null) ? loggedIn.getId() : (userId != null ? userId : 0L);
@@ -140,18 +140,18 @@ public class StorefrontController {
     @GetMapping("/admin/churn")
     public String adminPortal(HttpSession session, HttpServletRequest request, Model model) {
         User loggedIn = resolveCurrentUser(session, request);
-        if (loggedIn == null || !"ROLE_ADMIN".equalsIgnoreCase(loggedIn.getRole())) {
+        if (loggedIn == null || (!"ROLE_ADMIN".equalsIgnoreCase(loggedIn.getRole()) && !"ADMIN".equalsIgnoreCase(loggedIn.getRole()))) {
             return "redirect:/store?adminLogin=1";
         }
 
         List<User> allUsers = userRepository.findAll();
         Set<Long> adminIds = allUsers.stream()
-                .filter(u -> "ROLE_ADMIN".equalsIgnoreCase(u.getRole()))
+                .filter(u -> "ROLE_ADMIN".equalsIgnoreCase(u.getRole()) || "ADMIN".equalsIgnoreCase(u.getRole()))
                 .map(User::getId)
                 .collect(Collectors.toSet());
 
         List<User> customers = allUsers.stream()
-                .filter(u -> !"ROLE_ADMIN".equalsIgnoreCase(u.getRole()))
+                .filter(u -> !"ROLE_ADMIN".equalsIgnoreCase(u.getRole()) && !"ADMIN".equalsIgnoreCase(u.getRole()))
                 .collect(Collectors.toList());
 
         List<Product> products = productRepository.findAll();
@@ -255,6 +255,7 @@ public class StorefrontController {
         model.addAttribute("averageOrderValue", averageOrderValue);
         model.addAttribute("activeUsersCount", customers.size());
         model.addAttribute("totalOrdersCount", customerOrders.size());
+        model.addAttribute("modelMetrics", aiIntegrationService.getModelMetrics());
         model.addAttribute("overallChurnRate", overallChurnRate);
         model.addAttribute("mlOnline", aiIntegrationService.isMlServiceOnline());
         model.addAttribute("categoryLabels", new ArrayList<>(categoryCounts.keySet()));
